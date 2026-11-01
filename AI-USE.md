@@ -38,17 +38,19 @@ Claude has push access to this repository, under these rules:
 | `claude/<topic>` | Claude | The branch is what Bill reviews, as a pull request. |
 | `output` | Claude may push directly | **Not reviewed commit by commit.** |
 
-Two qualifications:
+`main` is protected by a repository ruleset ("first", enforcement active, applying
+to the default branch) with three rules: no deletion, no force-push, and changes
+only through a pull request. It requires no approving review, because Bill is the
+only reviewer, so the protection ensures that every change is a visible pull
+request, not that a second person approved it. The required `check-md-math`
+status check is not part of the ruleset yet.
 
-1. `main` is intended to change only through pull requests. Until Bill enables
-   branch protection on it, that is a convention that nothing technical enforces.
-   This sentence is removed when the protection is on.
-2. The `output` branch holds figures and rendered notebooks. Because Claude may
-   push there without review, **a figure or rendered notebook on `output` was not
-   individually checked by a human before it landed**. A document on `main` that embeds a figure has had
-   its text reviewed; whether the figure is the right one is a separate question,
-   and the note says how it was checked. Content from `output` is not published on
-   the project's web pages.
+One qualification applies to the `output` branch. It holds figures and rendered
+notebooks. Because Claude may push there without review, **a figure or rendered
+notebook on `output` was not individually checked by a human before it landed**. A
+document on `main` that embeds a figure has had its text reviewed; whether the
+figure is the right one is a separate question, and the note says how it was
+checked. Content from `output` is not published on the project's web pages.
 
 ## What "verified" means here
 
