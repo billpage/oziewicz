@@ -10,6 +10,7 @@ Prompted by Bill Page, 1 November 2026, to replace the Project-chat summaries
 of June 2025 with a reading that puts Oziewicz's own view first. Drafted with
 Claude (Anthropic) and subject to review. Every statement of what Oziewicz
 meant is a reading of the cited section, not a verified fact about him.
+[PDF](https://github.com/billpage/oziewicz/releases/latest/download/bodies_first.pdf)
 
 Section and equation numbers for *Many-body mass-centre* are those of the 2017
 long version, as in step 1, whose §1 maps them to the public 2015 version.
