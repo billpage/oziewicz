@@ -12,6 +12,12 @@ Created 31 October 2026 as a scaffold. The first analysis note,
 [`analysis/mass_centre.md`](analysis/mass_centre.md), was added on 1 November
 2026. When this document and a note disagree, the note is right.
 
+**Reference text for the mass centre.** Notes read Oziewicz's 2017 long
+version of *Many-body mass-centre* (revised 11 April 2017, unpublished; he sent
+it to Bill Page as his corrected draft), and cite its equation numbers. The
+public 2015 long version on Academia.edu is mapped to it in §1 of
+[`analysis/mass_centre.md`](analysis/mass_centre.md).
+
 Zbigniew Oziewicz (died 2020) worked in mathematical physics, including the
 mathematics of relativity (relative velocity, groupoids and categories in place of
 groups) and many-body mass centres. Bill Page was a co-author of one of the papers
