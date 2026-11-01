@@ -3,7 +3,8 @@
 Every statement checked here is checked exactly with SymPy; the figure in
 Part F is numerical (NumPy) and only illustrates Part E.
 
-Conventions (Oziewicz 2014/2017, long version):
+Conventions (Oziewicz 2014/2017, long version; the public 2015 long version
+on Academia.edu is checked where its printed forms differ):
   g is the metric, det g = -c^2 in vacuum, and a material body is a time-like
   vector X with g(X, X) = det g.  gamma_XY = g(X, Y)/det g.  The binary
   velocity is v_XY = Y/gamma_XY - X (eq. 1.4.7 / 1.7.14).  E_kk = m_k c^2,
@@ -123,6 +124,8 @@ def part_a():
           zero(sp.Matrix(s + (1 - 1 / g) * (X + Y)).norm()))
     check("(1.7.23) (v_YX + v_XY)^2 = -2 (gamma - 1) v^2",
           zero(gm.dot(s, s) + 2 * (g - 1) * gm.dot(vXY, vXY)))
+    check("2015 version (7.19): (v_YX + v_XY)^2 = 2 det g (1 + gamma)(1 - 1/gamma)^2",
+          zero(gm.dot(s, s) - 2 * DETG * (1 + g) * (1 - 1 / g)**2))
     # The boost B in the plane span{X, Y} with B X = Y is B Y = 2 gamma Y - X
     # (and the identity on the g-orthogonal complement).
     B = sp.Matrix([[0, -1], [1, 2 * g]])  # columns: images of X and Y
@@ -175,6 +178,14 @@ def part_b():
                   for i in range(n) for j in range(n))
         check("(2.1.7) (E_ZG/det g)^2 = sum m_i m_j (gamma_i gamma_j - gamma_ij)",
               mod_norm(lhs - rhs, M, Q))
+        # The public 2015 version (Academia.edu) prints (8.5) and (8.6) without
+        # the factors of det g that the 2017 version has in (2.1.6), (2.1.7).
+        Q15 = sp.expand(sum(gm.m[i] * gm.m[j] * gm.gam[(i, j)] for i in range(n) for j in range(n))
+                        - 2 * sum(gm.m[i] * gm.EG[i] for i in range(n)))
+        check("2015 (8.5) M^2 = sum m_i m_j gamma_ij - 2 sum m_i E_iG holds only with c = 1",
+              zero((Q - Q15).subs(c, 1)) and not zero(Q - Q15))
+        check("2015 (8.6) E_ZG^2 = sum m_i m_j (gamma_i gamma_j - gamma_ij) holds with c = 1",
+              mod_norm(sp.sympify(EZG**2 - rhs).subs(c, 1), M, Q.subs(c, 1)))
         if n == 2:
             q = (M**2 - 2 * M * (gm.m[0] * gZ[0] + gm.m[1] * gZ[1])
                  + gm.m[0]**2 + 2 * gm.m[0] * gm.m[1] * gm.gam[(0, 1)] + gm.m[1]**2)
