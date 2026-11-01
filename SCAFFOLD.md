@@ -42,10 +42,16 @@ Not copied: demos, wpmw physics modules, narration tools, `kaggle_runner.ipynb`,
 document. The last three tools and `GLOSSARY.md` / `analysis/INDEX.md` come with
 the first derivation ladder and need the same default-path change.
 
-## Not yet done (owner)
+## Owner steps
 
-- Settings, Pages, Source: GitHub Actions.
-- Protect `main` (require a pull request; require the `check` job of the `check-md-math` workflow
-  once it has run once). Then delete the qualification in `AI-USE.md` that says
-  protection is not yet enabled.
-- Actions workflow permissions, if workflow runs are restricted.
+Done 2026-10-31 (checked from public GitHub data after the merge): Pages source is
+GitHub Actions and the `pages` workflow succeeded; the site answers at
+https://billpage.github.io/oziewicz/; `main` is protected by an active ruleset
+requiring a pull request.
+
+Still open:
+
+- Add the `check` job of the `check-md-math` workflow as a required status check.
+- Exercise `docs-release.yml`: link a note to its own PDF, push a `docs-v*` tag
+  and review the draft release. It has not been run.
+- Actions workflow permissions: not checked (the settings API is not readable).
