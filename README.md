@@ -42,14 +42,13 @@ references/   bibliography.md (links to papers; PDFs are NOT committed)
 [`ORIENTATION.md`](ORIENTATION.md) says what the project is trying to do and
 which claims are established, open or retracted. Each document directory has its
 own README. The glossary and the theorem index
-(`GLOSSARY.md`, `analysis/INDEX.md`) arrive with the first ladder of notes.
+(`GLOSSARY.md`, `analysis/INDEX.md`) are provided to aid access to the notes by
+subject.
 
 ## Output path convention
 
 Python scripts write every generated file (figures, CSVs, ...) through the helpers
-in `src/ozlib/utils.py`. Do not hardcode paths such as `/home/claude/`,
-`/mnt/user-data/outputs/` or `/kaggle/working/`, and do not use `shutil.copy2` to
-mirror a file to a second place.
+in `src/ozlib/utils.py`.
 
 ```python
 from ozlib.utils import output_path, docs_path
