@@ -44,4 +44,4 @@ defined in the [glossary](../GLOSSARY.md).
 | [MC-SP3](mass_centre.md#10-open-items) | Relate spin in `dP` (Oziewicz 2018-2019) to the spin that sets Møller's disk | open |
 | [MC-SP4](mass_centre.md#10-open-items) | Dynamics from binary accelerations relative to the mass centre | open |
 | [MC-SP5](mass_centre.md#10-open-items) | Radiation terms of (2.2.8) and Clarification 2.2.3 | open |
-| [MC-SP6](mass_centre.md#10-open-items) | Public link for the long version | open |
+| [MC-SP6](mass_centre.md#10-open-items) | Public link for the long version | answered: 2015 version on Academia.edu (§1) |

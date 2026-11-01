@@ -49,12 +49,38 @@ value. Their statements below are withdrawn; the reason is the section given.
 
 ## 1. Sources and their history
 
-The paper exists in two versions. The short version is
-[Oziewicz 2014](../references/bibliography.md) in *J. Phys.: Conf. Ser.*; the
-long version (62 pages, "Revised April 11, 2017") was emailed to Bill Page on
-13 April 2017 with the remark that it was a draft needing serious revision and
-was not ready for ResearchGate. Copies of it circulate on Academia.edu. Section
-and equation numbers below are those of the long version.
+The paper exists in three versions.
+
+- **Short version (2014).** [Oziewicz 2014](../references/bibliography.md) in *J. Phys.: Conf. Ser.*, 15 pages.
+- **Public long version (2015).** *Many-body mass-centre for finite radiation-speed: Homological Algebra approach to relativity theory of position-space and simultaneity*, dated 7 December 2013 with "improved notation" of 31 March 2015, 45 pages, [on Academia.edu](https://www.academia.edu/12338867/Many_body_mass_centre_for_finite_radiation_speed_Homological_Algebra_approach_to_relativity_theory_of_position_space_and_simultaneity). The mass centre is its §8 and the reduced momenta its §9.
+- **Last long version (2017).** *Many-body mass-centre: Homological Algebra for relativity of position-spaces*, 62 pages, "Revised April 11, 2017". Oziewicz emailed it to Bill Page on 13 April 2017 as a draft needing serious revision, not ready for ResearchGate. It is not known to be public.
+
+Section and equation numbers below are those of the 2017 version, which is
+Oziewicz's last statement. Its chapter 2 is the 2015 §§8-9 with the same
+content, renumbered, with the factors of `det g` written in and with the
+relative accelerations of §1.8 added. A reader with only the public version can
+translate with this table.
+
+| 2017 (this note) | 2015 (Academia.edu) | Difference |
+|---|---|---|
+| (1.6.6), (2.1.1) `gamma` | (6.3), (8.1) | none |
+| (1.7.14), (1.7.15) | (7.13), (7.14) | none |
+| (1.7.19)-(1.7.23) | (7.15)-(7.19) | (7.19) is written `2 det g (1 + gamma)(1 - 1/gamma)^2`, equal to (1.7.23) |
+| Def. 2.1.3, (2.1.4) | Def. 8.3, (8.3) | 2015 also gives the clock, `gZ = (sum E_ii gX_i - gG)/E_ZZ` |
+| Lemma 2.1.5, (2.1.6) | Lemma 8.5, (8.5) | (8.5) omits the `1/det g`: correct only with `c = 1` |
+| Lemma 2.1.6, (2.1.7) | Lemma 8.7, (8.6) | (8.6) gives `E_ZG` itself, again with `c = 1` |
+| (2.1.11), (2.1.12) | (8.10), (8.11) | (8.11) with `c = 1` |
+| (2.1.13)-(2.1.15) | (8.12)-(8.14) | same misprint in (8.14) |
+| Speculation 2.1.7 | Speculation 8.8 | none |
+| (2.1.18)-(2.1.20) | (8.16)-(8.18) | none |
+| (2.2.1)-(2.2.5) | (9.1)-(9.5) | none; the factor `c^2` of Proposition MC5 is missing in both |
+| Clarification 2.2.3 | Clarification 9.3 | the radiation relations are written differently; neither is checked (MC-SP5) |
+| (2.2.8)-(2.2.14) | (9.8)-(9.14) | none |
+| §1.8.3-1.8.4, relative acceleration as a Lie bracket (1.8.9)-(1.8.19) | absent | 2015 discusses acceleration only in words (§1) |
+
+So the units were repaired between 2015 and 2017 in §2.1 but not in §2.2,
+which is the part Oziewicz said in 2020 still lacked a factor `c^2`. The
+2015 forms are checked with `c = 1` in Part B of the script.
 
 The centre of inertia had a longer history in the correspondence between
 Oziewicz and Bill Page. The dates are those of the emails; the quotations are
@@ -66,6 +92,7 @@ short and the paraphrases are this note's.
 | 15 Nov 2012 | Page and Oziewicz, Maple worksheet "The algebra of observers is Frobenius" (unpublished) | The two-body idempotent (5.27) and the family (5.23) of all trace-1 idempotents. Allows `gamma_pq != gamma_qp`. |
 | c. 2012-2013 | Oziewicz, *Rival theories of relativity* (manuscript, unpublished) | Ch. 9: total mass (9.6) with an interaction field; Ch. 10, Thm 10.0.11: `c = (1/M^2) sum p_i p_j / gamma_ij`. |
 | July 2012 / 2014 | Tallinn talk, published as the short version | Def. 2.1.3 and Lemmas 2.1.5, 2.1.6 as below. |
+| 31 Mar 2015 | Long version posted on Academia.edu (dated 7 Dec 2013) | Same mass-centre content as 2017, with `c = 1` in §8. |
 | 11-13 Apr 2017 | Long version emailed | "Acceleration for FINITE light speed" added; still a draft. |
 | 3 Sep 2018 | Email | Revisits a non-symmetric Minkowski factor (symmetric metric plus a bivector). |
 | 28-30 Nov 2018 | Emails | Retracts it: a non-symmetric metric, Minkowski factor and observer idempotent were "total stupidity". A body is its energy-momentum one-form `P` with `P^2 = (det g) m^2`; dividing `P` by its internal energy gives an idempotent of trace 1. Proposes `dP` as the carrier of intrinsic spin. |
@@ -398,7 +425,7 @@ It is not a different theory.
 - **MC-SP3.** Relate Oziewicz's proposal that intrinsic spin lies in `dP` (emails of 30 November 2018 and 4 November 2019) to the spin `S` that sets the radius of Møller's disk.
 - **MC-SP4.** Bill Page's question of 17 August 2020: can relative dynamics be written with binary accelerations `L_Z v_Zi` relative to the mass centre, as in §1.8 of the long version, and is that enough?
 - **MC-SP5.** Check the radiation terms of Proposition 2.2.4, (2.2.8), and the radiation relations of Clarification 2.2.3.
-- **MC-SP6.** Locate a public copy of the long version (Academia.edu) and add its link to the bibliography, or record that only the short version is public.
+- **MC-SP6.** *Answered* (1 November 2026): the public long version is the 2015 one on Academia.edu, and §1 maps its numbering to the 2017 version. The 2017 revision is not known to be public; whether to publish a summary of it is left to Bill Page.
 
 ---
 
@@ -410,8 +437,8 @@ draws the figure (NumPy, numerical).
 
 | Part | What is checked | How |
 |---|---|---|
-| A | MC1: (1.7.15), (1.7.19) both forms, (1.7.20), (1.7.22), (1.7.23); `B` an isometry; `B v_XY = -v_YX` | Gram model, symbolic `gamma` |
-| B | MC3, MC4: (2.1.5), (2.1.6), (2.1.13), (2.1.7) for 2 and 3 bodies; (2.1.14); the (2.1.15) misprint; zero radicand without radiation | Gram model, symbolic `gamma_ij`, `m_i`, `E_iG`; identities reduced modulo `M^2 = Q` |
+| A | MC1: (1.7.15), (1.7.19) both forms, (1.7.20), (1.7.22), (1.7.23); `B` an isometry; `B v_XY = -v_YX`; the 2015 form of (7.19) | Gram model, symbolic `gamma` |
+| B | MC3, MC4: (2.1.5), (2.1.6), (2.1.13), (2.1.7) for 2 and 3 bodies; (2.1.14); the (2.1.15) misprint; zero radicand without radiation; the 2015 forms (8.5), (8.6) hold with `c = 1` only | Gram model, symbolic `gamma_ij`, `m_i`, `E_iG`; identities reduced modulo `M^2 = Q` |
 | C | MC5: (2.2.4), (2.2.5) for 3 bodies with radiation; the factor `c^4` in `g(p_Zk, p_Zk)`; (2.2.8) for 2 and 3 bodies, (2.2.10), (2.2.11) without radiation | as B |
 | D | MC6 for 2 and 3 bodies; uniqueness solved for 2 | matrix model `X ∗ Y = X G Y`, `tr X = tr(XG)` |
 | E | MC7 on 8 observers | exact rationals in 2+1 dimensions, `c = 1` |
@@ -427,7 +454,7 @@ passing check is an identity, not a numerical coincidence.
 
 ## References
 
-- Z. Oziewicz, "Many-body mass-centre: Homological Algebra for relativity of position-spaces", *J. Phys.: Conf. Ser.* 532 (2014) 012021, [doi:10.1088/1742-6596/532/1/012021](https://doi.org/10.1088/1742-6596/532/1/012021). Long version revised 11 April 2017 (not linked; MC-SP6).
+- Z. Oziewicz, "Many-body mass-centre: Homological Algebra for relativity of position-spaces", *J. Phys.: Conf. Ser.* 532 (2014) 012021, [doi:10.1088/1742-6596/532/1/012021](https://doi.org/10.1088/1742-6596/532/1/012021). Long version of 7 December 2013 / 31 March 2015, [Academia.edu](https://www.academia.edu/12338867/Many_body_mass_centre_for_finite_radiation_speed_Homological_Algebra_approach_to_relativity_theory_of_position_space_and_simultaneity); last long version revised 11 April 2017 (not public).
 - Z. Oziewicz, "Relativity groupoid, instead of relativity group", [arXiv:math/0608770](https://arxiv.org/abs/math/0608770).
 - Z. Oziewicz and W. S. Page, "Concepts of relative velocity", [arXiv:1104.0684](https://arxiv.org/abs/1104.0684).
 - M. H. L. Pryce, "The mass-centre in the restricted theory of relativity and its connexion with the quantum theory of elementary particles", *Proc. R. Soc. Lond. A* 195 (1948) 62-81.
