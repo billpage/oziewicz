@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: >-
+  The primary content of this repository is the research notes and derivations
+  under analysis/ and supplement/ (see preferred-citation below); the Python
+  source under src/ checks them and draws figures. If you use or build on this
+  work, please cite it as below. Oziewicz's own papers are not part of this work
+  and are cited separately; see references/bibliography.md.
+title: "oziewicz: notes and derivations on the mathematical physics of Zbigniew Oziewicz"
+type: software
+authors:
+  - family-names: Page
+    given-names: Bill
+url: "https://github.com/billpage/oziewicz"
+repository-code: "https://github.com/billpage/oziewicz"
+license: "AGPL-3.0-or-later"
+license-url: "https://github.com/billpage/oziewicz/blob/main/LICENSE"
+preferred-citation:
+  type: report
+  title: "oziewicz: notes and derivations on the mathematical physics of Zbigniew Oziewicz"
+  authors:
+    - family-names: Page
+      given-names: Bill
+  url: "https://github.com/billpage/oziewicz"
+  repository-code: "https://github.com/billpage/oziewicz"
+  year: 2026
+  notes: >-
+    Research notes and derivations under analysis/, supplement/ and notebooks/,
+    licensed CC BY-SA 4.0 (see LICENSE-DOCS). The Python code under src/ is a
+    secondary, separately licensed (AGPL-3.0-or-later) companion used to verify
+    the notes.

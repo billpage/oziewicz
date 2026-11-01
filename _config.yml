@@ -1,0 +1,19 @@
+# Jekyll configuration for GitHub Pages (built by .github/workflows/pages.yml
+# from the repository root of main).
+title: oziewicz
+description: A reading of the mathematical physics of Zbigniew Oziewicz
+
+exclude:
+  - src
+  - references
+  - .github
+  - LICENSE
+  - LICENSE-DOCS
+  - CITATION.cff
+  - AGENTS.md
+  - CLAUDE.md
+  - SCAFFOLD.md
+  - output
+  - node_modules
+  - package.json
+  - package-lock.json

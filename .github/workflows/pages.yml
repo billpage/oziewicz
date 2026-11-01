@@ -1,0 +1,54 @@
+name: pages
+
+# Builds and deploys GitHub Pages from the repository root of main, through
+# Jekyll (the markdown documents are served as pages). _config.yml excludes
+# the files that are not pages: src, references, licences, output, node_modules.
+# Pages are served at https://billpage.github.io/oziewicz/
+#
+# One-time setting: Settings -> Pages -> Build and deployment -> Source:
+# "GitHub Actions" (instead of "Deploy from a branch").
+#
+# Only main is published. Nothing from the output branch is copied into the
+# site: that branch is pushed without individual review (see AI-USE.md), so
+# it is not published automatically. (wpmw's workflow also publishes narrated
+# slide pages from its output branch; that step was deliberately left out.)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - name: Build the repository root with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: .
+          destination: ./_site
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
