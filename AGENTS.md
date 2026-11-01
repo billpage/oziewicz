@@ -8,8 +8,12 @@ Read [`README.md`](README.md), [`ORIENTATION.md`](ORIENTATION.md) and
   branch is allowed (figures and rendered notebooks only) and is disclosed in
   `AI-USE.md`. Commit as `Claude <claude@anthropic.invalid>`.
 - **Before committing markdown:** `npm install katex mathjax-full` once, then
-  `PYTHONPATH=src python3 -m ozlib.check_md_math analysis supplement notebooks README.md ORIENTATION.md AI-USE.md AGENTS.md references`.
+  `PYTHONPATH=src python3 -m ozlib.check_md_math analysis supplement notebooks README.md ORIENTATION.md AI-USE.md AGENTS.md GLOSSARY.md references`.
   Notebooks: `PYTHONPATH=src python3 -m ozlib.check_notebook_math notebooks`.
+  Ladder: `PYTHONPATH=src python3 -m ozlib.check_abstracts analysis` (README entry
+  = the note's title blockquote, word for word) and
+  `PYTHONPATH=src python3 -m ozlib.check_index analysis` (every labelled result
+  and open item has a row in `analysis/INDEX.md`).
 - **Math in markdown:** GitHub conventions as described in the docstring of
   `src/ozlib/check_md_math.py` (inline math in backtick-dollar form, display math
   in fenced `math` blocks).
