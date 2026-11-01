@@ -129,8 +129,8 @@ the bodies and a choice of clock; the second adds the metric `g` of Postulate
 3. With the metric clocks of (1.6.6), `v_XY + v_YX = 0` only when
    `gamma_XY = 1` (from (1.7.22)).
 
-(1) and (2) are checked exactly in Part D of the script, with symbolic
-4-vectors and a symbolic clock; (3) is Proposition MC1 of step 1.
+Parts 1 and 2 are checked exactly in Part D of the script, with symbolic
+4-vectors and a symbolic clock; part 3 is Proposition MC1 of step 1.
 
 So the metric-free layer carries the whole of Oziewicz's ontology of §1: bodies,
 the position space each one owns, the many zeros, relative velocity as a
