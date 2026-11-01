@@ -55,8 +55,29 @@ Theorem MC3 for (1), Proposition MC7 for (2). **Not to confuse** the two: the
 claim that a mass centre is impossible with the Lorentz group concerns (2), the
 construction concerns (1).
 
+### Position space
+
+The space of places of one body `X`: the quotient "spacetime / `X`", or
+algebraically the scalars `f` with `Xf = 0` and the forms in `ker ev_X`. In
+Oziewicz's reading it belongs to the body, and there is no position space
+without one. Needs no metric. **Defined:** *Many-body mass-centre* §1.1, §3.1;
+*Concepts of relative velocity* §5; read in
+[`bodies_first.md`](supplement/bodies_first.md#1-oziewiczs-reading-the-body-is-primitive).
+**Not to confuse with** a hypersurface of simultaneous events, which needs a
+clock and is a set of events, not of places.
+
 ### Split (projection, `Pi_X`)
 
 The decomposition of a vector into a part along a body `X` and a part in its
 rest space, `Y = gamma_XY X + Pi_X Y`. **Defined:**
 [`mass_centre.md`](analysis/mass_centre.md#2-dictionary).
+
+### Ternary velocity
+
+The velocity `w(E, S, B)` of a body `B` relative to `S` as observed by a third
+body `E`: the solution of `L_{E∧w} S = B` with `E.w = 0` (*Concepts of relative
+velocity* §3). It equals the binary velocity when `E` lies in the plane of `S`
+and `B`, and differs from it by a Thomas-Wigner rotation otherwise.
+**Defined:** [`bodies_first.md`](supplement/bodies_first.md#3-binary-and-ternary-velocity),
+Propositions RV2 and RV3. **Not to confuse with** the binary velocity, which
+needs no third body.

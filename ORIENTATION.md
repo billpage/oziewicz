@@ -58,7 +58,7 @@ items are listed in [`analysis/INDEX.md`](analysis/INDEX.md).
 |---|---|---|
 | Established | derived and checked exactly (or numerically, saying which) | Step 1: MC1 to MC6 (SymPy); MC7 on eight cases (SymPy) |
 | Open | stated, not yet settled | MC-SP1 to MC-SP5 (MC-SP6 answered) |
-| Retracted | withdrawn, kept with the reason | The June 2025 Project-chat summaries of *Many-body mass-centre* (not in this repository; see step 1, §0) |
+| Retracted | withdrawn, kept with the reason | The June 2025 Project-chat summaries of *Many-body mass-centre* (not in this repository; see step 1, §0) and their applications to Pioneer, rotation curves, wide binaries and cosmic rays ([`supplement/bodies_first.md`](supplement/bodies_first.md) §6) |
 
 A retracted or negative result is recorded the same way as a positive one, and a
 new note says what it inherits from, and retracts of, the notes before it.
