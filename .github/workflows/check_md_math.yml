@@ -32,4 +32,9 @@ jobs:
         run: npm install --no-save katex mathjax-full
 
       - name: Run markdown math linter
-        run: PYTHONPATH=src python -m ozlib.check_md_math analysis/ supplement/ notebooks/ README.md ORIENTATION.md AI-USE.md AGENTS.md references/
+        run: PYTHONPATH=src python -m ozlib.check_md_math analysis/ supplement/ notebooks/ README.md ORIENTATION.md AI-USE.md AGENTS.md GLOSSARY.md references/
+
+      - name: Run ladder linters
+        run: |
+          PYTHONPATH=src python -m ozlib.check_abstracts analysis
+          PYTHONPATH=src python -m ozlib.check_index analysis

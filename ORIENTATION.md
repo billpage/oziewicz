@@ -8,8 +8,9 @@ written first so that the sections exist, and each fills in as notes are added.
 
 ## 0. Status and provenance
 
-Created 31 October 2026 as a scaffold, before any analysis note exists. It carries
-**no results**. When this document and a note disagree, the note is right.
+Created 31 October 2026 as a scaffold. The first analysis note,
+[`analysis/mass_centre.md`](analysis/mass_centre.md), was added on 1 November
+2026. When this document and a note disagree, the note is right.
 
 Zbigniew Oziewicz (died 2020) worked in mathematical physics, including the
 mathematics of relativity (relative velocity, groupoids and categories in place of
@@ -33,25 +34,31 @@ remains unchecked.
 
 ## 2. The central idea
 
-Not yet written. It will be stated here, in one paragraph, once the first notes
-fix what is being claimed. The one thing already visible from the abstract of
-*Concepts of relative velocity*: relative velocity depends on the chosen reference
-system, so even zero velocity is relative, and the question is whether a theory
-with many zero velocities still implies the Lorentz group. Whether and how this
-changes the usual group-theoretic account is what the first notes must pin down.
+Oziewicz rewrites relativity with bodies as primitives: each body is a time-like
+vector with its own clock and its own rest space ("position space"), velocities
+are arrows between bodies (a groupoid, with one zero velocity per body), and a
+many-body system has a mass centre that is itself a body. Step 1 of the ladder
+reads his last statement of this, the mass centre of *Many-body mass-centre*
+(2014; long version 2017), and finds it to be standard special relativity in a
+coordinate-free notation: the binary velocity is the usual relative velocity, the
+mass centre is the centre-of-momentum frame, and the Lorentz group is fixed by his
+own metric postulates. What his construction does not address is the position of
+the centre, which is where the known difficulty lies. Whether the rest of his
+programme (accelerations, rotation, spin in `dP`, the algebra of observers) goes
+beyond a notation is what later notes must test.
 
 ## 3. Vocabulary
 
-Terms are defined in `GLOSSARY.md`, which arrives with the first ladder. Until then
-each note defines its terms where it first uses them.
+Terms are defined in [`GLOSSARY.md`](GLOSSARY.md). Labelled results and open
+items are listed in [`analysis/INDEX.md`](analysis/INDEX.md).
 
 ## 4. Established, open, retracted
 
 | Standing | Meaning | Items |
 |---|---|---|
-| Established | derived and checked exactly (or numerically, saying which) | none yet |
-| Open | stated, not yet settled | none yet |
-| Retracted | withdrawn, kept with the reason | none yet |
+| Established | derived and checked exactly (or numerically, saying which) | Step 1: MC1 to MC6 (SymPy); MC7 on eight cases (SymPy) |
+| Open | stated, not yet settled | MC-SP1 to MC-SP6 |
+| Retracted | withdrawn, kept with the reason | The June 2025 Project-chat summaries of *Many-body mass-centre* (not in this repository; see step 1, §0) |
 
 A retracted or negative result is recorded the same way as a positive one, and a
 new note says what it inherits from, and retracts of, the notes before it.
