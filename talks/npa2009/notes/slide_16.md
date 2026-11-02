@@ -1,0 +1,1 @@
+[Answering the chat] Yes, yes, c is the velocity of light. Yes, yes, yes: v is the velocity of B with respect to A, as measured by A. OK. And this is the definition of velocity. Why did we need to wait a hundred years for this formula?

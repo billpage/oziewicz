@@ -1,0 +1,1 @@
+So now, what is the Lorentz transformation? I made an error here. Normally, in all textbooks, it is written as a transformation matrix with this gamma. But the Lorentz transformation can be defined independently of the coordinates.

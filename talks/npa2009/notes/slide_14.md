@@ -1,0 +1,1 @@
+You can see that this is a system of equations for gamma and v. You multiply the first equation by x, as a scalar. You insert v dot x from the first equation into the second. Then you calculate gamma from the second, insert it here, and then you calculate v. And this is exactly the formula.

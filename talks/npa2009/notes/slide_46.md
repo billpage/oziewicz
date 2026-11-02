@@ -1,0 +1,1 @@
+[Answering the chat] Yes: if an aether exists, this is a proof that Einstein's theory is correct. If an aether exists, this is a proof that Einstein's theory is correct. OK? What defines the aether? The aether is like a reference system: the privileged reference system is the aether. I am not going further; it is only a name, a name for a privileged reference system.

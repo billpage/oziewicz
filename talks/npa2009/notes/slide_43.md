@@ -1,0 +1,1 @@
+OK, this is the same, but in coordinates, in coordinates, you know. Here you don't see exactly where the aether is, where system A is, where system B is. But with the monad you do. But I cannot publish this with the monad, because the stupid journals reject everything.

@@ -272,8 +272,11 @@ say something the textbook reading does not.
 
 *Ternary relative velocity* (Oziewicz 2007, posted to arXiv in 2011) carries
 the subtitle "Astonishing conflict of the Lorentz group with relativity". His
-talk to the Natural Philosophy Alliance in December 2009 (slides not public)
-makes the same argument (slide pages 26-31 and 38). Notation as in §3, with
+talk to the Natural Philosophy Alliance in December 2009 makes the same
+argument (PDF pages 26-31 and 38; slide positions 36-53). It can be heard, with
+its slides and transcript, [in his own voice](https://billpage.github.io/oziewicz/narrated/npa2009_oziewicz_narrated.html)
+or [read by a synthetic voice](https://billpage.github.io/oziewicz/narrated/npa2009_andrew_narrated.html);
+sources and notes are in [`talks/npa2009/`](../talks/npa2009/README.md). Notation as in §3, with
 the paper's letters: `P`, `A`, `B` are unit time-like (`P` the preferred
 observer, the eagle of *Concepts*), `w` satisfies `P.w = 0`, and
 `v = w / sqrt(1 + w.w)`; the binary velocity is `v_AB = B/gamma - A` with

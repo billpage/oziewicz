@@ -45,12 +45,17 @@ only reviewer, so the protection ensures that every change is a visible pull
 request, not that a second person approved it. The required `check-md-math`
 status check is not part of the ruleset yet.
 
-One qualification applies to the `output` branch. It holds figures and rendered
-notebooks. Because Claude may push there without review, **a figure or rendered
+One qualification applies to the `output` branch. It holds figures, rendered
+notebooks and narrated slide pages. Because Claude may push there without review, **a figure or rendered
 notebook on `output` was not individually checked by a human before it landed**. A
 document on `main` that embeds a figure has had its text reviewed; whether the
 figure is the right one is a separate question, and the note says how it was
-checked. Content from `output` is not published on the project's web pages.
+checked. Content from `output` is not published on the project's web pages, with
+one exception: narrated slide pages in `narrated/`, whose SHA-256 must be listed
+in `talks/narrated.sha256` on `main` before the Pages workflow will publish them.
+That list changes only through a reviewed pull request, and Claude adds a hash
+only for a page Bill has checked, so a published page is byte for byte one he
+has seen.
 
 ## What "verified" means here
 
@@ -93,7 +98,9 @@ Bill Page as licensor. This is not legal advice. Material on the `output` branch
 that Bill has not reviewed is the weakest part of that fact pattern.
 
 The licences cover only this repository's own content. They do not cover
-Oziewicz's papers, which are linked and not reproduced.
+Oziewicz's papers, which are linked and not reproduced, nor the slides, words
+and recordings of his talks in `talks/` and in `narrated/` on `output`, which are
+included by Bill's decision with a `NOTICE.md` for each talk.
 
 ## Unpublished drafts
 

@@ -14,6 +14,9 @@ exclude:
   - CLAUDE.md
   - SCAFFOLD.md
   - output
+  - talks/npa2009/npa2009.html
+  - talks/npa2009/notes
+  - talks/narrated.sha256
   - node_modules
   - package.json
   - package-lock.json

@@ -8,10 +8,13 @@ name: pages
 # One-time setting: Settings -> Pages -> Build and deployment -> Source:
 # "GitHub Actions" (instead of "Deploy from a branch").
 #
-# Only main is published. Nothing from the output branch is copied into the
-# site: that branch is pushed without individual review (see AI-USE.md), so
-# it is not published automatically. (wpmw's workflow also publishes narrated
-# slide pages from its output branch; that step was deliberately left out.)
+# From the output branch, which is pushed without individual review (see
+# AI-USE.md), only narrated slide pages are published, and only those in
+# narrated/ whose SHA-256 is listed in talks/narrated.sha256 on main. The hash
+# list is reviewed in a pull request, so a page is served only in the exact
+# form that was reviewed. A file whose hash does not match fails the build.
+# Pushing to output does not start this workflow; run it from the Actions tab
+# (Run workflow) or with `gh workflow run pages.yml`.
 
 on:
   push:
@@ -33,6 +36,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check out the narrated pages from the output branch
+        uses: actions/checkout@v4
+        with:
+          ref: output
+          path: _output
+          sparse-checkout: narrated
+
       - uses: actions/configure-pages@v5
 
       - name: Build the repository root with Jekyll
@@ -40,6 +50,17 @@ jobs:
         with:
           source: .
           destination: ./_site
+
+      - name: Add the narrated pages whose hashes are listed on main
+        run: |
+          list="$GITHUB_WORKSPACE/talks/narrated.sha256"
+          if [ ! -s "$list" ]; then echo "no narrated pages listed"; exit 0; fi
+          (cd _output/narrated && sha256sum --check --strict "$list")
+          sudo mkdir -p _site/narrated
+          awk '{print $2}' "$list" | while read -r f; do
+            sudo cp "_output/narrated/$f" _site/narrated/
+          done
+          ls -l _site/narrated
 
       - uses: actions/upload-pages-artifact@v3
 
