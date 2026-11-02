@@ -11,6 +11,15 @@ is right.
 **Where is a word used?** `PYTHONPATH=src python3 -m ozlib.where_used WORD`.
 **Where is a theorem or open item?** [`analysis/INDEX.md`](analysis/INDEX.md).
 
+### Based lift
+
+The link `g_XY = L_{Z->Y} L_{Z->X}^-1` built from boosts out of one body `Z`. It
+carries `X` to `Y` and composes exactly, and it is not a pure boost and depends on
+`Z`. **Defined:**
+[`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#6-the-no-go-theorem),
+Proposition TV7. **Not to confuse with** the binary boost, which does not compose,
+or the ternary boost at `Z`, which does not either.
+
 ### Binary velocity
 
 Oziewicz's `v_XY = Y/gamma_XY - X`: the velocity of body `Y` in the rest space of
@@ -36,6 +45,16 @@ The one-form `gX / det g` of a body `X`: it is 1 on `X` and vanishes on the rest
 space of `X`, so it fixes the body's simultaneity. **Defined:**
 [`mass_centre.md`](analysis/mass_centre.md#2-dictionary). **Not to confuse
 with** proper time along a worldline.
+
+### Eagle
+
+The third observer `E` or `P` of a ternary velocity, from the eagle watching the
+street and the bus in *Concepts of relative velocity* §2. In Oziewicz's phrase, a
+"preferred exterior-observer". **Defined:**
+[`bodies_first.md`](supplement/bodies_first.md#3-binary-and-ternary-velocity).
+**Not to confuse with** an exterior body as such: what matters is whether the eagle
+lies in the plane of the two bodies, and the mass centre of a pair does
+([`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#3-two-bodies-the-eagle-lies-in-the-plane)).
 
 ### Groupoid gamma (Minkowski factor)
 
@@ -88,8 +107,25 @@ rest space, `Y = gamma_XY X + Pi_X Y`. **Defined:**
 
 The velocity `w(E, S, B)` of a body `B` relative to `S` as observed by a third
 body `E`: the solution of `L_{E∧w} S = B` with `E.w = 0` (*Concepts of relative
-velocity* §3). It equals the binary velocity when `E` lies in the plane of `S`
+velocity* §3), the boost-link. His 2004 draft used the name for another object, the
+binary velocity carried to the rest space of `E`; the two agree only in the plane
+([`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#5-how-far-the-ternary-falls-below-the-binary),
+Proposition TV10). It equals the binary velocity when `E` lies in the plane of `S`
 and `B`, and differs from it by a Thomas-Wigner rotation otherwise.
 **Defined:** [`bodies_first.md`](supplement/bodies_first.md#3-binary-and-ternary-velocity),
 Propositions RV2 and RV3. **Not to confuse with** the binary velocity, which
-needs no third body.
+needs no third body. At the mass centre of a pair it is the fraction in (2.2.10)
+([`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#3-two-bodies-the-eagle-lies-in-the-plane),
+Theorem TV2).
+
+### Thomas-Wigner rotation
+
+The rotation left by boosts that do not close: the product of the boosts round a
+triangle of bodies, or the difference between a ternary and a binary boost. It equals
+the area of the triangle in velocity space, and it is the physical content of the
+non-associativity of Einstein addition. **Defined:**
+[`bodies_first.md`](supplement/bodies_first.md#3-binary-and-ternary-velocity)
+Proposition RV3;
+[`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#6-the-no-go-theorem)
+Theorem TV6. **Not to confuse with** a failure of associativity of the groupoid, which
+is automatic and carries no orientation.
