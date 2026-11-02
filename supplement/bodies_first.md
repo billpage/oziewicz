@@ -7,7 +7,7 @@ use the prefix **RV**; the ladder's results are cited by their MC labels from
 [`analysis/mass_centre.md`](../analysis/mass_centre.md). Companion script:
 [`src/verify_relative_velocity.py`](../src/verify_relative_velocity.py).
 Prompted by Bill Page, 1 November 2026, to replace the Project-chat summaries
-of June 2025 with a reading that puts Oziewicz's own view first. §6 was added the same day, from the full text of *Ternary relative velocity* (2007) and Oziewicz's NPA talk of December 2009. Drafted with
+of June 2025 with a reading that puts Oziewicz's own view first. §6 was added the same day, from the full text of *Ternary relative velocity* (2007) and Oziewicz's NPA talk of December 2009. Step 2 ([`ternary_mass_centre.md`](../analysis/ternary_mass_centre.md), 2 November 2026) corrects §6 and answers RV-SP3; the places are marked. Drafted with
 Claude (Anthropic) and subject to review. Every statement of what Oziewicz
 meant is a reading of the cited section, not a verified fact about him.
 [PDF](https://github.com/billpage/oziewicz/releases/latest/download/bodies_first.pdf)
@@ -300,7 +300,7 @@ asymmetric biological ageing of twins.
 (Exact, Part E: parts 1 and 2 on two cases with rational velocities, one of
 them the case of RV3, where `gamma_ternary = 781/444` and `-A.B = 25/12`;
 part 3 with symbolic rapidities (as `exp` of the rapidity, so that the check is rational), and `P = A` on the general case. The "only
-if" half of Theorem 2.5 is not checked in general.)
+if" half of Theorem 2.5 is not checked here; step 2 proves it, TV5.)
 
 So the mathematics of the paper is right, and it is RV2 and RV3 in closed
 form. The conclusion drawn from it does not follow, for four reasons.
@@ -323,7 +323,10 @@ form. The conclusion drawn from it does not follow, for four reasons.
    principle and the Lorentz group. The historical remark of §7.1, that
    Einstein's 1905 derivation uses reciprocity as a tacit axiom, is the part
    that stands (a reading of the paper, not checked against Einstein 1905
-   here).
+   here). *Corrected by step 2:* literal reciprocity can be satisfied pair by
+   pair, with `P` the mass centre of the pair or any body in its plane (TV3).
+   What forces a preferred system is one `P` for all pairs, or composition of
+   the boosts among three bodies (TV6).
 3. **The binary velocity does parameterize an isometry.** §4 says it "can not
    parameterize the isometric Lorentz transformation". It does: `L_{A∧gamma u}`
    is an isometry taking `A` to `B = gamma (A + u)` (MC1; used in Part F). What
@@ -370,7 +373,7 @@ rotation as in RV3.
 |---|---|
 | (2.2)-(2.5), Theorem 2.3 | Correct; the "if" half of Theorem 2.5 checked (RV5) |
 | The boost linking `A` to `B` is not unique | True: unique only once an observer is fixed (RV5) |
-| Einstein velocity needs a preferred system (2.6) | Not from (i) and (ii); needs vector reciprocity in one space |
+| Einstein velocity needs a preferred system (2.6) | Not from (i) and (ii). With composition added, a base point is needed, and it need not be exterior (step 2, TV6) |
 | Binary velocity cannot parameterize an isometry (§4) | False; it is not compatible with composition (Thomas-Wigner) |
 | (4.2) distinguishes the two theories | No: two quantities of standard relativity (RV6) |
 | No asymmetric ageing without absolute space (§7.3) | Contradicts the paper's own §4 |
@@ -416,8 +419,9 @@ threshold as the textbook. It offers no way past it.
   cannot be eliminated from the second layer.
 - **RV-SP2.** Is there a statement, kinematic or dynamical, that holds in the
   bodies-first reading and fails in the textbook one? None was found in these
-  two papers. MC-SP4 (relative accelerations) is the first candidate.
-- **RV-SP3.** Prove Proposition RV3 in general: for an eagle outside the plane
+  two papers, nor in step 2. MC-SP4 (relative accelerations) is the first
+  candidate.
+- **RV-SP3.** *Answered in step 2, §5.* Prove Proposition RV3 in general: for an eagle outside the plane
   of `S` and `B`, `L_{E∧w}` equals the binary boost followed by a rotation of
   the street's rest space, and the rotation is the identity only for eagles in
   the plane.
