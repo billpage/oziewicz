@@ -48,16 +48,18 @@ Nothing below identifies `Z` with the eagle. The search was of Bill Page's mail 
 Oziewicz's addresses with the words ternary, mass centre and its variants, three-body,
 Thomas, Ungar, coplanar and Frobenius. Each search returned about 160 to 220 threads,
 of which 13 were read in full, with the December 2012 draft. Bill Page then added two
-attachments to Drive, `velocity.pdf` and the slides of October 2005, and both were
-read in full. Other attachments were not opened (open item TV-SP5). Short quotations
+attachments to Drive, `velocity.pdf` and the slides of October 2005, and the public
+revision of March 2007, and all three were read in full. Other attachments were not
+opened (open item TV-SP5). Short quotations
 follow.
 
 | Date | Source | What it says |
 |---|---|---|
 | 16 to 17 Nov 2004 | Page, Oziewicz | Page's Maple determinants for Fr_2 to Fr_4. Fr_3 also vanishes on `-1+pq^2+pr^2-2*pr*qr*pq+qr^2 = 0`. Oziewicz: this is his Theorem 10.5 in `velocity.pdf`; the conditions "ensure that the ternary velocity (as observed by extra observer) is reciprocal"; "Theorem 10.5 gives the Lorentz group". Page: the form is "degenerate precisely in the case of reciprocal observers" |
-| 22 Nov 2004 | Oziewicz, draft `velocity.pdf` (unpublished; title begins "Why Einstein's addition of velocities is non-associative?") | §4: `O(3)` is not a normal subgroup of the Lorentz group, so boost and rotation cannot be separated without a preferred observer. Definition 11.2: a ternary velocity is a binary velocity carried to the rest space of `P` (TV10). Theorem 11.5: `P` sees the pair reciprocally exactly when `P ∧ A ∧ B = 0`, and then the velocity is `[b,a] P / tr(ab)`, (11.10). This is the "Theorem 10.5" of his email; the numbering had moved by this version. Its "ghost" is a fictional body whose velocity relative to `P` is a ternary velocity |
+| 22 Nov 2004 | Oziewicz, draft `velocity.pdf` (unpublished; summarised in [`velocity_draft.md`](../supplement/velocity_draft.md)) | §4: `O(3)` is not a normal subgroup of the Lorentz group, so boost and rotation cannot be separated without a preferred observer. Definition 11.2: a ternary velocity is a binary velocity carried to the rest space of `P` (TV10). Theorem 11.5: `P` sees the pair reciprocally exactly when `P ∧ A ∧ B = 0`, and then the velocity is `[b,a] P / tr(ab)`, (11.10). This is the "Theorem 10.5" of his email; the numbering had moved by this version. Its "ghost" is a fictional body whose velocity relative to `P` is a ternary velocity |
 | 13 to 14 Oct 2005 | Page, Oziewicz | Oziewicz: a 2-body system read with the Lorentz transformation brings in a third body, a "ghost". He gives `alpha(gamma_RS, gamma_RP, gamma_PS)` on his slides: `alpha = 0` is "exactly the condition you found", the system then "looks like in Einstein theory", and it "is not Frobenius algebra". He asks for which `y, z` the deviation of ternary from binary is maximal, and whether `y = z` is a maximum or a minimum |
 | 20 Oct 2005 | Oziewicz, slides *Enlace de Lorentz: Boost-link problem, solución completa* (XLVIII Congreso Nacional de Física, Guadalajara; not public) | The link equation is solved for every `P`, reciprocally, by the formula that became (2.2). Slide 8: `gamma_t = gamma + alpha`. `alpha` "es una medida de calificación de observadores externos" (§8) |
+| 25 Mar 2007 | Oziewicz, "How do you add relative velocities?", revision, [public](https://wiki.naturalphilosophy.org/index.php?title=How_Do_You_Add_Relative_Velocities%3F) | §2 requires "one and only one reference system to be preferred". §3.5: "Each given observer P is coplanar for many pairs of massive bodies in mutual motion, however can not be coplanar for all pairs." §3.2 and §5: `O(3)` is not a normal subgroup. Compared with the 2004 draft in [`velocity_draft.md`](../supplement/velocity_draft.md) §6 |
 | 9 Nov 2012 | Page | Of a hypothetical extra central observer: "Does it mean that from the (privileged?) point of view of this observer that all velocities are in the isometry group (Lorentz)?" |
 | 23 Dec 2012 | Oziewicz, draft *On center-of-mass* (unpublished) | Warning 1.3 sets aside how much `w(P, S, B)` can differ from the binary velocity. Warning 2.2: reading the total mass through a reciprocal `P`-velocity "is impossible in general". Remark 3.3: a non-coplanar three-body system "needs" separate study. (3.10) has the magnitude of the fraction of (3.14), not its identity |
 | 6 Aug 2014 | Oziewicz | "I believe more important is not velocity of p relative to q, but velocity of p relative to mass-center." |
@@ -107,7 +109,8 @@ one bivector.
 uniqueness (Theorem 2.3) identifies `w`. ∎ (SymPy, Part A: basis `A, B` with symbolic
 `gamma`, and symbolic rapidities.) The result is Oziewicz's: with the idempotents `a`, `b`
 of `A`, `B`, it is (11.10) of `velocity.pdf`, `v(P, A, B) = [b, a] P / tr(ab)`, since
-`[b, a] P = gamma w` and `tr(ab) = gamma^2` (Part I).
+`[b, a] P = gamma w` and `tr(ab) = gamma^2` (Part I). In words it is also §3.5 of the 2007
+revision, which reads Hestenes's bivector as a restriction to coplanar observers.
 
 **Theorem TV2 (the ternary velocity at the mass centre).** For two bodies without
 radiation,
@@ -141,7 +144,9 @@ appears all the same.
 4. neither body of the pair is favoured, which `P = A` does not offer.
 
 So the premises of Main conclusion 2.6 of *Ternary*, with literal reciprocity added,
-hold together without an exterior system. The pair needs a third body but not a third
+hold together without an exterior system. (The 2007 revision of "How do you add relative
+velocities?" states the extra premise, "one and only one reference system", in §2, without
+arguing for it.) The pair needs a third body but not a third
 plane: Oziewicz's "ghost" is harmless when it is coplanar. The masses are not essential
 here, since `(A + B)/|A + B|` does the same. The conflict therefore needs one `P` for
 all pairs, or composition; see §6.
@@ -187,6 +192,10 @@ line, which misses both, so it is not the translation along the side.
 
 *Analogy.* The balance point of a triangle lies on none of its edges.
 
+The obstruction without the mass centre is Oziewicz's own: "Each given observer P is
+coplanar for many pairs of massive bodies in mutual motion, however can not be coplanar for
+all pairs" (2007 revision, §3.5).
+
 Nesting is simple, because it adds vectors: `Z(Z(A, B), C) = Z(A, B, C)` with `Z(A, B)`
 given the mass `M_AB`. The mass centre is the hyperbolic centroid; Ungar (2004) makes this
 identification for three equal masses. It is associative where Einstein addition is
@@ -218,7 +227,7 @@ Four consequences follow.
 
 **Proposition TV10 (two ternary velocities).** The name "ternary velocity" has covered
 two objects. *Velocity.pdf*, Definition 11.2, uses the binary velocity carried to the rest
-space of the eagle, `U(P, A, B) = L_{A->P} v_AB`, where the idempotent `p ⋄ a` of its
+space of the eagle, `U(P, A, B) = L_{A->P} v_AB`, where the idempotent `p ⊙ a` of its
 (10.5) acts on the rest space of `A` as the boost from `A` to `P`. The slides of 2005 and
 *Ternary* (2007) use the boost-link `v(P, A, B)` of TV0. Then, for `A != B`:
 
@@ -282,15 +291,19 @@ compose.
 The idea is Oziewicz's. *Velocity.pdf* §4 observes that `O(3)` is not a normal subgroup
 of the Lorentz group, so that a boost cannot be separated from a rotation without a
 preferred observer, and (7.1) names Thomas precession and the dependence on `P` as the
-obstructions to a homomorphism. TV6 is the exact form of that remark.
+obstructions to a homomorphism. The public revision of 2007 repeats the point in §3.2 and
+§5. TV6 is the exact form of that remark.
 
 That draft takes a further way out: its boost `b_u`, (6.4), gives up isometry. One `u` is
 applied to every body orthogonal to it, and (6.5) reads
 `(b_u Q).(b_u R) - Q.R = -(gamma_QR - 1)(gamma_u^2 - 1)` (Part I). Its composition (7.1)
 is taken along composable arrows, so it is the pair groupoid of MC2 again. This appears
-to be the source of the claim, repeated in *Ternary* §4, that the binary velocity cannot
+to be one source of the claim, repeated in *Ternary* §4, that the binary velocity cannot
 parameterize an isometry: it holds for `b_u`, and not for `L_{A∧gamma u}`, which is an
-isometry (MC1).
+isometry (MC1). The 2007 revision adds another, Corollary 6.6: an isometry has
+`{L(v)}^-1 = L(-v)`, so its velocity must be reciprocal. But one inverse boost has two
+descriptions, parameter `-u` at `A` and parameter `v_BA` at `B`, and the binary velocity
+uses the second ([`velocity_draft.md`](../supplement/velocity_draft.md) §6).
 
 **Proposition TV7 (the three ways out).** For the example of §4, round
 `S -> B -> C -> S`:
@@ -372,14 +385,17 @@ of `U` (TV10). In *Velocity.pdf* the condition appears as
 `tr(ab + bp + pa - 2abp) = 1`, which is the same polynomial with `tr(ab) = gamma^2`.
 Part 2 is the short reason for all of it.
 
-**The sign of `alpha`.** Slide 8 states `gamma_t = gamma + alpha` with
-`alpha = -2 (P∧R∧S)^2 / (P^2 (R - S)^2 + 4 (P.R)(P.S))`. With the Clifford sign used in
-Theorem 8.1 (ii) of the 2004 draft, `(P∧R∧S)^2 = det G`, so
-`alpha = -det G / (2yz - x + 1) <= 0`. The theorem and slide 9 are then right, and they
-agree with (2.4) and TV5: an exterior observer can only underestimate the speed. The
-explicit expression at the foot of slide 8 is the negative of this, because its
-denominator `gamma_RS - 2 gamma_RP gamma_PS - 1` has the opposite sign to that of the
-first form. That one line is a slip. (SymPy, Part F.)
+**The sign of `alpha`.** Slide 8 states `gamma_t = gamma + alpha`, with
+`alpha = -2 (P∧R∧S)^2 / (P^2 (R - S)^2 + 4 (P.R)(P.S))`, and then an explicit form. His
+wedge squares have the Gram sign, `(a∧b)^2 = det(a_i.a_j)`: slide 7 and Theorem 8.1 (ii)
+of the 2004 draft need it ([`velocity_draft.md`](../supplement/velocity_draft.md), Part C),
+and §8 of the 2007 revision prints `(P∧R∧S)^2` as that determinant.
+So `(P∧R∧S)^2 = -det G`, and the two forms of `alpha` agree:
+`alpha = det G / (2yz - x + 1) >= 0`. Part 3 then gives `gamma_t = gamma - alpha`, as TV5
+requires: an exterior observer can only underestimate the speed. So the sign of `alpha` is
+wrong in the theorem of slide 8 and in slide 9, which needs `1 - alpha sqrt(1 - v^2)`.
+(SymPy, Part F.) *Correction, 2 November 2026:* the first version of this paragraph read
+the wedge with the Clifford sign, and so blamed the explicit form instead. That was wrong.
 
 For part 4, recall that `c = Z ⊗ clock_Z` is already an element of the algebra (MC6), so
 `Z` is not a new generator. A pair with its mass centre is the "not Frobenius" case,
@@ -432,8 +448,8 @@ fails in the textbook one.
 | Reciprocal reading of the total mass "impossible in general" (2012 draft, Warning 2.2) | False for two bodies with `P = Z`; true for one eagle when `n >= 3` (TV4, TV5) |
 | Reduced mass `mu_12` is a new `gamma`-dependent quantity | It is Todorov's `epsilon_w` (TV9) |
 
-Already Oziewicz's: TV1 as (11.10), the coplanar condition, the first half of TV10, the
-idea of TV6. New here, as far as the reading went: the reading of (2.2.10) as a ternary
+Already Oziewicz's: TV1 as (11.10), the coplanar condition, the statement that one
+observer cannot be coplanar for all pairs, the first half of TV10, the idea of TV6. New here, as far as the reading went: the reading of (2.2.10) as a ternary
 velocity, the use of `Z` as eagle, TV5 as a closed form for the deficit, TV6 as a theorem,
 the comparison in TV10, and the explanation of the Frobenius condition by linear
 dependence. The results are standard special relativity; TV6 is a short consequence of
@@ -444,7 +460,7 @@ simplicity and was not found stated this way, but the literature was not searche
 ## 11. Open items
 
 - **TV-SP1.** The pair groupoid forgets orientation. The groupoid that keeps it has arrows `(A, B, Q)` with `Q` a rotation (the gauge groupoid of `G -> H`), and its isotropy is `K`. Part of the question of August 2014 is settled: `pq - qp` is not a rotation (Page's proposal, which Oziewicz wanted taken "relative to mass-center"). It is the boost generator of (11.10), with `tr [a,b]^2 = 2 gamma^2 (gamma^2 - 1) > 0`. The first rotation is `[[a,b],[b,c]]`, about `B`, and it needs three bodies, as TV6 does (Part I). Does that element give the orientation groupoid inside the algebra of observers, and does it bear on spin (MC-SP3)?
-- **TV-SP2.** *Answered* (2 November 2026): the sign of `alpha` on the 2005 slides. The theorem and the first form are right; the explicit form on slide 8 has the opposite sign (§8). Theorem 10.5 of the email is Theorem 11.5 of `velocity.pdf` (TV10).
+- **TV-SP2.** *Answered* (2 November 2026): the sign of `alpha` on the 2005 slides. The two forms of `alpha` agree; the sign of `alpha` in the theorem of slide 8 and in slide 9 is wrong (§8). Theorem 10.5 of the email is Theorem 11.5 of `velocity.pdf` (TV10).
 - **TV-SP3.** Can the separability failure of Bakamjian-Thomas constructions be written as a Thomas-Wigner rotation between `Z` of the pair and `Z` of the system, or is the parallel only verbal?
 - **TV-SP4.** Is there a three-body counterpart of TV2: a reading of (2.2.11) through ternary velocities at `Z` or at the pair mass centres? With TV9, does it give an effective description, or does TV6 forbid one?
 - **TV-SP5.** The search of §1 was not exhaustive, and of the attachments only `velocity.pdf` and the 2005 slides were read, not the annotated 2012 PDF. Later mail, for example the threads on *Rival theories*, could still contain the identification.
@@ -464,7 +480,7 @@ noted; Part H draws the figure.
 | C | TV4; RV3 as a mass centre; radiation | exact rationals; the bystander values printed numerically |
 | D | TV5; closed form; the limit on the bisector | SymPy: symbolic `r, s, l, x, y, z`; two exact cases |
 | E | TV7; based lift; collinear case; Galilei | exact rationals in 2+1; Galilei symbolic. The area comparison is numerical |
-| F | TV8; `alpha`; both forms on slide 8; slide 9 | SymPy: symbolic `x, y, z`; the form on exact cases |
+| F | TV8; `alpha`; the two forms on slide 8; slide 9 with its sign corrected | SymPy: symbolic `x, y, z`; the form on exact cases |
 | G | TV9 | SymPy, symbolic |
 | H | figure | NumPy, numerical |
 | I | TV10; (10.5), (11.9), (11.10), (6.5) of `velocity.pdf`; `[a,b]` and `[[a,b],[b,c]]` | exact rationals in 2+1 and 1+3 |
@@ -478,9 +494,10 @@ TV6 is proved by hand and is not machine-checked.
 - Z. Oziewicz, "Ternary relative velocity; astonishing conflict of the Lorentz group with relativity", in V. Gladyshev (ed.), *Physical Interpretations of Relativity Theory*, Moscow 2007, pp. 292-303, [arXiv:1104.0682](https://arxiv.org/abs/1104.0682).
 - Z. Oziewicz, "Many-body mass-centre: Homological Algebra for relativity of position-spaces", *J. Phys.: Conf. Ser.* 532 (2014) 012021, [doi:10.1088/1742-6596/532/1/012021](https://doi.org/10.1088/1742-6596/532/1/012021); long version revised 11 April 2017 (not public).
 - Z. Oziewicz and W. S. Page, "Concepts of relative velocity", [arXiv:1104.0684](https://arxiv.org/abs/1104.0684).
+- Z. Oziewicz, "How do you add relative velocities?", August 2004, revised 25 March 2007, [wiki page](https://wiki.naturalphilosophy.org/index.php?title=How_Do_You_Add_Relative_Velocities%3F), [PDF](http://www.naturalphilosophy.org/pdf/abstracts/abstracts_163.pdf).
 - A. A. Ungar, "The hyperbolic triangle centroid", *Comment. Math. Univ. Carolin.* 45 (2004) 355-369, [DML-CZ](https://www.dml.cz/handle/10338.dmlcz/119464).
 - I. T. Todorov, *Ann. Inst. H. Poincaré A* 28 (1978) 207, as cited by M. N. Sergeenko, "Constraint Dynamics and RQM Bound States" (2020), [arXiv:2008.10734](https://arxiv.org/abs/2008.10734). Todorov's paper was not read.
 - N. Reichelt, W. Schweiger and W. H. Klink, "Cluster Separability in Relativistic Few Body Problems", [arXiv:1711.04555](https://arxiv.org/abs/1711.04555), citing B. Bakamjian and L. H. Thomas, *Phys. Rev.* 92 (1953) 1300, and S. N. Sokolov, *Theor. Math. Phys.* 36 (1978) 682.
 - R. de Abreu and V. Guerra, *Relativity: Einstein's Lost Frame* (Extra]muros[, 2005), [Academia.edu](https://www.academia.edu/102365022/Einstein_s_lost_frame).
 - V. Bargmann, L. Michel and V. L. Telegdi, "Precession of the polarization of particles moving in a homogeneous electromagnetic field", *Phys. Rev. Lett.* 2 (1959) 435, [doi:10.1103/PhysRevLett.2.435](https://doi.org/10.1103/PhysRevLett.2.435).
-- Unpublished and not linked: Oziewicz, *Why Einstein's addition of velocities is non-associative?* (`velocity.pdf`, draft, 22 November 2004), apparently an early form of his "How do you add relative velocities?" (2005), not compared; Oziewicz, *Relatividad: Enlace de Lorentz, Boost-link problem, solución completa* (slides, XLVIII Congreso Nacional de Física, Guadalajara, 20 October 2005); Oziewicz, *On center-of-mass* (draft, 23 December 2012); correspondence between Oziewicz and Page, 2004-2015.
+- Unpublished and not linked: Oziewicz, *Why Einstein's addition of velocities is non-associative?* (`velocity.pdf`, draft, 22 November 2004), compared with the 2007 revision in `velocity_draft.md`; Oziewicz, *Relatividad: Enlace de Lorentz, Boost-link problem, solución completa* (slides, XLVIII Congreso Nacional de Física, Guadalajara, 20 October 2005); Oziewicz, *On center-of-mass* (draft, 23 December 2012); correspondence between Oziewicz and Page, 2004-2015.

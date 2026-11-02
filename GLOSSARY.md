@@ -64,6 +64,15 @@ motion of `X` and `Y`. **Defined:**
 with** a different quantity: Oziewicz's Warning 1.6.4 says it is conceptually
 distinct from the Lorentz factor; as a number it is the same.
 
+### Lorentz-group-free boost (`b_u`)
+
+Oziewicz's map of 2004: `b_u P = gamma_u (u + P)` when `P.u = 0`, and `b_u P = P`
+otherwise. It acts on bodies and is not an isometry. **Defined:**
+[`velocity_draft.md`](supplement/velocity_draft.md#2-the-argument-section-by-section), §6
+of the draft. **Not to confuse with** the binary boost `L_{A∧gamma v_AB}`, which is an
+isometry; the claim that a binary velocity cannot parameterize an isometry is true of
+`b_u` only.
+
 ### Mass centre (centre of inertia)
 
 Two senses. (1) Oziewicz's `Z` of Definition 2.1.3: a body, the direction of the
