@@ -55,7 +55,7 @@ follow.
 | Date | Source | What it says |
 |---|---|---|
 | 16 to 17 Nov 2004 | Page, Oziewicz | Page's Maple determinants for Fr_2 to Fr_4. Fr_3 also vanishes on `-1+pq^2+pr^2-2*pr*qr*pq+qr^2 = 0`. Oziewicz: this is his Theorem 10.5 in `velocity.pdf`; the conditions "ensure that the ternary velocity (as observed by extra observer) is reciprocal"; "Theorem 10.5 gives the Lorentz group". Page: the form is "degenerate precisely in the case of reciprocal observers" |
-| 22 Nov 2004 | Oziewicz, draft `velocity.pdf` (unpublished; title begins "Why Einstein's addition of velocities is non-associative?") | §4: `O(3)` is not a normal subgroup of the Lorentz group, so boost and rotation cannot be separated without a preferred observer. Definition 11.2: a ternary velocity is a binary velocity carried to the rest space of `P` (TV10). Theorem 11.5: `P` sees the pair reciprocally exactly when `P ∧ A ∧ B = 0`, and then the velocity is `[b,a] P / tr(ab)`, (11.10). This is the "Theorem 10.5" of his email; the numbering had moved by this version. Its "ghost" is a fictional body whose velocity relative to `P` is a ternary velocity |
+| 22 Nov 2004 | Oziewicz, draft `velocity.pdf` (unpublished; summarised in [`velocity_draft.md`](../supplement/velocity_draft.md)) | §4: `O(3)` is not a normal subgroup of the Lorentz group, so boost and rotation cannot be separated without a preferred observer. Definition 11.2: a ternary velocity is a binary velocity carried to the rest space of `P` (TV10). Theorem 11.5: `P` sees the pair reciprocally exactly when `P ∧ A ∧ B = 0`, and then the velocity is `[b,a] P / tr(ab)`, (11.10). This is the "Theorem 10.5" of his email; the numbering had moved by this version. Its "ghost" is a fictional body whose velocity relative to `P` is a ternary velocity |
 | 13 to 14 Oct 2005 | Page, Oziewicz | Oziewicz: a 2-body system read with the Lorentz transformation brings in a third body, a "ghost". He gives `alpha(gamma_RS, gamma_RP, gamma_PS)` on his slides: `alpha = 0` is "exactly the condition you found", the system then "looks like in Einstein theory", and it "is not Frobenius algebra". He asks for which `y, z` the deviation of ternary from binary is maximal, and whether `y = z` is a maximum or a minimum |
 | 20 Oct 2005 | Oziewicz, slides *Enlace de Lorentz: Boost-link problem, solución completa* (XLVIII Congreso Nacional de Física, Guadalajara; not public) | The link equation is solved for every `P`, reciprocally, by the formula that became (2.2). Slide 8: `gamma_t = gamma + alpha`. `alpha` "es una medida de calificación de observadores externos" (§8) |
 | 9 Nov 2012 | Page | Of a hypothetical extra central observer: "Does it mean that from the (privileged?) point of view of this observer that all velocities are in the isometry group (Lorentz)?" |
@@ -218,7 +218,7 @@ Four consequences follow.
 
 **Proposition TV10 (two ternary velocities).** The name "ternary velocity" has covered
 two objects. *Velocity.pdf*, Definition 11.2, uses the binary velocity carried to the rest
-space of the eagle, `U(P, A, B) = L_{A->P} v_AB`, where the idempotent `p ⋄ a` of its
+space of the eagle, `U(P, A, B) = L_{A->P} v_AB`, where the idempotent `p ⊙ a` of its
 (10.5) acts on the rest space of `A` as the boost from `A` to `P`. The slides of 2005 and
 *Ternary* (2007) use the boost-link `v(P, A, B)` of TV0. Then, for `A != B`:
 
@@ -372,14 +372,16 @@ of `U` (TV10). In *Velocity.pdf* the condition appears as
 `tr(ab + bp + pa - 2abp) = 1`, which is the same polynomial with `tr(ab) = gamma^2`.
 Part 2 is the short reason for all of it.
 
-**The sign of `alpha`.** Slide 8 states `gamma_t = gamma + alpha` with
-`alpha = -2 (P∧R∧S)^2 / (P^2 (R - S)^2 + 4 (P.R)(P.S))`. With the Clifford sign used in
-Theorem 8.1 (ii) of the 2004 draft, `(P∧R∧S)^2 = det G`, so
-`alpha = -det G / (2yz - x + 1) <= 0`. The theorem and slide 9 are then right, and they
-agree with (2.4) and TV5: an exterior observer can only underestimate the speed. The
-explicit expression at the foot of slide 8 is the negative of this, because its
-denominator `gamma_RS - 2 gamma_RP gamma_PS - 1` has the opposite sign to that of the
-first form. That one line is a slip. (SymPy, Part F.)
+**The sign of `alpha`.** Slide 8 states `gamma_t = gamma + alpha`, with
+`alpha = -2 (P∧R∧S)^2 / (P^2 (R - S)^2 + 4 (P.R)(P.S))`, and then an explicit form. His
+wedge squares have the Gram sign, `(a∧b)^2 = det(a_i.a_j)`: slide 7 and Theorem 8.1 (ii)
+of the 2004 draft need it ([`velocity_draft.md`](../supplement/velocity_draft.md), Part C).
+So `(P∧R∧S)^2 = -det G`, and the two forms of `alpha` agree:
+`alpha = det G / (2yz - x + 1) >= 0`. Part 3 then gives `gamma_t = gamma - alpha`, as TV5
+requires: an exterior observer can only underestimate the speed. So the sign of `alpha` is
+wrong in the theorem of slide 8 and in slide 9, which needs `1 - alpha sqrt(1 - v^2)`.
+(SymPy, Part F.) *Correction, 2 November 2026:* the first version of this paragraph read
+the wedge with the Clifford sign, and so blamed the explicit form instead. That was wrong.
 
 For part 4, recall that `c = Z ⊗ clock_Z` is already an element of the algebra (MC6), so
 `Z` is not a new generator. A pair with its mass centre is the "not Frobenius" case,
@@ -444,7 +446,7 @@ simplicity and was not found stated this way, but the literature was not searche
 ## 11. Open items
 
 - **TV-SP1.** The pair groupoid forgets orientation. The groupoid that keeps it has arrows `(A, B, Q)` with `Q` a rotation (the gauge groupoid of `G -> H`), and its isotropy is `K`. Part of the question of August 2014 is settled: `pq - qp` is not a rotation (Page's proposal, which Oziewicz wanted taken "relative to mass-center"). It is the boost generator of (11.10), with `tr [a,b]^2 = 2 gamma^2 (gamma^2 - 1) > 0`. The first rotation is `[[a,b],[b,c]]`, about `B`, and it needs three bodies, as TV6 does (Part I). Does that element give the orientation groupoid inside the algebra of observers, and does it bear on spin (MC-SP3)?
-- **TV-SP2.** *Answered* (2 November 2026): the sign of `alpha` on the 2005 slides. The theorem and the first form are right; the explicit form on slide 8 has the opposite sign (§8). Theorem 10.5 of the email is Theorem 11.5 of `velocity.pdf` (TV10).
+- **TV-SP2.** *Answered* (2 November 2026): the sign of `alpha` on the 2005 slides. The two forms of `alpha` agree; the sign of `alpha` in the theorem of slide 8 and in slide 9 is wrong (§8). Theorem 10.5 of the email is Theorem 11.5 of `velocity.pdf` (TV10).
 - **TV-SP3.** Can the separability failure of Bakamjian-Thomas constructions be written as a Thomas-Wigner rotation between `Z` of the pair and `Z` of the system, or is the parallel only verbal?
 - **TV-SP4.** Is there a three-body counterpart of TV2: a reading of (2.2.11) through ternary velocities at `Z` or at the pair mass centres? With TV9, does it give an effective description, or does TV6 forbid one?
 - **TV-SP5.** The search of §1 was not exhaustive, and of the attachments only `velocity.pdf` and the 2005 slides were read, not the annotated 2012 PDF. Later mail, for example the threads on *Rival theories*, could still contain the identification.
@@ -464,7 +466,7 @@ noted; Part H draws the figure.
 | C | TV4; RV3 as a mass centre; radiation | exact rationals; the bystander values printed numerically |
 | D | TV5; closed form; the limit on the bisector | SymPy: symbolic `r, s, l, x, y, z`; two exact cases |
 | E | TV7; based lift; collinear case; Galilei | exact rationals in 2+1; Galilei symbolic. The area comparison is numerical |
-| F | TV8; `alpha`; both forms on slide 8; slide 9 | SymPy: symbolic `x, y, z`; the form on exact cases |
+| F | TV8; `alpha`; the two forms on slide 8; slide 9 with its sign corrected | SymPy: symbolic `x, y, z`; the form on exact cases |
 | G | TV9 | SymPy, symbolic |
 | H | figure | NumPy, numerical |
 | I | TV10; (10.5), (11.9), (11.10), (6.5) of `velocity.pdf`; `[a,b]` and `[[a,b],[b,c]]` | exact rationals in 2+1 and 1+3 |

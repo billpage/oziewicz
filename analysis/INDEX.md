@@ -28,7 +28,7 @@ defined in the [glossary](../GLOSSARY.md).
 | ID | § | Says | Standing |
 |---|---|---|---|
 | [Def MC0](mass_centre.md#2-dictionary) | 2 | Dictionary from Oziewicz's symbols (`det g = -c^2`, clock, `gamma`, binary velocity, `E_iG`) to standard covariant relativity | — |
-| [Prop MC1](mass_centre.md#3-the-binary-velocity) | 3 | `v_XY = Y/gamma - X` is the velocity of `Y` in the rest space of `X`; (1.7.15)-(1.7.23) hold; the boost `X -> Y` carries `v_XY` to `-v_YX` | — |
+| [Prop MC1](mass_centre.md#3-the-binary-velocity) | 3 | `v_XY = Y/gamma - X` is the velocity of `Y` in the rest space of `X`; (1.7.15)-(1.7.23) hold; the boost `X -> Y` carries `v_XY` to `-v_YX` | Part 3 is Theorem 8.1 (i) of Oziewicz's 2004 draft ([`velocity_draft.md`](../supplement/velocity_draft.md)) |
 | [Prop MC2](mass_centre.md#3-the-binary-velocity) | 3 | The velocity groupoid is the pair groupoid of the bodies; associativity is automatic; the metric postulates fix the Lorentz group | — |
 | [Thm MC3](mass_centre.md#4-the-mass-centre-is-the-centre-of-momentum-frame) | 4 | Def. 2.1.3 gives `Z` along `sum p_i - G/c^2` and `M` the invariant mass; (2.1.5)-(2.1.7), (2.1.14) hold for null `G` | — |
 | [Cor MC4](mass_centre.md#5-the-two-body-total-mass) | 5 | The radicand of (2.1.15) is misprinted (`gamma - 1` for `gamma^2 - 1`) and is zero without radiation | — |
@@ -63,7 +63,7 @@ defined in the [glossary](../GLOSSARY.md).
 | [MC-SP5](mass_centre.md#10-open-items) | Radiation terms of (2.2.8) and Clarification 2.2.3 | open |
 | [MC-SP6](mass_centre.md#10-open-items) | Public link for the long version | answered: 2015 version on Academia.edu (§1) |
 | [TV-SP1](ternary_mass_centre.md#11-open-items) | The groupoid that keeps orientation; `[[a,b],[b,c]]` in the algebra; spin | open |
-| [TV-SP2](ternary_mass_centre.md#11-open-items) | Sign of `alpha` on the 2005 slides; Theorem 10.5 of `velocity.pdf` | answered: slip in one line of slide 8 (§8); it is Theorem 11.5 |
+| [TV-SP2](ternary_mass_centre.md#11-open-items) | Sign of `alpha` on the 2005 slides; Theorem 10.5 of `velocity.pdf` | answered: the sign of `alpha` in the theorem of slide 8 and in slide 9 is wrong (§8); it is Theorem 11.5 |
 | [TV-SP3](ternary_mass_centre.md#11-open-items) | Is the failure of cluster separability a rotation between `Z` of the pair and `Z` of the system? | open |
 | [TV-SP4](ternary_mass_centre.md#11-open-items) | A three-body counterpart of TV2 for (2.2.11) | open |
 | [TV-SP5](ternary_mass_centre.md#11-open-items) | The search of the correspondence was not exhaustive | open |

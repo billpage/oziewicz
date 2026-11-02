@@ -17,3 +17,9 @@ not listed in `analysis/INDEX.md`.
   two quantities of standard relativity (RV5, RV6); and withdraws the 2025
   chat applications (Pioneer, rotation curves, wide binaries, cosmic rays).
   Companion script `src/verify_relative_velocity.py`.
+- **[`velocity_draft.md`](velocity_draft.md)**. A summary of Oziewicz's unpublished draft
+  *Why Einstein's addition of velocities is non-associative?* (22 November 2004,
+  `velocity.pdf`, not committed and not known to be public): its argument section by
+  section, 67 exact checks of its formulas (one side remark in (9.6) fails), where its
+  claims stand, and what later work kept and changed. Its ternary velocity is not the
+  boost-link of 2005 and 2007. Companion script `src/verify_velocity_draft.py`.

@@ -358,15 +358,13 @@ def part_f():
     a_v = alpha.subs({x: xv, y: yv, z: zv})
     print(f"    example: alpha = {a_v}, gamma_SB - alpha = {xv - a_v}")
     check("example: gamma_SB - alpha = 781/444", xv - a_v == R(781, 444))
-    a_first = -2 * G3.det() / (-(2 * x - 2) + 4 * y * z)
-    check("slide 8, first form, with (P^R^S)^2 = det[gamma] (Clifford): gamma_t = x + alpha",
-          sp.simplify((y**2 + z**2 + x - 1) / (2 * y * z - x + 1) - (x + a_first)) == 0)
-    check("slide 8, explicit form: minus the first form", sp.simplify(alpha + a_first) == 0)
-    g_c = xv + a_first.subs({x: xv, y: yv, z: zv})
+    a_first = -2 * (-G3.det()) / (-(2 * x - 2) + 4 * y * z)
+    check("slide 8, first form, with (P^R^S)^2 = det(a_i.a_j) = -det[gamma]: the two forms agree",
+          sp.simplify(alpha - a_first) == 0)
     v2 = 1 - 1 / xv**2
-    lv2 = 1 + (v2 - 1) / (1 + a_first.subs({x: xv, y: yv, z: zv}) * sp.sqrt(1 - v2))**2
-    check("slide 9 with the first form: Lv^2 = 1 - 1/gamma_t^2",
-          sp.simplify(lv2 - (1 - 1 / g_c**2)) == 0)
+    lv2 = 1 + (v2 - 1) / (1 - a_v * sp.sqrt(1 - v2))**2
+    check("slide 9 holds with -alpha in place of +alpha",
+          sp.simplify(lv2 - (1 - 1 / (xv - a_v)**2)) == 0)
 
     def form_det(G):
         m = G.rows
