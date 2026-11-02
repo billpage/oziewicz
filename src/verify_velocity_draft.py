@@ -2,7 +2,8 @@
 
 The draft is Oziewicz's "Why Einstein's addition of velocities is
 non-associative?" of 22 November 2004 (velocity.pdf), which is not public.
-Equation numbers are the draft's.  Every check is exact (SymPy, rational
+Equation numbers in Parts A to E are the draft's; those in Part F are those of
+"How do you add relative velocities?", revised 25 March 2007 (public).  Every check is exact (SymPy, rational
 vectors in 1+3 dimensions, or symbolic where stated).
 
 Conventions, the draft's: signature (-,+,+,+), c = 1, bodies are unit
@@ -16,6 +17,7 @@ Parts
   C  section 8: the inverse, Theorem 8.1; a wedge square is det(a_i.a_j)
   D  section 9: how the two additions are related, (9.1) to (9.6)
   E  sections 10, 11, 12: the idempotents, (10.5), (11.5) to (11.11), (12.2)
+  F  the public revision of 25 March 2007, with its own equation numbers
 
 Run:  PYTHONPATH=src python3 -u src/verify_velocity_draft.py
 Writes no files.
@@ -337,12 +339,110 @@ def part_e():
                         + (gam(Q3, R3) - 1) * (R(5, 4)**2 - 1)))
 
 
+# -------------------------------------------------------------------- Part F
+def minors(a, b_, c):
+    m = sp.Matrix.hstack(a, b_, c)
+    return [m.extract(list(r), [0, 1, 2]).det() for r in itertools.combinations(range(N), 3)]
+
+
+def same_blade(x, y, k=1):
+    return all(zero(p - k * q) for p, q in zip(x, y))
+
+
+def inner_vb(w, v, u):
+    """(1.5): w.(v^u) = (w.v) u - (w.u) v."""
+    return d(w, v) * u - d(w, u) * v
+
+
+def part_f():
+    print("F. The revision of 25 March 2007 (its own equation numbers)")
+    A, u, Bb, v, C, _, _ = chain()
+    gu, gv = g_of(u), g_of(v)
+    ui, vi = varpi(Bb, A), varpi(C, Bb)
+    s, si = varpi(A, C), varpi(C, A)
+    x = d(v, ui)
+    check("Lemma 9.2: v.u = -gamma_u v.u^-1", zero(d(v, u) + gu * x))
+    check("(7.4): gamma_(v o u) = gamma_v gamma_u (1 - v.u^-1)",
+          zero(gam(A, C) - gv * gu * (1 - x)))
+    check("(3.2) has the same form: gamma_(v(+)u) = gamma_v gamma_u (1 - v.u^-1) with u^-1 = -u",
+          zero(g_of(oplus(V0, U0)) - g_of(V0) * g_of(U0) * (1 + d(V0, U0))))
+    check("Table 3, first row", zero((1 - x) * s - (u + v / gu + x * A)))
+    check("Table 3, second row, and (10.6)",
+          zero((gu**2 - 1) * (1 - x) * s
+               - ((gu**2 * (1 - x) - 1) * u - gu * inner_vb(ui, v, ui))))
+    y = d(V0, -U0)
+    check("Table 4, first form",
+          zero((1 - y) * oplus(V0, U0) - (U0 + V0 / gu - gu / (gu + 1) * y * U0)))
+    check("Table 4, second form",
+          zero((1 - y) * oplus(V0, U0)
+               - (U0 + V0 + gu / (gu + 1) * inner_vb(-U0, V0, -U0))))
+    check("(1.6)", zero(inner_vb(U0, V0, U0) - (d(U0, V0) * U0 - (1 - 1 / gu**2) * V0)))
+
+    Q = lift([R(6, 35), R(9, 35), R(18, 35)])
+    Rr, Sv = lift([0, R(4, 5), 0]), lift([0, 0, R(12, 13)])
+    from verify_relative_velocity import gamma_24, ternary_22
+    vQR = varpi(Q, Rr)
+    vQS = varpi(Q, Sv)
+    a, b_, c = d(Q, Rr), d(Q, Sv), d(Rr, Sv)
+    check("(2.4) = (8.1): the ternary velocity is along P^(B - A), with its printed factor",
+          zero(ternary_22(Q, Rr, Sv, N) - (d(Q, Rr + Sv) * (b_ * vQS - a * vQR))
+               / (a**2 + b_**2 - 1 - c)))
+    check("(2.5) = (8.2)", zero(-c - b_ * a * (1 - d(vQS, vQR))))
+    G = sp.Matrix([[d(Q, Q), a, b_], [a, d(Rr, Rr), c], [b_, c, d(Sv, Sv)]])
+    check("§8: (P^R^S)^2 is printed as det(a_i.a_j), and the expansion printed is right",
+          zero(G.det() - (d(Q, Q) * d(Rr, Rr) * d(Sv, Sv) + 2 * a * c * b_ - d(Sv, Sv) * a**2
+                          - d(Q, Q) * c**2 - d(Rr, Rr) * b_**2)))
+    check("(2.6) = (8.3)",
+          zero(G.det() - (a**2 + b_**2 - 1 - a**2 * b_**2 * (1 - d(vQS, vQR)**2))))
+    check("(8.5)", zero(gamma_24(Q, Rr, Sv, N)
+                        - (a**2 + b_**2 - c - 1) / (2 * a * b_ + c + 1)))
+
+    check("(6.9): the binary inverse", zero(ui + gu * u + (gu - 1 / gu) * A))
+    check("(9.1): -u^2 A = u + u^-1/gamma_u", zero(-d(u, u) * A - (u + ui / gu)))
+    check("(9.5): L_(A^u) u = gamma u + (gamma - 1/gamma) A",
+          zero(Boost(A, u) * u - (gu * u + (gu - 1 / gu) * A)))
+    check("against Corollary 6.6: one inverse boost, parameter -u at A and u^-1 at B",
+          zero(Boost(A, u).inv() - Boost(Bb, ui)) and zero(Boost(A, u).inv() - Boost(A, -u)))
+
+    check("(10.1), first", same_blade(minors(u, vi, s), minors(ui, v, si)))
+    check("(10.1), second", same_blade(minors(u, vi, si), minors(ui, v, s)))
+    check("(10.2), first", same_blade(minors(gam(A, C) * s, u, v), minors(A, Bb, C), x))
+    check("(10.2), second", same_blade(minors(gv * v, s, ui), minors(A, Bb, C), d(u, s)))
+    check("(10.2), third", same_blade(minors(gu * u, vi, s), minors(A, Bb, C), d(vi, si)))
+
+    A2, B2, C2 = lift([R(3, 5), 0, 0]), lift([R(-5, 13), 0, 0]), lift([R(4, 5), 0, 0])
+    u2, v2 = varpi(A2, B2), varpi(B2, C2)
+    ui2 = varpi(B2, A2)
+    s2 = varpi(A2, C2)
+    check("Proposition 10.3: coplanar implies collinear as seen by each body",
+          all(zero(e) for e in minors(u2, s2, A2)) and all(zero(e) for e in minors(v2, ui2, B2)))
+    g2, xx = gam(A2, B2), d(v2, ui2)
+    check("(10.3)", zero((g2**2 - 1) * C2 - (gam(B2, C2) * g2 * xx * A2
+                                             + gam(B2, C2) * (g2**2 - 1 - g2**2 * xx) * B2)))
+
+    Lt = sp.Matrix([1, R(3, 5), R(4, 5), 0])
+    P, K = A, Bb
+    cP, cK = Lt / (-d(Lt, P)) - P, Lt / (-d(Lt, K)) - K
+    check("(11.1): the speed of light is 1 for each observer",
+          zero(d(cP, cP) - 1) and zero(d(cK, cK) - 1))
+    m = sp.sqrt(d(u, u))
+    cosP, cosK = d(cP, u) / m, d(cK, ui) / m
+    check("(11.3), first", zero(d(cP, u) - (1 - d(Lt, K) / (gu * d(Lt, P)))))
+    check("(11.3), second", zero(d(cK, ui) - (1 - d(Lt, P) / (gu * d(Lt, K)))))
+    check("(11.4)", zero((1 - d(cK, ui)) * (1 - d(cP, u)) - 1 / gu**2))
+    check("(11.5)", zero(m * (1 + cosP * cosK) - (cosP + cosK)))
+    check("(11.5) is the textbook aberration for the angle to -u^-1",
+          zero(-cosK - (cosP - m) / (1 - m * cosP)))
+    check("(12.1): Doppler shift", zero(-d(K, Lt) - (-d(P, Lt)) * gu * (1 - d(cP, u))))
+
+
 def main():
     part_a()
     part_b()
     part_c()
     part_d()
     part_e()
+    part_f()
     if FAILED:
         print(f"\n{len(FAILED)} CHECK(S) FAILED:")
         for name in FAILED:

@@ -20,6 +20,6 @@ not listed in `analysis/INDEX.md`.
 - **[`velocity_draft.md`](velocity_draft.md)**. A summary of Oziewicz's unpublished draft
   *Why Einstein's addition of velocities is non-associative?* (22 November 2004,
   `velocity.pdf`, not committed and not known to be public): its argument section by
-  section, 67 exact checks of its formulas (one side remark in (9.6) fails), where its
-  claims stand, and what later work kept and changed. Its ternary velocity is not the
-  boost-link of 2005 and 2007. Companion script `src/verify_velocity_draft.py`.
+  section, 98 exact checks of it and of the public revision of March 2007 (one side remark
+  in (9.6) fails), where its claims stand, and what the revision dropped and added. Its
+  ternary velocity is not the boost-link of 2005 and 2007. Companion script `src/verify_velocity_draft.py`.
