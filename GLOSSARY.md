@@ -107,7 +107,10 @@ rest space, `Y = gamma_XY X + Pi_X Y`. **Defined:**
 
 The velocity `w(E, S, B)` of a body `B` relative to `S` as observed by a third
 body `E`: the solution of `L_{E∧w} S = B` with `E.w = 0` (*Concepts of relative
-velocity* §3). It equals the binary velocity when `E` lies in the plane of `S`
+velocity* §3), the boost-link. His 2004 draft used the name for another object, the
+binary velocity carried to the rest space of `E`; the two agree only in the plane
+([`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#5-how-far-the-ternary-falls-below-the-binary),
+Proposition TV10). It equals the binary velocity when `E` lies in the plane of `S`
 and `B`, and differs from it by a Thomas-Wigner rotation otherwise.
 **Defined:** [`bodies_first.md`](supplement/bodies_first.md#3-binary-and-ternary-velocity),
 Propositions RV2 and RV3. **Not to confuse with** the binary velocity, which

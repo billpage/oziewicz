@@ -63,8 +63,8 @@ items are listed in [`analysis/INDEX.md`](analysis/INDEX.md).
 
 | Standing | Meaning | Items |
 |---|---|---|
-| Established | derived and checked exactly (or numerically, saying which) | Step 1: MC1 to MC6 (SymPy); MC7 on eight cases (SymPy). Step 2: TV1 to TV5, TV7 to TV9 (SymPy); TV6 proved by hand |
-| Open | stated, not yet settled | MC-SP1 to MC-SP5 (MC-SP6 answered); TV-SP1 to TV-SP5 |
+| Established | derived and checked exactly (or numerically, saying which) | Step 1: MC1 to MC6 (SymPy); MC7 on eight cases (SymPy). Step 2: TV1 to TV5, TV7 to TV10 (SymPy); TV6 proved by hand |
+| Open | stated, not yet settled | MC-SP1 to MC-SP5 (MC-SP6 answered); TV-SP1, TV-SP3 to TV-SP5 (TV-SP2 answered) |
 | Retracted | withdrawn, kept with the reason | The June 2025 Project-chat summaries of *Many-body mass-centre* (not in this repository; see step 1, §0) and their applications to Pioneer, rotation curves, wide binaries and cosmic rays ([`supplement/bodies_first.md`](supplement/bodies_first.md) §7) |
 
 A retracted or negative result is recorded the same way as a positive one, and a

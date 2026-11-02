@@ -46,6 +46,7 @@ defined in the [glossary](../GLOSSARY.md).
 | [Cor TV3](ternary_mass_centre.md#3-two-bodies-the-eagle-lies-in-the-plane) | 3 | A pair has one velocity, a Lorentz link and vector reciprocity in one rest space, with nothing exterior | — |
 | [Prop TV4](ternary_mass_centre.md#4-three-or-more-bodies-the-eagle-leaves-the-plane) | 4 | `Z ∧ X_i ∧ X_j = sum_k (m_k / M) X_k ∧ X_i ∧ X_j`: `Z` leaves the plane of every pair; RV3's eagle is the mass centre of masses 4, 3, 12 | — |
 | [Prop TV5](ternary_mass_centre.md#5-how-far-the-ternary-falls-below-the-binary) | 5 | `gamma_AB - 1 = cosh^2 r (gamma_t - 1)`; both halves of Theorem 2.5; RV-SP3 answered | — |
+| [Prop TV10](ternary_mass_centre.md#5-how-far-the-ternary-falls-below-the-binary) | 5 | The 2004 ternary velocity keeps the binary speed and is reciprocal only in the plane; the boost-link is always reciprocal and slower | — |
 | [Thm TV6](ternary_mass_centre.md#6-the-no-go-theorem) | 6 | No Lorentz link depends covariantly on the pair alone, carries `A` to `B` and composes; the Galilei group has one | Proved by hand; not machine-checked |
 | [Prop TV7](ternary_mass_centre.md#6-the-no-go-theorem) | 6 | The three ways out on the example: 31.16°, 32.75°, and the based lift, which closes | — |
 | [Prop TV8](ternary_mass_centre.md#8-the-algebra-of-observers-sees-the-same-line) | 8 | The Frobenius form has determinant `±(det gamma)^(2n)`; degenerate exactly for linearly dependent bodies; `gamma_t = gamma - alpha` | — |
@@ -61,8 +62,8 @@ defined in the [glossary](../GLOSSARY.md).
 | [MC-SP4](mass_centre.md#10-open-items) | Dynamics from binary accelerations relative to the mass centre | open |
 | [MC-SP5](mass_centre.md#10-open-items) | Radiation terms of (2.2.8) and Clarification 2.2.3 | open |
 | [MC-SP6](mass_centre.md#10-open-items) | Public link for the long version | answered: 2015 version on Academia.edu (§1) |
-| [TV-SP1](ternary_mass_centre.md#11-open-items) | The groupoid that keeps orientation; the rotation `pq - qp`; spin | open |
-| [TV-SP2](ternary_mass_centre.md#11-open-items) | Sign of `alpha` on the 2005 slides; Theorem 10.5 of `velocity.pdf` | open |
+| [TV-SP1](ternary_mass_centre.md#11-open-items) | The groupoid that keeps orientation; `[[a,b],[b,c]]` in the algebra; spin | open |
+| [TV-SP2](ternary_mass_centre.md#11-open-items) | Sign of `alpha` on the 2005 slides; Theorem 10.5 of `velocity.pdf` | answered: slip in one line of slide 8 (§8); it is Theorem 11.5 |
 | [TV-SP3](ternary_mass_centre.md#11-open-items) | Is the failure of cluster separability a rotation between `Z` of the pair and `Z` of the system? | open |
 | [TV-SP4](ternary_mass_centre.md#11-open-items) | A three-body counterpart of TV2 for (2.2.11) | open |
 | [TV-SP5](ternary_mass_centre.md#11-open-items) | The search of the correspondence was not exhaustive | open |

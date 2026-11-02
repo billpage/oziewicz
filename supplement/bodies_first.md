@@ -334,7 +334,8 @@ form. The conclusion drawn from it does not follow, for four reasons.
    by the boost from `B` to `C` takes `A` to `C`, but it is the boost from `A`
    to `C` only up to a rotation of the rest space of `A`, the Thomas-Wigner
    rotation of RV3 (open item RV-SP3). The arrows themselves compose
-   associatively (MC2).
+   associatively (MC2). Step 2, §6, traces the claim to the boost `b_u` of
+   Oziewicz's 2004 draft, which is a different map and is not an isometry.
 4. **The twins.** §4 says the groupoid theory "predicts exactly the same
    time-dilation as the relativity-Lorentz-group". The ages of twins who part
    and meet again are proper times `∫ sqrt(-g(dx/ds, dx/ds)) ds` along their

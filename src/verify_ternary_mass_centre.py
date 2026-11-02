@@ -6,7 +6,7 @@ the unique vector with P.w = 0 and L_{P^w} A = B (the boost formula of Concepts
 of relative velocity, as in verify_relative_velocity.py), and
 v(P, A, B) = w / sqrt(1 + w.w) is (2.2) of Ternary relative velocity (2007).
 
-Parts A to G are exact (SymPy).  In Part E the comparison of the rotation with
+Parts A to G and I are exact (SymPy).  In Part E the comparison of the rotation with
 the area of the triangle, and all of Part H, are numerical and say so.
 
 Parts
@@ -18,6 +18,8 @@ Parts
   F  TV8: alpha, the determinant, the Frobenius form
   G  TV9: Todorov's map
   H  figure (numerical)
+  I  TV10: the ternary velocity of velocity.pdf (2004) against the boost-link;
+     (11.9), (11.10) and (6.5) of that draft; the commutators of idempotents
 
 Run:  PYTHONPATH=src python3 -u src/verify_ternary_mass_centre.py
 Writes ternary_mass_centre_velocity_space.png through ozlib.utils.output_path
@@ -356,8 +358,15 @@ def part_f():
     a_v = alpha.subs({x: xv, y: yv, z: zv})
     print(f"    example: alpha = {a_v}, gamma_SB - alpha = {xv - a_v}")
     check("example: gamma_SB - alpha = 781/444", xv - a_v == R(781, 444))
-    check("as quoted on 13 Oct 2005 the Lv formula gives gamma + alpha, not gamma - alpha",
-          xv + a_v != R(781, 444))
+    a_first = -2 * G3.det() / (-(2 * x - 2) + 4 * y * z)
+    check("slide 8, first form, with (P^R^S)^2 = det[gamma] (Clifford): gamma_t = x + alpha",
+          sp.simplify((y**2 + z**2 + x - 1) / (2 * y * z - x + 1) - (x + a_first)) == 0)
+    check("slide 8, explicit form: minus the first form", sp.simplify(alpha + a_first) == 0)
+    g_c = xv + a_first.subs({x: xv, y: yv, z: zv})
+    v2 = 1 - 1 / xv**2
+    lv2 = 1 + (v2 - 1) / (1 + a_first.subs({x: xv, y: yv, z: zv}) * sp.sqrt(1 - v2))**2
+    check("slide 9 with the first form: Lv^2 = 1 - 1/gamma_t^2",
+          sp.simplify(lv2 - (1 - 1 / g_c**2)) == 0)
 
     def form_det(G):
         m = G.rows
@@ -404,6 +413,77 @@ def part_g():
     check("kappa/epsilon_w is the binary speed",
           sp.simplify(p2 / eps**2 - (1 - 1 / x**2)) == 0)
     check("gamma_effective = epsilon_w/m_w = gamma", sp.simplify(eps / mw - x) == 0)
+
+
+# -------------------------------------------------------------------- Part I
+def idem(X, n=3):
+    """The idempotent X tensor (-gX) of a unit time-like vector."""
+    from verify_relative_velocity import eta
+    return -X * X.T * eta(n)
+
+
+def transported(P, A, B, n=3):
+    """U(P, A, B): the binary velocity v_AB carried to the rest space of P."""
+    g = gam(A, B, n)
+    return (binary_boost(A, P, n) * (B / g - A)).applyfunc(sp.simplify)
+
+
+def part_i():
+    print("I. TV10: the two ternary velocities; velocity.pdf (22 Nov 2004)")
+    n = 3
+    S, B = S3, B3
+    g = gam(S, B, n)
+    p, q = idem(Z3), idem(S)
+    y = gam(Z3, S, n)
+    Rd = sp.eye(3) - p - y / (y + 1) * (q * p / y**2 - p)      # (10.5)
+    vSB = B / g - S
+    check("(10.5) on the rest space of S is the binary boost S -> Z",
+          zero(Rd * vSB - transported(Z3, S, B)))
+    U1, U2 = transported(Z3, S, B), transported(Z3, B, S)
+    check("U is orthogonal to the eagle", sp.simplify(dot(U1, Z3, n)) == 0)
+    check("U keeps the binary speed", sp.simplify(dot(U1, U1, n) - (1 - 1 / g**2)) == 0)
+    diff = (U1 + U2).applyfunc(sp.simplify)
+    print("    U(Z,S,B) =", list(U1))
+    print("    U(Z,B,S) =", list(U2))
+    print("    (U(Z,S,B) + U(Z,B,S))^2 =", sp.simplify(dot(diff, diff, n)))
+    check("off the plane U is not reciprocal (Theorem 11.5)", not zero(diff))
+    print("    v(Z,S,B)^2 =", sp.nsimplify(sp.simplify(
+        dot(ternary_22(Z3, S, B, n), ternary_22(Z3, S, B, n), n))),
+        " binary v^2 =", 1 - 1 / g**2)
+
+    Zp = unit(4 * S + 3 * B, n)
+    a, b = idem(S), idem(B)
+    U3, U4 = transported(Zp, S, B), transported(Zp, B, S)
+    check("in the plane U is reciprocal (Theorem 11.5)", zero(U3 + U4))
+    check("in the plane U = v(P, A, B)",
+          zero(U3 - ternary_22(Zp, S, B, n)))
+    check("(11.10): v(Z,S,B) = [b,a] Z / tr(ab), pair mass centre",
+          zero(ternary_22(Zp, S, B, n) - (b * a - a * b) * Zp / (a * b).trace()))
+    check("tr(ab) = gamma^2", sp.simplify((a * b).trace() - g**2) == 0)
+
+    P, A1, B1 = Z3, S, B
+    gPA, gPB, gAB = gam(P, A1, n), gam(P, B1, n), gam(A1, B1, n)
+    vPA, vPB = A1 / gPA - P, B1 / gPB - P
+    check("(11.9): U as a subtraction of binary velocities",
+          zero(transported(P, A1, B1)
+               - (gPB / gAB * vPB
+                  - gPA / (gPA + 1) * (gAB + gPB) / gAB * vPA)))
+
+    c = idem(C3)
+    k1, k2 = a * b - b * a, b * c - c * b
+    check("tr([a,b]^2) = 2 gamma^2 (gamma^2 - 1) > 0: a boost generator",
+          sp.simplify((k1 * k1).trace() - 2 * g**2 * (g**2 - 1)) == 0)
+    rot_gen = (k1 * k2 - k2 * k1).applyfunc(sp.simplify)
+    check("[[a,b],[b,c]] annihilates B", zero(rot_gen * B))
+    t2 = sp.simplify((rot_gen * rot_gen).trace())
+    print("    tr([[a,b],[b,c]]^2) =", t2)
+    check("[[a,b],[b,c]] generates a rotation about B", t2 < 0)
+
+    Q, Rr, u = lift([R(3, 5), 0, 0]), lift([R(-3, 5), 0, 0]), sp.Matrix([0, 0, 0, R(3, 5)])
+    gu = R(5, 4)
+    bQ, bR = gu * (u + Q), gu * (u + Rr)
+    check("(6.5): the boost b_u of velocity.pdf is not an isometry",
+          dot(bQ, bR, 4) - dot(Q, Rr, 4) == -(gam(Q, Rr, 4) - 1) * (gu**2 - 1))
 
 
 # -------------------------------------------------------------------- Part H
@@ -483,6 +563,7 @@ def main():
     part_e_area()
     part_f()
     part_g()
+    part_i()
     part_h()
     if FAILED:
         print(f"\n{len(FAILED)} CHECK(S) FAILED:")
