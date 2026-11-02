@@ -1,13 +1,13 @@
 # Bodies first: a reading of *Concepts of relative velocity* and *Many-body mass-centre*
 
-> Oziewicz's reading of relativity takes the material body, not position space, as primitive: a body is a process (a derivation), it owns its position space and its zero velocity, a velocity is a relation between two bodies, and there is no dynamics of one body alone. This supplement states that reading from *Concepts of relative velocity* (Oziewicz and Page 2011) and *Many-body mass-centre* (2014; long version 2017), and asks whether it is a different theory or standard relativity read differently. It separates a metric-free layer (bodies, their position spaces, splits by a chosen clock), which Galilean and Einstein kinematics share, from the layer that needs the metric. **Proposition RV2**: Einstein's ternary velocity of the bus relative to the street seen by an eagle equals Oziewicz's binary velocity whenever the eagle lies in the plane of street and bus (in particular when the eagle is the street). **Proposition RV3**: for an eagle outside that plane it differs in size and direction by a Thomas-Wigner rotation. With the metric the two papers are standard special relativity (ladder step 1 for the mass centre), so the difference rests on the meaning of "relative". The applications to Pioneer, galaxy rotation curves, wide binaries and cosmic rays in the Project chats of 2025 are withdrawn. Checked exactly with SymPy; the sizes in §6 are numerical.
+> Oziewicz's reading of relativity takes the material body, not position space, as primitive: a body is a process (a derivation), it owns its position space and its zero velocity, a velocity is a relation between two bodies, and there is no dynamics of one body alone. This supplement states that reading from *Concepts of relative velocity* (Oziewicz and Page 2011) and *Many-body mass-centre* (2014; long version 2017), and asks whether it is a different theory or standard relativity read differently. It separates a metric-free layer (bodies, their position spaces, splits by a chosen clock), which Galilean and Einstein kinematics share, from the layer that needs the metric. **Proposition RV2**: Einstein's ternary velocity of the bus relative to the street seen by an eagle equals Oziewicz's binary velocity whenever the eagle lies in the plane of street and bus (in particular when the eagle is the street). **Proposition RV3**: for an eagle outside that plane it differs in size and direction by a Thomas-Wigner rotation. With the metric the two papers are standard special relativity (ladder step 1 for the mass centre), so the difference rests on the meaning of "relative". **Propositions RV5 and RV6** read *Ternary relative velocity* (2007): its formulas are right, but its "astonishing conflict" of the Lorentz group with the relativity principle needs Einstein's reciprocity read as an equality of vectors in one space, and its proposed test (4.2) compares two different quantities of standard relativity. The applications to Pioneer, galaxy rotation curves, wide binaries and cosmic rays in the Project chats of 2025 are withdrawn. Checked exactly with SymPy; the sizes in §7 are numerical.
 
 **Status.** Supplement (background and reading, not a ladder step). Labels
 use the prefix **RV**; the ladder's results are cited by their MC labels from
 [`analysis/mass_centre.md`](../analysis/mass_centre.md). Companion script:
 [`src/verify_relative_velocity.py`](../src/verify_relative_velocity.py).
 Prompted by Bill Page, 1 November 2026, to replace the Project-chat summaries
-of June 2025 with a reading that puts Oziewicz's own view first. Drafted with
+of June 2025 with a reading that puts Oziewicz's own view first. §6 was added the same day, from the full text of *Ternary relative velocity* (2007) and Oziewicz's NPA talk of December 2009. Drafted with
 Claude (Anthropic) and subject to review. Every statement of what Oziewicz
 meant is a reading of the cited section, not a verified fact about him.
 [PDF](https://github.com/billpage/oziewicz/releases/latest/download/bodies_first.pdf)
@@ -27,7 +27,7 @@ re-derived.
 **Retracts.** Step 1 withdrew the June 2025 summaries of the mass-centre paper.
 The same chats went on to apply the paper to the Pioneer anomaly, galaxy
 rotation curves and cosmic rays, with estimated effect sizes. Those estimates
-were never computed and §6 shows they cannot be right; they are withdrawn too.
+were never computed and §7 shows they cannot be right; they are withdrawn too.
 A LaTeX draft and BibTeX file compiled from those chats on 1 November 2026 were
 never committed and are superseded by this file.
 
@@ -268,7 +268,114 @@ say something the textbook reading does not.
 
 ---
 
-## 6. What does not follow: withdrawn applications
+## 6. The "astonishing conflict"
+
+*Ternary relative velocity* (Oziewicz 2007, posted to arXiv in 2011) carries
+the subtitle "Astonishing conflict of the Lorentz group with relativity". His
+talk to the Natural Philosophy Alliance in December 2009 (slides not public)
+makes the same argument (slide pages 26-31 and 38). Notation as in §3, with
+the paper's letters: `P`, `A`, `B` are unit time-like (`P` the preferred
+observer, the eagle of *Concepts*), `w` satisfies `P.w = 0`, and
+`v = w / sqrt(1 + w.w)`; the binary velocity is `v_AB = B/gamma - A` with
+`gamma = -A.B`. Section and equation numbers below are the paper's.
+
+**What the paper claims.** Main conclusion 2.6: if (i) there is one and only
+one relative velocity between each pair of massive bodies, and (ii) each pair
+is related by a Lorentz isometry (Definition 2.1, Minkowski's axiom), then a
+preferred reference system must be chosen, so that special relativity with the
+Lorentz group "necessarily contradicts" the relativity principle (§2, p. 300).
+The final remark (§7.3) ends with the chain: no absolute space, so no
+Einstein relative velocities, so no Einstein special relativity, so no
+asymmetric biological ageing of twins.
+
+**Proposition RV5 (the ternary formulas).**
+
+1. Eq. (2.2) solves the isometry-link problem of Theorem 2.3: with `w = gamma_v v`, `P.w = 0` and `L_{P∧w} A = B`; and `v(P, B, A) = -v(P, A, B)` (2.3).
+2. Eq. (2.4) is `sqrt(1 + w.w)`, the gamma of the boost parameter. For `P` outside the plane of `A` and `B` it differs from `gamma = -A.B`, the factor that gives time dilation between `A` and `B`.
+3. For `P` in that plane, (2.2) reduces to the form (2.5) of de Abreu and Guerra and (2.4) to `-A.B` (Corollary 2.4, and the "if" half of Theorem 2.5). In particular, for `P = A` (2.2) is the binary velocity `v_AB`.
+
+(Exact, Part E: parts 1 and 2 on two cases with rational velocities, one of
+them the case of RV3, where `gamma_ternary = 781/444` and `-A.B = 25/12`;
+part 3 with symbolic rapidities (as `exp` of the rapidity, so that the check is rational), and `P = A` on the general case. The "only
+if" half of Theorem 2.5 is not checked in general.)
+
+So the mathematics of the paper is right, and it is RV2 and RV3 in closed
+form. The conclusion drawn from it does not follow, for four reasons.
+
+1. **Premises (i) and (ii) hold without a preferred system.** Take `P = A`, the
+   body that measures. By part 3 each ordered pair `(A, B)` has one velocity,
+   `v_AB`, and the boost `L_{A∧gamma v_AB}` links `A` to `B` (MC1). The choice
+   of `P` is fixed by the pair; it is what "as measured by `A`" means.
+   Definition 2.2 itself reads "as seen/measured by", and in the 2009 talk,
+   answering a question about the textbook Lorentz transformation, Oziewicz
+   agrees that `v` is the velocity of `B` with respect to `A` "as measured by
+   A".
+2. **The conflict needs a third premise.** §7.1 names it: Einstein's
+   reciprocal-velocity axiom, `v(B -> A) = -v(A -> B)`, read as an equality of
+   vectors in one space. Only that reading forces one `P` for both directions;
+   with `P = A` for one and `P = B` for the other the two velocities lie in
+   different rest spaces, and reciprocity holds after transport by the boost
+   (MC1, part 3). So the conflict is between the relativity principle and a
+   literal reading of the 1905 reciprocity axiom, not between the relativity
+   principle and the Lorentz group. The historical remark of §7.1, that
+   Einstein's 1905 derivation uses reciprocity as a tacit axiom, is the part
+   that stands (a reading of the paper, not checked against Einstein 1905
+   here).
+3. **The binary velocity does parameterize an isometry.** §4 says it "can not
+   parameterize the isometric Lorentz transformation". It does: `L_{A∧gamma u}`
+   is an isometry taking `A` to `B = gamma (A + u)` (MC1; used in Part F). What
+   fails is compatibility with composition. The boost from `A` to `B` followed
+   by the boost from `B` to `C` takes `A` to `C`, but it is the boost from `A`
+   to `C` only up to a rotation of the rest space of `A`, the Thomas-Wigner
+   rotation of RV3 (open item RV-SP3). The arrows themselves compose
+   associatively (MC2).
+4. **The twins.** §4 says the groupoid theory "predicts exactly the same
+   time-dilation as the relativity-Lorentz-group". The ages of twins who part
+   and meet again are proper times `∫ sqrt(-g(dx/ds, dx/ds)) ds` along their
+   two worldlines, built from the metric alone, and the groupoid theory has
+   the same metric (MC2). So asymmetric ageing holds there too, and the last
+   step of the chain in §7.3 contradicts §4.
+
+**Proposition RV6 (the moving-media test, (4.2)).** Let Alice be `A`, Bob
+`gamma (A + u)` with `A.u = 0`, and let `F` be an electromagnetic field whose
+electric and magnetic fields seen by Alice are `E` and `B_A`, with
+`u x B_A = 0`. Write `E_A` and `E_Bob` for the electric fields of `F` seen
+by Alice and by Bob, as space-like 4-vectors (each orthogonal to its
+observer). Then
+
+1. `E_Bob . E_A - gamma E_A . E_A = 0`, the value (4.2) gives for "groupoid relativity" when its `E'.E` is read as this Minkowski product (a reading: the paper gives no derivation);
+2. if `E'` is `E_Bob` carried into Alice's rest space by `L_{A∧gamma u}^{-1}` (the textbook transformed field, read on Alice's axes), then `E'.E - gamma E^2 = -gamma^2 (u.E)^2 / (gamma + 1)`, the value (4.2) gives for "Lorentz-group relativity".
+
+(Exact, Part F, with symbolic `u`, `E` and `B_A`.) Both are statements of
+standard special relativity about two different quantities: the first
+compares Bob's field with Alice's directly, the second after laying Bob's rest
+space onto Alice's with the boost. `E'.E` has no meaning until it is said how
+Bob's vector is to be compared with Alice's; once that is said, both
+"theories" give the same number. (4.2) is therefore not an experimental test
+between them. It is the comparison of vectors from two rest spaces (MC1, and §3 here) again, in electrodynamics.
+
+**Thomas rotation.** §7.2 calls the Thomas-rotation account of
+non-associativity and of the Mocanu paradox "not satisfactory", and says the
+Dirac equation removed the need for Thomas precession. The Dirac equation
+contains the Thomas factor (it reappears in the spin-orbit term of the
+equation's non-relativistic reduction), and Thomas precession is part of the
+Bargmann-Michel-Telegdi equation used to analyse spin precession in storage
+rings. That is standard physics, cited and not checked here. It is the same
+rotation as in RV3.
+
+| Claim in *Ternary relative velocity* | Standing |
+|---|---|
+| (2.2)-(2.5), Theorem 2.3 | Correct; the "if" half of Theorem 2.5 checked (RV5) |
+| The boost linking `A` to `B` is not unique | True: unique only once an observer is fixed (RV5) |
+| Einstein velocity needs a preferred system (2.6) | Not from (i) and (ii); needs vector reciprocity in one space |
+| Binary velocity cannot parameterize an isometry (§4) | False; it is not compatible with composition (Thomas-Wigner) |
+| (4.2) distinguishes the two theories | No: two quantities of standard relativity (RV6) |
+| No asymmetric ageing without absolute space (§7.3) | Contradicts the paper's own §4 |
+| No material rod contraction (§4) | Asserted without derivation here (RV-SP4) |
+
+---
+
+## 7. What does not follow: withdrawn applications
 
 The June 2025 chats applied the paper far beyond its content. Every quantity in
 chapter 2 depends on velocities only through `gamma`, and every relation there
@@ -297,7 +404,7 @@ threshold as the textbook. It offers no way past it.
 
 ---
 
-## 7. Open items
+## 8. Open items
 
 - **RV-SP1.** Can the finite speed `c` be introduced without the metric, for
   example from a cone structure or a conformal class alone? Oziewicz's remark
@@ -311,10 +418,15 @@ threshold as the textbook. It offers no way past it.
   of `S` and `B`, `L_{E∧w}` equals the binary boost followed by a rotation of
   the street's rest space, and the rotation is the identity only for eagles in
   the plane.
+- **RV-SP4.** *Ternary relative velocity* §4 says groupoid relativity has "no
+  material rod contraction", without derivation (it cites Oziewicz 2006,
+  2007). With the metric clock of (1.6.6), is the length of a rod moving
+  relative to `A`, taken on `A`'s simultaneity, contracted? If it is, the claim
+  rests on a different definition of length, which should be stated.
 
 ---
 
-## 8. Verification
+## 9. Verification
 
 `PYTHONPATH=src python3 -u src/verify_relative_velocity.py` ends with
 `ALL CHECKS PASSED`.
@@ -325,8 +437,10 @@ threshold as the textbook. It offers no way past it.
 | B | RV2: one boost for every eagle in the plane; `w(S,S,B) = gamma v_SB`, `w(B,S,B) = -gamma v_BS` | SymPy, symbolic rapidities |
 | C | RV3: unique solution, different size, Thomas-Wigner rotation, Einstein addition | exact rationals, 2+1 |
 | D | RV1: split with an arbitrary clock; Galilean additivity (1.4.8) | SymPy, symbolic vectors and clock |
+| E | RV5: (2.2) solves the link and is reciprocal; (2.4) is the boost-parameter gamma; coplanar and `P = A` reductions; `(v_AB + v_BA)^2` | SymPy, exact rationals in 1+3 and symbolic rapidities |
+| F | RV6: both values of (4.2), and `E'` as `E_Bob` carried by the boost | SymPy, symbolic `u`, `E`, `B_A` |
 | G | RV4: `M^2 = m^2 + 2 m E_XG`; threshold numbers | exact identity; numbers numerical |
-| W | sizes in §6 | numerical |
+| W | sizes in §7 | numerical |
 
 ---
 
@@ -334,7 +448,9 @@ threshold as the textbook. It offers no way past it.
 
 - Z. Oziewicz and W. S. Page, "Concepts of relative velocity", 29 March 2011, [arXiv:1104.0684](https://arxiv.org/abs/1104.0684).
 - Z. Oziewicz, "Many-body mass-centre: Homological Algebra for relativity of position-spaces", *J. Phys.: Conf. Ser.* 532 (2014) 012021, [doi:10.1088/1742-6596/532/1/012021](https://doi.org/10.1088/1742-6596/532/1/012021); long versions as in [`references/bibliography.md`](../references/bibliography.md).
-- Z. Oziewicz, "Ternary relative velocity; astonishing conflict of the Lorentz group with relativity" (2007), [arXiv:1104.0682](https://arxiv.org/abs/1104.0682).
+- Z. Oziewicz, "Ternary relative velocity; astonishing conflict of the Lorentz group with relativity", in V. Gladyshev (ed.), *Physical Interpretations of Relativity Theory*, Moscow 2007, pp. 292-303; [arXiv:1104.0682](https://arxiv.org/abs/1104.0682).
+- V. Bargmann, L. Michel and V. L. Telegdi, "Precession of the polarization of particles moving in a homogeneous electromagnetic field", *Phys. Rev. Lett.* 2 (1959) 435, [doi:10.1103/PhysRevLett.2.435](https://doi.org/10.1103/PhysRevLett.2.435).
+- A. A. Ungar, "Thomas rotation and the parametrization of the Lorentz transformation group", *Found. Phys. Lett.* 1 (1988) 57-89, [doi:10.1007/BF00661317](https://doi.org/10.1007/BF00661317).
 - X. Hernandez, M. A. Jiménez and C. Allen, "Wide binaries as a critical test of classical gravity", *Eur. Phys. J. C* 72 (2012) 1884, [ADS](https://ui.adsabs.harvard.edu/abs/2012EPJC...72.1884H/abstract).
 - S. G. Turyshev et al., "Support for the thermal origin of the Pioneer anomaly", *Phys. Rev. Lett.* 108 (2012) 241101, [ADS](https://ui.adsabs.harvard.edu/abs/2012PhRvL.108x1101T).
 - T. Matolcsi, *Space-time Without Reference Frames* (Akadémiai Kiadó, Budapest 1994).

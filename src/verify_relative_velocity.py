@@ -24,6 +24,13 @@ Parts
      rotation of S's rest space (Thomas-Wigner); w/gamma_w is the Einstein
      velocity v with v (+) u_S = u_B in the eagle's frame
   D  the metric-free split (Def. 1.4.2) and Galilean additivity (1.4.8)
+  E  the closed forms of Ternary relative velocity (Oziewicz 2007): (2.2)
+     solves the boost-link problem and is reciprocal (2.3); (2.4) is the
+     gamma of the boost parameter, not -A.B; for P = A both reduce to the
+     binary velocity; for a coplanar P, (2.2) is the form (2.5) and
+     gamma = -A.B (Theorem 2.5); (v_AB + v_BA)^2 = -2(gamma-1)(1-1/gamma^2)
+  F  (4.2) of the same paper: the 'Lorentz-group' and 'groupoid' values are
+     two different quantities of standard relativity
   G  the GZK threshold is an invariant-mass condition (exact form), with
      its numerical value
   W  sizes of v^2/c^2 for the applications withdrawn in the supplement
@@ -182,6 +189,113 @@ def part_d():
           zero(vel(X, Y) + vel(Z, X) - vel(Z, Y)))
 
 
+# -------------------------------------------------------------------- Part E
+def lift(u):
+    """Unit time-like vector with spatial velocity u (c = 1)."""
+    u = sp.Matrix(u)
+    return (1 / sp.sqrt(1 - u.dot(u))) * sp.Matrix([1, *u])
+
+
+def binary(X, Y, n):
+    """Binary velocity (1.4) of Ternary relative velocity: Y/(-Y.X) - X."""
+    return Y / (-dot(X, Y, n)) - X
+
+
+def ternary_22(P, A, B, n):
+    """Ternary relative velocity v(P, A, B), eq. (2.2) of Oziewicz 2007."""
+    num = dot(P, A + B, n) * (dot(P, B, n) * binary(P, B, n) - dot(P, A, n) * binary(P, A, n))
+    return num / (dot(P, A, n) ** 2 + dot(P, B, n) ** 2 - 1 - dot(A, B, n))
+
+
+def gamma_24(P, A, B, n):
+    """gamma_ternary, eq. (2.4) of Oziewicz 2007."""
+    a, b, ab = dot(P, A, n), dot(P, B, n), dot(A, B, n)
+    return (a**2 + b**2 - ab - 1) / (2 * a * b + ab + 1)
+
+
+def part_e():
+    print("E. Ternary relative velocity (Oziewicz 2007): (2.2)-(2.5), and (1.7.23)")
+    n = 4
+    R = sp.Rational
+    cases = {
+        "RV3 case (P at rest, A = (3/5,0,0), B = (0,4/5,0))":
+            (lift([0, 0, 0]), lift([R(3, 5), 0, 0]), lift([0, R(4, 5), 0])),
+        "general 1+3 case (P, A, B with rational velocities, P moving)":
+            (lift([R(1, 7), R(-2, 9), R(1, 5)]), lift([R(2, 5), R(1, 3), 0]),
+             lift([R(-1, 4), R(1, 2), R(2, 7)])),
+    }
+    for name, (P, A, B) in cases.items():
+        print(f"    {name}")
+        v = ternary_22(P, A, B, n).applyfunc(sp.simplify)
+        w = (v / sp.sqrt(1 - dot(v, v, n))).applyfunc(sp.simplify)    # w = gamma_v v
+        gw = sp.simplify(sp.sqrt(1 + dot(w, w, n)))
+        check("(2.2): P.v = 0 and w = gamma_v v solves L_{P^w} A = B",
+              zero(dot(P, v, n)) and zero(boost(P, w, n, gw) * A - B))
+        check("(2.3): v(P,B,A) = -v(P,A,B)",
+              zero(ternary_22(P, B, A, n) + ternary_22(P, A, B, n)))
+        check("(2.4) is the gamma of the boost parameter, sqrt(1 + w.w)",
+              zero(gw - gamma_24(P, A, B, n)))
+        gAB = sp.simplify(-dot(A, B, n))
+        check("... and differs from gamma_binary = -A.B (P outside the plane of A, B)",
+              not zero(gw - gAB))
+        print(f"      gamma_ternary = {sp.N(gw, 7)}, gamma_binary = {sp.N(gAB, 7)} (numerical display)")
+    # P = A: the measuring body as its own observer
+    P, A, B = cases["general 1+3 case (P, A, B with rational velocities, P moving)"]
+    check("P = A: (2.2) is the binary velocity v_AB and (2.4) is -A.B",
+          zero(ternary_22(A, A, B, n) - binary(A, B, n))
+          and zero(gamma_24(A, A, B, n) + dot(A, B, n)))
+    # coplanar P (Corollary 2.4, Theorem 2.5), symbolic rapidities in one plane,
+    # written with t = exp(rapidity) so that every expression is rational
+    p, a, b = sp.symbols("p a b", positive=True)
+    hv = lambda t: sp.Matrix([(t + 1 / t) / 2, (t - 1 / t) / 2, 0, 0])
+    P, A, B = hv(p), hv(a), hv(b)
+    vPA, vPB = binary(P, A, n), binary(P, B, n)
+    form25 = (vPB - vPA) / (1 - dot(vPB, vPA, n))
+    rational_zero = lambda e: all(sp.cancel(x) == 0 for x in sp.Matrix([e]))
+    check("coplanar P: (2.2) equals de Abreu-Guerra's (2.5)",
+          rational_zero(ternary_22(P, A, B, n) - form25))
+    check("coplanar P: gamma_ternary (2.4) = -A.B (Theorem 2.5)",
+          rational_zero(gamma_24(P, A, B, n) + dot(A, B, n)))
+    # (v_AB + v_BA)^2 in a Gram model of A, B: Mass-centre (1.7.23), talk page 36
+    g = sp.symbols("gamma", positive=True)
+    G = sp.Matrix([[-1, -g], [-g, -1]])
+    s = sp.Matrix([-1, 1 / g]) + sp.Matrix([1 / g, -1])      # v_AB + v_BA on (A, B)
+    check("(v_AB + v_BA)^2 = -2(gamma - 1)(1 - 1/gamma^2) = -beta^4 - O(beta^6)",
+          zero((s.T * G * s)[0] + 2 * (g - 1) * (1 - 1 / g**2)))
+
+
+# -------------------------------------------------------------------- Part F
+def part_f():
+    print("F. Eq. (4.2) of Oziewicz 2007: moving-media electrodynamics")
+    n = 4
+    u1, u2, u3, E1, E2, E3, bb = sp.symbols("u1 u2 u3 E1 E2 E3 b", real=True)
+    u = sp.Matrix([u1, u2, u3])
+    E = sp.Matrix([E1, E2, E3])
+    Bf = bb * u                                       # u x B = 0, the case of (4.2)
+    gam = 1 / sp.sqrt(1 - u.dot(u))
+    # F_{mu nu} with F_{i0} = E_i, F_{ij} = eps_{ijk} B_k; field seen by U: F_{mu nu} U^nu
+    F = sp.zeros(4, 4)
+    for i in range(3):
+        F[i + 1, 0], F[0, i + 1] = E[i], -E[i]
+        for j in range(3):
+            F[i + 1, j + 1] = sum(sp.LeviCivita(i, j, k) * Bf[k] for k in range(3))
+    A = sp.Matrix([1, 0, 0, 0])
+    Bob = gam * sp.Matrix([1, u1, u2, u3])
+    EA = eta(n) * (F * A)                             # raise the index: 4-vectors
+    EB = eta(n) * (F * Bob)
+    check("groupoid value 0 is the Minkowski product: E_Bob.E_Alice - gamma E_Alice^2 = 0",
+          zero(dot(EB, EA, n) - gam * dot(EA, EA, n)))
+    Ep = gam * (E + u.cross(Bf)) - gam**2 / (gam + 1) * u.dot(E) * u   # textbook E'
+    check("'Lorentz-group' value: E'.E - gamma E^2 = -gamma^2/(gamma+1) (u.E)^2",
+          zero(Ep.dot(E) - gam * E.dot(E) + gam**2 / (gam + 1) * u.dot(E) ** 2))
+    w = gam * sp.Matrix([0, u1, u2, u3])
+    L = boost(A, w, n, gam)
+    check("L_{A^gamma u} A = Bob", zero(L * A - Bob))
+    pulled = sp.Matrix([0, *Ep])                      # E' placed in Alice's rest space
+    check("E' is E_Bob carried into Alice's rest space: L_{A^gamma u} (0, E') = E_Bob",
+          zero(L * pulled - EB))
+
+
 # -------------------------------------------------------------------- Part G
 def part_g():
     print("G. GZK threshold as an invariant mass (Theorem MC3, absorption)")
@@ -223,6 +337,8 @@ if __name__ == "__main__":
     part_b()
     part_c()
     part_d()
+    part_e()
+    part_f()
     part_g()
     part_w()
     print()
