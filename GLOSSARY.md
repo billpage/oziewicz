@@ -66,6 +66,18 @@ without one. Needs no metric. **Defined:** *Many-body mass-centre* §1.1, §3.1;
 **Not to confuse with** a hypersurface of simultaneous events, which needs a
 clock and is a set of events, not of places.
 
+### Reciprocity
+
+Einstein's assumption that if `B` moves with velocity `v` relative to `A`,
+then `A` moves with `-v` relative to `B`. Oziewicz's binary velocities are not
+reciprocal as vectors, because `v_AB` and `v_BA` lie in different rest spaces;
+they are reciprocal after the boost carries one rest space to the other.
+**Defined:** [`mass_centre.md`](analysis/mass_centre.md#3-the-binary-velocity)
+Proposition MC1, part 3; its role in the "astonishing conflict" in
+[`bodies_first.md`](supplement/bodies_first.md#6-the-astonishing-conflict).
+**Not to confuse with** the reciprocity of a ternary velocity for one fixed
+observer, (2.3) of *Ternary relative velocity*, which holds as vectors.
+
 ### Split (projection, `Pi_X`)
 
 The decomposition of a vector into a part along a body `X` and a part in its
