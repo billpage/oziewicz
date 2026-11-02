@@ -1,0 +1,1 @@
+So this is also a comment to Greg Volk: every partial derivative is a vector field. But how do we define a vector field? You need first the scalar fields, the algebra of all scalar fields, and so on. But I did not finish this slide.

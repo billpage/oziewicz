@@ -1,0 +1,1 @@
+Here is another citation, from Synge's book Quaternions, Lorentz Transformations … He suggests: forget about coordinates. Try to understand without coordinates, and then, if you choose coordinates, you can come back to concrete coordinates at any moment.

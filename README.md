@@ -32,6 +32,8 @@ without cloning. To produce figures yourself, see
 analysis/     Derivations and review notes (a numbered ladder, once the first
               note exists)
 supplement/   Background, worked test cases, summaries of unpublished drafts
+talks/        Oziewicz's talks as narrated slide pages: notes and sources here,
+              the pages with audio on the `output` branch (see talks/README.md)
 notebooks/    Notebook companions (outputs stripped; rendered copies are on
               the `output` branch)
 src/          Verification and graphics code only
@@ -90,8 +92,10 @@ git push origin output
 Embed on `main` with
 `https://raw.githubusercontent.com/billpage/oziewicz/output/<subdir>/<filename>`.
 
-The `output` branch is not reviewed commit by commit and is not published on the
-project's web pages; see [`AI-USE.md`](AI-USE.md).
+The `output` branch is not reviewed commit by commit. Of its content only the
+narrated slide pages in `narrated/` are published on the project's web pages, and
+only those whose SHA-256 is listed in `talks/narrated.sha256` on `main`; see
+[`AI-USE.md`](AI-USE.md) and [`talks/README.md`](talks/README.md).
 
 ## PDF releases
 
@@ -115,8 +119,8 @@ From the repository root, before committing a change to any markdown file
 (needs `npm install katex mathjax-full` once; exits 1 on a problem):
 
 ```bash
-PYTHONPATH=src python3 -m ozlib.check_md_math analysis supplement notebooks \
-    README.md ORIENTATION.md AI-USE.md AGENTS.md references
+PYTHONPATH=src python3 -m ozlib.check_md_math analysis supplement notebooks talks \
+    README.md ORIENTATION.md AI-USE.md AGENTS.md GLOSSARY.md references
 PYTHONPATH=src python3 -m ozlib.check_notebook_math notebooks
 ```
 
@@ -133,6 +137,9 @@ added with the first ladder.
   `references/bibliography.md` as links.
 - Unpublished drafts are not committed. Link them where they are public;
   otherwise a summary written for this repository goes in `supplement/`.
+- Exception: a talk in `talks/` (slides as images, transcript, recording) that
+  Bill has decided to include, with a `NOTICE.md`. The PDF itself is not
+  committed.
 
 ## AI collaboration and authorship
 
@@ -154,7 +161,10 @@ reviewed. [`AI-USE.md`](AI-USE.md) gives the details and what "verified" means h
   International](LICENSE-DOCS) (`CC-BY-SA-4.0`).
 
 These licences cover this repository's own content only. Oziewicz's papers, and
-any text quoted from other authors, remain under their own terms.
+any text quoted from other authors, remain under their own terms. So do his
+slides, the words of his talks and his recorded voice in `talks/` and in
+`narrated/` on the `output` branch; each talk's `NOTICE.md` says what they are
+and on what basis they are included.
 
 ## Citation
 

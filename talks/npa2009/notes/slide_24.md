@@ -1,0 +1,1 @@
+So this is how I came to my idea, because I like to define everything without choices: without coordinates, without a choice of units, without a basis, without international units. I considered these things totally irrelevant conventions for the laws of physics, and I wanted to understand what special relativity is.
