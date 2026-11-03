@@ -422,7 +422,7 @@ It is not a different theory.
 
 - **MC-SP1.** Which integral curve of `Z` is the mass centre? In the paper's language: is there an intrinsic point of Keres's z-space, or only the frame?
 - **MC-SP2.** The radiation `G` (gravitational or electromagnetic) enters only as a null vector in a balance. The paper gives no law for it, so Def. 2.1.3 is kinematics. *Rival theories* (9.6) admits a non-null interaction field; this note checks only the null case.
-- **MC-SP3.** Relate Oziewicz's proposal that intrinsic spin lies in `dP` (emails of 30 November 2018 and 4 November 2019) to the spin `S` that sets the radius of Møller's disk.
+- **MC-SP3.** Relate Oziewicz's proposal that intrinsic spin lies in `dP` (emails of 30 November 2018 and 4 November 2019) to the spin `S` that sets the radius of Møller's disk. Step 3 restates this as MF-SP1 ([`metric_free_body.md`](metric_free_body.md#12-open-items)).
 - **MC-SP4.** Bill Page's question of 17 August 2020: can relative dynamics be written with binary accelerations `L_Z v_Zi` relative to the mass centre, as in §1.8 of the long version, and is that enough?
 - **MC-SP5.** Check the radiation terms of Proposition 2.2.4, (2.2.8), and the radiation relations of Clarification 2.2.3.
 - **MC-SP6.** *Answered* (1 November 2026): the public long version is the 2015 one on Academia.edu, and §1 maps its numbering to the 2017 version. The 2017 revision is not known to be public; whether to publish a summary of it is left to Bill Page.

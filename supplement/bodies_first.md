@@ -113,9 +113,9 @@ the bodies and a choice of clock; the second adds the metric `g` of Postulate
 | Concept | Metric-free layer | What the metric adds |
 |---|---|---|
 | body | a derivation `X != 0` | "time-like": `(gX)X = det g < 0` (1.6.5) |
-| position space of `X` | scalars with `Xf = 0`; forms in `ker ev_X` (§1.1, §3.1) | nothing |
+| position space of `X` | scalars with `Xf = 0`; forms in `ker ev_X` (§1.1, §3.1). *Corrected by step 3, MF9:* those are two different objects, and the second is not a position space | nothing |
 | clock of `X` | any one-form `alpha` with `alpha X = 1` (Def. 1.4.1) | the canonical clock `gX / (gX)X` (1.6.6) |
-| split, relative velocity | `Y = (alpha Y)(X + v_XY)`, `v_XY = Y/(alpha Y) - X` (1.4.4)-(1.4.7) | `gamma_XY = clock_X Y = clock_Y X`, symmetric (1.6.6) |
+| split, relative velocity | `Y = (alpha Y)(X + v_XY)`, `v_XY = Y/(alpha Y) - X` (1.4.4)-(1.4.7) | `gamma_XY = clock_X Y = clock_Y X`, symmetric (1.6.6). *Corrected by step 3, MF4:* for spanning bodies this symmetry is the metric, not something added to it |
 | speed of light | absent | `det g = -c^2` (1.6.7, §1.7.4) |
 
 **Proposition RV1 (the metric-free layer).**
@@ -140,7 +140,9 @@ kinematics; the clocks decide that. What it cannot supply is the finite speed
 "time-like" and the bound `|v| < c`. So "time-like" can be dropped in the first
 layer and is needed in the second, and the second is where the two papers do
 their relativistic work: the gamma factors, the non-reciprocity (1.7.19), the
-mass centre of chapter 2.
+mass centre of chapter 2. *Refined by step 3* ([`metric_free_body.md`](../analysis/metric_free_body.md)):
+"time-like" can be defined from a family of clocks (MF6), and whether `c` is finite from the
+surface of unit processes (MF7).
 
 ---
 
@@ -414,7 +416,7 @@ threshold as the textbook. It offers no way past it.
 
 ## 8. Open items
 
-- **RV-SP1.** Can the finite speed `c` be introduced without the metric, for
+- **RV-SP1.** *Answered in part by step 3, MF6 and MF7:* the cone comes from the clocks, and finiteness of `c` from the curvature of the surface of unit processes; the value of `c` needs a ruler. Can the finite speed `c` be introduced without the metric, for
   example from a cone structure or a conformal class alone? Oziewicz's remark
   that the symmetry group of Maxwell's equations is the conformal group
   (Clarification 1.7.11) suggests he considered it. Without it, "time-like"
