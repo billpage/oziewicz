@@ -14,6 +14,39 @@ Newest first: the most recent step is at the top, and the list runs back to
 step 1 at the bottom. Each entry is repeated word for word under the note's own
 title, and `check_abstracts` keeps the two copies equal.
 
+- **4.** **[`clock_centre.md`](clock_centre.md)** \
+  Step 3 found that a rotating body has no time function of its own and left
+  open how its vorticity relates to Møller's spin (MF-SP1, MC-SP3). This note
+  reads Pryce (1948) and Møller (1949) and corrects step 1. **Definition CS0**
+  adds what a body as a congruence lacks: a place. **Theorem CS1**: for a closed
+  system with total `P` and bivector `L`, any covector `zeta` with `zeta(P) !=
+  0` picks one line, the centre `C[zeta](tau) = (tau P - ev_zeta L)/zeta(P)`.
+  This is Pryce's (2.8) with `n` read as a clock, so it needs no metric, and a
+  spin supplementary condition is a choice of clock. **Proposition CS2**: the
+  spin is the trivector `P ∧ L`, independent of origin; two centres differ,
+  modulo `P`, by `(P ∧ L)(zeta_1, zeta_2, ·)/(zeta_1(P) zeta_2(P))`, and all
+  clocks give one line exactly when `P ∧ L = 0`. **Proposition CS3**: with the
+  metric, the clock `b(P, ·)` gives Pryce's definition (d), which he calls
+  relativistically covariant and the most satisfactory, and Møller's centre of
+  gravity; this answers MC-SP1 and corrects step 1: a covariant centre worldline
+  exists, the "known" impossibility that *Many-body mass-centre* §2.1 cites to
+  these authors is not what they say, and Oziewicz's own `Z` with its clock has
+  all that is needed to define it. What Pryce finds difficult is different: no
+  definition is both covariant and has commuting coordinates. **Proposition
+  CS4**: with one clock the centres of subsystems add; with each subsystem's own
+  clock they do not, which is the pattern of step 2. **Proposition CS5**: `S_ij
+  = -(1/2) ∫ r^2 (d pi)_ij` for a momentum density `pi`, which supports
+  Oziewicz's proposal that spin lies in `dP`, but only with mass as a density:
+  two free bodies have `d alpha = 0` and `S != 0`, and on a rotor the `rho d
+  alpha` term alone gives `-I Omega`. **Proposition CS6**: for axisymmetric dust
+  the circulation of the clock is the specific angular momentum, so `S = (c^2/4
+  pi) ∫ Delta tau dm` with `Delta tau` the Sagnac difference, and on a ring
+  Møller's radius is `c Delta tau/(4 pi gamma)`. So the failure of a rotating
+  body's clocks to close and the spread of its centres are one quantity. The
+  time problem is not removed: a time function has to come from outside the
+  body, and each outside clock has its own centre. Checked exactly with SymPy;
+  CS1 and CS2 are also proved here, and CS6 is close to an identity. No new
+  prediction.
 - **3.** **[`metric_free_body.md`](metric_free_body.md)** \
   *Many-body mass-centre* gives each body a time-like derivation and a clock.
   This note drops "time-like", keeps only a pair `(X, alpha)` with `alpha X =

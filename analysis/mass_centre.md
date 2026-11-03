@@ -385,7 +385,10 @@ is the centre is not asked (open item MC-SP1). His abstract and §2.1 say the
 intrinsic mass centre "does not exist" with the Lorentz group "for finite
 radiation-speed", citing Pryce, Møller and Landau-Lifshitz. Those authors meant
 the worldline; with the Lorentz group the frame `Z` is standard and unique. The
-claim and the construction use the word for two different things.
+claim and the construction use the word for two different things. *Corrected by step 4,
+CS3* ([`clock_centre.md`](clock_centre.md)): those authors do not say the worldline is
+impossible. Pryce's (d) and Møller's centre of gravity are a covariant worldline, and the
+paragraph above should not be read as saying it is in dispute.
 
 The disk has a second meaning for the correspondence. Its radius is set by the
 spin `S`. Oziewicz's last proposals (November 2018 to November 2019) put intrinsic
@@ -407,7 +410,7 @@ does not address (open item MC-SP3).
 | (2.1.15) | Misprinted radicand (MC4) |
 | Speculation 2.1.7 | Unsupported: the gammas are not independent (MC4) |
 | Reduced momenta (2.2.4)-(2.2.11) | Correct without radiation, up to the factor `c^2` Oziewicz flagged in 2020 (MC5) |
-| An intrinsic mass centre is impossible with the Lorentz group and possible here | The frame `Z` exists in both; the worldline is settled in neither (MC7) |
+| An intrinsic mass centre is impossible with the Lorentz group and possible here | The frame `Z` exists in both. *Corrected by step 4, CS3:* the worldline is defined by Pryce and Møller with the metric, and the paper gives none |
 | A `gamma`-dependent reduced mass may explain wide binaries | No dynamics given; for `v` of 0.5 to 2 km/s, `gamma - 1` is `1.4e-12` to `2.2e-11` (Part W), against claimed anomalies of tens of per cent |
 
 What remains of Oziewicz's own is the presentation: no coordinates, bodies as
@@ -420,7 +423,7 @@ It is not a different theory.
 
 ## 10. Open items
 
-- **MC-SP1.** Which integral curve of `Z` is the mass centre? In the paper's language: is there an intrinsic point of Keres's z-space, or only the frame?
+- **MC-SP1.** *Answered by step 4, CS3: the centre of the clock of `Z`.* Which integral curve of `Z` is the mass centre? In the paper's language: is there an intrinsic point of Keres's z-space, or only the frame?
 - **MC-SP2.** The radiation `G` (gravitational or electromagnetic) enters only as a null vector in a balance. The paper gives no law for it, so Def. 2.1.3 is kinematics. *Rival theories* (9.6) admits a non-null interaction field; this note checks only the null case.
 - **MC-SP3.** Relate Oziewicz's proposal that intrinsic spin lies in `dP` (emails of 30 November 2018 and 4 November 2019) to the spin `S` that sets the radius of Møller's disk. Step 3 restates this as MF-SP1 ([`metric_free_body.md`](metric_free_body.md#12-open-items)).
 - **MC-SP4.** Bill Page's question of 17 August 2020: can relative dynamics be written with binary accelerations `L_Z v_Zi` relative to the mass centre, as in §1.8 of the long version, and is that enough?

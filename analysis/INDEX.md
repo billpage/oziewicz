@@ -21,6 +21,7 @@ defined in the [glossary](../GLOSSARY.md).
 | MC | 1 | [`mass_centre.md`](mass_centre.md) |
 | TV | 2 | [`ternary_mass_centre.md`](ternary_mass_centre.md) |
 | MF | 3 | [`metric_free_body.md`](metric_free_body.md) |
+| CS | 4 | [`clock_centre.md`](clock_centre.md) |
 
 ## Results by note
 
@@ -35,7 +36,7 @@ defined in the [glossary](../GLOSSARY.md).
 | [Cor MC4](mass_centre.md#5-the-two-body-total-mass) | 5 | The radicand of (2.1.15) is misprinted (`gamma - 1` for `gamma^2 - 1`) and is zero without radiation | — |
 | [Prop MC5](mass_centre.md#6-reduced-momentum-and-reduced-mass) | 6 | Reduced momenta (2.2.4)-(2.2.11) hold without radiation; (2.2.4) as printed is `c^2` times Planck's momentum | Radiation terms open (MC-SP5); reading of `mu_kl` refined by TV2, TV9 |
 | [Thm MC6](mass_centre.md#7-the-mass-centre-as-an-idempotent) | 7 | `c = P/M^2` is the unique trace-1 idempotent with `cP = P = Pc`; it is `Z ⊗ clock_Z` | — |
-| [Prop MC7](mass_centre.md#8-what-the-mass-centre-leaves-open-position) | 8 | Every observer's centroid moves with `Z`, displaced by `(S x beta)/(Mc)` (Møller); `Z` fixes direction, not position | Checked on 8 cases; general statement is Møller's |
+| [Prop MC7](mass_centre.md#8-what-the-mass-centre-leaves-open-position) | 8 | Every observer's centroid moves with `Z`, displaced by `(S x beta)/(Mc)` (Møller); `Z` fixes direction, not position | Checked on 8 cases; general statement is Møller's. §8 and §9 on the worldline corrected by CS3 |
 
 ### Step 2: [`ternary_mass_centre.md`](ternary_mass_centre.md)
 
@@ -70,13 +71,25 @@ defined in the [glossary](../GLOSSARY.md).
 | [Prop MF10](metric_free_body.md#9-the-clock-is-a-connection) | 9 | `Pi d alpha` is curvature; `L_X alpha` is the one-body acceleration; relative acceleration leaves the rest space; the holonomy is Sagnac | — |
 | [Prop MF11](metric_free_body.md#10-time) | 10 | Time scalars exist only where `alpha ∧ d alpha = 0`; on a rotating body the reciprocal clock and a time function exclude each other | — |
 
+### Step 4: [`clock_centre.md`](clock_centre.md)
+
+| ID | § | Says | Standing |
+|---|---|---|---|
+| [Def CS0](clock_centre.md#2-a-body-needs-a-place) | 2 | A closed system has `P` and a bivector `L`; a clock is a covector with `zeta(P) != 0`; a body needs a place | — |
+| [Thm CS1](clock_centre.md#3-each-clock-has-its-own-centre) | 3 | The centre of a clock is `(tau P - ev_zeta L)/zeta(P)`: Pryce (2.8) with `n` read as a clock; a supplementary condition is a choice of clock | Known result, read without a metric |
+| [Prop CS2](clock_centre.md#3-each-clock-has-its-own-centre) | 3 | The spin is `P ∧ L`; two centres differ by it; all clocks agree exactly when it vanishes | — |
+| [Prop CS3](clock_centre.md#4-what-pryce-and-møller-said) | 4 | The clock `b(P, .)` gives Pryce (d) and Møller's centre of gravity, a covariant worldline | Corrects `mass_centre.md` §§8, 9; answers MC-SP1 |
+| [Prop CS4](clock_centre.md#4-what-pryce-and-møller-said) | 4 | One clock: centres add over subsystems; own clocks: they do not | Part 2 on one example |
+| [Prop CS5](clock_centre.md#5-spin-in-dp) | 5 | `S_ij = -(1/2) ∫ r^2 (d pi)_ij`; on a rotor the `rho d alpha` term alone gives `-I Omega` | — |
+| [Prop CS6](clock_centre.md#6-where-vorticity-does-give-the-spin) | 6 | For axisymmetric dust the clock's circulation is `u_phi`, so `S = (c^2/4 pi) ∫ Delta tau dm`; Møller's radius on a ring is `c Delta tau/(4 pi gamma)` | Dust only |
+
 ## Open items
 
 | ID | Says | Status |
 |---|---|---|
-| [MC-SP1](mass_centre.md#10-open-items) | Which integral curve of `Z` is the mass centre? | open |
+| [MC-SP1](mass_centre.md#10-open-items) | Which integral curve of `Z` is the mass centre? | answered by CS3: the centre of the clock of `Z` |
 | [MC-SP2](mass_centre.md#10-open-items) | No law is given for the radiation `G`; the non-null interaction field is unchecked | open |
-| [MC-SP3](mass_centre.md#10-open-items) | Relate spin in `dP` (Oziewicz 2018-2019) to the spin that sets Møller's disk | open; continued as MF-SP1 |
+| [MC-SP3](mass_centre.md#10-open-items) | Relate spin in `dP` (Oziewicz 2018-2019) to the spin that sets Møller's disk | answered in part by CS5, CS6; continued as MF-SP1 |
 | [MC-SP4](mass_centre.md#10-open-items) | Dynamics from binary accelerations relative to the mass centre | open |
 | [MC-SP5](mass_centre.md#10-open-items) | Radiation terms of (2.2.8) and Clarification 2.2.3 | open |
 | [MC-SP6](mass_centre.md#10-open-items) | Public link for the long version | answered: 2015 version on Academia.edu (§1) |
@@ -85,9 +98,14 @@ defined in the [glossary](../GLOSSARY.md).
 | [TV-SP3](ternary_mass_centre.md#11-open-items) | Is the failure of cluster separability a rotation between `Z` of the pair and `Z` of the system? | open |
 | [TV-SP4](ternary_mass_centre.md#11-open-items) | A three-body counterpart of TV2 for (2.2.11) | open |
 | [TV-SP5](ternary_mass_centre.md#11-open-items) | The search of the correspondence was not exhaustive | open |
-| [MF-SP1](metric_free_body.md#12-open-items) | Step 4: the vorticity of MF10 and Møller's spin, with mass as a density | open; continues MC-SP3 |
+| [MF-SP1](metric_free_body.md#12-open-items) | Step 4: the vorticity of MF10 and Møller's spin, with mass as a density | answered in part by CS5, CS6 |
 | [MF-SP2](metric_free_body.md#12-open-items) | Measuring `Gamma` without presupposing a synchronisation | open |
 | [MF-SP3](metric_free_body.md#12-open-items) | Linear non-symmetric clocks; the meaning of the cycle ratio | open |
 | [MF-SP4](metric_free_body.md#12-open-items) | Position space when `F^X` is trivial | open |
 | [MF-SP5](metric_free_body.md#12-open-items) | Keres read only in part; the Kiev chapters of 1972 and 1973 are not located | open |
 | [MF-SP6](metric_free_body.md#12-open-items) | Which text was emailed on 13 April 2017: two compiled texts print that revision date | open |
+| [CS-SP1](clock_centre.md#8-open-items) | CS6 beyond dust and beyond stationary flows | open |
+| [CS-SP2](clock_centre.md#8-open-items) | The disk on a non-quadric surface | open |
+| [CS-SP3](clock_centre.md#8-open-items) | Møller's (29) from `Gamma >= 1` | open |
+| [CS-SP4](clock_centre.md#8-open-items) | Pryce's brackets and `P ∧ L` | open |
+| [CS-SP5](clock_centre.md#8-open-items) | Keres's vortex fields and the circulation of CS6 | open |
