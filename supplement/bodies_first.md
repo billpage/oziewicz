@@ -225,7 +225,8 @@ centre is a question about a position, and his ontology declines to make
 positions primary. Read that way, he did not solve Pryce's problem but argued
 it away: the question presupposes a position space the system does not own.
 Whether that is acceptable is a question about interpretation, not
-mathematics (open item MC-SP1).
+mathematics (open item MC-SP1). *Corrected by step 4, CS3* ([`clock_centre.md`](../analysis/clock_centre.md)):
+Pryce's definition (d) gives a covariant centre, so there was no such impossibility to argue away.
 
 ---
 

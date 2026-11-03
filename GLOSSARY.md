@@ -87,11 +87,12 @@ isometry; the claim that a binary velocity cannot parameterize an isometry is tr
 
 Two senses. (1) Oziewicz's `Z` of Definition 2.1.3: a body, the direction of the
 total 4-momentum, i.e. the centre-of-momentum frame. (2) Pryce's and Møller's:
-a worldline, the energy-weighted mean position, which depends on the observer.
+a worldline, the energy-weighted mean position, which depends on the clock used. The
+clock of `Z` picks out a covariant one, Pryce's (d), Møller's centre of gravity.
 **Defined:** [`mass_centre.md`](analysis/mass_centre.md#4-the-mass-centre-is-the-centre-of-momentum-frame)
-Theorem MC3 for (1), Proposition MC7 for (2). **Not to confuse** the two: the
-claim that a mass centre is impossible with the Lorentz group concerns (2), the
-construction concerns (1).
+Theorem MC3 for (1), Proposition MC7 and
+[`clock_centre.md`](analysis/clock_centre.md#3-each-clock-has-its-own-centre) for (2).
+**Not to confuse** the two: the construction of the paper concerns (1).
 
 ### Position space
 
