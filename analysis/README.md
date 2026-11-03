@@ -14,6 +14,51 @@ Newest first: the most recent step is at the top, and the list runs back to
 step 1 at the bottom. Each entry is repeated word for word under the note's own
 title, and `check_abstracts` keeps the two copies equal.
 
+- **3.** **[`metric_free_body.md`](metric_free_body.md)** \
+  *Many-body mass-centre* gives each body a time-like derivation and a clock.
+  This note drops "time-like", keeps only a pair `(X, alpha)` with `alpha X =
+  1`, and asks how far that goes with no metric and no signature, whether the
+  creation and evaluation operators can carry the weight put on them, and
+  whether the paper's algebraic position space and time are adequate.
+  **Definition MF0** fixes the setting and the factor `Gamma_XY = alpha_X(Y)`,
+  which need not be symmetric. **Proposition MF1**: `{ev_X, ∧_alpha} = alpha X`
+  gives the split with no metric; the image of `Pi` depends on the process alone
+  and its kernel on the clock alone, and the clock is a contracting homotopy, so
+  the Koszul complex has no homology. The operators are pointwise. **Proposition
+  MF2**: the non-reciprocity (1.7.19), (1.7.20), (1.7.22) needs no metric; the
+  direction of a relative velocity needs no clock, and its size does.
+  **Proposition MF3**: the mass centre `(P/M, theta/M)`, `M^2 = theta(P)`, needs
+  neither metric nor symmetry, and radiation is a square-zero pair with no
+  split. **Theorem MF4**: if the bodies span and `Gamma` is symmetric, there is
+  exactly one symmetric bilinear form `b` with `alpha_i = b(X_i, .)`. Postulate
+  1.6.3 is therefore the metric, not an addition to it: Oziewicz rejects
+  Einstein's reciprocity of velocities and postulates a reciprocity of clocks,
+  and that gives the metric and its isometry group. **Corollary MF5**: clocks
+  can be chosen reciprocal for up to 10 bodies in dimension 4, so only the 11th
+  tests the claim, and scale changes leave only cycle ratios. **Proposition
+  MF6**: the signature is an output: `Gamma >= 1` near every body gives one
+  positive direction, `Gamma <= 1` gives a definite form, and `Gamma = 1` gives
+  `b = alpha ⊗ alpha`. **Proposition MF7**: unit processes form a surface `L =
+  1` whose tangent plane is the natural clock, the only one with no first-order
+  clock effect; reciprocity holds exactly when the surface is a central quadric,
+  its centro-affine curvature decides whether `c` is finite, and `Gamma >= 1` is
+  the reverse triangle inequality. **Proposition MF8**: requiring the mass
+  centre to be a body whose vector and clock are both sums forces the quadric by
+  a second route; on a non-quadric the two means differ. **Proposition MF9**:
+  the paper's position space is not adequate: it gives two inequivalent
+  definitions, and (3.1.18) names the factor algebra of the instant, which
+  depends only on the clock. The basic algebra `ev_X b = 0 = ev_X db` is the
+  position space: it needs no clock and `d` closes on it, also on a rotating
+  disk, where the paper's factor differential does not exist. **Proposition
+  MF10**: the clock is a connection on the worldline fibration: `Pi d alpha` is
+  its curvature, `L_X alpha` is Einstein's one-body acceleration without
+  Christoffel symbols, and its holonomy on the disk is the Sagnac term.
+  **Proposition MF11**: the clock is not a time: time scalars exist only where
+  `alpha ∧ d alpha = 0`, and on a rotating body the reciprocal clock and a time
+  function exclude each other. Checked exactly with SymPy except where the note
+  says numerical; MF4 to MF8 and MF11 also rest on short proofs given here.
+  Nothing here departs from standard relativity. Step 4 takes up the link
+  between this vorticity and Møller's spin.
 - **2.** **[`ternary_mass_centre.md`](ternary_mass_centre.md)** \
   Step 1 read the mass centre `Z` as the centre-of-momentum frame, and
   `supplement/bodies_first.md` read the ternary velocity `w(P, A, B)` as a

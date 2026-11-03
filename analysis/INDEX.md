@@ -20,6 +20,7 @@ defined in the [glossary](../GLOSSARY.md).
 |---|---|---|
 | MC | 1 | [`mass_centre.md`](mass_centre.md) |
 | TV | 2 | [`ternary_mass_centre.md`](ternary_mass_centre.md) |
+| MF | 3 | [`metric_free_body.md`](metric_free_body.md) |
 
 ## Results by note
 
@@ -52,13 +53,30 @@ defined in the [glossary](../GLOSSARY.md).
 | [Prop TV8](ternary_mass_centre.md#8-the-algebra-of-observers-sees-the-same-line) | 8 | The Frobenius form has determinant `±(det gamma)^(2n)`; degenerate exactly for linearly dependent bodies; `gamma_t = gamma - alpha` | — |
 | [Prop TV9](ternary_mass_centre.md#9-dynamics-where-two-bodies-work-and-three-do-not) | 9 | `mu_12` is Todorov's `epsilon_w`; `v(Z, A, B)` is the velocity of his effective particle | — |
 
+### Step 3: [`metric_free_body.md`](metric_free_body.md)
+
+| ID | § | Says | Standing |
+|---|---|---|---|
+| [Def MF0](metric_free_body.md#2-setting) | 2 | A body is a pair `(X, alpha)` with `alpha X = 1`; `Gamma_XY = alpha_X(Y)`, not assumed symmetric; gauge `(fX, alpha/f)` | (1.4.13), (1.6.6) as printed read `clock_X Y = (det g) gamma`: misprint |
+| [Prop MF1](metric_free_body.md#3-creation-evaluation-and-the-split) | 3 | The split needs no metric; `im Pi` depends on the process, `ker Pi` on the clock; the clock is a Koszul homotopy; a clock needs `X` nowhere zero; `p` forgets scale and arrow | Pointwise; exact in `n = 3` symbolically and one case in `n = 4` |
+| [Prop MF2](metric_free_body.md#4-velocity) | 4 | (1.7.19), (1.7.20), (1.7.22) hold with two `Gamma`s and no metric; direction needs no clock, size does | (1.4.11), line 1, is off by `gamma` |
+| [Prop MF3](metric_free_body.md#5-the-mass-centre-and-radiation) | 5 | `(P/M, theta/M)`, `M^2 = theta(P)`, needs no metric or symmetry; radiation is a square-zero pair with no split | Which mean is right below the metric: MF8 |
+| [Thm MF4](metric_free_body.md#6-reciprocity-of-clocks-is-the-metric) | 6 | Spanning bodies with symmetric `Gamma` give exactly one symmetric `b` with `alpha_i = b(X_i, .)` | Proved by hand; instance checked. Corrects `bodies_first.md` §2 |
+| [Cor MF5](metric_free_body.md#6-reciprocity-of-clocks-is-the-metric) | 6 | Clocks can be made reciprocal for up to `n(n+1)/2` bodies; a gauge symmetrises exactly when cycle ratios are 1 | Proved by hand; instances checked |
+| [Prop MF6](metric_free_body.md#6-reciprocity-of-clocks-is-the-metric) | 6 | `Gamma >= 1` near every body gives one positive direction, `Gamma <= 1` a definite form, `Gamma = 1` gives `b = alpha ⊗ alpha` | Proved by hand; needs bodies to fill a neighbourhood |
+| [Prop MF7](metric_free_body.md#7-the-surface-of-unit-processes) | 7 | The tangent plane of the unit surface `L = 1` is the clock with no first-order effect; reciprocity holds exactly for a central quadric; `kappa` decides whether `c` is finite | Proved by hand; parts checked on `L^4 = t^4 - x^4`. Refines RV-SP1 |
+| [Prop MF8](metric_free_body.md#7-the-surface-of-unit-processes) | 7 | If sums of vectors and of clocks are both a body, `L^2` is quadratic; otherwise the two mass centres differ | Proved by hand; the example is exact and numerical |
+| [Prop MF9](metric_free_body.md#8-position-space) | 8 | (3.1.18) names the factor algebra of the instant; the basic algebra is the position space, with no clock and no integrability | Corrects `bodies_first.md` §2 |
+| [Prop MF10](metric_free_body.md#9-the-clock-is-a-connection) | 9 | `Pi d alpha` is curvature; `L_X alpha` is the one-body acceleration; relative acceleration leaves the rest space; the holonomy is Sagnac | — |
+| [Prop MF11](metric_free_body.md#10-time) | 10 | Time scalars exist only where `alpha ∧ d alpha = 0`; on a rotating body the reciprocal clock and a time function exclude each other | — |
+
 ## Open items
 
 | ID | Says | Status |
 |---|---|---|
 | [MC-SP1](mass_centre.md#10-open-items) | Which integral curve of `Z` is the mass centre? | open |
 | [MC-SP2](mass_centre.md#10-open-items) | No law is given for the radiation `G`; the non-null interaction field is unchecked | open |
-| [MC-SP3](mass_centre.md#10-open-items) | Relate spin in `dP` (Oziewicz 2018-2019) to the spin that sets Møller's disk | open |
+| [MC-SP3](mass_centre.md#10-open-items) | Relate spin in `dP` (Oziewicz 2018-2019) to the spin that sets Møller's disk | open; continued as MF-SP1 |
 | [MC-SP4](mass_centre.md#10-open-items) | Dynamics from binary accelerations relative to the mass centre | open |
 | [MC-SP5](mass_centre.md#10-open-items) | Radiation terms of (2.2.8) and Clarification 2.2.3 | open |
 | [MC-SP6](mass_centre.md#10-open-items) | Public link for the long version | answered: 2015 version on Academia.edu (§1) |
@@ -67,3 +85,9 @@ defined in the [glossary](../GLOSSARY.md).
 | [TV-SP3](ternary_mass_centre.md#11-open-items) | Is the failure of cluster separability a rotation between `Z` of the pair and `Z` of the system? | open |
 | [TV-SP4](ternary_mass_centre.md#11-open-items) | A three-body counterpart of TV2 for (2.2.11) | open |
 | [TV-SP5](ternary_mass_centre.md#11-open-items) | The search of the correspondence was not exhaustive | open |
+| [MF-SP1](metric_free_body.md#12-open-items) | Step 4: the vorticity of MF10 and Møller's spin, with mass as a density | open; continues MC-SP3 |
+| [MF-SP2](metric_free_body.md#12-open-items) | Measuring `Gamma` without presupposing a synchronisation | open |
+| [MF-SP3](metric_free_body.md#12-open-items) | Linear non-symmetric clocks; the meaning of the cycle ratio | open |
+| [MF-SP4](metric_free_body.md#12-open-items) | Position space when `F^X` is trivial | open |
+| [MF-SP5](metric_free_body.md#12-open-items) | Check what is attributed to Keres against his papers | open |
+| [MF-SP6](metric_free_body.md#12-open-items) | Which text was emailed on 13 April 2017: two compiled texts print that revision date | open |

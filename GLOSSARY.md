@@ -39,12 +39,22 @@ energy-momentum one-form `P` of the body. **Defined:**
 to confuse with** a point particle: Oziewicz's body is a congruence, a whole
 position space.
 
+### Basic algebra
+
+The forms `beta` of a body `X` with `ev_X beta = 0 = ev_X d beta`: the de Rham algebra
+of the quotient by the worldlines. **Defined:**
+[`metric_free_body.md`](analysis/metric_free_body.md#8-position-space), Proposition MF9.
+**Not to confuse with** `ker ev_X`, which is larger and is not stable under `d`.
+
 ### Clock
 
-The one-form `gX / det g` of a body `X`: it is 1 on `X` and vanishes on the rest
-space of `X`, so it fixes the body's simultaneity. **Defined:**
-[`mass_centre.md`](analysis/mass_centre.md#2-dictionary). **Not to confuse
-with** proper time along a worldline.
+A one-form `alpha` with `alpha X = 1`. Oziewicz's Definition 1.4.1 leaves it free;
+the metric clock `gX / det g` of (1.6.6) vanishes on the rest space of `X`, so it fixes
+the body's simultaneity. As a form it is a connection on the worldlines, not a time.
+**Defined:** [`mass_centre.md`](analysis/mass_centre.md#2-dictionary);
+[`metric_free_body.md`](analysis/metric_free_body.md#9-the-clock-is-a-connection),
+Proposition MF10. **Not to confuse with** proper time along a worldline, or with a time
+function, which exists only where `alpha ∧ d alpha = 0` (MF11).
 
 ### Eagle
 
@@ -86,13 +96,25 @@ construction concerns (1).
 ### Position space
 
 The space of places of one body `X`: the quotient "spacetime / `X`", or
-algebraically the scalars `f` with `Xf = 0` and the forms in `ker ev_X`. In
-Oziewicz's reading it belongs to the body, and there is no position space
-without one. Needs no metric. **Defined:** *Many-body mass-centre* §1.1, §3.1;
-*Concepts of relative velocity* §5; read in
-[`bodies_first.md`](supplement/bodies_first.md#1-oziewiczs-reading-the-body-is-primitive).
-**Not to confuse with** a hypersurface of simultaneous events, which needs a
-clock and is a set of events, not of places.
+algebraically the scalars `f` with `Xf = 0` and the basic forms, `ev_X beta = 0 =
+ev_X d beta`. In Oziewicz's reading it belongs to the body, and there is no position
+space without one. Needs no metric and no clock. **Defined:** *Many-body mass-centre*
+§1.1, §3.1; *Concepts of relative velocity* §5; read in
+[`bodies_first.md`](supplement/bodies_first.md#1-oziewiczs-reading-the-body-is-primitive);
+corrected in
+[`metric_free_body.md`](analysis/metric_free_body.md#8-position-space), Proposition MF9.
+**Not to confuse with** a hypersurface of simultaneous events, which needs a clock and
+is a set of events, not of places; or with `ker ev_X` over all of `F`, which contains
+`t`; or with the factor algebra (3.1.18), which is the algebra of an instant.
+
+### Reciprocity of clocks
+
+`Gamma_XY = Gamma_YX`, Oziewicz's symmetry of the gamma factor, (1.4.13) and Postulate
+1.6.3. For spanning bodies it is equivalent to a symmetric bilinear form with
+`alpha_i = b(X_i, .)`. **Defined:**
+[`metric_free_body.md`](analysis/metric_free_body.md#6-reciprocity-of-clocks-is-the-metric),
+Theorem MF4. **Not to confuse with** reciprocity of velocities, below, which Oziewicz
+rejects.
 
 ### Reciprocity
 
@@ -105,6 +127,15 @@ Proposition MC1, part 3; its role in the "astonishing conflict" in
 [`bodies_first.md`](supplement/bodies_first.md#6-the-astonishing-conflict).
 **Not to confuse with** the reciprocity of a ternary velocity for one fixed
 observer, (2.3) of *Ternary relative velocity*, which holds as vectors.
+
+### Unit-process surface
+
+The surface `H = {L = 1}` of unit processes in `der F` at a point. Its tangent plane at
+`X` is the clock with no first-order clock effect. It is a central quadric exactly when
+clocks are reciprocal. **Defined:**
+[`metric_free_body.md`](analysis/metric_free_body.md#7-the-surface-of-unit-processes),
+Proposition MF7. **Not to confuse with** a hypersurface of events; it lies in the
+space of vectors at one point. It is the indicatrix of Finsler geometry.
 
 ### Split (projection, `Pi_X`)
 
