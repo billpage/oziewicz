@@ -9,11 +9,18 @@
 place. What is a paraphrase is said to be one. Where a statement is an
 interpretation (§4) it is marked.
 
+**Version.** Quotations and section numbers for "Science must never be
+objective" are those of a 37-page copy from ResearchGate. The printed article
+(pages 3-8 of the journal) has not been seen, and no digitised copy is known, so
+none of it is verified as printed, the abstract included. The same words are in
+the abstract of the printed Natural Philosophy Alliance paper
+(oziewicz2013guardians), which supports the abstract but does not verify it.
+
 ## 1. The sources
 
 | Key | What | Read |
 |---|---|---|
-| oziewicz2013science | "Science must never be objective", *Studium Vilnense* A 10 (2013) 3-8, from the XVI International Conference *The Science and Quality of Life*, Vilnius | Copy supplied by Bill Page, 37 pages, read for the passages below (3 Nov 2026). **The copy is longer than the printed pages 3-8**, so a passage quoted here may not be in the printed version. The abstract is. Bill Page's correspondence with Oziewicz (paraphrased here, not quoted) suggests why: the abstract is that of his Vilnius talk of June 2012, which in January 2013 he planned to extend into a full paper, and the 37-page text is probably that extension. |
+| oziewicz2013science | "Science must never be objective", *Studium Vilnense* A 10 (2013) 3-8, from the XVI International Conference *The Science and Quality of Life*, Vilnius, 30 June-3 July 2012 (dates from the volume's contents file) | The 37-page ResearchGate copy supplied by Bill Page, read for the passages below (3 Nov 2026). It is much longer than the six printed pages. The printed volume is held, as a print copy only, in the Martynas Mažvydas National Library of Lithuania; Bill Page could not obtain it and no scan is known. Bill Page's correspondence with Oziewicz (paraphrased here, not quoted) suggests that in January 2013 he planned to extend the abstract of his conference talk into a full paper, and the 37-page text is probably that extension. |
 | oziewicz2013guardians | "Are peer reviewers Guardians of the Truth?", *Proceedings of the Natural Philosophy Alliance* 20 (2013) | Copy supplied by Bill Page, 4 pages, read in full (3 Nov 2026). Its abstract repeats that of oziewicz2013science. |
 | npa2009 | *What is Special Relativity Theory?*, talk to the Natural Philosophy Alliance, 2009 | Bill Page's transcript of positions 1-17 and Claude's of 18-55, in [`talks/npa2009/notes/`](../talks/npa2009/notes/). Spoken English, lightly corrected. |
 
