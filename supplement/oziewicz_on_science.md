@@ -13,7 +13,7 @@ interpretation (§4) it is marked.
 
 | Key | What | Read |
 |---|---|---|
-| oziewicz2013science | "Science must never be objective", *Studium Vilnense* A 10 (2013) 3-8, from the XVI International Conference *The Science and Quality of Life*, Vilnius | Copy supplied by Bill Page, 37 pages, read for the passages below (3 Nov 2026). **The copy is longer than the printed pages 3-8**, so a passage quoted here may not be in the printed version. The abstract is. |
+| oziewicz2013science | "Science must never be objective", *Studium Vilnense* A 10 (2013) 3-8, from the XVI International Conference *The Science and Quality of Life*, Vilnius | Copy supplied by Bill Page, 37 pages, read for the passages below (3 Nov 2026). **The copy is longer than the printed pages 3-8**, so a passage quoted here may not be in the printed version. The abstract is. Bill Page's correspondence with Oziewicz (paraphrased here, not quoted) suggests why: the abstract is that of his Vilnius talk of June 2012, which in January 2013 he planned to extend into a full paper, and the 37-page text is probably that extension. |
 | oziewicz2013guardians | "Are peer reviewers Guardians of the Truth?", *Proceedings of the Natural Philosophy Alliance* 20 (2013) | Copy supplied by Bill Page, 4 pages, read in full (3 Nov 2026). Its abstract repeats that of oziewicz2013science. |
 | npa2009 | *What is Special Relativity Theory?*, talk to the Natural Philosophy Alliance, 2009 | Bill Page's transcript of positions 1-17 and Claude's of 18-55, in [`talks/npa2009/notes/`](../talks/npa2009/notes/). Spoken English, lightly corrected. |
 
@@ -56,24 +56,44 @@ Links are in [`references/bibliography.md`](../references/bibliography.md).
    scientific" than confirmation. These can be reconciled (a theory may welcome a
    test without any test being a verdict), but he does not reconcile them, and a
    note in this repository should not attribute either position to him alone.
-2. **"Subjective" is used with technical content (interpretation).** In an
+   Correspondence from May 2009 (paraphrased) shows the same tension within that
+   year: he told Bill Page he did not want his imagination judged by an
+   experimenter with a different imagination of his own, seven months before the
+   talk in which he welcomed an experimental test.
+2. **"Subjective" is meant both technically and generally (Bill Page's reading,
+   which he knew from conversation with Oziewicz).** Technically: in an
    unpublished draft he glosses Galileo's "relative" as "subjective, not
    objective" for the place of an event, which depends on the choice of reference
-   body. In the mathematics his subjective choices are the observer, the
+   body; in the mathematics the subjective choices are the observer, the
    reference body or the aether, and what changes when they change is stated
-   exactly. The 2013 papers use the word for scientific opinion, in a wider sense.
-   Whether the two uses are one thought is for Bill Page to say.
+   exactly. Generally: in the 2013 papers it is scientific opinion, and in
+   correspondence of 2009 (paraphrased) it is also terminology, which he held to
+   be a free personal choice. Bill Page disagreed with him on that last point,
+   arguing that a term shared by people who must understand each other is not a
+   matter of taste. The same correspondence ties the two senses together: he
+   objected to Popper's single objective truth in part by analogy with a group,
+   which has one unit, against a groupoid, which has many. The analogy is his; this
+   repository has not examined it.
 3. **Statements of fact in the 2013 paper that this repository does not adopt.**
-   *Studium Vilnense* §1 calls Eddington's 1919 eclipse data a hoax and says the
-   CERN neutrino-speed measurement shows that the experiment, not the theory,
-   may be at fault. To the best of Claude's knowledge, the 1919 data have been
-   re-examined and the choice Eddington made among the plates is generally held
-   to be defensible (D. Kennefick, *Physics Today* 62 (3) 2009, "Testing
-   relativity from the 1919 eclipse: a question of bias"), and the OPERA neutrino
-   anomaly was traced in 2012 to faulty equipment, which an experiment found
-   (for example Phys.org, 22 Feb 2012, "Faster than light neutrinos? More like
-   faulty wiring"). None of these four was opened in this session; the titles
-   come from search results. Check before relying on them.
+   *Studium Vilnense* §1 calls Eddington's 1919 eclipse data a hoax and uses the
+   CERN neutrino-speed measurement as a case of an experiment, not the theory,
+   being at fault. Two sources read for this note:
+   - D. Kennefick, "Testing relativity from the 1919 eclipse: a question of
+     bias", *Physics Today* 62 (3) 2009, 37-42, argues that the charge of bias is
+     not well supported, that the choice to rely on the 4-inch-lens plates was
+     Dyson's and scientifically defensible, and that a 1979 remeasurement of the
+     Sobral plates agreed with the original result from that lens and brought the
+     discarded astrographic result close to the value Dyson's team had computed
+     in 1919. That does not support the word "hoax". It does leave real
+     questions about the astrographic data, which Kennefick reads as unreliable in 1919.
+   - The OPERA apparent faster-than-light result of 2011 was traced to an
+     optical fibre in the timing system that was incorrectly connected, with a
+     smaller contribution from clock drift (M. Strassler, 2 Apr 2012), and
+     dedicated runs in 2012 with an independent timing system gave a neutrino
+     speed compatible with that of light (OPERA collaboration, arXiv:1212.1276).
+     His point that an experiment can be wrong is borne out. The error was
+     found by further checks and measurements, which this repository leaves to
+     the reader to weigh against his claim that no experiment decides.
 4. **This repository checks mathematics, not allegiance.** It asks whether an
    identity holds, whether a construction composes, and whether a statement
    follows from its premises, and it says what is checked and how (computer
@@ -83,3 +103,8 @@ Links are in [`references/bibliography.md`](../references/bibliography.md).
    own papers assert mathematical results as true or false, for example that a
    postulate contradicts relativity of simultaneity, so he evidently did not hold
    mathematical correctness to be a matter of opinion.
+5. **Disagreeing with him was welcome (from correspondence, paraphrased).** In
+   2009 and 2013 he told Bill Page that differing opinions are good for science,
+   that a discussion should aim at being sure of one's own view and not at
+   consensus, and that he and Bill had the right to different readings of Popper
+   and Lakatos. A note here that disagrees with him does not break faith with that.
