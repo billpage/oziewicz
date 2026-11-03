@@ -89,5 +89,5 @@ defined in the [glossary](../GLOSSARY.md).
 | [MF-SP2](metric_free_body.md#12-open-items) | Measuring `Gamma` without presupposing a synchronisation | open |
 | [MF-SP3](metric_free_body.md#12-open-items) | Linear non-symmetric clocks; the meaning of the cycle ratio | open |
 | [MF-SP4](metric_free_body.md#12-open-items) | Position space when `F^X` is trivial | open |
-| [MF-SP5](metric_free_body.md#12-open-items) | Check what is attributed to Keres against his papers | open |
+| [MF-SP5](metric_free_body.md#12-open-items) | Keres read only in part; the Kiev chapters of 1972 and 1973 are not located | open |
 | [MF-SP6](metric_free_body.md#12-open-items) | Which text was emailed on 13 April 2017: two compiled texts print that revision date | open |

@@ -57,7 +57,9 @@ group* (2007).
 Two facts about the sources came to light while this note was written.
 
 - Bill Page's files hold two different compiled texts that both print "Revised April 11, 2017". The 62-page one, *Homological Algebra for relativity of position-spaces*, has PDF creation date 8 May 2020. A 49-page one, with the title and "centre-of-inertia" chapter heading of the older version, has PDF creation date 21 April 2020. So neither file is literally the PDF emailed on 13 April 2017, and step 1, §1, needs checking against that attachment (open item MF-SP6).
-- The papers of Keres were not read. Everything said here about Keres is Oziewicz's account of him (open item MF-SP5).
+- Of Keres's papers only the 1976 one has been read directly, and only pp. 351, 352, 357 and the English summary. *Physical interpretation of solutions of the Einstein equations* (1967) was read through a summariser. The two Kiev chapters of 1972 and 1973 have not been found. Elsewhere, what is said about Keres is Oziewicz's account of him (open item MF-SP5).
+
+On those pages Oziewicz's citations hold: p. 351 defines a congruence as a three-dimensional space and calls it `x`-space, and the velocity `u^i` of `x`-space relative to `xi`-space stands just before formula (10), as (1.7.8) cites. Two qualifications apply. In the 1976 paper the `x`-space is a freely falling congruence, the `xi`-space is arbitrary, neither is called a material body, and the setting is Newtonian, with common time `t`. Only one direction of the velocity appears there.
 
 ---
 
@@ -359,6 +361,8 @@ Warning 3.1.3 also ties (3.1.12) to "inertial or non-inertial" bodies. (3.1.12) 
 vorticity, not acceleration. A unit Rindler body has `alpha ∧ d alpha = 0` and is not
 inertial (MF10).
 
+This leaves `ker ev_X` with a real use, which should not be lost. It is the home of fields on the position space that may vary with time: §3.1.2 says it contains the relative electric and magnetic fields, and Keres's form (10) is an example. There, `gamma_rs (dxi^r - u^r dt)(dxi^s - u^s dt)` vanishes on the process, and in the coordinates `x` it is `g_pq(t, x) dx^p dx^q`, which is not basic unless `g_pq` is independent of `t`. So the position space is `B_X`, and `ker ev_X` over `F` holds what happens on it. The defect in (3.1.18) is the identification of the two.
+
 The body's three attributes in (1.1.1) sort as follows: the line `F X` gives the position
 space, the clock gives the simultaneity, and the scale of `X` gives the rate.
 
@@ -466,11 +470,11 @@ closure of composition), sign of `Gamma - 1`.
 
 ## 12. Open items
 
-- **MF-SP1.** Step 4. Relate the vorticity of MF10 to Møller's spin, which is MC-SP3 in the setting of this note, with mass as a density (§10). A pointer: for rapidly decaying momentum density `p` in the plane, integration by parts gives `S = -(1/2) ∫ r^2 curl p`, checked on a Gaussian rotor (Part H). So `S` is a second moment of the curl of the momentum form. Whether that survives relativistically, and whether Møller's radius `|S|/(Mc)` can be read from it, is the question.
+- **MF-SP1.** Step 4. Relate the vorticity of MF10 to Møller's spin, which is MC-SP3 in the setting of this note, with mass as a density (§10). A pointer: for rapidly decaying momentum density `p` in the plane, integration by parts gives `S = -(1/2) ∫ r^2 curl p`, checked on a Gaussian rotor (Part H). So `S` is a second moment of the curl of the momentum form. Whether that survives relativistically, and whether Møller's radius `|S|/(Mc)` can be read from it, is the question. Keres's non-Newtonian "vortex" fields are a lead that has not been followed up: the 1976 paper, (29)-(32), and his 1965 and 1967 papers, where the 1967 paper applies the method to the Kerr solution. Whether his curl of the relative velocity is `alpha ∧ d alpha` for some clock is to be checked; his freely falling `x`-space has the closed clock `dt`, so it would be the clock of the reference space.
 - **MF-SP2.** How is `Gamma` measured without presupposing a synchronisation? Radiation as the boundary of `C` is the natural tool. Compare Ehlers, Pirani and Schild (1972), who build the conformal structure from light; that paper has not been read for this note.
 - **MF-SP3.** Linear but non-symmetric clocks: `alpha_X = b(X, ·)` with `b` having an antisymmetric part. MF5 gives the cycle ratio as its gauge-invariant trace. Oziewicz explored this and withdrew it in November 2018 (step 1, §1). Is there a reason beyond the failure of MF7?
 - **MF-SP4.** When `F^X` is trivial (an irrational flow), what replaces the position space? The paper mentions non-commutative geometry in §3.2 without using it.
-- **MF-SP5.** The papers of Keres were not read (§1). His position space and his use of Lie derivatives should be checked against what is attributed to him here and in the paper.
+- **MF-SP5.** Keres's papers were read only in part (§1). The Kiev chapters of 1972 and 1973 are not located, and the statements cited to them, including the relative acceleration of 1972 §2.8 and the quotation of 1973 p. 142, are unchecked.
 - **MF-SP6.** Which text was emailed on 13 April 2017: the 62-page text, the 49-page text, or a third? Both files held print the same revision date and were compiled in 2020. Step 1, §1, depends on the answer.
 
 ---
@@ -502,6 +506,9 @@ statements. MF7, part 3, and MF8, part 1, have no machine check beyond the examp
 
 - Z. Oziewicz, "Many-body mass-centre: Homological Algebra for relativity of position-spaces", *J. Phys.: Conf. Ser.* 532 (2014) 012021, [doi:10.1088/1742-6596/532/1/012021](https://doi.org/10.1088/1742-6596/532/1/012021); long version as in step 1 (§1 here).
 - Z. Oziewicz, "Relativity groupoid, instead of relativity group", [arXiv:math/0608770](https://arxiv.org/abs/math/0608770).
+- H. Keres, "Tensor gravitational potential and E. Cartan's four-dimensional representation of Newtonian theory" (in Russian; our rendering of the title), *Izv. Akad. Nauk Eston. SSR, Fiz. Mat.* 25 (1976) 349-358, [PDF](https://kirj.ee/wp-content/plugins/kirj/pub/phys.math-4-1976-349-358_20230428170004.pdf), [doi:10.3176/phys.math.1976.4.03](https://doi.org/10.3176/phys.math.1976.4.03).
+- H. Keres, "Physical interpretation of solutions of the Einstein equations", *Sov. Phys. JETP* 25 (1967) 504, [PDF](https://ns.jetp.ras.ru/cgi-bin/dn/e_025_03_0504.pdf). Read through a summariser.
+- H. Keres, "Non-Newtonian gravitational fields", *Sov. Phys. JETP* 21 (1965) 882, [PDF](https://www.jetp.ras.ru/cgi-bin/dn/e_021_05_0882.pdf). Located, not read.
 - J.-M. Lévy-Leblond, "One more derivation of the Lorentz transformation", *Am. J. Phys.* 44 (1976) 271 (page from memory), [copy](https://sciences-physiques.neocities.org/pdf/One_more_derivation.pdf).
 - R. T. Jantzen, P. Carini and D. Bini, "The many faces of gravitoelectromagnetism", [arXiv:gr-qc/0106043](https://arxiv.org/abs/gr-qc/0106043). Abstract only.
 - G. Rizzi, M. L. Ruggiero and A. Serafini, "Synchronization gauges and the principles of special relativity", [arXiv:gr-qc/0409105](https://arxiv.org/abs/gr-qc/0409105).
