@@ -17,6 +17,14 @@ not listed in `analysis/INDEX.md`.
   two quantities of standard relativity (RV5, RV6); and withdraws the 2025
   chat applications (Pioneer, rotation curves, wide binaries, cosmic rays).
   Companion script `src/verify_relative_velocity.py`.
+- **[`oziewicz_on_science.md`](oziewicz_on_science.md)**. What Oziewicz said about
+  how science should be done (science is subjective, based on dissent, everybody
+  has a right to be right, against Popper's demarcation): each slogan with its
+  place in his 2013 papers and his 2009 talk, a paraphrase of his case against
+  Popper, and where it sits uneasily with itself (2009 against 2013 on
+  refutation), with facts the 2013 paper states that this repository does not
+  adopt, and with the method of this repository. Supports the README's In
+  memoriam section.
 - **[`velocity_draft.md`](velocity_draft.md)**. A summary of Oziewicz's unpublished draft
   *Why Einstein's addition of velocities is non-associative?* (22 November 2004,
   `velocity.pdf`, not committed and not known to be public): its argument section by

@@ -12,6 +12,32 @@ change, and nothing here has had external peer review.
 Oziewicz's own papers are **not** in this repository. They are cited by link in
 [`references/bibliography.md`](references/bibliography.md).
 
+## In memoriam
+
+Zbigniew Oziewicz (22 August 1941 - 8 December 2020) argued in print and in
+talks that science is subjective, that it should be based on dissent, that
+everybody has a right to be right, and that a referee system which blocks
+alternative ideas is a danger to it. He called his own group of relativity
+critics dissidents, and he wrote against Karl Popper's demarcation of science
+from pseudo-science. These notes are partly a memorial to that way of working.
+[`supplement/oziewicz_on_science.md`](supplement/oziewicz_on_science.md) gives
+each of his slogans and where it can be found.
+
+The notes try to keep faith with it in three ways:
+
+- They state each claim in its strongest form before testing it, and do not
+  discount a claim for being unorthodox.
+- They check the mathematics, not allegiance: whether an identity holds, whether
+  a construction composes, whether a statement follows from its premises. They
+  take no position on which theory nature chooses.
+- They report the result either way. Where a construction turns out to be
+  standard special relativity in other notation, the note says so. Where a
+  conflict he found survives, the note says that too.
+
+He held that science needs no criterion for deciding who is right. A repository
+that checks derivations does not share that view, and this section does not
+claim that he would have agreed with its method.
+
 ## Getting started
 
 Clone only `main`:
