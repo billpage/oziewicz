@@ -1,6 +1,6 @@
 # A body with a clock: how far the pair goes without a metric
 
-> *Many-body mass-centre* gives each body a time-like derivation and a clock. This note drops "time-like", keeps only a pair $`(X, \alpha)`$ with $`\alpha X = 1`$, and asks how far that goes with no metric and no signature, whether the creation and evaluation operators can carry the weight put on them, and whether the paper's algebraic position space and time are adequate. **Definition MF0** fixes the setting and the factor $`\Gamma_{XY} = \alpha_X(Y)`$, which need not be symmetric. **Proposition MF1**: $`\{\mathrm{ev}_X, \wedge_\alpha\} = \alpha X`$ gives the split with no metric; the image of $`\Pi`$ depends on the process alone and its kernel on the clock alone, and the clock is a contracting homotopy, so the Koszul complex has no homology. The operators are pointwise. **Proposition MF2**: the non-reciprocity (1.7.19), (1.7.20), (1.7.22) needs no metric; the direction of a relative velocity needs no clock, and its size does. **Proposition MF3**: the mass centre $`(P/M, \theta/M)`$, $`M^2 = \theta(P)`$, needs neither metric nor symmetry, and radiation is a square-zero pair with no split. **Theorem MF4**: if the bodies span and $`\Gamma`$ is symmetric, there is exactly one symmetric bilinear form $`b`$ with $`\alpha_i = b(X_i, \cdot)`$. Postulate 1.6.3 is therefore the metric, not an addition to it: Oziewicz rejects Einstein's reciprocity of velocities and postulates a reciprocity of clocks, and that gives the metric and its isometry group. **Corollary MF5**: clocks can be chosen reciprocal for up to 10 bodies in dimension 4, so only the 11th tests the claim, and scale changes leave only cycle ratios. **Proposition MF6**: the signature is an output: $`\Gamma \ge 1`$ near every body gives one positive direction, $`\Gamma \le 1`$ gives a definite form, and $`\Gamma = 1`$ gives $`b = \alpha \otimes \alpha`$. **Proposition MF7**: unit processes form a surface $`L = 1`$ whose tangent plane is the natural clock, the only one with no first-order clock effect; reciprocity holds exactly when the surface is a central quadric, its centro-affine curvature decides whether $`c`$ is finite, and $`\Gamma \ge 1`$ is the reverse triangle inequality. **Proposition MF8**: requiring the mass centre to be a body whose vector and clock are both sums forces the quadric by a second route; on a non-quadric the two means differ. **Proposition MF9**: the paper's position space is not adequate: it gives two inequivalent definitions, and (3.1.18) names the factor algebra of the instant, which depends only on the clock. The basic algebra $`\mathrm{ev}_X b = 0 = \mathrm{ev}_X db`$ is the position space: it needs no clock and $`d`$ closes on it, also on a rotating disk, where the paper's factor differential does not exist. **Proposition MF10**: the clock is a connection on the worldline fibration: $`\Pi d \alpha`$ is its curvature, $`L_X \alpha`$ is Einstein's one-body acceleration without Christoffel symbols, and its holonomy on the disk is the Sagnac term. **Proposition MF11**: the clock is not a time: time scalars exist only where $`\alpha \wedge d \alpha = 0`$, and on a rotating body the reciprocal clock and a time function exclude each other. Checked exactly with SymPy except where the note says numerical; MF4 to MF8 and MF11 also rest on short proofs given here. Nothing here departs from standard relativity. Step 4 takes up the link between this vorticity and Møller's spin.
+> *Many-body mass-centre* gives each body a time-like derivation and a clock. This note drops "time-like", keeps only a pair $`(X, \alpha)`$ with $`\alpha X = 1`$, and asks how far that goes with no metric and no signature, whether the creation and evaluation operators can carry the weight put on them, and whether the paper's algebraic position space and time are adequate. **Definition MF0** fixes the setting and the factor $`\Gamma_{XY} = \alpha_X(Y)`$, which need not be symmetric. **Proposition MF1**: $`\{\mathrm{ev}_X, \wedge_\alpha\} = \alpha X`$ gives the split with no metric; the image of $`\Pi`$ depends on the process alone and its kernel on the clock alone, and the clock is a contracting homotopy, so the Koszul complex has no homology. The operators are pointwise. **Proposition MF2**: the non-reciprocity (1.7.19), (1.7.20), (1.7.22) needs no metric; the direction of a relative velocity needs no clock, and its size does. **Proposition MF3**: the mass centre $`(P/M, \theta/M)`$, $`M^2 = \theta(P)`$, needs neither metric nor symmetry, and radiation is a square-zero pair with no split. **Theorem MF4**: if the bodies span and $`\Gamma`$ is symmetric, there is exactly one symmetric bilinear form $`b`$ with $`\alpha_i = b(X_i, \cdot)`$. Postulate 1.6.3 is therefore the metric, not an addition to it: Oziewicz rejects Einstein's reciprocity of velocities and postulates a reciprocity of clocks, and that gives the metric and its isometry group. **Corollary MF5**: clocks can be chosen reciprocal for up to 10 bodies in dimension 4, so only the 11th tests the claim, and scale changes leave only cycle ratios. **Proposition MF6**: the signature is an output: $`\Gamma \ge 1`$ near every body gives one positive direction, $`\Gamma \le 1`$ gives a definite form, and $`\Gamma = 1`$ gives $`b = \alpha \otimes \alpha`$. **Proposition MF7**: unit processes form a surface $`L = 1`$ whose tangent plane is the natural clock, the only one with no first-order clock effect; reciprocity holds exactly when the surface is a central quadric, its centro-affine curvature decides whether $`c`$ is finite, and $`\Gamma \ge 1`$ is the reverse triangle inequality. **Proposition MF8**: requiring the mass centre to be a body whose vector and clock are both sums forces the quadric by a second route; on a non-quadric the two means differ. **Proposition MF9**: the paper's position space is not adequate: it gives two inequivalent definitions, and (3.1.18) names the factor algebra of the instant, which depends only on the clock. The basic algebra $`\mathrm{ev}_X\,b = 0 = \mathrm{ev}_X\,db`$ is the position space: it needs no clock and $`d`$ closes on it, also on a rotating disk, where the paper's factor differential does not exist. **Proposition MF10**: the clock is a connection on the worldline fibration: $`\Pi d \alpha`$ is its curvature, $`L_X \alpha`$ is Einstein's one-body acceleration without Christoffel symbols, and its holonomy on the disk is the Sagnac term. **Proposition MF11**: the clock is not a time: time scalars exist only where $`\alpha \wedge d \alpha = 0`$, and on a rotating body the reciprocal clock and a time function exclude each other. Checked exactly with SymPy except where the note says numerical; MF4 to MF8 and MF11 also rest on short proofs given here. Nothing here departs from standard relativity. Step 4 takes up the link between this vorticity and Møller's spin.
 
 *Ladder abstract — see the [full list](README.md#the-ladder).*
 
@@ -34,7 +34,7 @@ reading of §2, corrected below.
 | Earlier statement | What happens to it |
 |---|---|
 | `bodies_first.md` §2, table: symmetric $`\gamma`$ is something "the metric adds" to the pair | Corrected. For spanning bodies, symmetry is the metric (MF4) |
-| `bodies_first.md` §2: position space is "scalars with $`Xf = 0`$; forms in $`\ker \mathrm{ev}_X`$" | Corrected. Those are two different objects; the second is not a position space (MF9) |
+| `bodies_first.md` §2: position space is "scalars with $`Xf = 0`$; forms in $`\mathrm{ker}\,\mathrm{ev}_X`$" | Corrected. Those are two different objects; the second is not a position space (MF9) |
 | `bodies_first.md` §2: "time-like" is needed in the second layer, and the first cannot supply $`c`$ | Refined. "Time-like" can be defined from the clocks (MF6), and finite $`c`$ from the surface of unit processes (MF7) |
 | `bodies_first.md` RV-SP1 | Answered in part (§7): the number $`c`$ still needs a ruler |
 | `bodies_first.md` §1, point 4, as a statement of fact: there is no acceleration of one body | It stands as a reading of Oziewicz. As mathematics it fails for a pair: $`L_X \alpha`$ is the one-body acceleration (MF10) |
@@ -65,11 +65,11 @@ On those pages Oziewicz's citations hold: p. 351 defines a congruence as a three
 
 ## 2. Setting
 
-**Definition MF0 (setting).** $`F`$ is a commutative unital $`\mathbb{R}`$-algebra, $`\mathrm{der} F`$ its
-module of derivations and $`(\mathrm{der} F)^*`$ the dual module. Everything below assumes
-$`F = C^{\infty}(U)`$, or that $`\mathrm{der} F`$ is finitely generated and projective, and "pointwise"
-means linear algebra in $`V = \mathrm{der} F`$ at one point. A **body** is a pair $`(X, \alpha)`$
-with $`X`$ in $`\mathrm{der} F`$, $`\alpha`$ in $`(\mathrm{der} F)^*`$ and $`\alpha X = 1`$. $`X`$ is its **process**
+**Definition MF0 (setting).** $`F`$ is a commutative unital $`\mathbb{R}`$-algebra, $`\mathrm{der}\,F`$ its
+module of derivations and $`(\mathrm{der}\,F)^*`$ the dual module. Everything below assumes
+$`F = C^{\infty}(U)`$, or that $`\mathrm{der}\,F`$ is finitely generated and projective, and "pointwise"
+means linear algebra in $`V = \mathrm{der}\,F`$ at one point. A **body** is a pair $`(X, \alpha)`$
+with $`X`$ in $`\mathrm{der}\,F`$, $`\alpha`$ in $`(\mathrm{der}\,F)^*`$ and $`\alpha X = 1`$. $`X`$ is its **process**
 and $`\alpha`$ its **clock**. For two bodies,
 
 ```math
@@ -82,7 +82,7 @@ sends $`\Gamma_{XY}`$ to $`(f_Y / f_X) \Gamma_{XY}`$.
 
 Other symbols: $`\Lambda`$ is the Grassmann algebra of forms; $`\mathrm{ev}_X`$ is contraction and
 $`\wedge_\alpha`$ left multiplication, as in (1.3.2)-(1.3.4); $`(\alpha)`$ is the principal ideal
-of $`\alpha`$; $`L_X = \mathrm{ev}_X d + d \mathrm{ev}_X`$ is the Lie derivation; $`F^X`$ is the set of
+of $`\alpha`$; $`L_X = \mathrm{ev}_X\,d + d \mathrm{ev}_X`$ is the Lie derivation; $`F^X`$ is the set of
 $`f`$ with $`Xf = 0`$; $`b`$ is a bilinear form on $`V`$; $`c`$ is the speed of light. Where a metric
 appears, $`g`$ has signature $`(-,+,+,+)`$, and the dictionary with Oziewicz is
 $`g = (\det g) b`$ on his normalisation $`(gX)X = \det g`$. So $`b`$ is his metric with the unit
@@ -90,7 +90,7 @@ $`\det g = -c^2`$ removed, and $`b`$ is positive on bodies.
 
 A clock with $`\Gamma_{XY}`$ in this sense is Oziewicz's clock of Definition 1.4.1, which
 is chosen freely, not his metric clock (1.6.6). Note that (1.4.13) and (1.6.6) as printed
-read $`\mathrm{clock}_X Y = (\det g) \gamma`$. Taking $`Y = X`$ with (1.4.12) shows this to be a
+read $`\mathrm{clock}_X\,Y = (\det g) \gamma`$. Taking $`Y = X`$ with (1.4.12) shows this to be a
 misprint for $`(gX)Y = (\det g) \gamma`$, which is (1.7.12). (Part B.)
 
 ---
@@ -100,19 +100,19 @@ misprint for $`(gX)Y = (\det g) \gamma`$, which is (1.7.12). (Part B.)
 **Proposition MF1 (the split).** For any $`X`$, $`\alpha`$ with $`\alpha X = 1`$:
 
 1. $`\{\mathrm{ev}_X, \wedge_\alpha\} = \alpha X`$. With $`\Pi = \mathrm{ev}_X \wedge_\alpha`$ and $`D = \wedge_\alpha \mathrm{ev}_X`$, these are complementary idempotents on $`\Lambda`$. $`\Pi`$ is the algebra map induced by $`P = \mathrm{id} - X \otimes \alpha`$, and $`D`$ is a grade-0 derivation. On a space of dimension $`n`$ each has rank $`2^{n-1}`$.
-2. $`\mathrm{im} \Pi = \ker D = \ker \mathrm{ev}_X`$ depends only on the process, and $`\ker \Pi = \mathrm{im} D = (\alpha)`$ only on the clock. So $`\Lambda = (\alpha) \oplus \ker \mathrm{ev}_X`$, and each summand belongs to one half of the body.
-3. $`\ker \mathrm{ev}_X = \mathrm{im} \mathrm{ev}_X`$: the Koszul complex of $`X`$ is exact, with $`\wedge_\alpha`$ as contracting homotopy.
-4. A clock for $`X`$ exists exactly when $`F X`$ is a free direct summand of $`\mathrm{der} F`$. For $`F = C^{\infty}(M)`$ that says $`X`$ vanishes nowhere.
+2. $`\mathrm{im}\,\Pi = \mathrm{ker}\,D = \mathrm{ker}\,\mathrm{ev}_X`$ depends only on the process, and $`\mathrm{ker}\,\Pi = \mathrm{im}\,D = (\alpha)`$ only on the clock. So $`\Lambda = (\alpha) \oplus \mathrm{ker}\,\mathrm{ev}_X`$, and each summand belongs to one half of the body.
+3. $`\mathrm{ker}\,\mathrm{ev}_X = \mathrm{im}\,\mathrm{ev}_X`$: the Koszul complex of $`X`$ is exact, with $`\wedge_\alpha`$ as contracting homotopy.
+4. A clock for $`X`$ exists exactly when $`F X`$ is a free direct summand of $`\mathrm{der}\,F`$. For $`F = C^{\infty}(M)`$ that says $`X`$ vanishes nowhere.
 5. $`p = X \otimes \alpha`$ forgets the scale of $`X`$, and it forgets the arrow, because $`(X, \alpha)`$ and $`(-X, -\alpha)`$ give the same $`p`$.
 
 *Proof.* Part 1: the fermion relations $`\{a_i, c_j\} = \delta_{ij}`$ give the anticommutator
 by bilinearity. Then $`\Pi + D = \mathrm{id}`$, $`D^2 = \wedge_\alpha (\mathrm{ev}_X \wedge_\alpha) \mathrm{ev}_X = D`$, using
 $`\mathrm{ev}_X^2 = 0`$. On one-forms $`\Pi \beta = \beta - (\beta X) \alpha = P^* \beta`$, and a direct
-computation on products gives multiplicativity. Part 2: $`\mathrm{ev}_X \Pi = \mathrm{ev}_X \mathrm{ev}_X \wedge_\alpha = 0`$,
-and $`\mathrm{ev}_X \beta = 0`$ gives $`\Pi \beta = \beta`$. $`\mathrm{im} D`$ lies in $`(\alpha)`$, and
+computation on products gives multiplicativity. Part 2: $`\mathrm{ev}_X\,\Pi = \mathrm{ev}_X\,\mathrm{ev}_X \wedge_\alpha = 0`$,
+and $`\mathrm{ev}_X\,\beta = 0`$ gives $`\Pi \beta = \beta`$. $`\mathrm{im}\,D`$ lies in $`(\alpha)`$, and
 $`D(\alpha \wedge \beta) = \alpha \wedge \mathrm{ev}_X(\alpha \wedge \beta) = \alpha \wedge \beta`$, since
-$`\alpha \wedge \alpha = 0`$. Part 3: if $`\mathrm{ev}_X \beta = 0`$ then $`\beta = \mathrm{ev}_X (\alpha \wedge \beta)`$. Part 4: $`\alpha`$ is a retraction of
-$`F \to \mathrm{der} F`$, $`1 \to X`$, and on a paracompact manifold a nowhere-zero $`X`$ has one. ∎
+$`\alpha \wedge \alpha = 0`$. Part 3: if $`\mathrm{ev}_X\,\beta = 0`$ then $`\beta = \mathrm{ev}_X (\alpha \wedge \beta)`$. Part 4: $`\alpha`$ is a retraction of
+$`F \to \mathrm{der}\,F`$, $`1 \to X`$, and on a paracompact manifold a nowhere-zero $`X`$ has one. ∎
 Part A checks parts 1 to 3 exactly: the fermion relations on 16 by 16 integer matrices,
 multiplicativity and the derivation property on all basis pairs with symbolic $`X`$,
 $`\alpha`$ for $`n = 3`$, and the rest on one rational case in $`n = 4`$.
@@ -138,7 +138,7 @@ $`v_{YX} = X/B - Y`$, as in (1.4.7). Then
 1. $`\alpha(v_{XY}) = 0`$, and $`v_{YX} = -A v_{XY} - (A - 1/B) X`$, the general form of (1.7.19);
 2. $`v_{XY} + v_{YX} = (1/A - 1) Y + (1/B - 1) X`$, the general form of (1.7.22), so for independent $`X`$, $`Y`$ reciprocity holds exactly when $`A = B = 1`$;
 3. $`v_{YX} \wedge v_{XY} = (1 - 1/(AB)) Y \wedge X`$, the general form of (1.7.20), and $`AB = \mathrm{tr}(pq)`$ is the only gauge-invariant number of the pair;
-4. the class of $`Y`$ in $`\mathrm{der} F / F X`$, which is the direction of motion, uses no clock, and $`f \to Yf`$ on $`F^X`$ is Keres's velocity per unit of $`Y`$'s own process, which uses no clock of $`X`$;
+4. the class of $`Y`$ in $`\mathrm{der}\,F / F X`$, which is the direction of motion, uses no clock, and $`f \to Yf`$ on $`F^X`$ is Keres's velocity per unit of $`Y`$'s own process, which uses no clock of $`X`$;
 5. under a change of clock $`\alpha \to \alpha + \beta'`$ with $`\beta' X = 0`$, the components $`v x = Yx / \alpha(Y)`$ of the velocity on conserved $`x`$ all change by one common factor.
 
 (Part B.) Part 5 is the one-way speed problem in this language: direction belongs
@@ -174,9 +174,9 @@ of the cone of bodies.
 ## 6. Reciprocity of clocks is the metric
 
 **Theorem MF4 (reciprocity of clocks).** Let $`(X_i, \alpha_i)`$ be bodies whose
-processes generate $`\mathrm{der} F`$, with $`\Gamma_{ij} = \Gamma_{ji}`$ for all $`i`$, $`j`$. Then there is
-exactly one symmetric $`F`$-bilinear form $`b`$ on $`\mathrm{der} F`$ with $`\alpha_i = b(X_i, \cdot)`$, and
-every $`b(X_i, X_i) = 1`$. Its radical is the intersection of the $`\ker \alpha_i`$.
+processes generate $`\mathrm{der}\,F`$, with $`\Gamma_{ij} = \Gamma_{ji}`$ for all $`i`$, $`j`$. Then there is
+exactly one symmetric $`F`$-bilinear form $`b`$ on $`\mathrm{der}\,F`$ with $`\alpha_i = b(X_i, \cdot)`$, and
+every $`b(X_i, X_i) = 1`$. Its radical is the intersection of the $`\mathrm{ker}\,\alpha_i`$.
 Conversely, a symmetric $`b`$ with $`b(X_i, X_i) = 1`$ gives such a family.
 
 *Proof.* Put $`b(\sum a_i X_i, Y) = \sum a_i \alpha_i(Y)`$. If $`\sum a_i X_i = 0`$, then for
@@ -228,11 +228,11 @@ a statement about $`\mathrm{tr}(p_i p_j p_k)`$ and its reverse.
 **Proposition MF6 (the signature is an output).** Let $`b`$ be as in MF4, and let the
 bodies through each $`X`$ fill a neighbourhood of $`X`$ in $`\{b = 1\}`$.
 
-1. If $`b`$ is nondegenerate and $`\Gamma \ge 1`$ on such neighbourhoods, then $`b`$ is negative definite on every $`\ker \alpha_X`$, so $`b`$ has one positive direction. This is the Lorentz signature.
+1. If $`b`$ is nondegenerate and $`\Gamma \ge 1`$ on such neighbourhoods, then $`b`$ is negative definite on every $`\mathrm{ker}\,\alpha_X`$, so $`b`$ has one positive direction. This is the Lorentz signature.
 2. If $`\Gamma \le 1`$ there, then $`b`$ is positive definite.
 3. If $`\Gamma = 1`$ there, then $`b = \alpha \otimes \alpha`$, and all clocks are one clock. This is Galilei, and $`b`$ has rank 1.
 
-*Proof.* Take $`w`$ in $`\ker \alpha_X`$, so $`b(X, w) = 0`$, and
+*Proof.* Take $`w`$ in $`\mathrm{ker}\,\alpha_X`$, so $`b(X, w) = 0`$, and
 $`Y = (X + e w) / \sqrt{1 + e^2 b(w, w)}`$. Then $`b(Y, Y) = 1`$ and
 
 ```math
@@ -240,7 +240,7 @@ $`Y = (X + e w) / \sqrt{1 + e^2 b(w, w)}`$. Then $`b(Y, Y) = 1`$ and
 ```
 
 Parts 1 and 2 follow from the sign of $`b(w, w)`$, with nondegeneracy turning
-semi-definite into definite. In part 3, $`b(w, w) = 0`$ on $`\ker \alpha_X`$, so by
+semi-definite into definite. In part 3, $`b(w, w) = 0`$ on $`\mathrm{ker}\,\alpha_X`$, so by
 polarisation $`b`$ vanishes there, and $`b(X, \cdot) = \alpha`$ then gives $`b = \alpha \otimes \alpha`$. ∎
 (Part E.)
 
@@ -268,8 +268,8 @@ rate, so consider the set of unit processes.
 $`L : C \to (0, \infty)`$ smooth and homogeneous of degree 1, $`H = \{L = 1\}`$, and
 $`\alpha_X = dL_X`$ for $`X`$ in $`H`$.
 
-1. $`\alpha_X X = 1`$ and $`\ker \alpha_X`$ is the tangent space of $`H`$ at $`X`$. This is the only clock of $`X`$ for which $`\Gamma_{XY}(e) = 1 + O(e^2)`$ along every curve $`Y(e)`$ in $`H`$ through $`X`$: no first-order clock effect.
-2. For $`w`$ in $`\ker \alpha_X`$ and $`Y(e) = (X + e w)/L(X + e w)`$, $`\Gamma_{XY}(e) = 1 - (e^2/2) \mathrm{Hess} L_X(w, w) + \ldots`$. So $`\kappa_X = -\mathrm{Hess} L_X`$ on $`\ker \alpha_X`$ is a form on the rest space of $`X`$ defined with no metric.
+1. $`\alpha_X X = 1`$ and $`\mathrm{ker}\,\alpha_X`$ is the tangent space of $`H`$ at $`X`$. This is the only clock of $`X`$ for which $`\Gamma_{XY}(e) = 1 + O(e^2)`$ along every curve $`Y(e)`$ in $`H`$ through $`X`$: no first-order clock effect.
+2. For $`w`$ in $`\mathrm{ker}\,\alpha_X`$ and $`Y(e) = (X + e w)/L(X + e w)`$, $`\Gamma_{XY}(e) = 1 - (e^2/2) \mathrm{Hess}\,L_X(w, w) + \ldots`$. So $`\kappa_X = -\mathrm{Hess}\,L_X`$ on $`\mathrm{ker}\,\alpha_X`$ is a form on the rest space of $`X`$ defined with no metric.
 3. If $`C`$ is convex, $`\Gamma_{XY} \ge 1`$ for all $`X`$, $`Y`$ in $`H`$ exactly when $`L`$ is concave, and this is the reverse triangle inequality $`L(X + Y) \ge L(X) + L(Y)`$.
 4. $`\Gamma`$ is symmetric on $`H`$ exactly when $`L^2 = b`$ on $`C`$ for a symmetric bilinear $`b`$, that is when $`H`$ is part of a central quadric. Rank 1 is the hyperplane $`\tau = 1`$.
 5. $`\kappa = 0`$ is Galilei and $`\kappa \ne 0`$ is finite $`c`$. With a separate ruler $`h_X`$ on the rest space, $`\kappa = h/c^2`$. In particular $`c`$ is a conversion between clocks and rulers. The surface decides whether it is finite; its value needs the ruler.
@@ -335,15 +335,15 @@ form, and the velocity is related to it by the Legendre map, so the vector equat
 
 The paper offers two descriptions of the position space of $`X`$. In §1.1 and §1.4 it
 is the conserved subalgebra $`F^X`$ of scalars. In §3.1 it is the Grassmann factor-algebra
-(3.1.2), (3.1.18), which is $`\ker \mathrm{ev}_X`$ over all of $`F`$: §3.1.1 insists on no change of
+(3.1.2), (3.1.18), which is $`\mathrm{ker}\,\mathrm{ev}_X`$ over all of $`F`$: §3.1.1 insists on no change of
 scalars and lists $`t`$ among them, and (3.1.7) lists $`t`$ and $`t'`$. Chapter 3 also says
 that position space is a quotient manifold, not a submanifold (§3.1.1, first lesson).
 
 **Proposition MF9 (position space).**
 
-1. $`\ker \mathrm{ev}_X`$ is a subalgebra of $`\Lambda`$, not a factor algebra, contains every scalar, and is not stable under $`d`$.
-2. $`\Lambda/(\alpha)`$ depends only on the clock, and $`\Pi`$ gives an $`F`$-algebra isomorphism $`\Lambda/(\alpha) \to \ker \mathrm{ev}_X`$. $`d`$ descends to $`\Lambda/(\alpha)`$ exactly when $`\alpha \wedge d \alpha = 0`$, and then $`\Lambda/(\alpha)`$ is the algebra of forms restricted to the leaves of $`\ker \alpha`$, which are the instants.
-3. The **basic algebra** $`B_X = \{\beta : \mathrm{ev}_X \beta = 0, \mathrm{ev}_X d \beta = 0\}`$ is a differential graded subalgebra of $`\Lambda`$ over $`F^X`$. It needs no clock, $`B_{fX} = B_X`$, and it needs no integrability. In a flow box it is the de Rham algebra of the local quotient by the worldlines.
+1. $`\mathrm{ker}\,\mathrm{ev}_X`$ is a subalgebra of $`\Lambda`$, not a factor algebra, contains every scalar, and is not stable under $`d`$.
+2. $`\Lambda/(\alpha)`$ depends only on the clock, and $`\Pi`$ gives an $`F`$-algebra isomorphism $`\Lambda/(\alpha) \to \mathrm{ker}\,\mathrm{ev}_X`$. $`d`$ descends to $`\Lambda/(\alpha)`$ exactly when $`\alpha \wedge d \alpha = 0`$, and then $`\Lambda/(\alpha)`$ is the algebra of forms restricted to the leaves of $`\mathrm{ker}\,\alpha`$, which are the instants.
+3. The **basic algebra** $`B_X = \{\beta : \mathrm{ev}_X\,\beta = 0, \mathrm{ev}_X\,d \beta = 0\}`$ is a differential graded subalgebra of $`\Lambda`$ over $`F^X`$. It needs no clock, $`B_{fX} = B_X`$, and it needs no integrability. In a flow box it is the de Rham algebra of the local quotient by the worldlines.
 4. On a disk in rotation, $`X = \partial_t + w \partial_\phi`$ in Minkowski space, the metric clock has $`\alpha \wedge d \alpha \ne 0`$, so the factor differential of (3.1.12) does not exist. The position space, generated by $`r`$, $`z`$, $`\phi - w t`$, is untouched.
 
 *Proof.* Parts 1 and 2: (3.1.5) and MF1; $`d(\alpha) \subset (\alpha)`$ is (3.1.12). Part 3: $`d \beta`$
@@ -361,7 +361,7 @@ Warning 3.1.3 also ties (3.1.12) to "inertial or non-inertial" bodies. (3.1.12) 
 vorticity, not acceleration. A unit Rindler body has $`\alpha \wedge d \alpha = 0`$ and is not
 inertial (MF10).
 
-This leaves $`\ker \mathrm{ev}_X`$ with a real use, which should not be lost. It is the home of fields on the position space that may vary with time: §3.1.2 says it contains the relative electric and magnetic fields, and Keres's form (10) is an example. There, $`\gamma_{rs} (d\xi^r - u^r dt)(d\xi^s - u^s dt)`$ vanishes on the process, and in the coordinates $`x`$ it is $`g_{pq}(t, x) dx^p dx^q`$, which is not basic unless $`g_{pq}`$ is independent of $`t`$. So the position space is $`B_X`$, and $`\ker \mathrm{ev}_X`$ over $`F`$ holds what happens on it. The defect in (3.1.18) is the identification of the two.
+This leaves $`\mathrm{ker}\,\mathrm{ev}_X`$ with a real use, which should not be lost. It is the home of fields on the position space that may vary with time: §3.1.2 says it contains the relative electric and magnetic fields, and Keres's form (10) is an example. There, $`\gamma_{rs} (d\xi^r - u^r dt)(d\xi^s - u^s dt)`$ vanishes on the process, and in the coordinates $`x`$ it is $`g_{pq}(t, x) dx^p dx^q`$, which is not basic unless $`g_{pq}`$ is independent of $`t`$. So the position space is $`B_X`$, and $`\mathrm{ker}\,\mathrm{ev}_X`$ over $`F`$ holds what happens on it. The defect in (3.1.18) is the identification of the two.
 
 The body's three attributes in (1.1.1) sort as follows: the line $`F X`$ gives the position
 space, the clock gives the simultaneity, and the scale of $`X`$ gives the rate.
@@ -376,11 +376,11 @@ affect a local statement, or a body whose worldlines form a manifold.
 
 **Proposition MF10 (the clock as a connection).** For a body $`(X, \alpha)`$:
 
-1. $`L_X \alpha = \mathrm{ev}_X d \alpha`$ lies in $`\ker \mathrm{ev}_X`$, and $`d \alpha = \Pi d \alpha + \alpha \wedge L_X \alpha`$.
+1. $`L_X \alpha = \mathrm{ev}_X\,d \alpha`$ lies in $`\mathrm{ker}\,\mathrm{ev}_X`$, and $`d \alpha = \Pi d \alpha + \alpha \wedge L_X \alpha`$.
 2. $`(\Pi d)^2 f = -(Xf) \Pi d \alpha`$. So $`\Pi d \alpha`$ is the curvature of the horizontal derivative $`f \to \Pi df`$, of which the factor differential of (3.1.16) is the integrable case.
 3. For $`g`$ a metric, $`u`$ a unit vector and $`\alpha = -g(u, \cdot)`$ ($`c = 1`$), $`L_u \alpha = -g(a, \cdot)`$ with $`a = \nabla_u u`$. Einstein's one-body acceleration needs no connection once the body has a clock.
-4. For $`v`$ in $`\ker \alpha`$, $`\alpha(L_X v) = -d \alpha(X, v) = -(L_X \alpha)(v)`$. So relative acceleration leaves the rest space of $`X`$ when $`X`$ accelerates. This settles the guess at the end of §1.8.4: accelerations are not space-like in general.
-5. Under the gauge, $`L_{fX}(\alpha/f) = L_X \alpha + \Pi d \ln f`$ and $`\Pi d(\alpha/f) = (1/f) \Pi d \alpha`$. So acceleration depends on the rate of $`X`$, and vorticity only scales, and $`\alpha \wedge d \alpha = 0`$ is gauge invariant.
+4. For $`v`$ in $`\mathrm{ker}\,\alpha`$, $`\alpha(L_X v) = -d \alpha(X, v) = -(L_X \alpha)(v)`$. So relative acceleration leaves the rest space of $`X`$ when $`X`$ accelerates. This settles the guess at the end of §1.8.4: accelerations are not space-like in general.
+5. Under the gauge, $`L_{fX}(\alpha/f) = L_X \alpha + \Pi d \mathrm{ln}\,f`$ and $`\Pi d(\alpha/f) = (1/f) \Pi d \alpha`$. So acceleration depends on the rate of $`X`$, and vorticity only scales, and $`\alpha \wedge d \alpha = 0`$ is gauge invariant.
 6. On the disk, $`\alpha = dt - (w r^2 / (1 - w^2 r^2)) d\psi`$, with $`\psi = \phi - w t`$, and the holonomy round a circle in position space is $`2 \pi w r^2 / (1 - w^2 r^2)`$ in $`t`$. Twice the holonomy in proper time is $`4 \pi r^2 w \gamma`$, the Sagnac difference.
 
 (Part H: parts 1 and 2 with a generic $`f`$ on the disk, part 3 against Christoffel symbols,
@@ -398,7 +398,7 @@ absoluteness is not removed.
 
 Part 5 shows a Killing $`X`$, as on the disk, can absorb the acceleration: the rate
 $`X = \partial_t + w \partial_\phi`$ has $`L_X \alpha = 0`$, while the unit $`u = \gamma X`$ has
-$`L_u \alpha_u = \Pi d \ln \gamma`$.
+$`L_u \alpha_u = \Pi d \mathrm{ln}\,\gamma`$.
 
 ---
 
@@ -420,7 +420,7 @@ not. Space and time are not symmetric here, whatever the notation suggests.
 Is the characterisation of time adequate? Not as it stands.
 
 - The exact sequence (3.1.1) contains the simultaneity ideal, an ideal with no unit, which (3.1.1) calls the "zero $`F`$-algebra". There is no algebra of times in it. MF11 says what such an algebra would be, and when it would be empty.
-- A physical clock fixes a rate along its own worldline. Extending it to a form on $`\mathrm{der} F`$ is a synchronisation, so $`\Gamma_{XY}`$ is not read from one clock (open item MF-SP2).
+- A physical clock fixes a rate along its own worldline. Extending it to a form on $`\mathrm{der}\,F`$ is a synchronisation, so $`\Gamma_{XY}`$ is not read from one clock (open item MF-SP2).
 - The arrow is in $`X`$, not in $`p`$ (MF1, part 5).
 - Ages are line integrals. §3.2 calls the approach event-free, but the curve $`c^*`$ of (1.8.1) is used, and for $`F = C^{\infty}(M)`$ the characters of $`F`$ are the events (a standard fact, not checked here). "Manifold-free" renames the block universe unless $`F`$ is something else.
 
@@ -470,7 +470,7 @@ closure of composition), sign of $`\Gamma - 1`$.
 
 ## 12. Open items
 
-- **MF-SP1.** *Answered in part by step 4, CS5 and CS6.* Relate the vorticity of MF10 to Møller's spin, which is MC-SP3 in the setting of this note, with mass as a density (§10). A pointer: for rapidly decaying momentum density $`p`$ in the plane, integration by parts gives $`S = -(1/2) \int r^2 \mathrm{curl} p`$, checked on a Gaussian rotor (Part H). So $`S`$ is a second moment of the curl of the momentum form. Whether that survives relativistically, and whether Møller's radius $`|S|/(Mc)`$ can be read from it, is the question. Keres's non-Newtonian "vortex" fields are a lead that has not been followed up: the 1976 paper, (29)-(32), and his 1965 and 1967 papers, where the 1967 paper applies the method to the Kerr solution. Whether his curl of the relative velocity is $`\alpha \wedge d \alpha`$ for some clock is to be checked; his freely falling $`x`$-space has the closed clock $`dt`$, so it would be the clock of the reference space.
+- **MF-SP1.** *Answered in part by step 4, CS5 and CS6.* Relate the vorticity of MF10 to Møller's spin, which is MC-SP3 in the setting of this note, with mass as a density (§10). A pointer: for rapidly decaying momentum density $`p`$ in the plane, integration by parts gives $`S = -(1/2) \int r^2 \mathrm{curl}\,p`$, checked on a Gaussian rotor (Part H). So $`S`$ is a second moment of the curl of the momentum form. Whether that survives relativistically, and whether Møller's radius $`|S|/(Mc)`$ can be read from it, is the question. Keres's non-Newtonian "vortex" fields are a lead that has not been followed up: the 1976 paper, (29)-(32), and his 1965 and 1967 papers, where the 1967 paper applies the method to the Kerr solution. Whether his curl of the relative velocity is $`\alpha \wedge d \alpha`$ for some clock is to be checked; his freely falling $`x`$-space has the closed clock $`dt`$, so it would be the clock of the reference space.
 - **MF-SP2.** How is $`\Gamma`$ measured without presupposing a synchronisation? Radiation as the boundary of $`C`$ is the natural tool. Compare Ehlers, Pirani and Schild (1972), who build the conformal structure from light; that paper has not been read for this note.
 - **MF-SP3.** Linear but non-symmetric clocks: $`\alpha_X = b(X, \cdot)`$ with $`b`$ having an antisymmetric part. MF5 gives the cycle ratio as its gauge-invariant trace. Oziewicz explored this and withdrew it in November 2018 (step 1, §1). Is there a reason beyond the failure of MF7?
 - **MF-SP4.** When $`F^X`$ is trivial (an irrational flow), what replaces the position space? The paper mentions non-commutative geometry in §3.2 without using it.
@@ -512,7 +512,7 @@ statements. MF7, part 3, and MF8, part 1, have no machine check beyond the examp
 - J.-M. Lévy-Leblond, "One more derivation of the Lorentz transformation", *Am. J. Phys.* 44 (1976) 271 (page from memory), [copy](https://sciences-physiques.neocities.org/pdf/One_more_derivation.pdf).
 - R. T. Jantzen, P. Carini and D. Bini, "The many faces of gravitoelectromagnetism", [arXiv:gr-qc/0106043](https://arxiv.org/abs/gr-qc/0106043). Abstract only.
 - G. Rizzi, M. L. Ruggiero and A. Serafini, "Synchronization gauges and the principles of special relativity", [arXiv:gr-qc/0409105](https://arxiv.org/abs/gr-qc/0409105).
-- G. S. Rinehart, "Differential forms on general commutative algebras", *Trans. Amer. Math. Soc.* 108 (1963) 195-222, [AMS](https://www.ams.org/tran/1963-108-02/S0002-9947-1963-0154906-3/), for the setting of MF0 when $`\mathrm{der} F`$ is not free. Not read in full.
+- G. S. Rinehart, "Differential forms on general commutative algebras", *Trans. Amer. Math. Soc.* 108 (1963) 195-222, [AMS](https://www.ams.org/tran/1963-108-02/S0002-9947-1963-0154906-3/), for the setting of MF0 when $`\mathrm{der}\,F`$ is not free. Not read in full.
 - J. K. Beem, "Indefinite Finsler spaces and timelike spaces", *Canad. J. Math.* 22 (1970) 1035-1039, [Cambridge](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/03DA7BCFEF4768E13226AB9F11042B8F/S0008414X00047799a.pdf/indefinite-finsler-spaces-and-timelike-spaces.pdf). Located, not read; volume and pages from memory.
 - J. Ehlers, F. A. E. Pirani and A. Schild, "The geometry of free fall and light propagation", in L. O'Raifeartaigh (ed.), *General Relativity* (Oxford 1972) 63-84. From memory; not read.
 - L. D. Landau and E. M. Lifshitz, *The Classical Theory of Fields*, §84. From memory.

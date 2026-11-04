@@ -1,6 +1,6 @@
 # The centre of a clock: spin and the failure of simultaneity
 
-> Step 3 found that a rotating body has no time function of its own and left open how its vorticity relates to Møller's spin (MF-SP1, MC-SP3). This note reads Pryce (1948) and Møller (1949) and corrects step 1. **Definition CS0** adds what a body as a congruence lacks: a place. **Theorem CS1**: for a closed system with total $`P`$ and bivector $`L`$, any covector $`\zeta`$ with $`\zeta(P) \ne 0`$ picks one line, the centre $`C[\zeta](\tau) = (\tau P - \mathrm{ev}_\zeta L)/\zeta(P)`$. This is Pryce's (2.8) with $`n`$ read as a clock, so it needs no metric, and a spin supplementary condition is a choice of clock. **Proposition CS2**: the spin is the trivector $`P \wedge L`$, independent of origin; two centres differ, modulo $`P`$, by $`(P \wedge L)(\zeta_1, \zeta_2, \cdot)/(\zeta_1(P) \zeta_2(P))`$, and all clocks give one line exactly when $`P \wedge L = 0`$. **Proposition CS3**: with the metric, the clock $`b(P, \cdot)`$ gives Pryce's definition (d), which he calls relativistically covariant and the most satisfactory, and Møller's centre of gravity; this answers MC-SP1 and corrects step 1: a covariant centre worldline exists, the "known" impossibility that *Many-body mass-centre* §2.1 cites to these authors is not what they say, and Oziewicz's own $`Z`$ with its clock has all that is needed to define it. What Pryce finds difficult is different: no definition is both covariant and has commuting coordinates. **Proposition CS4**: with one clock the centres of subsystems add; with each subsystem's own clock they do not, which is the pattern of step 2. **Proposition CS5**: $`S_{ij} = -(1/2) \int r^2 (d \pi)_{ij}`$ for a momentum density $`\pi`$, which supports Oziewicz's proposal that spin lies in $`dP`$, but only with mass as a density: two free bodies have $`d \alpha = 0`$ and $`S \ne 0`$, and on a rotor the $`\rho d \alpha`$ term alone gives $`-I \Omega`$. **Proposition CS6**: for axisymmetric dust the circulation of the clock is the specific angular momentum, so $`S = (c^2/4 \pi) \int \Delta \tau dm`$ with $`\Delta \tau`$ the Sagnac difference, and on a ring Møller's radius is $`c \Delta \tau/(4 \pi \gamma)`$. So the failure of a rotating body's clocks to close and the spread of its centres are one quantity. The time problem is not removed: a time function has to come from outside the body, and each outside clock has its own centre. Checked exactly with SymPy; CS1 and CS2 are also proved here, and CS6 is close to an identity. No new prediction.
+> Step 3 found that a rotating body has no time function of its own and left open how its vorticity relates to Møller's spin (MF-SP1, MC-SP3). This note reads Pryce (1948) and Møller (1949) and corrects step 1. **Definition CS0** adds what a body as a congruence lacks: a place. **Theorem CS1**: for a closed system with total $`P`$ and bivector $`L`$, any covector $`\zeta`$ with $`\zeta(P) \ne 0`$ picks one line, the centre $`C[\zeta](\tau) = (\tau P - \mathrm{ev}_\zeta\,L)/\zeta(P)`$. This is Pryce's (2.8) with $`n`$ read as a clock, so it needs no metric, and a spin supplementary condition is a choice of clock. **Proposition CS2**: the spin is the trivector $`P \wedge L`$, independent of origin; two centres differ, modulo $`P`$, by $`(P \wedge L)(\zeta_1, \zeta_2, \cdot)/(\zeta_1(P) \zeta_2(P))`$, and all clocks give one line exactly when $`P \wedge L = 0`$. **Proposition CS3**: with the metric, the clock $`b(P, \cdot)`$ gives Pryce's definition (d), which he calls relativistically covariant and the most satisfactory, and Møller's centre of gravity; this answers MC-SP1 and corrects step 1: a covariant centre worldline exists, the "known" impossibility that *Many-body mass-centre* §2.1 cites to these authors is not what they say, and Oziewicz's own $`Z`$ with its clock has all that is needed to define it. What Pryce finds difficult is different: no definition is both covariant and has commuting coordinates. **Proposition CS4**: with one clock the centres of subsystems add; with each subsystem's own clock they do not, which is the pattern of step 2. **Proposition CS5**: $`S_{ij} = -(1/2) \int r^2 (d \pi)_{ij}`$ for a momentum density $`\pi`$, which supports Oziewicz's proposal that spin lies in $`dP`$, but only with mass as a density: two free bodies have $`d \alpha = 0`$ and $`S \ne 0`$, and on a rotor the $`\rho d \alpha`$ term alone gives $`-I \Omega`$. **Proposition CS6**: for axisymmetric dust the circulation of the clock is the specific angular momentum, so $`S = (c^2/4 \pi) \int \Delta \tau dm`$ with $`\Delta \tau`$ the Sagnac difference, and on a ring Møller's radius is $`c \Delta \tau/(4 \pi \gamma)`$. So the failure of a rotating body's clocks to close and the spread of its centres are one quantity. The time problem is not removed: a time function has to come from outside the body, and each outside clock has its own centre. Checked exactly with SymPy; CS1 and CS2 are also proved here, and CS6 is close to an identity. No new prediction.
 
 *Ladder abstract — see the [full list](README.md#the-ladder).*
 
@@ -68,7 +68,7 @@ the sum over a slice of the conserved current $`\tau^b`$ (a $`V`$-valued three-f
 $`d \tau^b = 0`$). A **clock** here is a constant covector $`\zeta`$ with $`\zeta(P) \ne 0`$, and
 the **centre** of $`\zeta`$ is the mean of positions on $`\zeta = \tau`$, weighted by $`\zeta`$
 of momentum. Components are $`L^{ab} = \sum (a^a p^b - a^b p^a)`$ and
-$`(\mathrm{ev}_\zeta L)^b = \zeta_a L^{ab}`$.
+$`(\mathrm{ev}_\zeta\,L)^b = \zeta_a L^{ab}`$.
 
 No metric appears, but something new does: a place $`a_k`$. Steps 1 to 3 gave a body
 as a process and a clock. A process is a whole congruence, and $`L`$ depends on which
@@ -84,17 +84,17 @@ calls the approach event-free, has no way to state any of this.
 **Theorem CS1 (the centre of a clock).** For a closed system and a clock $`\zeta`$,
 
 ```math
-C[\zeta](\tau)=\frac{\tau P-\mathrm{ev}_\zeta L}{\zeta(P)} .
+C[\zeta](\tau)=\frac{\tau P-\mathrm{ev}_\zeta\,L}{\zeta(P)} .
 ```
 
 This is a line parallel to $`P`$, whatever the interactions. Under a change of origin
 by $`s`$, $`L \to L + s \wedge P`$ and the line is unchanged. It is the unique line along $`P`$
-about which $`\mathrm{ev}_\zeta L = 0`$.
+about which $`\mathrm{ev}_\zeta\,L = 0`$.
 
 *Proof.* On $`\zeta(x) = \tau`$, contract $`L = \int (x \wedge \tau)`$:
 $`\zeta_a L^{ab} = \int (\zeta(x) \tau^b - x^b \zeta_a \tau^a) = \tau P^b - \zeta(P) C^b`$. Conservation
 makes $`L`$ and $`P`$ independent of the slice. For the last statement, the shift by $`C`$
-gives $`\mathrm{ev}_\zeta(L - C \wedge P) = \mathrm{ev}_\zeta L - \zeta(C) P + \zeta(P) C = 0`$. ∎ (Part A: $`n = 4`$, three bodies,
+gives $`\mathrm{ev}_\zeta(L - C \wedge P) = \mathrm{ev}_\zeta\,L - \zeta(C) P + \zeta(P) C = 0`$. ∎ (Part A: $`n = 4`$, three bodies,
 symbolic; a collision at one event, which leaves every centre unchanged.)
 
 This is not new. It is Pryce's (2.8), $`(s P^\mu + M^{\mu \nu} n_\nu)/(P^\sigma n_\sigma)`$, for
@@ -112,7 +112,7 @@ C[\zeta_1]-C[\zeta_2]=\frac{(P\wedge L)(\zeta_1,\zeta_2,\cdot)}{\zeta_1(P)\,\zet
 
 All clocks give one line exactly when $`P \wedge L = 0`$, that is when $`L = a \wedge P`$ for some $`a`$.
 
-*Proof.* Expanding, $`(P \wedge L)(\zeta_1, \zeta_2, \cdot) = \zeta_1(P) \mathrm{ev}_{\zeta_2} L - \zeta_2(P) \mathrm{ev}_{\zeta_1} L`$
+*Proof.* Expanding, $`(P \wedge L)(\zeta_1, \zeta_2, \cdot) = \zeta_1(P) \mathrm{ev}_{\zeta_2}\,L - \zeta_2(P) \mathrm{ev}_{\zeta_1}\,L`$
 plus a multiple of $`P`$. Divide by $`\zeta_1(P) \zeta_2(P)`$ and compare with CS1. If $`P \wedge L = 0`$
 then $`L = a \wedge P`$ for some $`a`$, because the Koszul complex of $`P`$ is exact (MF1, with $`\wedge`$ in
 place of $`\mathrm{ev}`$ by duality), and CS1 gives the line through $`a`$. ∎ (Part B, symbolic.)
@@ -125,7 +125,7 @@ multiple of $`P^\nu`$, is this statement for his $`n`$.
 
 Oziewicz's split gives the same thing in his own language. With $`Z = P/M`$, a clock
 $`\zeta`$ normalised on $`Z`$, and MF1, $`L = Z \wedge D + \Pi L`$: the idempotents divide $`L`$ into a
-moment $`D`$, which vanishes on the centre of $`\zeta`$, and a spin $`\Pi L`$ in $`\ker \mathrm{ev}_\zeta`$.
+moment $`D`$, which vanishes on the centre of $`\zeta`$, and a spin $`\Pi L`$ in $`\mathrm{ker}\,\mathrm{ev}_\zeta`$.
 
 ---
 
