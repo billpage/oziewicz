@@ -19,29 +19,25 @@ title, and `check_abstracts` keeps the two copies equal.
   open how its vorticity relates to Møller's spin (MF-SP1, MC-SP3). This note
   reads Pryce (1948) and Møller (1949) and corrects step 1. **Definition CS0**
   adds what a body as a congruence lacks: a place. **Theorem CS1**: for a closed
-  system with total `P` and bivector `L`, any covector `zeta` with `zeta(P) !=
-  0` picks one line, the centre `C[zeta](tau) = (tau P - ev_zeta L)/zeta(P)`.
-  This is Pryce's (2.8) with `n` read as a clock, so it needs no metric, and a
+  system with total $`P`$ and bivector $`L`$, any covector $`\zeta`$ with $`\zeta(P) \ne 0`$ picks one line, the centre $`C[\zeta](\tau) = (\tau P - \mathrm{ev}_\zeta L)/\zeta(P)`$.
+  This is Pryce's (2.8) with $`n`$ read as a clock, so it needs no metric, and a
   spin supplementary condition is a choice of clock. **Proposition CS2**: the
-  spin is the trivector `P ∧ L`, independent of origin; two centres differ,
-  modulo `P`, by `(P ∧ L)(zeta_1, zeta_2, ·)/(zeta_1(P) zeta_2(P))`, and all
-  clocks give one line exactly when `P ∧ L = 0`. **Proposition CS3**: with the
-  metric, the clock `b(P, ·)` gives Pryce's definition (d), which he calls
+  spin is the trivector $`P \wedge L`$, independent of origin; two centres differ,
+  modulo $`P`$, by $`(P \wedge L)(\zeta_1, \zeta_2, \cdot)/(\zeta_1(P) \zeta_2(P))`$, and all
+  clocks give one line exactly when $`P \wedge L = 0`$. **Proposition CS3**: with the
+  metric, the clock $`b(P, \cdot)`$ gives Pryce's definition (d), which he calls
   relativistically covariant and the most satisfactory, and Møller's centre of
   gravity; this answers MC-SP1 and corrects step 1: a covariant centre worldline
   exists, the "known" impossibility that *Many-body mass-centre* §2.1 cites to
-  these authors is not what they say, and Oziewicz's own `Z` with its clock has
+  these authors is not what they say, and Oziewicz's own $`Z`$ with its clock has
   all that is needed to define it. What Pryce finds difficult is different: no
   definition is both covariant and has commuting coordinates. **Proposition
   CS4**: with one clock the centres of subsystems add; with each subsystem's own
-  clock they do not, which is the pattern of step 2. **Proposition CS5**: `S_ij
-  = -(1/2) ∫ r^2 (d pi)_ij` for a momentum density `pi`, which supports
-  Oziewicz's proposal that spin lies in `dP`, but only with mass as a density:
-  two free bodies have `d alpha = 0` and `S != 0`, and on a rotor the `rho d
-  alpha` term alone gives `-I Omega`. **Proposition CS6**: for axisymmetric dust
-  the circulation of the clock is the specific angular momentum, so `S = (c^2/4
-  pi) ∫ Delta tau dm` with `Delta tau` the Sagnac difference, and on a ring
-  Møller's radius is `c Delta tau/(4 pi gamma)`. So the failure of a rotating
+  clock they do not, which is the pattern of step 2. **Proposition CS5**: $`S_{ij} = -(1/2) \int r^2 (d \pi)_{ij}`$ for a momentum density $`\pi`$, which supports
+  Oziewicz's proposal that spin lies in $`dP`$, but only with mass as a density:
+  two free bodies have $`d \alpha = 0`$ and $`S \ne 0`$, and on a rotor the $`\rho d \alpha`$ term alone gives $`-I \Omega`$. **Proposition CS6**: for axisymmetric dust
+  the circulation of the clock is the specific angular momentum, so $`S = (c^2/4 \pi) \int \Delta \tau dm`$ with $`\Delta \tau`$ the Sagnac difference, and on a ring
+  Møller's radius is $`c \Delta \tau/(4 \pi \gamma)`$. So the failure of a rotating
   body's clocks to close and the spread of its centres are one quantity. The
   time problem is not removed: a time function has to come from outside the
   body, and each outside clock has its own centre. Checked exactly with SymPy;
@@ -49,45 +45,43 @@ title, and `check_abstracts` keeps the two copies equal.
   prediction.
 - **3.** **[`metric_free_body.md`](metric_free_body.md)** \
   *Many-body mass-centre* gives each body a time-like derivation and a clock.
-  This note drops "time-like", keeps only a pair `(X, alpha)` with `alpha X =
-  1`, and asks how far that goes with no metric and no signature, whether the
+  This note drops "time-like", keeps only a pair $`(X, \alpha)`$ with $`\alpha X = 1`$, and asks how far that goes with no metric and no signature, whether the
   creation and evaluation operators can carry the weight put on them, and
   whether the paper's algebraic position space and time are adequate.
-  **Definition MF0** fixes the setting and the factor `Gamma_XY = alpha_X(Y)`,
-  which need not be symmetric. **Proposition MF1**: `{ev_X, ∧_alpha} = alpha X`
-  gives the split with no metric; the image of `Pi` depends on the process alone
+  **Definition MF0** fixes the setting and the factor $`\Gamma_{XY} = \alpha_X(Y)`$,
+  which need not be symmetric. **Proposition MF1**: $`\{\mathrm{ev}_X, \wedge_\alpha\} = \alpha X`$
+  gives the split with no metric; the image of $`\Pi`$ depends on the process alone
   and its kernel on the clock alone, and the clock is a contracting homotopy, so
   the Koszul complex has no homology. The operators are pointwise. **Proposition
   MF2**: the non-reciprocity (1.7.19), (1.7.20), (1.7.22) needs no metric; the
   direction of a relative velocity needs no clock, and its size does.
-  **Proposition MF3**: the mass centre `(P/M, theta/M)`, `M^2 = theta(P)`, needs
+  **Proposition MF3**: the mass centre $`(P/M, \theta/M)`$, $`M^2 = \theta(P)`$, needs
   neither metric nor symmetry, and radiation is a square-zero pair with no
-  split. **Theorem MF4**: if the bodies span and `Gamma` is symmetric, there is
-  exactly one symmetric bilinear form `b` with `alpha_i = b(X_i, .)`. Postulate
+  split. **Theorem MF4**: if the bodies span and $`\Gamma`$ is symmetric, there is
+  exactly one symmetric bilinear form $`b`$ with $`\alpha_i = b(X_i, \cdot)`$. Postulate
   1.6.3 is therefore the metric, not an addition to it: Oziewicz rejects
   Einstein's reciprocity of velocities and postulates a reciprocity of clocks,
   and that gives the metric and its isometry group. **Corollary MF5**: clocks
   can be chosen reciprocal for up to 10 bodies in dimension 4, so only the 11th
   tests the claim, and scale changes leave only cycle ratios. **Proposition
-  MF6**: the signature is an output: `Gamma >= 1` near every body gives one
-  positive direction, `Gamma <= 1` gives a definite form, and `Gamma = 1` gives
-  `b = alpha ⊗ alpha`. **Proposition MF7**: unit processes form a surface `L =
-  1` whose tangent plane is the natural clock, the only one with no first-order
+  MF6**: the signature is an output: $`\Gamma \ge 1`$ near every body gives one
+  positive direction, $`\Gamma \le 1`$ gives a definite form, and $`\Gamma = 1`$ gives
+  $`b = \alpha \otimes \alpha`$. **Proposition MF7**: unit processes form a surface $`L = 1`$ whose tangent plane is the natural clock, the only one with no first-order
   clock effect; reciprocity holds exactly when the surface is a central quadric,
-  its centro-affine curvature decides whether `c` is finite, and `Gamma >= 1` is
+  its centro-affine curvature decides whether $`c`$ is finite, and $`\Gamma \ge 1`$ is
   the reverse triangle inequality. **Proposition MF8**: requiring the mass
   centre to be a body whose vector and clock are both sums forces the quadric by
   a second route; on a non-quadric the two means differ. **Proposition MF9**:
   the paper's position space is not adequate: it gives two inequivalent
   definitions, and (3.1.18) names the factor algebra of the instant, which
-  depends only on the clock. The basic algebra `ev_X b = 0 = ev_X db` is the
-  position space: it needs no clock and `d` closes on it, also on a rotating
+  depends only on the clock. The basic algebra $`\mathrm{ev}_X b = 0 = \mathrm{ev}_X db`$ is the
+  position space: it needs no clock and $`d`$ closes on it, also on a rotating
   disk, where the paper's factor differential does not exist. **Proposition
-  MF10**: the clock is a connection on the worldline fibration: `Pi d alpha` is
-  its curvature, `L_X alpha` is Einstein's one-body acceleration without
+  MF10**: the clock is a connection on the worldline fibration: $`\Pi d \alpha`$ is
+  its curvature, $`L_X \alpha`$ is Einstein's one-body acceleration without
   Christoffel symbols, and its holonomy on the disk is the Sagnac term.
   **Proposition MF11**: the clock is not a time: time scalars exist only where
-  `alpha ∧ d alpha = 0`, and on a rotating body the reciprocal clock and a time
+  $`\alpha \wedge d \alpha = 0`$, and on a rotating body the reciprocal clock and a time
   function exclude each other. Checked exactly with SymPy except where the note
   says numerical; MF4 to MF8 and MF11 also rest on short proofs given here.
   Nothing here departs from standard relativity. Step 4 takes up the link
