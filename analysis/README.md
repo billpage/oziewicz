@@ -19,7 +19,7 @@ title, and `check_abstracts` keeps the two copies equal.
   open how its vorticity relates to Møller's spin (MF-SP1, MC-SP3). This note
   reads Pryce (1948) and Møller (1949) and corrects step 1. **Definition CS0**
   adds what a body as a congruence lacks: a place. **Theorem CS1**: for a closed
-  system with total $`P`$ and bivector $`L`$, any covector $`\zeta`$ with $`\zeta(P) \ne 0`$ picks one line, the centre $`C[\zeta](\tau) = (\tau P - \mathrm{ev}_\zeta L)/\zeta(P)`$.
+  system with total $`P`$ and bivector $`L`$, any covector $`\zeta`$ with $`\zeta(P) \ne 0`$ picks one line, the centre $`C[\zeta](\tau) = (\tau P - \mathrm{ev}_\zeta\,L)/\zeta(P)`$.
   This is Pryce's (2.8) with $`n`$ read as a clock, so it needs no metric, and a
   spin supplementary condition is a choice of clock. **Proposition CS2**: the
   spin is the trivector $`P \wedge L`$, independent of origin; two centres differ,
@@ -74,7 +74,7 @@ title, and `check_abstracts` keeps the two copies equal.
   a second route; on a non-quadric the two means differ. **Proposition MF9**:
   the paper's position space is not adequate: it gives two inequivalent
   definitions, and (3.1.18) names the factor algebra of the instant, which
-  depends only on the clock. The basic algebra $`\mathrm{ev}_X b = 0 = \mathrm{ev}_X db`$ is the
+  depends only on the clock. The basic algebra $`\mathrm{ev}_X\,b = 0 = \mathrm{ev}_X\,db`$ is the
   position space: it needs no clock and $`d`$ closes on it, also on a rotating
   disk, where the paper's factor differential does not exist. **Proposition
   MF10**: the clock is a connection on the worldline fibration: $`\Pi d \alpha`$ is
