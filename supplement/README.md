@@ -31,3 +31,13 @@ not listed in `analysis/INDEX.md`.
   section, 98 exact checks of it and of the public revision of March 2007 (one side remark
   in (9.6) fails), where its claims stand, and what the revision dropped and added. Its
   ternary velocity is not the boost-link of 2005 and 2007. Companion script `src/verify_velocity_draft.py`.
+- **[`matolcsi_spacetime.md`](matolcsi_spacetime.md)** (prefix MT). A reading of chapter II
+  (special relativistic spacetime models) of T. Matolcsi, *Spacetime Without Reference
+  Frames* (1993), the book Oziewicz cited for the reference-frame-free method. Its relative
+  velocity is the binary velocity of step 1 (MT1); it has the non-reciprocity and the boost
+  that carries one mutual velocity to minus the other (MT2), the Thomas-Wigner rotation
+  without the name, as the non-transitivity of "physically equal" vectors (MT3), and an
+  addition formula that is composition in the pair groupoid (MT4). Its regular observer is
+  `α ∧ dα = 0` (MT6). Where Matolcsi and Oziewicz part is the status of the boost: a
+  convention with a price, or a false axiom. 40 exact checks; the book is not committed.
+  Companion script `src/verify_matolcsi.py`.
