@@ -42,6 +42,8 @@ not listed in `analysis/INDEX.md`.
   convention with a price, or a false axiom. §8 adds the second edition (2018, CC BY 4.0)
   and Matolcsi and Gohér (2001): the velocity is the *standard* one, tied to a
   synchronization (MT8); the Thomas rotation is named (MT9); the addition formula changes
-  form, and two displays of the second edition are misprints (MT8, MT10). 49 exact checks;
+  form, and two displays of the second edition are misprints (MT8, MT10). §9: Oziewicz's clock form
+  is a synchronization, his reciprocity of clocks is Einstein's (MT11), and a shared clock
+  is his Galilean algebra inside Minkowski spacetime (MT12). 55 exact checks;
   the first edition is not committed.
   Companion script `src/verify_matolcsi.py`.

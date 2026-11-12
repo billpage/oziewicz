@@ -26,6 +26,9 @@ Parts
   I  the second edition (2018), II.4.3.2 and II.4.8, and Matolcsi and Goher
      (2001), eqs (35), (42), (46): the boosted addition formula, the angle of
      the Thomas rotation, and velocities in a nonstandard synchronization
+  J  Oziewicz's observer p = T (x) tau is an inertial reference frame
+     (synchronization, observer) of the 2018 edition; a shared clock form
+     gives additive velocities in one vector space
 
 Run:  PYTHONPATH=src python3 -u src/verify_matolcsi.py
 Writes no files.
@@ -367,8 +370,38 @@ def part_i():
           zero(fac.subs(c_, -1) - 1 / (1 + vs)) and zero(fac.subs(c_, 1) - 1 / (1 - vs)))
 
 
+def part_j():
+    print("Part J  an observer T (x) tau is a reference frame (u_s, u)")
+    tau = lambda us, u: (lambda x: (-d(us, x)) / (-d(us, u)))     # tau(u) = 1, ker tau = E_{u_s}
+    ok1 = ok2 = ok3 = True
+    for u, us, up in [(U0, U1, U2), (U1, U4, U2), (U2, U0, U4), (U4, U4, U1)]:
+        t = tau(us, u)
+        voz = up / t(up) - u                       # Oziewicz: T_q/tau_p(T_q) - T_p
+        vm = (up + u * d(u, up)) / (-d(us, up)) * (-d(us, u))    # Matolcsi 2018 II.4.8.1
+        ok1 &= zero(t(voz)) and zero(d(vm, u))     # in ker tau, resp. in E_u
+        diff = voz - vm
+        ok2 &= zero(diff - u * (-d(u, diff)))      # they differ by a multiple of u
+        if us is u:
+            ok3 &= zero(voz - v(up, u)) and zero(vm - v(up, u))
+    check("T_q/tau_p(T_q) - T_p is in ker tau_p; II.4.8.1 is in E_u", ok1)
+    check("the two are the same element of M/<u>: they differ by a multiple of u", ok2)
+    check("for u_s = u (tau = -g(u, .)) both are the standard v(u',u)", ok3)
+    # one clock form for all observers: tau = -g(u_s, .), T_i = u_i / tau(u_i)
+    us = U4
+    T = [x / (-d(us, x)) for x in (U0, U1, U2, U3)]
+    vel = lambda i, j: T[j] / (-d(us, T[j])) - T[i]          # = T_j - T_i
+    ok4 = all(zero(vel(i, j) + vel(j, k) - vel(i, k)) and zero(d(us, vel(i, j)))
+              for i in range(4) for j in range(4) for k in range(4))
+    ok5 = all(zero(vel(i, j) + vel(j, i)) for i in range(4) for j in range(4))
+    check("shared clock: all velocities lie in E_{u_s} and add, v_ij + v_jk = v_ik", ok4)
+    check("shared clock: velocities are reciprocal, v_ji = -v_ij", ok5)
+    G = sp.Matrix(4, 4, lambda i, j: -d(us, T[j]) / 1)       # tau_i(T_j) = 1 for all i, j
+    check("shared clock: Gamma_ij = tau(T_j) = 1 for all pairs (MF6, Gamma = 1)",
+          all(x == 1 for x in G))
+
+
 def main():
-    for part in (part_a, part_b, part_c, part_d, part_e, part_f, part_g, part_h, part_i):
+    for part in (part_a, part_b, part_c, part_d, part_e, part_f, part_g, part_h, part_i, part_j):
         part()
     n = len(FAILED)
     print(f"\n{'ALL CHECKS PASSED' if n == 0 else f'{n} FAILED: ' + '; '.join(FAILED)}")

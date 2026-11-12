@@ -1,6 +1,6 @@
 # Matolcsi's *Spacetime Without Reference Frames*: the special relativistic part
 
-> A reading of chapter II (special relativistic spacetime models) of the book Oziewicz cited as the reference-frame-free account of relativity. Matolcsi's relative velocity of 1993 is, symbol for symbol, the binary velocity of step 1 (MT1). The book has its non-reciprocity, the boost that carries one mutual velocity to minus the other (MT2), and an addition formula that needs both mutual velocities of the middle pair, which is composition in the pair groupoid without the name (MT4). Boosts compose to a boost only for coplanar velocity values; the defect is the Thomas-Wigner rotation, which the book derives but does not name, and it makes "physically equal" vectors in different observer spaces a non-transitive relation (MT3). Its "regular observer" is the condition `α ∧ dα = 0` of step 3, and of its two rotating observers one is rigid, neither is regular (MT6). The book keeps the Lorentz group and says what it cannot do: boosts are not a subgroup and no rotation subgroup is singled out (MT7). The first edition is not the last word: the second edition (2018, CC BY 4.0) separates the observer from its synchronization and calls this velocity the *standard* relative velocity; a synchronization changes its size and not its direction (MT8). Matolcsi and Gohér (1996, 2001) name the Thomas rotation and say it measures the failure of transitivity (MT9). The second edition replaces the addition formula of 1993 by one that boosts the second velocity, and prints it with two coefficients exchanged (MT4, MT10). 49 exact checks pass; no formula of the first edition failed, and two displays of the second edition are misprints.
+> A reading of chapter II (special relativistic spacetime models) of the book Oziewicz cited as the reference-frame-free account of relativity. Matolcsi's relative velocity of 1993 is, symbol for symbol, the binary velocity of step 1 (MT1). The book has its non-reciprocity, the boost that carries one mutual velocity to minus the other (MT2), and an addition formula that needs both mutual velocities of the middle pair, which is composition in the pair groupoid without the name (MT4). Boosts compose to a boost only for coplanar velocity values; the defect is the Thomas-Wigner rotation, which the book derives but does not name, and it makes "physically equal" vectors in different observer spaces a non-transitive relation (MT3). Its "regular observer" is the condition `α ∧ dα = 0` of step 3, and of its two rotating observers one is rigid, neither is regular (MT6). The book keeps the Lorentz group and says what it cannot do: boosts are not a subgroup and no rotation subgroup is singled out (MT7). The first edition is not the last word: the second edition (2018, CC BY 4.0) separates the observer from its synchronization and calls this velocity the *standard* relative velocity; a synchronization changes its size and not its direction (MT8). Matolcsi and Gohér (1996, 2001) name the Thomas rotation and say it measures the failure of transitivity (MT9). The second edition replaces the addition formula of 1993 by one that boosts the second velocity, and prints it with two coefficients exchanged (MT4, MT10). Oziewicz's observer, a vector with a clock form, is one of Matolcsi's inertial reference frames, and his reciprocity of clocks is Einstein's synchronization (MT11); one clock form shared by all bodies gives his Galilean algebra inside Minkowski spacetime (MT12). 55 exact checks pass; no formula of the first edition failed, and two displays of the second edition are misprints.
 
 **Status.** Supplement (a reading of a published book, not a ladder step). Companion
 script: [`src/verify_matolcsi.py`](../src/verify_matolcsi.py). Requested by Bill Page,
@@ -451,7 +451,13 @@ only how each map draws each other traveller.
   II.4.7, II.4.8, II.5.1 and the bibliography. A full comparison, and the reading of II.6
   from the second edition (clean text, new section 6.1), is the next pass.
 - **MT-SP8.** Does Oziewicz say anywhere that the size of the binary velocity depends on
-  the choice of clock, as MF2 and MT8 find? Where his texts treat synchronization.
+  the choice of clock, as MF2 and MT8 find, or that his clock form is a synchronization
+  (MT11)? Bill Page does not recall it and will look in other documents; candidates are
+  the Oziewicz and Page manuscript *The Many Relative Spaces of Galileo and Poincaré*,
+  *Relative velocity: a dichotomy* (2010) and the "Zero" drafts.
+- **MT-SP9.** MT12 against the literature on absolute synchronization (Tangherlini 1961;
+  Selleri 1997; Matolcsi 1998), none of it read. Is MT12 there, and does it extend to
+  non-inertial bodies, where a shared clock needs `α ∧ dα = 0`?
 - **MT-SP6.** The coplanarity criterion (II.1.3.9) and the general form of $`W`$ in MT3
   were checked on instances, not proved symbolically.
 
@@ -459,7 +465,7 @@ only how each map draws each other traveller.
 
 ## 7. Verification
 
-`PYTHONPATH=src python3 -u src/verify_matolcsi.py` (SymPy, exact; writes no files). 49
+`PYTHONPATH=src python3 -u src/verify_matolcsi.py` (SymPy, exact; writes no files). 55
 checks, all pass.
 
 | Part | Sections | What is checked | Kind |
@@ -472,6 +478,7 @@ checks, all pass.
 | F | II.5.2, II.5.3 | observed vectors, contraction | rational |
 | G | II.7.1 | transformation rule, $`D(v)`$, Lorentz transformation | $`t`$, $`\lambda`$ symbolic |
 | H | II.6.2.4, II.6.7, II.6.8 | `α ∧ dα` and rigidity of the two rotating observers | symbolic |
+| J | §9; 2018 II.4.8.1 | an observer `T ⊗ τ` as a reference frame; shared clock form | rational |
 | I | 2018 II.4.3.2, II.4.8; Gohér (35), (42), (46) | boosted addition formula, angle of the Thomas rotation, nonstandard synchronization, the two misprints | rational; $`v_s`$ symbolic |
 
 No formula read from the first edition failed. One check failed on the first run because of the
@@ -605,11 +612,83 @@ the second edition's II.4.3.3.
 Point 1 of §5 stands and is sharpened. From 1996 on, Matolcsi makes the boost a
 *physical procedure* (light signals between the two spaces), and from 2018 he separates
 out a second convention, the synchronization, which the first edition had built into the
-inertial observer. So Matolcsi's later position has two explicit conventions (standard
-synchronization, physical equality by boost) where Oziewicz has two rejections
-(simultaneity is no part of a body; the boost has no place in the groupoid). MT8 shows
-the first rejection is not carried through in the metric formula for the binary
-velocity, which is the standard one.
+inertial observer. So Matolcsi's later position has two explicit conventions: standard
+synchronization, and physical equality by boost. Oziewicz rejects the second (the boost
+has no place in the groupoid). On the first, the earlier version of this section said he
+rejects simultaneity as part of a body; that was wrong, and §9 replaces it: his observer
+carries a clock form, which is a synchronization, and his metric postulate fixes it to be
+the standard one.
+
+## 9. Oziewicz's clock is a synchronization
+
+Bill Page's question, 12 November 2026: what do Oziewicz's ideas imply for
+synchronization, given that his "clock" may not be Matolcsi's? This section answers for
+the inertial case only, from formulas already in this repository; what Oziewicz himself
+wrote on synchronization has not been searched (MT-SP8).
+
+**MT11 (an observer is a reference frame).** In *Relativity groupoid* an observer is a
+rank-one idempotent $`p = T_p \otimes \tau_p`$ with $`\tau_p(T_p) = 1`$ (its eq. (14), as
+read in step 3, MF0, and in the Project note `response_sobczyk_cruz.md`; not re-read
+today). The kernel of $`\tau_p`$ is a hyperplane, and the hyperplanes parallel to it are
+the classes of an affine synchronization in the sense of the second edition's II.3.4.1.
+So $`p`$ is one of Matolcsi's inertial reference frames $`(u_s, u)`$: $`T_p`$ is parallel
+to $`u`$, and $`\tau_p = -\mathbf{g}(u_s, \cdot)/(-u_s \cdot u)`$. The velocities agree:
+
+```math
+\frac{T_q}{\tau_p(T_q)} - T_p \ \in\ \mathrm{ker}\,\tau_p \qquad\text{and}\qquad v_{u'(u_s, u)} \ \in\ \mathbf{S}_u
+```
+
+differ by a multiple of $`u`$, so they are the same element of the quotient
+$`\mathbf{M}/\langle u \rangle`$, which is the vector space of the observer's space.
+Oziewicz represents that quotient by the kernel of the clock, Matolcsi by the orthogonal
+complement of $`u`$; the two coincide exactly when $`u_s = u`$, and then both are the
+standard $`v_{u'u}`$. (Exact, Part J.)
+
+Three consequences.
+
+1. *The clock is the synchronization, and more.* A clock form holds two things: its
+   kernel (which occurrences are simultaneous) and its normalisation (a rate). Matolcsi's
+   synchronization is the kernel alone; he takes the rate from the proper time of $`u`$.
+   So "clock" in *Mass-centre* is a richer notion, as Bill Page suspected, but it contains
+   a synchronization and cannot be had without one.
+2. *Reciprocity of clocks is the standard synchronization.* Postulate 1.6.3 of
+   *Mass-centre*, and (6), (7) of *Relativity groupoid*, force $`\tau_p = -\mathbf{g}(T_p,
+   \cdot)`$ (MF4), which is $`u_s = u`$. So Oziewicz's metric theory uses Einstein's
+   synchronization for every body, by postulate. By the second edition's II.3.5.3 that is
+   the synchronization in which one-way and two-way light speeds agree. He rejects
+   Einstein's reciprocity of velocities and keeps Einstein's synchronization; MF4 said
+   this in the words "postulates a reciprocity of clocks".
+3. *The size of the binary velocity is conventional to the same extent.* MT8 and MF2.
+   The non-reciprocity $`v_{YX} \ne -v_{XY}`$ survives every choice, because the two
+   vectors lie in different quotients.
+
+**MT12 (a shared clock is an absolute synchronization).** Let all observers use one clock
+form, $`\tau = -\mathbf{g}(u_s, \cdot)`$ for one fixed $`u_s`$, each normalised by
+$`\tau(T_i) = 1`$. Then every relative velocity is $`T_j - T_i`$; all of them lie in the
+one vector space $`\mathbf{E}_{u_s}`$; they add, $`v_{ij} + v_{jk} = v_{ik}`$; they are
+reciprocal; and $`\Gamma_{ij} = 1`$ for all pairs (exact, Part J). This is the "Galilean
+algebra" of *Relativity groupoid* §8 (all observers share a clock form, $`qp = q`$), and
+it is the structure of Matolcsi's chapter I, a single $`\tau`$ and a single $`\mathbf{E}`$.
+But here it sits inside Minkowski spacetime: the bodies and the light cone are unchanged,
+and only the bookkeeping differs. In the literature on conventionality of simultaneity
+this is the absolute (Tangherlini, Selleri) synchronization; Matolcsi and Gohér cite
+Selleri (1997) for the light-speed paradox it leads to. That attribution is from memory
+and from their reference list, not checked (MT-SP9).
+
+So the contrast Oziewicz draws between the Galilean algebra and the relativity groupoid
+is, kinematically, a contrast between two synchronization conventions for the same
+bodies: one clock for all, or each body its own metric clock. What the shared clock gives
+up is that $`T_i`$ is no longer the unit of proper time of body $`i`$, and MF6 shows the
+price: with $`\Gamma = 1`$ the form reconstructed from the clocks is $`\tau \otimes
+\tau`$, degenerate, so the clocks alone no longer return the metric. Whether Oziewicz saw
+his §8 as a re-description of relativity or only as its contrast is a question for his
+texts (MT-SP8).
+
+*Analogy.* A railway may run every station clock on the capital's time, or each on its
+own noon. The trains are the same; the timetables differ. With capital time, journey
+times add along a line and "the same time" means one thing everywhere, but no station's
+clock agrees with its own sun. Oziewicz's metric postulate is local noon for every
+station; his Galilean algebra is capital time.
 
 ---
 
