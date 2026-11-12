@@ -39,5 +39,9 @@ not listed in `analysis/INDEX.md`.
   without the name, as the non-transitivity of "physically equal" vectors (MT3), and an
   addition formula that is composition in the pair groupoid (MT4). Its regular observer is
   `α ∧ dα = 0` (MT6). Where Matolcsi and Oziewicz part is the status of the boost: a
-  convention with a price, or a false axiom. 40 exact checks; the book is not committed.
+  convention with a price, or a false axiom. §8 adds the second edition (2018, CC BY 4.0)
+  and Matolcsi and Gohér (2001): the velocity is the *standard* one, tied to a
+  synchronization (MT8); the Thomas rotation is named (MT9); the addition formula changes
+  form, and two displays of the second edition are misprints (MT8, MT10). 49 exact checks;
+  the first edition is not committed.
   Companion script `src/verify_matolcsi.py`.

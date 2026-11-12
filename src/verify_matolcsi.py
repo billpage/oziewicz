@@ -23,6 +23,9 @@ Parts
   G  II.7.1: the vector transformation rule and the Lorentz transformation
   H  II.6.2.4, II.6.7, II.6.8: the two uniformly rotating observers are not
      regular (alpha ^ d alpha != 0), symbolic
+  I  the second edition (2018), II.4.3.2 and II.4.8, and Matolcsi and Goher
+     (2001), eqs (35), (42), (46): the boosted addition formula, the angle of
+     the Thomas rotation, and velocities in a nonstandard synchronization
 
 Run:  PYTHONPATH=src python3 -u src/verify_matolcsi.py
 Writes no files.
@@ -316,8 +319,56 @@ def part_h():
     check("6.7.5: observer I is not rigid", expansion_shear(U_I) != sp.zeros(4, 4))
 
 
+def part_i():
+    print("Part I  2018 edition II.4.3.2, II.4.8; Matolcsi-Goher 2001")
+    ok = ok35 = ok42 = True
+    printed = []
+    for a, b, c in [(U0, U1, U2), (U1, U2, U4), (U4, U0, U2), (U2, U4, U1)]:
+        vp = L(a, b) * v(c, b)            # v' = L(u,u') v(u'',u'), boosted into E_u
+        vv_ = v(b, a)
+        al, be, ga = -d(b, a), -d(c, b), -d(c, a)
+        ok35 &= zero(ga - al * be * (1 + d(vv_, vp)))
+        ok &= zero(v(c, a) - (al * (be + ga) / (ga * (1 + al)) * vv_ + be / ga * vp))
+        printed.append(zero(v(c, a) - (be / ga * vv_ + al * (be + ga) / (ga * (1 + al)) * vp)))
+        W = L(a, c) * L(c, b) * L(b, a)   # R_u(u',u'') of Goher (32)
+        cos = (W.trace() - 2) / 2         # W fixes u and an axis: trace = 2 + 2 cos
+        ok42 &= zero(cos - (1 - (1 + 2 * al * be * ga - (al**2 + be**2 + ga**2))
+                            / ((1 + al) * (1 + be) * (1 + ga))))
+    check("Goher (46): v'' = a(b+c)/(c(1+a)) v + (b/c) v', v' boosted into E_u (4 triples)", ok)
+    check("... so 2018 II.4.3.2 as printed, with the two coefficients exchanged, is a misprint",
+          not all(printed))
+    print(f"         as printed it holds for {sum(printed)} of {len(printed)} triples")
+    check("Goher (35): c = a b (1 + v.v')", ok35)
+    check("Goher (42): cos of the Thomas rotation angle, from the trace (4 triples)", ok42)
+    # 2018 II.4.8: observer u with the synchronization of u_s
+    ok48 = okdir = True
+    changed = False
+    for u, us, up in [(U0, U1, U2), (U1, U4, U2), (U2, U0, U4)]:
+        y_x = up                           # y - x is parallel to u'
+        vel = (y_x + u * d(u, y_x)) / (-d(us, y_x)) * (-d(us, u))
+        fac = (-d(u, up)) * (-d(us, u)) / (-d(us, up))
+        ok48 &= zero(vel - v(up, u) * fac)
+        okdir &= fac > 0
+        changed = changed or fac != 1
+    check("2018 II.4.8.1: v(u'; u_s, u) = v(u',u) (-u.u')(-u_s.u)/(-u_s.u')", ok48)
+    check("so a synchronization changes the size of a relative velocity, not its direction",
+          okdir and changed)
+    vs, c_ = sp.symbols("v_s c", real=True)   # c = n_s . n_w
+    u = U0
+    ns, nperp = vv(0, 1, 0, 0), vv(0, 0, 1, 0)
+    us = (u + vs * ns) / sp.sqrt(1 - vs**2)
+    w = u + c_ * ns + sp.sqrt(1 - c_**2) * nperp
+    fac = sp.simplify((-d(u, w)) * (-d(us, u)) / (-d(us, w)))
+    check("2018 II.4.8.2: one-way light speed is 1/(1 - v_s n_s.n_w), symbolic",
+          zero(fac - 1 / (1 - vs * c_)))
+    check("... so the last display of II.4.8.2, (1 - v_s n_s.n_w)/sqrt(1 - v_s^2), is a misprint",
+          not zero(fac - (1 - vs * c_) / sp.sqrt(1 - vs**2)))
+    check("... while its stated extremes 1/(1 + v_s), 1/(1 - v_s) are right",
+          zero(fac.subs(c_, -1) - 1 / (1 + vs)) and zero(fac.subs(c_, 1) - 1 / (1 - vs)))
+
+
 def main():
-    for part in (part_a, part_b, part_c, part_d, part_e, part_f, part_g, part_h):
+    for part in (part_a, part_b, part_c, part_d, part_e, part_f, part_g, part_h, part_i):
         part()
     n = len(FAILED)
     print(f"\n{'ALL CHECKS PASSED' if n == 0 else f'{n} FAILED: ' + '; '.join(FAILED)}")

@@ -1,10 +1,13 @@
 # Matolcsi's *Spacetime Without Reference Frames*: the special relativistic part
 
-> A reading of chapter II (special relativistic spacetime models) of the book Oziewicz cited as the reference-frame-free account of relativity. Matolcsi's relative velocity of 1993 is, symbol for symbol, the binary velocity of step 1 (MT1). The book has its non-reciprocity, the boost that carries one mutual velocity to minus the other (MT2), and an addition formula that needs both mutual velocities of the middle pair, which is composition in the pair groupoid without the name (MT4). Boosts compose to a boost only for coplanar velocity values; the defect is the Thomas-Wigner rotation, which the book derives but does not name, and it makes "physically equal" vectors in different observer spaces a non-transitive relation (MT3). Its "regular observer" is the condition `α ∧ dα = 0` of step 3, and of its two rotating observers one is rigid, neither is regular (MT6). The book keeps the Lorentz group and says what it cannot do: boosts are not a subgroup and no rotation subgroup is singled out (MT7). Forty exact checks pass; no formula read from the book failed.
+> A reading of chapter II (special relativistic spacetime models) of the book Oziewicz cited as the reference-frame-free account of relativity. Matolcsi's relative velocity of 1993 is, symbol for symbol, the binary velocity of step 1 (MT1). The book has its non-reciprocity, the boost that carries one mutual velocity to minus the other (MT2), and an addition formula that needs both mutual velocities of the middle pair, which is composition in the pair groupoid without the name (MT4). Boosts compose to a boost only for coplanar velocity values; the defect is the Thomas-Wigner rotation, which the book derives but does not name, and it makes "physically equal" vectors in different observer spaces a non-transitive relation (MT3). Its "regular observer" is the condition `α ∧ dα = 0` of step 3, and of its two rotating observers one is rigid, neither is regular (MT6). The book keeps the Lorentz group and says what it cannot do: boosts are not a subgroup and no rotation subgroup is singled out (MT7). The first edition is not the last word: the second edition (2018, CC BY 4.0) separates the observer from its synchronization and calls this velocity the *standard* relative velocity; a synchronization changes its size and not its direction (MT8). Matolcsi and Gohér (1996, 2001) name the Thomas rotation and say it measures the failure of transitivity (MT9). The second edition replaces the addition formula of 1993 by one that boosts the second velocity, and prints it with two coefficients exchanged (MT4, MT10). 49 exact checks pass; no formula of the first edition failed, and two displays of the second edition are misprints.
 
 **Status.** Supplement (a reading of a published book, not a ladder step). Companion
 script: [`src/verify_matolcsi.py`](../src/verify_matolcsi.py). Requested by Bill Page,
-12 November 2026. The book is copyrighted and is not committed here. **Every statement of
+12 November 2026. The first edition (1993) is copyrighted and is not committed here; the
+second (2018) is CC BY 4.0 and is linked in the references. §§1 to 7 were written from the
+first edition; §8 was added the same day from the second edition and from Matolcsi and
+Gohér (2001), after Bill Page found the author's page. **Every statement of
 what the book says is a reading.** Formulas were read from page images, not from extracted
 text, and each formula used below was then checked exactly; the prose was read from page
 images for the sections listed in §1 and from OCR text elsewhere, and the note says which.
@@ -34,7 +37,12 @@ MF11 and the position space MF9. They are cited, not re-derived.
 Oziewicz; not re-checked". The title page and the copyright page of the copy read here
 both say 1993 (§1). Step 1 and `bodies_first.md` cite "Matolcsi (1994)" for the statement
 that mutual relative velocities lie in different rest spaces; the statement is in the book
-(II.4.2.3), the year should read 1993. Nothing else is retracted.
+(II.4.2.3), the year should read 1993.
+
+**Retracts**, within this note (first version, same day): the remark in MT3 that the
+Thomas rotation goes unnamed is true of the 1993 book only, and its reading as the failure
+of transitivity is Matolcsi and Gohér's, not this note's (MT9); open items MT-SP2 and
+MT-SP5 are answered (§8).
 
 ---
 
@@ -47,8 +55,10 @@ was not seen. Oziewicz's reference lists give the year as 1994 with the same ISB
 
 The copy read is a 396-page PDF made from TeX. It prints **no page numbers**, and the
 numbers in its table of contents run ahead of the PDF pages (by about 3 in Part One, about
-6 in Part Two), so it is probably the author's own file and not the printed layout
-(MT-SP5). This note therefore cites by section number only.
+6 in Part Two), so it is not the printed layout. Its source is now known (§8.1): it is a conversion of
+the PostScript file that the author's page distributes as the 1993 edition. This note
+cites by section number only, and the numbers are those of the first edition; the second
+edition renumbers chapters II.3 and II.6 (§8.2).
 
 The book has two parts. Part One, *Spacetime models*, builds a non-relativistic (Galilean)
 model in chapter I and a special relativistic one in chapter II, deliberately in parallel:
@@ -316,7 +326,8 @@ $`v_{u'u}`$ and $`v_{u''u}`$. For speeds 3/5 and 4/5 at right angles its angle h
 $`\cos = 35/37`$, which is the standard Thomas-Wigner value
 $`(1 + \gamma_1 + \gamma_2 + \gamma_{12})^2 / ((1 + \gamma_1)(1 + \gamma_2)(1 +
 \gamma_{12})) - 1`$. $`W`$ is $`R(L, u)`$ of II.10.1.5 for $`L = L(u'', u')\,L(u', u)`$.
-The words "Thomas" and "Wigner" do not occur in the OCR text of the book. The
+The words "Thomas" and "Wigner" do not occur in the OCR text of the 1993 book; the
+author's later papers name it (MT9). The
 non-transitivity of II.5.1.2 is this rotation: carried round the triangle, a vector comes
 back turned by $`W`$. This is the same fact as RV3, reached from the other side: RV3 fixes
 one eagle and finds that Einstein's velocity depends on it; II.5.1.2 uses no eagle and
@@ -330,7 +341,8 @@ and $`u''`$ given $`u`$, so the result depends only on the end points, which is 
 What II.4.3.3 adds is the precise statement of composability. To add $`v_{u''u'}`$ to
 $`v_{u'u}`$ one also needs $`v_{uu'}`$, the same arrow read at its target; an arrow of
 the groupoid is known only with both of its ends. Matolcsi has the composition and its
-domain in 1993 and does not call it a groupoid; Oziewicz (2004 draft; *Relativity
+domain in 1993 and does not call it a groupoid. The second edition drops this form of the
+formula and the remark of II.4.3.3 (MT10); Oziewicz (2004 draft; *Relativity
 groupoid*, 2007) names the structure and denies that the boost has a place in it.
 
 **MT5 (aberration).** The formula of II.4.7.3 holds with $`\theta'`$ measured from
@@ -404,7 +416,9 @@ different inertial observers are affine spaces over different vector spaces. Tha
 reason step 1 gives. If Oziewicz meant that the deeper reason is the groupoid, MT4 shows
 the book has its content; if he meant that reciprocity is false and not conventional,
 that is point 1, a disagreement and not a gap in understanding. This is a reading of one
-spoken sentence.
+spoken sentence. By 2009 Matolcsi had also published three papers on the Thomas rotation
+(MT9), and his page lists Oziewicz's "The Lorentz boost-link is not unique" (2006) among
+related work, so each knew of the other's.
 
 *Analogy.* Each observer has a private map. Matolcsi says: to compare your map with mine,
 slide one onto the other the shortest way, and accept that three maps compared in pairs
@@ -420,20 +434,24 @@ only how each map draws each other traveller.
   $`u`$-split and Poincaré groups), II.11 (the non-relativistic limit), III, and all of
   chapter I. Chapter I matters if the Galilean and relativistic constructions are to be
   set side by side.
-- **MT-SP2.** T. Matolcsi and A. Goher, "Spacetime without reference frames: an
-  application to the velocity addition paradox", *Stud. Hist. Phil. Mod. Phys.* 32
-  (2001) 83-99, cited by Oziewicz, is where the Thomas rotation is presumably treated by
-  name. Not read.
-- **MT-SP3.** Sources: whether the 1984 edition already has $`v_{u'u}`$ and II.4.3.2,
+- **MT-SP2.** Answered by MT9: Matolcsi and Gohér (2001) was read. Still unread:
+  Matolcsi and Gohér (1996), Matolcsi and Matolcsi (2005) on Thomas rotation and
+  precession, and Matolcsi (1998) on synchronizations of the rotating disk, which bears
+  on MT6 and MF11.
+- **MT-SP3.** Sources (the 1984 book is on the author's page as a scan): whether the 1984 edition already has $`v_{u'u}`$ and II.4.3.2,
   and what the book's "Comments and bibliography" says of earlier work. The relation to
   Keres (1972), whom Oziewicz credits, is open (see MF-SP5).
 - **MT-SP4.** Matolcsi's observer space $`\mathrm{E}_U`$ (the set of $`U`$-lines) against
   the basic algebra of MF9: the first is a set of leaves, the second the functions
   constant on them. Are the distances of II.6.3.3 on a non-regular rigid observer the
   quotient metric of the disk, and does II.6.8.6 give the known non-Euclidean geometry?
-- **MT-SP5.** Provenance of the PDF and the year. *Mass-centre* (2014) gives a link to a
-  copy on a former page of Bill Page's; whether the file is the author's distribution,
-  and whether a 1994 printing exists, is not known.
+- **MT-SP5.** Answered in §8.1, except whether a 1994 printing exists. The author's page
+  gives 1993 and 411 pages.
+- **MT-SP7.** The second edition was compared with the first only in II.3, II.4.2, II.4.3,
+  II.4.7, II.4.8, II.5.1 and the bibliography. A full comparison, and the reading of II.6
+  from the second edition (clean text, new section 6.1), is the next pass.
+- **MT-SP8.** Does Oziewicz say anywhere that the size of the binary velocity depends on
+  the choice of clock, as MF2 and MT8 find? Where his texts treat synchronization.
 - **MT-SP6.** The coplanarity criterion (II.1.3.9) and the general form of $`W`$ in MT3
   were checked on instances, not proved symbolically.
 
@@ -441,7 +459,7 @@ only how each map draws each other traveller.
 
 ## 7. Verification
 
-`PYTHONPATH=src python3 -u src/verify_matolcsi.py` (SymPy, exact; writes no files). Forty
+`PYTHONPATH=src python3 -u src/verify_matolcsi.py` (SymPy, exact; writes no files). 49
 checks, all pass.
 
 | Part | Sections | What is checked | Kind |
@@ -454,17 +472,158 @@ checks, all pass.
 | F | II.5.2, II.5.3 | observed vectors, contraction | rational |
 | G | II.7.1 | transformation rule, $`D(v)`$, Lorentz transformation | $`t`$, $`\lambda`$ symbolic |
 | H | II.6.2.4, II.6.7, II.6.8 | `α ∧ dα` and rigidity of the two rotating observers | symbolic |
+| I | 2018 II.4.3.2, II.4.8; Gohér (35), (42), (46) | boosted addition formula, angle of the Thomas rotation, nonstandard synchronization, the two misprints | rational; $`v_s`$ symbolic |
 
-No formula read from the book failed. One check failed on the first run because of the
+No formula read from the first edition failed. One check failed on the first run because of the
 example chosen for it (two velocities that partly cancel were used to show that a sum can
 exceed 1); the example was replaced.
+
+## 8. The second edition, and Matolcsi and Gohér (2001)
+
+### 8.1 Editions and the copy read
+
+The author's page at the Wigner Research Centre,
+[wigner.hu/s/matolcsi](https://wigner.hu/s/matolcsi/), lists (read 12 November 2026):
+
+| Year | Title, publisher | Remarks |
+|---|---|---|
+| 1984 | *A Concept of Mathematical Physics: Models for SpaceTime*, Akadémiai Kiadó, 236 p. | scan on the page; not read |
+| 1993 | *Spacetime Without Reference Frames*, Akadémiai Kiadó, 411 p. | "revised reprint of the 1984 original"; file on the page |
+| 2018 | the same title, Society for the Unity of Science and Technology, Budapest, ISBN 978-615-80157-3-8, 394 p. | "2nd, revised edition", edited by T. Fülöp and Á. Szabó; **CC BY 4.0** |
+| 2020 | the same title, "2nd edition", Minkowski Institute Press, 396 p. | the page gives the 2018 file for it; not seen |
+
+The file the page offers for 1993 is named `spacetime.pdf` but is a PostScript file
+(dvips 5.86), 2 194 869 bytes. It is byte-for-byte identical to `matolcsi.ps` kept by Bill
+Page beside the PDF read here (compared with `cmp`), and that PDF reports the same dvips
+as its source. So the copy read in §§1 to 7 is the author-side distribution of the first
+edition. The page states no licence for it. The year 1994 in Oziewicz's reference lists
+is not supported by the title page, the copyright page, or the author's page.
+
+### 8.2 What the second edition changes in chapter II
+
+Read from the PDF's text layer, with the two displays quoted below checked on page images.
+Not a full comparison (MT-SP7).
+
+1. **Observer and synchronization are separated.** Chapter II.3 is now "Observers and
+   synchronizations". A synchronization is defined on its own (new II.3.2.1) as a smooth
+   equivalence relation with spacelike classes; a *reference frame* is a pair
+   (synchronization, observer) (II.3.2.3); an *inertial reference frame* $`(u_s, u)`$ pairs
+   the observer $`u`$ with the hyperplanes orthogonal to any $`u_s`$ (II.3.4.2); it is
+   *standard* when $`u_s = u`$ (II.3.5.1). In 1993 the time of an inertial observer was
+   simply the radar one. The second edition calls the textbook argument for it "a vicious
+   circle", since a light speed presupposes a synchronization, and proves instead: the
+   one-way speed of light equals the two-way speed only in standard inertial frames
+   (II.3.5.2, II.3.5.3).
+2. **The relative velocity is renamed.** $`v_{u'u}`$ has the same definition and is now
+   the *standard* relative velocity (II.4.2.2). New II.4.8 gives the velocity of $`u'`$
+   in a nonstandard frame $`(u_s, u)`$.
+3. **The addition formula is replaced** (II.4.3.2; MT10).
+4. **Renumbering and notation.** The general material on simultaneities moves from II.6.2
+   to II.3.2, so II.6.3 to II.6.9 of 1993 become II.6.2 to II.6.8; the rotating observers
+   are II.6.6 and II.6.7. $`\mathbf{E}_u`$ becomes $`\mathbf{S}_u`$, $`\mathbf{I}`$
+   becomes $`\mathbb{T}`$, the splitting $`h_u`$ becomes $`\xi_u`$. "Reference system"
+   and "reference frame" exchange roles: chapter II.9 is "Reference systems". Some
+   cross-references still use the old numbers (II.3.2.4 cites "6.7.6").
+5. **Unchanged** in the sections compared: II.4.2.2 to II.4.2.5, the non-reciprocity and
+   its stated reason; II.5.1, physical equality and its non-transitivity, with the word
+   "standard" added; II.4.7.3, aberration; the definition of a regular observer.
+6. **Bibliography.** Entries [32] to [37] and after list work "based on the present
+   theory" since 1993, among them the papers of MT9.
+
+### 8.3 Results from the second edition and the paper
+
+**MT8 (the binary velocity belongs to a synchronization).** For the observer $`u`$ with
+the synchronization of $`u_s`$, new II.4.8.1 gives
+
+```math
+v_{u'(u_s, u)} = v_{u'u}\,\frac{(-u \cdot u')(-u_s \cdot u)}{-u_s \cdot u'} ,
+```
+
+a positive multiple of the standard velocity (exact, Part I). So the direction of a
+relative velocity belongs to the pair of bodies, and its size to the pair together with
+a synchronization. That is MF2 ("the direction of a relative velocity needs no clock, and
+its size does"), reached by Matolcsi inside the metric theory. Matolcsi and Gohér say it
+in a footnote to their definition: the relative velocity "concerns the standard
+synchronisation". The consequence for this repository: the binary velocity of MC1 is the
+*standard* one. Oziewicz's formula hides a choice of synchronization in the clock
+$`-\mathbf{g}(X, \cdot)`$ exactly as the textbook formula hides one in its coordinates.
+Whether his texts say so is a question for a later pass (MT-SP8).
+
+For light with direction $`n_w`$ in the space of $`u`$, and
+$`u_s = (u + v_s n_s)/\sqrt{1 - v_s^2}`$, the factor is $`1/(1 - v_s\, n_s \cdot n_w)`$ (symbolic, Part I), with
+extremes $`1/(1 + v_s)`$ and $`1/(1 - v_s)`$ as II.4.8.2 says. The last display of
+II.4.8.2 prints the factor as $`(1 - v_s\, n_s \cdot n_w)/\sqrt{1 - v_s^2}`$, which is
+$`-u_s \cdot w`$ and not the factor: a misprint, inconsistent with the line above it and
+with the extremes stated below it.
+
+**MT9 (Matolcsi and Gohér 2001).** The paper restates II.1.3 and II.5.1 of the book,
+gives a physical procedure with light signals that realises "physical equality"
+(its Proposition 1 and Definition 1), and then names what the book left unnamed. Its
+$`R_u(u', u'') := B(u, u'')\,B(u'', u')\,B(u', u)`$ is the $`W`$ of MT3, called "the
+Thomas rotation of $`u`$ corresponding to $`u'`$ and $`u''`$" (Definition 2), and the
+paper says in so many words that it measures the deviation of physical equality from
+being transitive, and that it "corresponds to no real rotation". With $`a = -u' \cdot
+u`$, $`b = -u'' \cdot u'`$, $`c = -u'' \cdot u`$, its equation (42) is
+
+```math
+\cos\varepsilon = 1 - \frac{1 + 2abc - (a^2 + b^2 + c^2)}{(1 + a)(1 + b)(1 + c)} ,
+```
+
+which holds for the four triples tried (exact, from the trace of $`W`$, Part I) and gives
+35/37 for the example of MT3. The paper's diagnosis of Mocanu's velocity addition paradox
+is that coordinate treatments boost every space vector into the space of an observer
+"hidden in the coordinates", and so assume tacitly that physical equality is transitive.
+The hidden observer is the eagle of RV3, and the diagnosis is that of
+[`bodies_first.md`](bodies_first.md) §3. Matolcsi and Gohér had it in 2001; RV3 should
+cite them.
+
+**MT10 (two addition formulas).** The paper's (46), and the second edition's II.4.3.2,
+use $`v = v_{u'u}`$ and $`v' = L(u, u')\,v_{u''u'}`$, the second velocity *boosted into*
+$`\mathbf{E}_u`$, with $`\alpha = -u' \cdot u`$, $`\beta = -u'' \cdot u'`$, $`\gamma = -u''
+\cdot u = \alpha\beta(1 + v \cdot v')`$:
+
+```math
+v_{u''u} = \frac{\alpha(\beta + \gamma)}{\gamma(1 + \alpha)}\, v + \frac{\beta}{\gamma}\, v' .
+```
+
+This holds (exact, four triples, Part I). The second edition prints it with the two
+coefficients exchanged, $`(\beta/\gamma)\,v + \ldots\,v'`$; that form fails for three of
+the four triples and fails the trivial case $`u'' = u'`$, where it gives $`v/\alpha`$
+instead of $`v`$: a misprint. (It holds when $`\beta = \alpha\gamma`$, which one of the
+four triples happens to satisfy.)
+
+The two editions therefore state composition differently. The 1993 formula takes
+$`v_{u''u'}`$ where it lives, in $`\mathbf{E}_{u'}`$, and needs $`v_{uu'}`$ beside
+$`v_{u'u}`$ to connect the two spaces; no boost appears. The 2001 and 2018 formula
+carries $`v_{u''u'}`$ into $`\mathbf{E}_u`$ by the boost first. The first is the form
+closer to Oziewicz's groupoid (MT4), and it is the form the author gave up. The 1993
+remark "(but this is impossible!)" on substituting $`-v`$ for $`v_{uu'}`$ is gone from
+the second edition's II.4.3.3.
+
+### 8.4 What this changes in §5
+
+Point 1 of §5 stands and is sharpened. From 1996 on, Matolcsi makes the boost a
+*physical procedure* (light signals between the two spaces), and from 2018 he separates
+out a second convention, the synchronization, which the first edition had built into the
+inertial observer. So Matolcsi's later position has two explicit conventions (standard
+synchronization, physical equality by boost) where Oziewicz has two rejections
+(simultaneity is no part of a body; the boost has no place in the groupoid). MT8 shows
+the first rejection is not carried through in the metric formula for the binary
+velocity, which is the standard one.
 
 ---
 
 ## References
 
 - T. Matolcsi, *Spacetime Without Reference Frames* (Akadémiai Kiadó, Budapest 1993),
-  ISBN 963 05 6433 5.
+  ISBN 963 05 6433 5. Second, revised edition: Society for the Unity of Science and
+  Technology, Budapest 2018, ISBN 978-615-80157-3-8, CC BY 4.0,
+  [PDF](https://wigner.hu/s/matolcsi/old/pdf/konyv/Matolcsi_Spacetime_without_Reference_Frames_2018-07-31.pdf).
+  Author's page: [wigner.hu/s/matolcsi](https://wigner.hu/s/matolcsi/).
+- T. Matolcsi and A. Gohér, "Spacetime without reference frames: an application to the
+  velocity addition paradox", *Stud. Hist. Phil. Mod. Phys.* 32 (2001) 83-99,
+  [author's copy](https://wigner.hu/s/matolcsi/old/pdf/cikk/veladd.pdf). Read in full from
+  its text layer; equations (35), (42), (46) checked.
 - T. Matolcsi and T. Gruber, "Spacetime without reference frames: an application to the
   kinetic theory", *Int. J. Theor. Phys.* 35 (1996) 1523-1539. Seen; Galilean, not used
   here.
