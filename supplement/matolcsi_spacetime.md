@@ -1,6 +1,6 @@
 # Matolcsi's *Spacetime Without Reference Frames*: the special relativistic part
 
-> A reading of chapter II (special relativistic spacetime models) of the book Oziewicz cited as the reference-frame-free account of relativity. Matolcsi's relative velocity of 1993 is, symbol for symbol, the binary velocity of step 1 (MT1). The book has its non-reciprocity, the boost that carries one mutual velocity to minus the other (MT2), and an addition formula that needs both mutual velocities of the middle pair, which is composition in the pair groupoid without the name (MT4). Boosts compose to a boost only for coplanar velocity values; the defect is the Thomas-Wigner rotation, which the book derives but does not name, and it makes "physically equal" vectors in different observer spaces a non-transitive relation (MT3). Its "regular observer" is the condition `α ∧ dα = 0` of step 3, and of its two rotating observers one is rigid, neither is regular (MT6). The book keeps the Lorentz group and says what it cannot do: boosts are not a subgroup and no rotation subgroup is singled out (MT7). The first edition is not the last word: the second edition (2018, CC BY 4.0) separates the observer from its synchronization and calls this velocity the *standard* relative velocity; a synchronization changes its size and not its direction (MT8). Matolcsi and Gohér (1996, 2001) name the Thomas rotation and say it measures the failure of transitivity (MT9). The second edition replaces the addition formula of 1993 by one that boosts the second velocity, and prints it with two coefficients exchanged (MT4, MT10). Oziewicz's observer, a vector with a clock form, is one of Matolcsi's inertial reference frames, and his reciprocity of clocks is Einstein's synchronization (MT11); one clock form shared by all bodies gives his Galilean algebra inside Minkowski spacetime (MT12). 55 exact checks pass; no formula of the first edition failed, and two displays of the second edition are misprints.
+> A reading of chapter II (special relativistic spacetime models) of the book Oziewicz cited as the reference-frame-free account of relativity. Matolcsi's relative velocity of 1993 is, symbol for symbol, the binary velocity of step 1 (MT1). The book has its non-reciprocity, the boost that carries one mutual velocity to minus the other (MT2), and an addition formula that needs both mutual velocities of the middle pair, which is composition in the pair groupoid without the name (MT4). Boosts compose to a boost only for coplanar velocity values; the defect is the Thomas-Wigner rotation, which the book derives but does not name, and it makes "physically equal" vectors in different observer spaces a non-transitive relation (MT3). Its "regular observer" is the condition `α ∧ dα = 0` of step 3, and of its two rotating observers one is rigid, neither is regular (MT6). The book keeps the Lorentz group and says what it cannot do: boosts are not a subgroup and no rotation subgroup is singled out (MT7). The first edition is not the last word: the second edition (2018, CC BY 4.0) separates the observer from its synchronization and calls this velocity the *standard* relative velocity; a synchronization changes its size and not its direction (MT8). Matolcsi and Gohér (1996, 2001) name the Thomas rotation and say it measures the failure of transitivity (MT9). The second edition replaces the addition formula of 1993 by one that boosts the second velocity, and prints it with two coefficients exchanged (MT4, MT10). Oziewicz's observer, a vector with a clock form, is one of Matolcsi's inertial reference frames, and his reciprocity of clocks is Einstein's synchronization (MT11); one clock form shared by all bodies gives his Galilean algebra inside Minkowski spacetime (MT12); Oziewicz and Page (2012) already say that time is the quotient by a convention of simultaneity (§9.1). 55 exact checks pass; no formula of the first edition failed, and two displays of the second edition are misprints.
 
 **Status.** Supplement (a reading of a published book, not a ladder step). Companion
 script: [`src/verify_matolcsi.py`](../src/verify_matolcsi.py). Requested by Bill Page,
@@ -450,11 +450,12 @@ only how each map draws each other traveller.
 - **MT-SP7.** The second edition was compared with the first only in II.3, II.4.2, II.4.3,
   II.4.7, II.4.8, II.5.1 and the bibliography. A full comparison, and the reading of II.6
   from the second edition (clean text, new section 6.1), is the next pass.
-- **MT-SP8.** Does Oziewicz say anywhere that the size of the binary velocity depends on
-  the choice of clock, as MF2 and MT8 find, or that his clock form is a synchronization
-  (MT11)? Bill Page does not recall it and will look in other documents; candidates are
-  the Oziewicz and Page manuscript *The Many Relative Spaces of Galileo and Poincaré*,
-  *Relative velocity: a dichotomy* (2010) and the "Zero" drafts.
+- **MT-SP8.** Answered in part by §9.1: Oziewicz and Page (2012) say that time is the
+  quotient by a convention of simultaneity and that the metric one is a choice. Not
+  found: any statement that the size of the binary velocity depends on that convention,
+  or that the Galilean algebra of 2007 §8 is the shared-clock convention. Still to read:
+  *Relative velocity: a dichotomy* (2010), which the 2012 paper cites for this, and the
+  "Zero" drafts.
 - **MT-SP9.** MT12 against the literature on absolute synchronization (Tangherlini 1961;
   Selleri 1997; Matolcsi 1998), none of it read. Is MT12 there, and does it extend to
   non-inertial bodies, where a shared clock needs `α ∧ dα = 0`?
@@ -624,7 +625,7 @@ the standard one.
 Bill Page's question, 12 November 2026: what do Oziewicz's ideas imply for
 synchronization, given that his "clock" may not be Matolcsi's? This section answers for
 the inertial case only, from formulas already in this repository; what Oziewicz himself
-wrote on synchronization has not been searched (MT-SP8).
+wrote on synchronization is taken up in §9.1 for one paper.
 
 **MT11 (an observer is a reference frame).** In *Relativity groupoid* an observer is a
 rank-one idempotent $`p = T_p \otimes \tau_p`$ with $`\tau_p(T_p) = 1`$ (its eq. (14), as
@@ -662,6 +663,49 @@ Three consequences.
    The non-reciprocity $`v_{YX} \ne -v_{XY}`$ survives every choice, because the two
    vectors lie in different quotients.
 
+### 9.1 What Oziewicz and Page (2012) say
+
+Bill Page supplied the published paper: Z. Oziewicz and W. S. Page, "The many relative
+spaces of Galileo and Poincaré", *Proceedings of the NPA* 9 (2012) 406-409. Read in full
+from its text layer. It bears on MT-SP8 in four places, all in its sections 1 and 2.
+
+1. Its equations (1) and (2) define, as quotients of space-time,
+
+   ```math
+   \text{Space} = \frac{\text{Space-time}}{\text{material body}}, \qquad \text{Time} = \frac{\text{Space-time}}{\text{convention of simultaneity}}, \qquad \text{Proper-time} = \frac{\text{Space-time}}{\text{metric simultaneity of material body}} .
+   ```
+
+   That is the separation the second edition of Matolcsi makes six years later: the
+   space belongs to the observer, the time to a synchronization, and the standard
+   synchronization is the metric one of the body. The first two quotients are Matolcsi's
+   $`\mathrm{E}_U`$ and $`\mathrm{I}_U`$ of §3.2; the word "convention" is the paper's.
+2. Section 1 says the relativity of space is "metric-free, and is simultaneity-free",
+   that relative time "is metric-dependent proper time only", and that nature allows
+   other, metric-free conventions of simultaneity such as radio-simultaneity. It refers
+   to Matolcsi's book and to Matolcsi and Gohér (2001) for this, with Poincaré, Trautman,
+   Selleri and Oziewicz (2010).
+3. Section 2 says absolute simultaneity "is compatible with Einstein and Minkowski
+   special relativity where it can be identified as just one among many different
+   conventions of synchronizations", citing de Abreu and Guerra (2005) and Marinov. That
+   is the claim of MT12, made in 2012. MT12 adds the formulas: with the shared clock
+   the velocities are $`T_j - T_i`$ in one vector space, and $`\Gamma = 1`$.
+4. Its equation (3) writes the Galilean time coordinate as a clock-function composed
+   with the simultaneity relation, $`t = \text{clock} \circ \tau`$. That is consequence 1
+   of MT11: a rate on top of a kernel.
+
+So the answer to MT-SP8 is yes for the clock and not found for the velocity. Oziewicz,
+with Page, says in print that time is the quotient by a convention of simultaneity and
+that the metric one is a choice among several. The paper has no formula for the binary
+velocity, and does not say that its size depends on that convention (MT8). The paper's
+abstract calls relative velocity the central concept of relativity, and its section 1
+calls the relativity of time "not of primary concern"; but a velocity divides a
+displacement in a space by an interval of a time, so it cannot be simultaneity-free even
+though the space is. What is simultaneity-free is its direction (MF2, MT8). *Mass-centre*
+(2014) then adopts the metric clock by Postulate 1.6.3 without recalling that it is one
+convention among several.
+
+### 9.2 A shared clock
+
 **MT12 (a shared clock is an absolute synchronization).** Let all observers use one clock
 form, $`\tau = -\mathbf{g}(u_s, \cdot)`$ for one fixed $`u_s`$, each normalised by
 $`\tau(T_i) = 1`$. Then every relative velocity is $`T_j - T_i`$; all of them lie in the
@@ -672,17 +716,18 @@ it is the structure of Matolcsi's chapter I, a single $`\tau`$ and a single $`\m
 But here it sits inside Minkowski spacetime: the bodies and the light cone are unchanged,
 and only the bookkeeping differs. In the literature on conventionality of simultaneity
 this is the absolute (Tangherlini, Selleri) synchronization; Matolcsi and Gohér cite
-Selleri (1997) for the light-speed paradox it leads to. That attribution is from memory
-and from their reference list, not checked (MT-SP9).
+Selleri (1997) for the light-speed paradox it leads to. Oziewicz and Page (2012) state the compatibility
+(§9.1, item 3). The attribution to Tangherlini and Selleri is from memory, not checked
+(MT-SP9).
 
 So the contrast Oziewicz draws between the Galilean algebra and the relativity groupoid
 is, kinematically, a contrast between two synchronization conventions for the same
 bodies: one clock for all, or each body its own metric clock. What the shared clock gives
 up is that $`T_i`$ is no longer the unit of proper time of body $`i`$, and MF6 shows the
 price: with $`\Gamma = 1`$ the form reconstructed from the clocks is $`\tau \otimes
-\tau`$, degenerate, so the clocks alone no longer return the metric. Whether Oziewicz saw
-his §8 as a re-description of relativity or only as its contrast is a question for his
-texts (MT-SP8).
+\tau`$, degenerate, so the clocks alone no longer return the metric. §9.1 shows that by 2012 he took
+absolute simultaneity to be one convention within special relativity; whether he connected
+that with the Galilean algebra of his 2007 §8 was not found.
 
 *Analogy.* A railway may run every station clock on the capital's time, or each on its
 own noon. The trains are the same; the timetables differ. With capital time, journey
@@ -703,6 +748,9 @@ station; his Galilean algebra is capital time.
   velocity addition paradox", *Stud. Hist. Phil. Mod. Phys.* 32 (2001) 83-99,
   [author's copy](https://wigner.hu/s/matolcsi/old/pdf/cikk/veladd.pdf). Read in full from
   its text layer; equations (35), (42), (46) checked.
+- Z. Oziewicz and W. S. Page, "The many relative spaces of Galileo and Poincaré",
+  *Proceedings of the NPA* 9 (2012) 406-409,
+  [PDF](https://www.naturalphilosophy.org/pdf/abstracts/abstracts_6664.pdf).
 - T. Matolcsi and T. Gruber, "Spacetime without reference frames: an application to the
   kinetic theory", *Int. J. Theor. Phys.* 35 (1996) 1523-1539. Seen; Galilean, not used
   here.
