@@ -55,8 +55,8 @@ without cloning. To produce figures yourself, see
 ## Repository layout
 
 ```
-analysis/     Derivations and review notes (a numbered ladder, once the first
-              note exists)
+analysis/     Derivations and review notes (a numbered ladder; see
+              analysis/README.md)
 supplement/   Background, worked test cases, summaries of unpublished drafts
 talks/        Oziewicz's talks as narrated slide pages: notes and sources here,
               the pages with audio on the `output` branch (see talks/README.md)
@@ -151,9 +151,9 @@ PYTHONPATH=src python3 -m ozlib.check_notebook_math notebooks
 ```
 
 `check_md_math` finds math that GitHub will not render. It runs in CI on every
-pull request. `check_notebook_math` checks notebook math delimiters and is not
-run in CI. The ladder checks (`check_abstracts`, `check_index`, `where_used`) are
-added with the first ladder.
+pull request, as do the ladder checks `check_abstracts` and `check_index`
+(commands in `AGENTS.md`). `check_notebook_math` (notebook math delimiters) and
+`where_used` (a concordance of glossary terms) are not run in CI.
 
 ## File conventions
 
