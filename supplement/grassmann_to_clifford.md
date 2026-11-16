@@ -15,6 +15,7 @@ are analysis made for this repository and are not in the paper under discussion.
 the papers is committed here; links are in §17 and in
 [`references/bibliography.md`](../references/bibliography.md). Drafted with Claude
 (Anthropic) and subject to review.
+[PDF](https://github.com/billpage/oziewicz/releases/latest/download/grassmann_to_clifford.pdf)
 
 **Source.** Z. Oziewicz, "From Grassmann to Clifford", in J. S. R. Chisholm and A. K. Common
 (eds.), *Clifford Algebras and Their Applications in Mathematical Physics*, NATO ASI Series
