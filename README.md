@@ -139,6 +139,14 @@ public until the draft is reviewed and published by hand. Filename stems must be
 unique across those directories, because the release URL is flat. Keep version
 identifiers in the tag, not in the PDF filename.
 
+Relative links in a document (to a script in `src/`, to another note) work on
+GitHub but not from a PDF on a reader's disk, so `src/md_to_pdf.py` rewrites each
+one to its absolute address in this repository. In a release run the address is
+pinned to the release tag (`.../blob/docs-v.../src/...`), so a released PDF links to
+the files of its own release; a local run links to the default branch. Use
+`--link-ref` to choose another branch or tag, `--keep-relative-links` to turn
+the rewriting off.
+
 ## Documentation checks
 
 From the repository root, before committing a change to any markdown file
