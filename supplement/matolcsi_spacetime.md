@@ -235,7 +235,7 @@ measurement rests on clocks and light signals.
 II.6.1 denies that non-inertial observers need general relativity. A *simultaneity* is
 an equivalence relation whose classes are world surfaces (spacelike hypersurfaces),
 smooth in a stated sense (II.6.2.3). Each simultaneity $`\mathcal{S}`$ determines an
-observer $`U_\mathcal{S}`$, the unit normal field. An observer is **regular** if it is
+observer $`U_{\mathcal{S}}`$, the unit normal field. An observer is **regular** if it is
 the normal field of some simultaneity, which is then unique (II.6.2.4); otherwise it has
 no natural time, only artificial ones. Distances in the observer's space are defined by
 integrating $`|\pi_{U}\, \mathrm{d}L|`$ along curves in an instant (II.6.3.3) and depend,
