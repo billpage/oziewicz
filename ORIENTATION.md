@@ -11,7 +11,7 @@ the ladder, 3 November 2026.
 | Where | What is there |
 |---|---|
 | [`analysis/`](analysis/README.md) | The derivation ladder, four steps so far: [`mass_centre.md`](analysis/mass_centre.md) (1 November 2026), [`ternary_mass_centre.md`](analysis/ternary_mass_centre.md) (2 November), [`metric_free_body.md`](analysis/metric_free_body.md) and [`clock_centre.md`](analysis/clock_centre.md) (3 November) |
-| [`supplement/`](supplement/README.md) | [`bodies_first.md`](supplement/bodies_first.md), his reading of relativity in his own terms; [`velocity_draft.md`](supplement/velocity_draft.md), a summary of an unpublished draft of 2004; [`oziewicz_on_science.md`](supplement/oziewicz_on_science.md), his views on the practice of science (§3 below) |
+| [`supplement/`](supplement/README.md) | [`bodies_first.md`](supplement/bodies_first.md), his reading of relativity in his own terms; [`velocity_draft.md`](supplement/velocity_draft.md), a summary of an unpublished draft of 2004; [`oziewicz_on_science.md`](supplement/oziewicz_on_science.md), his views on the practice of science (§3 below); [`grassmann_to_clifford.md`](supplement/grassmann_to_clifford.md), his 1986 paper on Grassmann and Clifford algebras, with its 1997 sequel and the readings of Jadczyk and Sobczyk |
 | [`talks/`](talks/README.md) | His talk to the Natural Philosophy Alliance, 2009, as narrated slides |
 | [`references/bibliography.md`](references/bibliography.md) | Links to the papers, with what was and was not checked for each |
 

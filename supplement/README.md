@@ -47,3 +47,18 @@ not listed in `analysis/INDEX.md`.
   is his Galilean algebra inside Minkowski spacetime (MT12). 55 exact checks;
   the first edition is not committed.
   Companion script `src/verify_matolcsi.py`.
+- **[`grassmann_to_clifford.md`](grassmann_to_clifford.md)**. A summary of Oziewicz's
+  "From Grassmann to Clifford" (1986), every formula restated and keyed to the paper's
+  equation numbers: the pair of Grassmann algebras of multivectors and multiforms as
+  primary, exterior multiplication and its transpose as fermion operators with no metric,
+  and the Clifford product on the same space from `γ_v = e_v + i_{φv}` for a linear map `φ`
+  from vectors to covectors, not necessarily symmetric. Compared with three later texts.
+  His own sequel (1997) constructs the product that 1986 postulates and concedes that the
+  antisymmetric part `ω` of `φ` labels isomorphic algebras; its Conjecture 8.2 on the
+  minimum polynomial of `γ^μ ⊗ γ_μ` holds in every dimension (§12.5). Jadczyk (2021) proves
+  the construction and shows `ω` is a gauge; one sign in his eq. (68) is wrong under his
+  own conventions (§10.4). Sobczyk's globally dual null vectors are the 1986 dual pair, his
+  locally dual ones the 1986 construction for one `φ` (§11). Conclusion (§13): what is
+  given without a choice is the evaluation of covectors on vectors; a metric is the choice
+  of a subspace of the doubled space. 90 exact checks; none of the papers is committed.
+  Companion script `src/verify_grassmann_clifford.py`.
