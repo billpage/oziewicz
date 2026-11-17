@@ -77,21 +77,110 @@ I write $`u \cdot w := \gamma_u w`$ for the Clifford product on $`\mathcal V`$. 
 for it. All degrees of operators are their shifts of Grassmann degree:
 $`\deg e_x = \deg x`$, $`\deg i_x = -\deg x`$.
 
-## 3. The dual pair (pp. 245–246)
+## 3. Introduction: the dual pair (pp. 245–246)
 
-The opening section is conceptual. A vector space $`L`$ always comes with its dual
-$`L^* = \mathrm{Hom}(L, \mathbb R)`$, eq. (1), and in finite dimension $`L^{**} = L`$. The two are not
-distinguishable by algebra alone but are never canonically identified. The proposed physical
-reading is that covectors model measuring instruments and $`\alpha v`$ is a reading. A covector is
-pictured as the hyperplane $`\ker\alpha`$ together with one vector on which $`\alpha`$ takes the
-value 1 (wave fronts are the example given). Introducing a bilinear form on $`L`$ identifies $`L`$
-with $`L^*`$ and so hides this distinction; the paper insists that *not choosing* a metric is
-different from having none available.
+The opening section of the paper is conceptual. §3.1 and the first paragraph of §3.2 report it;
+the figure, the examples and the limits are **[note]**.
+
+### 3.1 Two spaces, neither first
+
+A vector space $`L`$ always comes with its dual $`L^* = \mathrm{Hom}(L, \mathbb R)`$, eq. (1), and
+in finite dimension $`L^{**} = L`$: each is the space of linear functions on the other. The paper
+stresses that algebra alone does not tell the two apart, and that they are nevertheless never
+canonically identified. A covector $`\alpha`$ is pictured as the hyperplane $`\ker\alpha`$ together
+with one vector on which $`\alpha`$ takes the value 1; wave fronts are the example given.
+Introducing a bilinear form on $`L`$ identifies $`L`$ with $`L^*`$ and so hides the distinction; the
+paper insists that *not choosing* a metric is different from having none available.
 
 The same holds for modules over a commutative algebra $`\mathcal F`$: vector fields are derivations
 of $`\mathcal F`$, forms are $`\mathcal F`$-linear maps $`\mathcal V^1 \to \mathcal F`$, eq. (2), and no
 manifold is needed. Analysis does tell the two apart: vector fields generate flows, forms are
 what one integrates.
+
+![The dual pair: a vector and a covector drawn in L and in its dual, and a vector field with a 1-form](https://raw.githubusercontent.com/billpage/oziewicz/output/figures/grassmann_dual_pair.png)
+
+*Figure.* **(a)** In $`L`$ a vector $`x`$ is an arrow and a covector $`\alpha`$ is a stack of parallel
+sheets, its level sets; the thick ones are $`\ker\alpha`$ and the sheet where $`\alpha = 1`$. The
+value $`\alpha x`$ is the number of sheets the arrow pierces, here $`5/2`$; $`y`$ lies along the
+sheets, so $`\alpha y = 0`$. No length or angle is used. **(b)** In $`L^*`$ the roles are exchanged:
+$`\alpha`$ is the arrow, $`x`$ the stack of sheets, and the count is the same. This is why the two
+form a *pair*: neither picture comes first. **(c)** For fields, a derivation $`X`$ is drawn by its
+flow lines and a 1-form $`\alpha`$ by its wave fronts. The integral of $`\alpha`$ along the path
+$`\gamma`$ is the number of fronts crossed, here $`4`$; the function $`\alpha X\in\mathcal F`$ is the
+rate at which the flow crosses the fronts. Two limits of the drawing: (c) draws an exact form
+$`\alpha = df`$, and a general 1-form has wave fronts only locally (and in more than two
+dimensions only up to a factor); (b) uses a basis to draw $`L^*`$, though the count does not
+depend on it. The numbers are computed exactly in the script before the figure is drawn.
+
+### 3.2 Covectors as measuring instruments
+
+**What the paper says.** Whenever $`L`$ has a physical interpretation, so has $`L^*`$: roughly,
+$`L^*`$ is the set of measuring instruments, and $`\alpha v`$ is the result of measuring $`v`$ with
+the instrument $`\alpha`$, a result that depends on orientation. The paper adds that this ignores
+the finite accuracy of real measurements, that assigning a physical quantity to $`L`$ or to $`L^*`$
+is settled by experiment and not by convention (credited to Maxwell's *Treatise*), and that
+the algebra $`\mathcal F`$ models the set of exact classical measurements.
+
+**What makes an instrument a covector.** Three properties, each visible in panel (a):
+
+1. *Linear response.* The reading of a sum is the sum of the readings, and doubling the input
+   doubles the reading.
+2. *Blind directions.* The instrument does not respond to anything in $`\ker\alpha`$, a whole
+   hyperplane. Shearing the input along the sheets leaves the reading unchanged.
+3. *Calibration.* Beyond its blind hyperplane, the instrument is fixed by one standard input on
+   which it reads 1. This is the paper's "kernel plus one vector".
+
+Reversing the instrument, $`\alpha\to-\alpha`$, reverses every reading: this is how I read
+"orientation-dependent".
+
+**Examples.**
+
+| Instrument (covector $`\alpha`$) | Applied to (vector $`v`$) | Reading $`\alpha v`$ |
+|---|---|---|
+| a ruled grating or contour map: equally spaced parallel lines | a displacement | number of lines crossed |
+| a wave, by its phase $`\alpha = d\varphi`$ | a displacement | number of crests crossed, $`\Delta\varphi/2\pi`$ |
+| the same wave in space-time | an observer's 4-velocity | the frequency that observer counts |
+| a force (spring balance) | a small displacement | work done |
+| a voltmeter with a short probe: the field $`E`$ | the probe's displacement | potential drop; swapping the leads changes the sign |
+| absolute time $`\tau`$ (a clock) | a displacement in space-time | elapsed time |
+| a price list | a basket of goods | cost |
+
+Remarks on the examples:
+
+- **Doppler effect.** The third row is the second with a different kind of vector. One wave
+  covector, read by two observers $`u`$ and $`u'`$, gives two frequencies $`\alpha u`$ and
+  $`\alpha u'`$. No metric enters.
+- **Observer.** In the sixth row an observer is a vector $`T`$ on which the clock reads 1,
+  $`\tau T = 1`$: an instrument together with its calibrating vector. This is the observer
+  $`T\otimes\tau`$ of Oziewicz's later papers (§11.2, item 4).
+- **Maxwell.** The *Treatise* divides directed physical quantities into those referred to a line
+  ("forces", such as $`E`$ and $`H`$) and those referred to an area ("fluxes", such as $`D`$ and
+  $`B`$). In present terms these are 1-forms and 2-forms. The paper dates the *Treatise* to 1864;
+  it appeared in 1873, and 1864 is the year of Maxwell's paper on the dynamical theory of the
+  field.
+- **Higher degree.** An instrument for a $`k`$-vector is a $`k`$-form; a flux meter reads a 2-form
+  on an area element $`x\wedge y`$. The determinant in eq. (3) is the reading of the compound
+  instrument $`\alpha^1\wedge\dots\wedge\alpha^k`$ on $`x_1\wedge\dots\wedge x_k`$ (§4, §13.2).
+
+**What a metric hides.** With a metric one speaks of "the wave vector" and "the force vector",
+replacing each instrument by the arrow perpendicular to its sheets. That the two are different
+things shows wherever the identification is not available or not unique. In a birefringent
+crystal the wave normal and the direction in which the energy travels differ: the first belongs
+to the covector $`d\varphi`$, the second is a vector.
+
+**Limits of the interpretation.**
+
+- *Not every instrument is a covector.* A rod that is free to turn measures the length $`|v|`$,
+  which is not linear in $`v`$: $`|v+w|\ne|v|+|w|`$. It reads a quadratic quantity and needs a
+  metric. In the terms of this supplement that is exactly where $`\phi`$ enters (§7): the
+  metric-free instruments are the covectors, and a metric is one more instrument of a different
+  kind.
+- *Linearity is local.* Real instruments respond linearly only to small inputs, which is why the
+  fields of eq. (2), not the vector spaces of eq. (1), are the realistic setting.
+- *Exactness.* The paper's own caveat: finite accuracy is ignored, and $`\mathcal F`$ stands for
+  exact measurements.
+- *"Roughly speaking".* The paper does not claim that every element of $`L^*`$ is realised by a
+  device. The identification is a reading of the mathematics, not a theory of measurement.
 
 ## 4. Grassmann multiplications (pp. 247–249)
 
@@ -1078,6 +1167,7 @@ the entries so that every product is exact in 64-bit floats.
 | C | the gauge formulas of §10.4, the sign of Jadczyk's (68), his Prop. 3.12 and its failure for $`\omega\neq0`$, the gauge image of the idempotents | $`n = 3, 4`$ |
 | S | §11.2 items 1 to 4, the triangular $`\phi`$ of §11.3, and the evaluation formulas of §13.3 | $`n = 4`$; evaluation $`n = 3`$ |
 | D | 1997 Prop. 10.1, §9.1, eqs. (6.6), (6.7), and Conjecture 8.2 for $`n = 1,\dots,5`$ and four further scalar products in dimension 4 | $`n = 4`$; conjecture $`n\le5`$ |
+| F | the figure of §3.1: its numbers ($`\alpha x = 5/2`$, $`\int_\gamma\alpha = 4`$) are asserted exactly before it is drawn; not counted among the 90 | $`n = 2`$ |
 
 Not machine-checked: eqs. (1)–(2) and §3 (conceptual); the associator formula of §6 and the
 identities of §9 (short hand derivations given there); the doubled-space argument of §10.5
@@ -1127,5 +1217,7 @@ the author to Clifford algebras), J. Kocik and L. Halpern.
 - N. Hitchin, "Generalized Calabi–Yau manifolds" (2003), <https://arxiv.org/abs/math/0209099>;
   M. Gualtieri, "Generalized complex geometry" (2004), <https://arxiv.org/abs/math/0401221>.
   Cited from memory for the B-field analogy in §10.5; not consulted here.
+- J. C. Maxwell, *A Treatise on Electricity and Magnetism* (Clarendon Press, Oxford 1873).
+  Cited from memory for the division into forces and fluxes in §3.2 (Art. 12); not consulted here.
 - W. Graf, "Differential forms as spinors", *Ann. Inst. H. Poincaré A* **29**, 85–109 (1978).
   Cited from memory for the Kähler–Dirac statement in §9; not consulted here.

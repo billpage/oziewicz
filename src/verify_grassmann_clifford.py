@@ -27,9 +27,12 @@ Parts
      triangular phi, and evaluation in the null-vector algebra
   D  1997: Prop. 10.1, the omega-deformed exterior algebra, eqs (6.6)-(6.7),
      and Conjecture 8.2 (the minimum polynomial of gamma^mu (x) gamma_mu)
+  F  the figure of section 3; its numbers (alpha x = 5/2, the integral of
+     alpha along gamma = 4) are asserted exactly first, outside the count
 
 Run:  PYTHONPATH=src python3 -u src/verify_grassmann_clifford.py
-Writes no files.  About 50 s.
+Writes grassmann_dual_pair.png (the figure of section 3) through
+ozlib.utils.output_path, and docs_path when OZ_DOCS is set.  About 50 s.
 """
 
 from __future__ import annotations
@@ -472,9 +475,124 @@ def part_1997():
 
 
 
+def dual_pair_values():
+    """The numbers the figure shows, computed exactly before anything is drawn."""
+    x = sp.Matrix([2, 1])                       # a vector of L, components in a basis e_1, e_2
+    al = sp.Matrix([[1, sp.Rational(1, 2)]])    # a covector of L*, components in the dual basis
+    val = (al * x)[0]
+    y = sp.Matrix([-1, 2])                      # a vector in ker(alpha)
+    # panel C: f(u,v) = u + 3 v^2/20, alpha = df, field X = d/du + (cos u)/2 d/dv, path gamma A -> B
+    u, v, t = sp.symbols("u v t", real=True)
+    f = u + sp.Rational(3, 20) * v ** 2
+    X = (sp.Integer(1), sp.cos(u) / 2)
+    Xf = sp.simplify(X[0] * sp.diff(f, u) + X[1] * sp.diff(f, v))          # alpha(X) = X(f)
+    A, B = (sp.Rational(1, 2), -1), (sp.Rational(9, 2), 1)
+    gam = (A[0] + t * (B[0] - A[0]), A[1] + t * (B[1] - A[1]))
+    integrand = (sp.diff(f, u).subs({u: gam[0], v: gam[1]}) * sp.diff(gam[0], t)
+                 + sp.diff(f, v).subs({u: gam[0], v: gam[1]}) * sp.diff(gam[1], t))
+    integral = sp.integrate(integrand, (t, 0, 1))
+    fA, fB = f.subs({u: A[0], v: A[1]}), f.subs({u: B[0], v: B[1]})
+    fronts = [k for k in range(0, 8) if fA < k < fB]
+    print("alpha(x) =", val, "  alpha(y) =", (al * y)[0])
+    print("alpha(X) = X(f) =", Xf)
+    print("f(A) =", fA, " f(B) =", fB, " integral of alpha along gamma =", integral,
+          " wave fronts crossed:", fronts)
+    assert val == sp.Rational(5, 2) and (al * y)[0] == 0
+    assert integral == fB - fA == len(fronts) == 4
+    return float(val)
+
+
+def figure_dual_pair():
+    """Figure for section 3 of the supplement: the dual pair.  The numbers it
+    shows are computed exactly by dual_pair_values() before anything is drawn."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from ozlib.utils import docs_path, output_path
+
+    val = dual_pair_values()
+    VEC, COV, GREY = "#1f5fa8", "#c8601a", "#666666"
+    fig, axs = plt.subplots(1, 3, figsize=(14.2, 4.9), gridspec_kw={"width_ratios": [1, 1, 1.25]})
+
+    def arrow(ax, p, q, color, lw=2.2, z=5):
+        ax.annotate("", xy=q, xytext=p, zorder=z,
+                    arrowprops=dict(arrowstyle="-|>", color=color, lw=lw, shrinkA=0, shrinkB=0,
+                                    mutation_scale=16))
+
+    # ---- (a) in L: the vector is an arrow, the covector a stack of parallel sheets
+    ax = axs[0]
+    s = np.array([-3.0, 3.0])
+    for k in range(-1, 5):                      # alpha = u + v/2 = k  ->  points (k,0) + s(-1,2)
+        ax.plot(k - s, 2 * s, color=COV, lw=2.4 if k in (0, 1) else 1.1, alpha=1 if k in (0, 1) else 0.75)
+        ax.text(k - 0.80 + 0.06, 1.6 + 0.05, rf"${k}$", color=COV, fontsize=10, ha="left", va="bottom")
+    arrow(ax, (0, 0), (2, 1), VEC)
+    arrow(ax, (0, 0), (-0.6, 1.2), VEC, lw=1.6)
+    ax.plot([0], [0], "o", color="k", ms=4, zorder=6)
+    ax.text(2.06, 1.02, r"$x$", color=VEC, fontsize=15, ha="left", va="bottom")
+    ax.text(-0.72, 1.22, r"$y$", color=VEC, fontsize=14, ha="right", va="bottom")
+    ax.text(-0.35, -1.25, r"$\ker\alpha$", color=COV, fontsize=11, ha="left", va="center")
+    ax.text(3.25, -1.25, r"$\alpha$", color=COV, fontsize=16, ha="center", va="center")
+    ax.set_title(r"(a)  in $L$:  vector = arrow,  covector = sheets", fontsize=11.5)
+    ax.text(0.5, -0.06, rf"$\alpha x = {val:g}$ sheets pierced,   $\alpha y = 0$",
+            transform=ax.transAxes, ha="center", va="top", fontsize=12)
+    ax.set_xlim(-1.6, 4.3); ax.set_ylim(-1.7, 2.1)
+
+    # ---- (b) in L*: the same two objects with the roles exchanged
+    ax = axs[1]
+    for k in range(-1, 5):                      # x = 2 a1 + a2 = k  ->  points (k/2,0) + s(-1,2)/2
+        ax.plot(k / 2 - s / 2, s, color=VEC, lw=2.4 if k in (0, 1) else 1.1, alpha=1 if k in (0, 1) else 0.75)
+        ax.text(k / 2 - 0.55 + 0.03, 1.1 + 0.03, rf"${k}$", color=VEC, fontsize=10, ha="left", va="bottom")
+    arrow(ax, (0, 0), (1, 0.5), COV)
+    ax.plot([0], [0], "o", color="k", ms=4, zorder=6)
+    ax.text(1.04, 0.52, r"$\alpha$", color=COV, fontsize=16, ha="left", va="bottom")
+    ax.text(2.1, -0.85, r"$x$", color=VEC, fontsize=15, ha="center", va="center")
+    ax.set_title(r"(b)  in $L^{*}$:  covector = arrow,  vector = sheets", fontsize=11.5)
+    ax.text(0.5, -0.06, rf"the same number:  $x(\alpha) := \alpha x = {val:g}$",
+            transform=ax.transAxes, ha="center", va="top", fontsize=12)
+    ax.set_xlim(-1.1, 2.7); ax.set_ylim(-1.15, 1.45)
+
+    # ---- (c) fields: a vector field flows, a 1-form is integrated
+    ax = axs[2]
+    U, V = np.meshgrid(np.linspace(0, 5, 300), np.linspace(-1.6, 1.6, 200))
+    F = U + 0.15 * V ** 2
+    cs = ax.contour(U, V, F, levels=range(0, 7), colors=COV, linewidths=1.3)
+    ax.clabel(cs, fmt="%d", fontsize=9, manual=[(k - 0.15 * 1.35 ** 2, 1.35) for k in range(1, 6)])
+    uu = np.linspace(0, 5, 200)
+    for c in (-1.0, -0.4, 0.2, 0.8):            # integral curves of X: v = sin(u)/2 + c
+        vv = 0.5 * np.sin(uu) + c
+        ax.plot(uu, vv, color=VEC, lw=1.2, alpha=0.8)
+        for u0 in (1.2, 3.6):
+            v0 = 0.5 * np.sin(u0) + c
+            arrow(ax, (u0, v0), (u0 + 0.32, v0 + 0.16 * np.cos(u0)), VEC, lw=1.4)
+    A, B = np.array([0.5, -1.0]), np.array([4.5, 1.0])
+    ax.plot([A[0], B[0]], [A[1], B[1]], color="k", lw=1.8, ls=(0, (5, 3)), zorder=4)
+    ax.plot(*A, "o", color="k", ms=5, zorder=6); ax.plot(*B, "o", color="k", ms=5, zorder=6)
+    ax.text(A[0] - 0.08, A[1] - 0.05, r"$A$", fontsize=12, ha="right", va="top")
+    ax.text(B[0] + 0.08, B[1] + 0.03, r"$B$", fontsize=12, ha="left", va="bottom")
+    ax.text(2.55, -0.28, r"$\gamma$", fontsize=14, ha="left", va="center")
+    ax.text(4.72, -0.72, r"$X$", color=VEC, fontsize=15, ha="center", va="center")
+    ax.text(0.22, 1.32, r"$\alpha$", color=COV, fontsize=16, ha="center", va="center")
+    ax.set_title(r"(c)  fields:  $X$ flows,  $\alpha$ is integrated", fontsize=11.5)
+    ax.text(0.5, -0.06, r"$\int_\gamma\alpha = 4$ wave fronts crossed;   "
+            r"$\alpha X\in\mathcal{F}$ = crossing rate of the flow",
+            transform=ax.transAxes, ha="center", va="top", fontsize=12)
+    ax.set_xlim(0, 5); ax.set_ylim(-1.6, 1.6)
+
+    for ax in axs:
+        ax.set_xticks([]); ax.set_yticks([])
+        for sp_ in ax.spines.values():
+            sp_.set_color(GREY); sp_.set_linewidth(0.6)
+    fig.tight_layout(w_pad=2.0)
+    name = "grassmann_dual_pair.png"
+    fig.savefig(output_path(name), dpi=150, bbox_inches="tight")
+    dp = docs_path(name)
+    if dp:
+        fig.savefig(dp, dpi=150, bbox_inches="tight")
+
 if __name__ == "__main__":
     print("== 1986 and Jadczyk, n = 3"); part_1986(3)
     print("== 1986 and Jadczyk, n = 4"); part_1986(4)
     print("== Sobczyk"); part_sobczyk()
     print("== 1997"); part_1997()
+    print("== figure for section 3"); figure_dual_pair()
     print(f"all {COUNT} checks passed")
