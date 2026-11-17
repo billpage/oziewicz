@@ -290,6 +290,17 @@ metric: the right-hand side is the duality pairing. **[verified]** The paper's r
 $`\mathcal V`$ and $`\Lambda`$ are the Fock spaces of fermions and antifermions; if $`e`$ creates
 fermions then $`i = e^*`$ annihilates antifermions, and conversely.
 
+**[analysis]** "Fock space" is meant algebraically here, with no Hilbert space, states or
+probabilities. For a space $`L`$ and its dual, a Fock space is a vector space $`F`$ with a vacuum
+$`1\in F`$ killed by every annihilator $`i_\alpha`$ ($`\alpha\in L^*`$), creators $`e_x`$
+($`x\in L`$), the relations above, and $`F`$ spanned by the $`e_{x_1}\cdots e_{x_k}1`$. Then
+$`F\cong\bigwedge L`$, with $`e`$ the wedge and $`i`$ the contraction, and $`\dim F = 2^n`$. It
+differs from the fermion Fock space of quantum mechanics in that creators and annihilators are
+labelled by two spaces, $`L`$ and $`L^*`$, and their anticommutator is the pairing, not an inner
+product; $`i`$ comes from $`e`$ by transposition, not by a Hermitian adjoint. An inner product
+(a metric) identifies $`L`$ with $`L^*`$, and then $`i_{g(x,\cdot)} = e_x^\dagger`$ gives the usual
+one.
+
 **Composite pairs are not ideal bosons, eq. (17).** The dots in (15) are non-zero when
 $`\deg x > 1`$. For $`\deg x = \deg y = 1`$ and $`\deg\alpha = 2`$,
 

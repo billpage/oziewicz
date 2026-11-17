@@ -3,9 +3,9 @@
   "Oziewicz": "oh-zheh-veech",
   "Zbigniew's": "Zbig-nyev's",
   "Zbigniew": "Zbig-nyev",
-  "Jadczyk's": "Yad-chick's",
-  "Jadczyk": "Yad-chick",
-  "Arkadiusz": "Ar-kah-dyoosh",
+  "Jadczyk's": "Yahtchik's",
+  "Jadczyk": "Yahtchik",
+  "Arkadiusz": "Arkahdyoosh",
   "Sobczyk": "Sob-chick",
   "Abłamowicz": "Ab-wah-mo-vich",
   "Kähler": "Kay-ler",
@@ -34,5 +34,7 @@
   "c 1 c 2 is c 1 wedge c 2": "c-one c-two is c-one wedge c-two",
   "Z 2 graded": "Z-two graded",
   "n, n.": "n comma n.",
-  "one, n.": "one comma n."
+  "one, n.": "one comma n.",
+  "covector": "co-vector",
+  "Covector": "Co-vector"
 }

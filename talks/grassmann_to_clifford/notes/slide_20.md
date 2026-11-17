@@ -1,11 +1,11 @@
-Research, as Zbigniew would have agreed, is mostly a way of asking better questions. Here are the ones this reading leaves open. I'd be glad of help with any of them.
+So what is the status of the thesis? I find that it has three parts, with three different verdicts.
 
-Fields, not points. The 1986 paper works over an algebra of functions, so φ, ω and the idempotent p are fields, while evaluation is the same at every point. Jadczyk's framework is pointwise. Is the natural setting the doubled bundle, the tangent plus cotangent bundle with its canonical pairing, with g and ω a field of graphs? And would d ω then be the precise obstruction behind the 1986 remarks about the exterior derivative and spinor ideals?
+First, proved. For every linear φ, the Grassmann space with gamma of v equal to e of v plus i of φ v carries an associative product. This was postulated in 1986, constructed by Oziewicz himself in 1997, proved in full by Chevalley, by Bourbaki, and by Jadczyk, and checked here for a generic φ.
 
-The symmetric twin. Replace the determinants in equation 3 by permanents, and anticommutators by commutators. Does the same construction give the Weyl algebra, with the roles of g and ω exchanged, as the 1997 paper indicates?
+Second, reduced. Only the symmetric part g determines the algebra. The antisymmetric part ω is a gauge: it changes which elements are called k-vectors, and nothing else. So φ is over-parametrised: g gives the algebra and ω gives the grading. And Oziewicz says so himself in 1997, which I think is to his credit.
 
-The null substrate. In global duality, evaluation is canonical and a metric is a choice of subspace. The null-substrate programme starts from local duality, from a chosen metric. Is the simplex metric singled out by anything in the evaluation structure, or only by its symmetry? And does anything in the programme depend on ω?
+Third, not a theorem. That the Grassmann pair is primary is a claim of priority, and one can equally start from the Clifford algebra and recover the Grassmann algebra as the case g equals zero. What can be defended is this: the abstract Clifford algebra does not know what a bivector is. The pair, algebra plus grading, does. And the Grassmann structure is exactly that extra datum.
 
-Braids. The 1997 paper allows any pre-braid in place of the sign rule. Is there a braided version of the statement that ω is an isometry of the doubled space? And does Γ remain a sum of commuting operators, each with two eigenvalues?
+After the doubled space, the thesis takes a sharper form, at the bottom of the slide. What is given without any choice is the evaluation of covectors on vectors. The Grassmann algebra is its Fock space. A metric is the choice of a subspace, the graph of φ, to which evaluation is restricted.
 
-And one for the literature. Where is Conjecture 8.2 already known? I'd look first among the Fierz identities. If any of you knows a reference, please tell me.
+One correction to 1986 in the small print. The paper says that its construction gives a "symplectic Clifford algebra" when g is zero and φ is a symplectic form. But then the generators anticommute, and by the gauge argument the algebra is just the Grassmann algebra again. What is usually meant by a symplectic Clifford algebra is the Weyl algebra, which deforms the symmetric algebra, not the exterior one. The 1997 paper puts it there.
