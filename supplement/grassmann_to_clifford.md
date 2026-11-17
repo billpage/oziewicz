@@ -9,13 +9,25 @@ Requested by Bill Page, 15 November 2026; the comparisons and the conclusion wer
 was read from page images of a 120 dpi scan with no text layer; the readings that are
 uncertain are listed in §15. The 1997 paper was read in full from the author's later
 re-typeset version, supplied by Bill Page. Jadczyk's paper was read in full from the arXiv
-text. Of Sobczyk's papers, §11 says which were read in full and which in part. Statements
-marked **[verified]** were checked exactly with SymPy (§16); statements marked **[note]**
-are analysis made for this repository and are not in the paper under discussion. None of
+text. Of Sobczyk's papers, §11 says which were read in full and which in part. The markers
+**[verified]** and **[analysis]** are explained just below. None of
 the papers is committed here; links are in §17 and in
 [`references/bibliography.md`](../references/bibliography.md). Drafted with Claude
 (Anthropic) and subject to review.
 [PDF](https://github.com/billpage/oziewicz/releases/latest/download/grassmann_to_clifford.pdf)
+
+**How to read this.** Every statement is of one of three kinds.
+
+| Marker | Meaning |
+|--------|------------------------------------------------------|
+| none | A report of what the paper under discussion says, in this repository's words and keyed to that paper's equation and page numbers. It is a reading, not a quotation. In §3–§9 the paper is the 1986 paper; in §10–§12 it is the later paper being compared with it. |
+| **[verified]** | The statement it ends, or begins, was checked exactly by the companion script (SymPy; list in §16). This certifies the mathematics, not that the paper says it. |
+| **[analysis]** | Added here and not in the paper under discussion: a derivation, example, interpretation, comparison or criticism. It covers the text from the marker to the end of its paragraph or list item; in a bold run-in heading such as **[analysis] Existence.**, everything that heading introduces. |
+
+The two markers combine: analysis that was checked carries both. Some parts are analysis
+throughout and are not marked line by line: the figure, examples and limits in §3, the
+dictionaries and comparison tables of §10–§12, §10.6, §10.8, §11.3, §11.4, the conclusion
+(§13) and the critical notes (§14).
 
 **Source.** Z. Oziewicz, "From Grassmann to Clifford", in J. S. R. Chisholm and A. K. Common
 (eds.), *Clifford Algebras and Their Applications in Mathematical Physics*, NATO ASI Series
@@ -42,12 +54,12 @@ the argument:
    $`\gamma_v`$ on vectors plus associativity (eq. 23). The map $`\phi`$ need not be symmetric:
    $`\phi = g + \omega`$ with $`g`$ symmetric and $`\omega`$ antisymmetric.
 
-**Analogy.** Think of the doubled space $`\mathcal V^1 \oplus \Lambda^1`$ (vectors plus covectors) as
+**Analogy.** **[analysis]** Think of the doubled space $`\mathcal V^1 \oplus \Lambda^1`$ (vectors plus covectors) as
 a phase space carrying the canonical pairing $`(x,\alpha) \mapsto \alpha x`$. The operators
 $`e_x + i_\alpha`$ represent its Clifford algebra on the Grassmann algebra. Choosing $`\phi`$ selects
 the subspace "graph of $`\phi`$" $`= \{(v, \phi v)\}`$ inside the doubled space, and the Clifford
 algebra of $`\phi`$ is what the operators attached to that subspace generate. A metric is thus a
-choice of slice through a structure that exists before any metric does. **[note]**
+choice of slice through a structure that exists before any metric does.
 
 | Point of the doubled space $`\mathcal V^1\oplus\Lambda^1`$ | Operator on the Grassmann algebra $`\mathcal V`$ | Its square |
 |---|---|---|
@@ -80,7 +92,7 @@ $`\deg e_x = \deg x`$, $`\deg i_x = -\deg x`$.
 ## 3. Introduction: the dual pair (pp. 245–246)
 
 The opening section of the paper is conceptual. §3.1 and the first paragraph of §3.2 report it;
-the figure, the examples and the limits are **[note]**.
+the figure, the examples and the limits are **[analysis]**.
 
 ### 3.1 Two spaces, neither first
 
@@ -321,7 +333,7 @@ paper compares (21) with the supercharge algebra of supersymmetric quantum mecha
 and reads $`\gamma_{x,\alpha}`$ as a metric-free "space-time splitting" into a vector and an
 independent covector.
 
-**[note]** In degree 1, (21)–(22) say that $`(x,\alpha)\mapsto e_x + i_\alpha`$ is a Clifford map for
+**[analysis]** In degree 1, (21)–(22) say that $`(x,\alpha)\mapsto e_x + i_\alpha`$ is a Clifford map for
 the neutral quadratic form $`Q(x,\alpha) = \alpha x`$ on $`\mathcal V^1\oplus\Lambda^1`$. This is the
 standard isomorphism $`C\ell(L\oplus L^*) \cong \mathrm{End}(\bigwedge L)`$.
 
@@ -333,7 +345,7 @@ gives the defect
  = \big(i_\alpha\circ i_\beta - i_{e_\alpha\beta}\big) + \big(i_\alpha\circ e_y - e_{i_\alpha y}\big) + \big(e_x\circ i_\beta - i_{i_x\beta}\big),
 ```
 
-valid for all degrees. **[note]** On the $`\mathcal V`$ component this follows at once from (20)
+valid for all degrees. **[analysis]** On the $`\mathcal V`$ component this follows at once from (20)
 and (7), since the only cancelling pair is $`e_x\circ e_y - e_{x\wedge y} = 0`$. The first bracket
 does not vanish because of the order reversal in (12): $`i_\alpha\circ i_\beta = i_{\beta\wedge\alpha}`$.
 
@@ -359,7 +371,7 @@ So for $`\deg v = 1`$: $`\gamma_v w = v\wedge w + i_{\phi v}w`$. The paper asser
 determine $`\gamma`$ uniquely and that $`\mathcal V`$ with the product $`u\cdot w = \gamma_u w`$ is the
 Clifford algebra, of the same dimension as $`\mathcal V`$ for every $`\phi`$.
 
-**[note] Existence.** Uniqueness is clear from the recursion (24) below. Existence (that a
+**[analysis] Existence.** Uniqueness is clear from the recursion (24) below. Existence (that a
 $`\gamma`$ obeying condition 3 for *all* $`v, w`$ exists) is not proved in the paper. It is
 Chevalley's theorem; see §10.3. **[verified]** for a generic non-symmetric $`\phi`$ in dimensions 3
 and 4: condition 3 holds for all pairs of basis blades.
@@ -415,7 +427,7 @@ algebra is called the bivector $`v\wedge w`$. **[verified]**
 \end{aligned}
 ```
 
-**[verified]** for all index choices, including repeated vectors. **[note]** The general pattern
+**[verified]** for all index choices, including repeated vectors. **[analysis]** The general pattern
 is a signed sum over partial pairings $`i<j`$ with $`\phi`$ evaluated in that order; it is
 Jadczyk's formula (51) for $`\bar\lambda_{-F}`$, and the last line is a Pfaffian-like expression
 (a true Pfaffian only when $`\phi = \omega`$).
@@ -478,7 +490,7 @@ Then $`p\cdot p = p`$ (with $`p\neq 1`$) is stated to be equivalent to
 
 which reproduces (31) when $`a\wedge b\neq0`$.
 
-**[note] Two refinements.**
+**[analysis] Two refinements.**
 - The third line of (31) is redundant: its left side equals $`i_\omega(v\wedge a\wedge b)`$, so it
   follows from the first line. **[verified]**
 - If $`a\wedge b = 0`$ the bivector equation is empty and $`\lambda = 1`$ comes from the vector
@@ -500,7 +512,7 @@ and is fixed by a complete moving frame (vierbein), now with $`v\wedge a\wedge b
 remark suggests reading $`\omega`$ in (31) as a distortion of the spinor space by the
 electromagnetic field.
 
-**[note]** For $`\omega=0`$: $`v\cdot(a\wedge b) - (a\wedge b)\cdot v = 2g(v,a)\,b - 2g(v,b)\,a`$, which
+**[analysis]** For $`\omega=0`$: $`v\cdot(a\wedge b) - (a\wedge b)\cdot v = 2g(v,a)\,b - 2g(v,b)\,a`$, which
 confirms the orthogonality claim. The primitivity claim depends on signature; see §14, note 4.
 
 ## 9. Clifford algebra of forms and the exterior derivative (p. 255)
@@ -522,7 +534,7 @@ be the exterior derivative and $`L_x`$ the Lie derivative. From the super-bracke
 and concludes that for an idempotent $`\beta\in\Lambda`$ the exterior derivative does not commute
 with the spinor projection: $`d\circ\delta_\beta \neq \delta_\beta\circ d`$.
 
-**[note]** The displayed bracket is immediate by linearity. The conclusion is about *right*
+**[analysis]** The displayed bracket is immediate by linearity. The conclusion is about *right*
 multiplication $`\delta_\beta`$, while the bracket concerns *left* multiplication $`\gamma_\alpha`$, so
 the "therefore" is a plausibility argument, not a derivation. The conclusion is nevertheless
 true, already in flat space. Example on $`\mathbb R^2`$ with the Euclidean metric: take
@@ -616,10 +628,10 @@ $`e^{i_\omega}`$ of $`\mathcal V`$ is an algebra isomorphism between the two pro
 scalars and vectors and moves higher grades, $`e^{i_\omega}(v\wedge w) = v\wedge w + \omega(v,w)`$.
 **[verified]** for generic $`g,\omega`$ in dimensions 3 and 4.
 
-The first formula is the degree-(2,1) case of the unwritten terms "$`(\dots)`$" in Oziewicz's
+**[analysis]** The first formula is the degree-(2,1) case of the unwritten terms "$`(\dots)`$" in Oziewicz's
 (15), and the mirror image of his (17). In his vocabulary, $`i_\omega`$ annihilates a pair, and
 $`e^{i_\omega}`$ is a Bogoliubov transformation that preserves the vacuum,
-$`e^{i_\omega}1 = 1`$. **[note]**
+$`e^{i_\omega}1 = 1`$.
 
 **A sign in Jadczyk's eq. (68).** With Jadczyk's own conventions, namely
 $`\langle f\wedge g, x\wedge y\rangle = f(x)g(y) - f(y)g(x)`$ (60), $`A(x,y) = \langle A^*,x\wedge y\rangle`$
@@ -643,7 +655,7 @@ and Prop. 3.4 have $`0`$; and eq. (46) omits the factor $`f(x_i)`$ present in eq
 
 ### 10.5 Why $`\omega`$ is a gauge and $`g`$ is not: the doubled space
 
-**[note]** Combine §6 with §10.4. The operators $`e_x + i_\alpha`$ represent the Clifford algebra
+**[analysis]** Combine §6 with §10.4. The operators $`e_x + i_\alpha`$ represent the Clifford algebra
 of the doubled space $`\mathcal V^1\oplus\Lambda^1`$ with the neutral form $`Q(x,\alpha) = \alpha x`$,
 and $`\gamma_v`$ is the operator attached to the point $`(v,\phi v)`$ of the graph of $`\phi`$.
 Conjugation by $`e^{i_\omega}`$ induces on the doubled space the linear map
@@ -792,9 +804,9 @@ Nilpotent Bases of Matrices" (2023), "Null Vector Number Systems" (2025) and the
    $`y\mapsto\tau(y)\,T`$ on $`\mathcal V^1`$. **[verified]** It is a fermion number operator. (The
    keynote draft calls the 1-form "contravariant" and the vector "covariant"; these are
    interchanged.)
-5. **The gauge of §10.4 in null-vector language.** Since $`b_j = i_{e^j}`$,
+5. **The gauge of §10.4 in null-vector language.** **[analysis]** Since $`b_j = i_{e^j}`$,
    $`e^{i_\omega} = \exp\big(\sum_{j < k}\omega_{jk}\,b_kb_j\big)`$: a unipotent element of $`G_{n,n}`$
-   built from the $`b`$'s alone. **[note]**
+   built from the $`b`$'s alone.
 
 ### 11.3 Differences
 
@@ -890,7 +902,7 @@ describe, eleven years after 1986 and twenty-four before Jadczyk:
 - The product $`\wedge^\omega`$ does not respect the original ("bare") $`\mathbb Z`$-grading, but it
   respects a second ("clouded") one, with
   $`M^{\wedge\omega}_k \subset M^{\wedge k}\oplus M^{\wedge(k-2)}\oplus\cdots`$.
-  **[note]** In the notation of §10.4 the clouded grade-$`k`$ space is $`e^{i_\omega}(M^{\wedge k})`$,
+  **[analysis]** In the notation of §10.4 the clouded grade-$`k`$ space is $`e^{i_\omega}(M^{\wedge k})`$,
   and $`e^{i_\omega}`$ is the isomorphism. **[verified]**
 - $`\eta`$ determines the algebra; $`\omega`$ only chooses among isomorphic realizations. What is
   kept is the pair (algebra, bare grading), which is the Fauser–Abłamowicz reading of §10.7.
@@ -903,7 +915,7 @@ describe, eleven years after 1986 and twenty-four before Jadczyk:
   1986 "symplectic Clifford algebra" (critical note 1): the Weyl algebra deforms the symmetric
   algebra by $`\omega`$, and there $`\eta`$ is the gauge.
 
-**[note] One claim that cannot stand as written.** §10 of the 1997 paper says that for general
+**[analysis] One claim that cannot stand as written.** §10 of the 1997 paper says that for general
 $`\phi`$ there is a unique clouded $`\mathbb Z`$-grading preserved by $`\wedge^\phi`$. With vectors in
 degree 1 this fails as soon as $`\eta\neq0`$: $`v\wedge^\phi v = \eta(v,v)`$ is a non-zero scalar,
 of degree 0, where a graded product would put it in degree 2. **[verified]** A Clifford algebra
@@ -944,7 +956,7 @@ Domínguez.
 **[verified]** exactly for $`n = 1,\dots,5`$ (Euclidean), and for $`n=4`$ in signatures $`(1,3)`$,
 $`(2,2)`$, for a non-diagonal $`\eta`$, and for a non-symmetric $`\phi=\eta+\omega`$.
 
-**[note] The conjecture is true for all $`n`$.** Proof. $`\Gamma`$ does not depend on the basis, so
+**[analysis] The conjecture is true for all $`n`$.** Proof. $`\Gamma`$ does not depend on the basis, so
 take an $`\eta`$-orthogonal one (possible since $`\tfrac12\in k`$), with $`\eta(e_\mu,e_\mu) = \epsilon_\mu\neq0`$.
 Put $`A_\mu = \gamma_{e_\mu}\otimes 1`$ and $`B_\mu = 1\otimes\gamma_{e_\mu}`$. Every $`A`$ commutes with
 every $`B`$, and $`A_\mu^2 = B_\mu^2 = \epsilon_\mu`$. Define
@@ -992,7 +1004,7 @@ sum of commuting operators with a two-point spectrum each?
 
 ## 13. Conclusion: the status of the thesis, and evaluation
 
-This section is analysis (**[note]** throughout), drawing on §4–§12.
+This section is **[analysis]** throughout, drawing on §4–§12.
 
 ### 13.1 Status of the thesis
 
@@ -1093,6 +1105,9 @@ $`c_i = a_i + \tfrac12\sum_{j\neq i}b_j`$. **[verified]**
    algebra with the roles of $`g`$ and $`\omega`$ exchanged, as the 1997 paper indicates (§12.3)?
 
 ## 14. Critical notes
+
+Analysis throughout: where the 1986 paper is wrong, incomplete or superseded, and where the
+later papers need correction.
 
 1. **"Symplectic Clifford algebra" (abstract item 6, p. 252).** With $`g = 0`$ and $`\phi=\omega`$ the
    generators anticommute, $`\{\gamma_v,\gamma_w\} = 0`$, so the algebra is isomorphic to the
