@@ -77,7 +77,7 @@ I write $`u \cdot w := \gamma_u w`$ for the Clifford product on $`\mathcal V`$. 
 for it. All degrees of operators are their shifts of Grassmann degree:
 $`\deg e_x = \deg x`$, $`\deg i_x = -\deg x`$.
 
-## 3. The dual pair (pp. 245–246)
+## 3. Introduction: the dual pair (pp. 245–246)
 
 The opening section of the paper is conceptual. §3.1 and the first paragraph of §3.2 report it;
 the figure, the examples and the limits are **[note]**.
