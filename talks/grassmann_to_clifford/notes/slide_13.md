@@ -1,0 +1,9 @@
+If ω does not change the algebra, what does it change? The grading: which elements count as k-vectors.
+
+On the left, the old dispute. Hestenes, and Hestenes and Sobczyk, define the wedge product as the antisymmetrized Clifford product. In the 1986 notation that says gamma of v wedge w is half the commutator, and by equation 26 this holds exactly when ω is zero. So, mathematically, the whole disagreement between Oziewicz and Hestenes over the wedge is the freedom to choose ω. Hestenes fixes the gauge ω equals zero. Oziewicz declines to.
+
+In the middle is Jadczyk's picture. All the Clifford algebras of a vector space form a bundle over the space of quadratic forms. A symmetric bilinear form moves you along the base, from one fibre to another: from the Grassmann algebra over Q equals zero to the Clifford algebra of g. An alternating form acts within a fibre: that is the gauge. In this picture, the 1986 paper sits over the single base point Q equals zero, the Grassmann algebra, and uses φ to pull back the product of the fibre over g.
+
+On the right, the consequences for the 1986 paper. All the ω-dependence of its idempotents, equation 31, is the gauge image of the solutions for ω equal to zero. So there is no "distortion of spinor space" by ω, at least at a point. And Einstein's antisymmetric part can only have content through its derivatives, through d ω, where the exterior derivative fails to commute with the gauge.
+
+Finally, a matter of words. Jadczyk concludes that "the Clifford algebra of a bilinear form" names no new algebra. Fauser and Abłamowicz keep the term, for the pair: the algebra together with its grading, which does depend on ω. The two positions agree on the mathematics. And Oziewicz's own phrase, "a pair: a Grassmann algebra and a φ", is the Fauser-Abłamowicz reading. In short: g gives the algebra, and ω gives the grading.

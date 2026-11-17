@@ -1,0 +1,9 @@
+The next step is the one that gives the paper its physics.
+
+Equation 14 defines the super-bracket of two operators: the anticommutator when both have odd degree, and the commutator otherwise. Then, for a vector x and covectors α and β, acting on forms, equation 16 says: two exterior multiplications anticommute; two contractions anticommute; and the anticommutator of a contraction by x with exterior multiplication by α is the number α of x.
+
+These are the canonical anticommutation relations of fermions. But there is no Hilbert space here, and no metric. The right-hand side is simply the duality pairing, the evaluation of a covector on a vector.
+
+The diagram shows what this means, for a three-dimensional space. The Grassmann algebra has one element of degree zero, three of degree one, three of degree two, and one of degree three. The numbers in the circles are the index sets of the basis elements. Exterior multiplication by a vector raises the degree: it creates. Contraction by a covector lowers it: it annihilates. And the unit, 1, is the vacuum: every contraction kills it. So the Grassmann algebra of multivectors, and the Grassmann algebra of forms, are the Fock spaces of fermions and antifermions. If e creates one kind, then its transpose annihilates the other.
+
+The box on the left is a remark I like. What about pairs of fermions? If you contract by a bivector, x wedge y, and commute with exterior multiplication by a 2-form, equation 17, you get the bosonic answer, α of x wedge y, plus two correction terms. So composite pairs are not ideal bosons. The paper adds, without proof, that an exact boson-fermion duality would need infinite dimension. The identity itself was checked exactly.

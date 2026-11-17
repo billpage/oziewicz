@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Grassmann to Clifford</title>
+<!--
+  Slides for the Seminar on Fundamental Problems in Physics: an introduction to
+  the repository billpage/oziewicz, with its supplement on Oziewicz's 1986 paper
+  "From Grassmann to Clifford" as the example. The speaker notes (press N) are
+  the narration. Every formula is taken from supplement/grassmann_to_clifford.md;
+  those marked "checked" are checked by src/verify_grassmann_clifford.py.
+
+  This file is the SOURCE: formulas are TeX between \( \) and \[ \], images are
+  asset:NAME, and NOTES is filled from notes/slide_NN.md. Build the page with
+  src/narration/build_deck.py (see README.md in this directory).
+
+  Navigation script and page frame after billpage/wpmw docs/interactive/
+  worlds_and_particles.html. Web fonts with system fallbacks.
+  Bill Page, CC-BY-SA-4.0.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400..700;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono&amp;display=swap">
+<style>
+html, body { margin: 0; height: 100%; background: #1d232c; overflow: hidden;
+  font-family: 'IBM Plex Sans', Arial, sans-serif; }
+#stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
+  transform-origin: 0 0; }
+.slide { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
+  box-sizing: border-box; overflow: hidden; background: #F7F5EF; color: #16202E;
+  padding: 96px 128px 140px; display: flex; flex-direction: column; gap: 30px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif; }
+@media screen { .slide:not(.current) { display: none !important; } }
+.slide * { margin: 0; box-sizing: border-box; }
+.slide h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 112px; font-weight: 600; line-height: 1.04; }
+.slide h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 60px; font-weight: 600; line-height: 1.1; }
+.slide h3 { font-size: 30px; font-weight: 600; line-height: 1.25; }
+.slide p, .slide li { font-size: 30px; line-height: 1.38; }
+.slide ul, .slide ol { padding-left: 1.2em; display: flex; flex-direction: column; gap: 10px; }
+.slide .small p, .slide p.small, .slide .small li, .slide li.small { font-size: 26px; line-height: 1.36; }
+.slide .tiny, .slide p.tiny { font-size: 21px; line-height: 1.35; color: #5E6773; }
+.kick { font-size: 23px !important; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #2F5D8A; }
+.cols { display: flex; gap: 40px; }
+.cols > * { flex: 1; min-width: 0; }
+.card { background: #FFFDF8; border: 1px solid #DDD7C9; border-radius: 16px; padding: 28px 34px;
+  display: flex; flex-direction: column; gap: 14px; }
+.card.tint { background: #ECE8DE; border-color: #ECE8DE; }
+.take { border-left: 6px solid #2F5D8A; padding: 6px 0 6px 36px; display: flex; flex-direction: column; gap: 8px; }
+.take.green { border-left-color: #2E7D4F; }
+.take.orange { border-left-color: #B5541C; }
+.grow { flex: 1; }
+.foot { position: absolute; left: 128px; bottom: 50px; font-size: 21px !important; color: #5E6773; }
+.mathd { text-align: center; font-size: 34px; line-height: 1.2; margin: 2px 0; }
+.lm .mathd { text-align: left; }
+.math { white-space: nowrap; }
+.v { color: #2F5D8A; } .c { color: #B5541C; } .g { color: #2E7D4F; }
+.chip { display: inline-block; font-size: 19px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; padding: 3px 12px; border-radius: 999px; vertical-align: 4px; line-height: 1.4; }
+.chip.ok { background: #DCEBDD; color: #2E6B3F; }
+.chip.an { background: #E6E0F0; color: #5A4A86; }
+.chip.rd { background: #E4E0D6; color: #4E5663; }
+.chip.no { background: #F3DDD3; color: #9A3B12; }
+.mono { font-family: 'IBM Plex Mono', Consolas, monospace; }
+table.t { border-collapse: collapse; width: 100%; }
+table.t th, table.t td { font-size: 25px; line-height: 1.35; padding: 10px 14px; text-align: left;
+  vertical-align: top; border-bottom: 1px solid #D6D0C2; }
+table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A; }
+.fig { position: relative; flex: none; }
+.fig .lab { position: absolute; font-size: 26px; line-height: 1.2; white-space: nowrap; }
+#cover { background: #16202E; color: #F2EEE4; }
+#cover .kick { color: #8FB4DC; }
+.num { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; color: #2F5D8A; font-size: 44px !important; line-height: 1 !important; }
+#bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 12px;
+  align-items: center; justify-content: center; padding: 6px; font-size: 14px;
+  color: #c9d1db; background: rgba(20,25,32,0.85); }
+#bar button { font: inherit; color: inherit; background: #2c3542; border: 1px solid #45505f;
+  border-radius: 6px; padding: 4px 12px; cursor: pointer; }
+#notes { position: fixed; left: 0; right: 0; bottom: 34px; max-height: 42vh; overflow: auto;
+  background: #fbfaf6; color: #1d232c; padding: 16px 24px; font-size: 16px; line-height: 1.5;
+  white-space: pre-wrap; border-top: 3px solid #2F5D8A; display: none; }
+#notes.show { display: block; }
+@media print {
+  html, body { overflow: visible; height: auto; background: none; }
+  #bar, #notes { display: none !important; }
+  #stage { position: static; transform: none !important; width: auto; height: auto; }
+  .slide { position: relative; page-break-after: always; zoom: 0.5; }
+  @page { size: 960px 540px; margin: 0; }
+}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<section class="slide" data-n="1" id="cover" data-nofoot style="padding:120px 128px;justify-content:center;gap:44px">
+<p class="kick">Seminar on Fundamental Problems in Physics · 2026</p>
+<div style="display:flex;align-items:flex-end;gap:80px">
+<h1 style="color:#F2EEE4">From Grassmann<br>to Clifford</h1>
+<p style="font-size:76px;color:#D3D9E0;padding-bottom:22px">\(\gamma_v = e_v + i_{\phi v}\)</p>
+</div>
+<p style="font-size:38px;line-height:1.35;color:#D3D9E0;width:1500px">Oziewicz 1986, his 1997 sequel and two later readings: a sample from a repository that reads his work, and an invitation to review it</p>
+<div style="display:flex;gap:56px;align-items:center">
+<div style="display:flex;gap:14px;align-items:center"><div style="width:26px;height:26px;background:#6F9CCB;border-radius:50%"></div><p style="font-size:26px;color:#D3D9E0">vectors, multivectors</p></div>
+<div style="display:flex;gap:14px;align-items:center"><div style="width:26px;height:26px;background:#E08A55;border-radius:50%"></div><p style="font-size:26px;color:#D3D9E0">covectors, forms</p></div>
+<div style="display:flex;gap:14px;align-items:center"><div style="width:26px;height:26px;background:#6DB389;border-radius:50%"></div><p style="font-size:26px;color:#D3D9E0">the one choice: φ = g + ω</p></div>
+</div>
+<p style="font-size:26px;color:#AEB7C2">Bill Page · github.com/billpage/oziewicz · prepared with Claude (Anthropic)</p>
+</section>
+
+<section class="slide" data-n="2" id="why">
+<h2>Why read Oziewicz this way?</h2>
+<div class="cols">
+<div class="card tint">
+<p class="kick">In memoriam · Zbigniew Oziewicz, 1941–2020</p>
+<p style="font-family:'Source Serif 4',Georgia,serif;font-size:40px;line-height:1.3">“Science is subjective.”<br>“Only a controversial subject is interesting.”<br>“Everybody has a right to be right.”</p>
+<p class="tiny">His talk to the Natural Philosophy Alliance, 2009 (in the repository, in his own voice); <i>Science must never be objective</i> and <i>Are peer reviewers Guardians of the Truth?</i>, 2013.</p>
+</div>
+<div class="card">
+<p class="kick">How the notes keep faith with it</p>
+<ol>
+<li>State each claim in its <b>strongest form</b> before testing it.</li>
+<li>Check the <b>mathematics, not allegiance</b>: does the identity hold, does the construction compose, does the statement follow?</li>
+<li><b>Report the result either way</b>: textbook physics in new notation, or a conflict that survives.</li>
+</ol>
+</div>
+</div>
+<div class="grow"></div>
+<div class="take">
+<p class="kick">Where the method parts from him</p>
+<p>He held that science needs no criterion for who is right. A repository that checks derivations does not share that view, and it does not claim that he would have agreed with it.</p>
+</div>
+</section>
+
+<section class="slide" data-n="3" id="repo">
+<h2>The repository at a glance</h2>
+<div class="cols" style="gap:48px">
+<div style="flex:1.25;display:grid;grid-template-columns:1fr 1fr;gap:22px">
+<div class="card"><p class="mono" style="font-size:28px;color:#2F5D8A">analysis/</p><p class="small" style="font-size:24px">A numbered derivation ladder: four steps so far, from the mass centre to clocks and spin</p></div>
+<div class="card"><p class="mono" style="font-size:28px;color:#2F5D8A">supplement/</p><p style="font-size:24px">Readings: <i>bodies first</i>, a 2004 draft, his views on science, Matolcsi's book, <b>Grassmann to Clifford</b></p></div>
+<div class="card"><p class="mono" style="font-size:28px;color:#2F5D8A">talks/</p><p style="font-size:24px"><i>What is Special Relativity Theory?</i> (2009), narrated in his own voice, with a transcript</p></div>
+<div class="card"><p class="mono" style="font-size:28px;color:#2F5D8A">src/</p><p style="font-size:24px">Verification scripts (SymPy) and figures. Nothing else</p></div>
+<div class="card"><p class="mono" style="font-size:28px;color:#2F5D8A">references/</p><p style="font-size:24px">A link to every paper, and what was checked in it. No PDFs</p></div>
+<div class="card"><p class="mono" style="font-size:28px;color:#2F5D8A">ORIENTATION.md</p><p style="font-size:24px">What is established, open, corrected or retracted; with <span class="mono">GLOSSARY</span> and <span class="mono">INDEX</span></p></div>
+</div>
+<div class="card tint" style="flex:1">
+<p class="kick">House rules</p>
+<ul class="small">
+<li>A statement of what a paper says is a <b>reading</b>, keyed to its equation numbers, not a quotation.</li>
+<li><span class="chip ok">checked</span> means a mathematical step was reproduced by computer algebra. It does not mean Oziewicz was right, or that the reading is faithful.</li>
+<li>Each note says what it inherits from earlier notes and what it retracts.</li>
+<li>Drafted with Claude (Anthropic). I review and merge every change. No external peer review.</li>
+<li>I co-authored one of the papers read here. That is a relationship, not independence.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="slide" data-n="4" id="ladder">
+<h2>The ladder so far: relativity with bodies first</h2>
+<table class="t">
+<tr><th style="width:5%">Step</th><th style="width:37%">Question</th><th>Finding</th></tr>
+<tr><td class="num">1</td><td>What does the mass centre of <i>Many-body mass-centre</i> (2014; long version 2017) define?</td><td>Standard special relativity in a coordinate-free notation: the mass centre is the centre-of-momentum frame.</td></tr>
+<tr><td class="num">2</td><td>Can the mass centre be the third observer of his ternary velocity? (Beyond what he published.)</td><td>For two bodies, yes. For three or more, no Lorentz link can depend on the pair alone, carry one body to the other and compose. This part of his “astonishing conflict” survives.</td></tr>
+<tr><td class="num">3</td><td>What is left below the metric, with a body as a process and a clock?</td><td>Velocity, its non-reciprocity and the mass centre survive. His symmetric gamma is the metric itself. His clock is a connection, not a time.</td></tr>
+<tr><td class="num">4</td><td>How are a clock's vorticity, spin and the centre related?</td><td>A correction to step 1: a covariant centre worldline exists. Each clock picks its own centre, and the spin is <i>P</i> ∧ <i>L</i>.</td></tr>
+</table>
+<div class="grow"></div>
+<div class="take">
+<p>No step yet departs from standard relativity or predicts anything new. What is his own is the presentation, several of the results, and the questions.</p>
+</div>
+</section>
+
+<section class="slide" data-n="5" id="today">
+<h2>Today's example: <i>From Grassmann to Clifford</i> (1986)</h2>
+<div class="cols">
+<div class="card" style="flex:1.45">
+<p class="kick">The thesis in three claims</p>
+<ol>
+<li>Exterior multiplication <span class="v"><i>e</i></span> and its transpose <span class="c"><i>i</i></span> are fermion creation and annihilation operators, with no metric: \(\{i_{\V x}, e_{\C\alpha}\} = \C\alpha\V x\).</li>
+<li>A Clifford generator is a “quasi-particle”: \(\gamma_{\V v} = e_{\V v} + i_{\G\phi \V v}\), a creator plus an annihilator.</li>
+<li>The Clifford product lives on the <b>same space</b> as the Grassmann algebra. The map \(\G\phi\) from vectors to covectors need not be symmetric: \(\G\phi = \G g + \G\omega\).</li>
+</ol>
+</div>
+<div class="card tint">
+<p class="kick">Read alongside</p>
+<p class="small"><b>Oziewicz 1997</b>, <i>Clifford algebra of multivectors</i>: his own sequel</p>
+<p class="small"><b>Jadczyk 2021</b>, <i>On the bundle of Clifford algebras over the space of quadratic forms</i>, dedicated to his memory</p>
+<p class="small"><b>Sobczyk 2023–2026</b>: geometric algebras built from null vectors</p>
+</div>
+</div>
+<div class="grow"></div>
+<div class="take green">
+<p class="kick" style="color:#2E7D4F">Where the talk ends up</p>
+<p>What is given without any choice is the <b>evaluation</b> \(\C\alpha\V x\) of a covector on a vector. The Grassmann algebra is its Fock space. A metric is the choice of a subspace: the graph of \(\G\phi\).</p>
+</div>
+<p class="tiny">Z. Oziewicz, in J. S. R. Chisholm and A. K. Common (eds.), <i>Clifford Algebras and Their Applications in Mathematical Physics</i>, NATO ASI C 183, Reidel 1986, pp. 245–255.</p>
+</section>
+
+<section class="slide" data-n="6" id="dual-pair">
+<h2>Two spaces, neither first</h2>
+<img src="asset:grassmann_dual_pair.png" alt="(a) In L a vector is an arrow and a covector a stack of sheets; the arrow x pierces 2.5 sheets. (b) In the dual space the roles are exchanged and the count is the same. (c) A vector field X drawn by its flow lines and a 1-form by its wave fronts; the path gamma crosses 4 fronts." style="width:1664px;height:auto;display:block">
+<div class="cols" style="gap:48px">
+<p class="small">A covector \(\C\alpha\) is its kernel plus one vector on which it reads 1. Its value \(\C\alpha\V x\) is the number of sheets the arrow pierces: no length, no angle.</p>
+<p class="small">A metric identifies <i>L</i> with <i>L</i>* and hides the difference. The paper insists that <b>not choosing</b> a metric is not the same as having none available.</p>
+</div>
+<p class="tiny">Figure from the supplement, §3.1; its numbers (\(\C\alpha\V x = 5/2\), and 4 fronts crossed) are checked exactly before it is drawn. Panel (c) draws an exact form.</p>
+</section>
+
+<section class="slide" data-n="7" id="instruments">
+<h2>Covectors are measuring instruments</h2>
+<div class="cols" style="gap:48px">
+<div style="flex:1.35">
+<table class="t">
+<tr><th>Instrument (covector)</th><th>Applied to (vector)</th><th>Reading</th></tr>
+<tr><td class="c">a wave, by its phase \(d\varphi\)</td><td class="v">a displacement</td><td>crests crossed</td></tr>
+<tr><td class="c">the same wave</td><td class="v">an observer's 4-velocity</td><td>the frequency that observer counts</td></tr>
+<tr><td class="c">a clock \(\tau\)</td><td class="v">a displacement in space-time</td><td>elapsed time</td></tr>
+<tr><td class="c">a force</td><td class="v">a small displacement</td><td>work done</td></tr>
+<tr><td class="c">a voltmeter: the field <i>E</i></td><td class="v">the probe's displacement</td><td>potential drop</td></tr>
+</table>
+</div>
+<div style="display:flex;flex-direction:column;gap:22px">
+<div class="card"><h3>Doppler, with no metric</h3><p class="small">One wave covector \(\C\alpha\), two observers \(\V u, \V u'\): two frequencies \(\C\alpha\V u\) and \(\C\alpha\V u'\).</p></div>
+<div class="card"><h3>An observer</h3><p class="small">A vector on which the clock reads 1, \(\C\tau \V T = 1\): the observer \(\V T\otimes\C\tau\) of his later papers.</p></div>
+<div class="card"><h3>Where it stops</h3><p class="small">A rod that measures \(|v|\) is not linear. Lengths need one more instrument, of another kind: that is where \(\G\phi\) enters.</p></div>
+</div>
+</div>
+<p class="small">What makes an instrument a covector: <b>linear response</b>, <b>blind directions</b> (a whole hyperplane, \(\ker\C\alpha\)), and <b>one calibration</b>. <span class="chip an">analysis</span></p>
+</section>
+
+<section class="slide" data-n="8" id="grassmann">
+<h2>Grassmann's products, defined by evaluation</h2>
+<div class="cols" style="gap:48px">
+<div class="lm" style="flex:1.2;display:flex;flex-direction:column;gap:20px">
+<p class="small">The pairing by determinants defines both wedge products at once, with no factorial and no metric:</p>
+\[(\C{\alpha^1}\wedge\cdots\wedge\C{\alpha^k})(\V{x_1}\wedge\cdots\wedge \V{x_k}) := \det\big[\C{\alpha^i}\V{x_j}\big] \qquad (3)\]
+<p class="small">Exterior multiplication, and its transpose:</p>
+\[e_x\,y := x\wedge y,\qquad e_x\circ e_y = e_{x\wedge y}\qquad (7)\]
+\[(i_x\omega)(y) := \omega(x\wedge y),\qquad i_x\circ i_y = i_{y\wedge x}\qquad (9),\,(12)\]
+<p class="small">The order reverses: \(i\) is an <i>anti</i>-homomorphism, because transposition reverses products.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:22px">
+<div class="card lm"><h3>Example: the usual contraction</h3>\[i_x(\alpha\wedge\beta) = (\alpha x)\,\beta - (\beta x)\,\alpha\]</div>
+<div class="card lm"><h3>Antiderivation, eq. (13)</h3>\[i_x\circ e_\alpha = e_{i_x\alpha} + (-1)^{\deg\alpha}\,e_\alpha\circ i_x\]<p class="small">Textbooks (Greub) take this as the definition of \(i_x\). Here it is a theorem: the Laplace expansion of a determinant.</p></div>
+<p><span class="chip ok">checked</span> <span class="small" style="font-size:24px">(6), (7), (12), (13), in dimensions 3 and 4</span></p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-n="9" id="fermions">
+<h2>Fermions without a metric</h2>
+<div class="cols" style="gap:56px">
+<div class="lm" style="flex:1.1;display:flex;flex-direction:column;gap:18px">
+<p class="small">The super-bracket of operators of degrees \(\deg A, \deg B\):</p>
+\[\{A,B\} := A\circ B - (-1)^{\deg A\,\deg B}\,B\circ A\qquad (14)\]
+<p class="small">For a vector \(\V x\) and covectors \(\C\alpha, \C\beta\), acting on forms:</p>
+\[\{e_{\C\alpha}, e_{\C\beta}\} = 0,\quad \{i_{\V x}, i_{\V y}\} = 0,\quad \{i_{\V x}, e_{\C\alpha}\} = \C\alpha\V x\qquad (16)\]
+<p>The canonical anticommutation relations, with no Hilbert space and no metric: the right-hand side is the duality pairing. <span class="chip ok">checked</span></p>
+<div class="card tint lm"><h3>Pairs are not ideal bosons, eq. (17)</h3>\[[\,i_{x\wedge y},\, e_\alpha\,] = \alpha(x\wedge y) + e_{i_y\alpha}\circ i_x - e_{i_x\alpha}\circ i_y\]<p class="small">The first term is the bosonic one; the other two are the corrections.</p></div>
+</div>
+<div class="fig" style="width:700px;height:660px">
+<svg width="700" height="660" viewBox="0 0 700 660" aria-label="The Grassmann algebra of a three-dimensional space as a Fock space: degrees 0 to 3 with 1, 3, 3 and 1 basis elements; exterior multiplication raises the degree, contraction lowers it, and the unit 1 is the vacuum">
+<rect x="1" y="1" width="698" height="658" rx="16" fill="#FFFDF8" stroke="#DDD7C9" stroke-width="2"/>
+<defs>
+<marker id="ab" viewBox="0 0 12 12" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#2F5D8A"/></marker>
+<marker id="ao" viewBox="0 0 12 12" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#B5541C"/></marker>
+</defs>
+<g stroke-width="5" fill="none">
+<line x1="135" y1="130" x2="245" y2="130" stroke="#2F5D8A" marker-end="url(#ab)"/>
+<line x1="295" y1="130" x2="405" y2="130" stroke="#2F5D8A" marker-end="url(#ab)"/>
+<line x1="455" y1="130" x2="565" y2="130" stroke="#2F5D8A" marker-end="url(#ab)"/>
+<line x1="245" y1="530" x2="135" y2="530" stroke="#B5541C" marker-end="url(#ao)"/>
+<line x1="405" y1="530" x2="295" y2="530" stroke="#B5541C" marker-end="url(#ao)"/>
+<line x1="565" y1="530" x2="455" y2="530" stroke="#B5541C" marker-end="url(#ao)"/>
+</g>
+<g fill="#EEF2F6" stroke="#2F5D8A" stroke-width="3">
+<circle cx="110" cy="330" r="38"/>
+<circle cx="270" cy="210" r="38"/><circle cx="270" cy="330" r="38"/><circle cx="270" cy="450" r="38"/>
+<circle cx="430" cy="210" r="38"/><circle cx="430" cy="330" r="38"/><circle cx="430" cy="450" r="38"/>
+<circle cx="590" cy="330" r="38"/>
+</g>
+<g font-family="IBM Plex Sans, Arial, sans-serif" font-size="24" text-anchor="middle" fill="#2F5D8A" font-weight="600">
+<text x="110" y="339">1</text>
+<text x="270" y="219">1</text><text x="270" y="339">2</text><text x="270" y="459">3</text>
+<text x="430" y="219">12</text><text x="430" y="339">13</text><text x="430" y="459">23</text>
+<text x="590" y="339">123</text>
+</g>
+<g font-family="IBM Plex Sans, Arial, sans-serif" font-size="24" text-anchor="middle" fill="#3E4A5A">
+<text x="110" y="630">degree 0</text><text x="270" y="630">1</text><text x="430" y="630">2</text><text x="590" y="630">3</text>
+<text x="110" y="400" font-size="21">vacuum</text>
+</g>
+</svg>
+<span class="lab v" style="left:150px;top:62px">\(e_{\V x}\) raises the degree: creation</span>
+<span class="lab c" style="left:150px;top:558px">\(i_{\C\alpha}\) lowers it: annihilation</span>
+<span class="lab" style="left:52px;top:410px;font-size:21px;color:#3E4A5A">\(i_{\C\alpha}1 = 0\)</span>
+</div>
+</div>
+<p class="small">The Grassmann algebras of multivectors and of forms are the Fock spaces of fermions and antifermions: if \(e\) creates one, \(i = e^{*}\) annihilates the other.</p>
+</section>
+
+<section class="slide" data-n="10" id="doubled">
+<h2>Quasi-particles: the doubled space</h2>
+<div class="cols" style="gap:56px">
+<div class="lm" style="flex:1.15;display:flex;flex-direction:column;gap:18px">
+<p class="small">A creator plus an annihilator, acting on multivectors:</p>
+\[(e_{\V x} + i_{\C\alpha})^2 = \C\alpha\V x\qquad (22)\]
+<p class="small">So \((\V x,\C\alpha)\mapsto e_{\V x}+i_{\C\alpha}\) is a Clifford map for the <b>neutral</b> form \(Q(\V x,\C\alpha) = \C\alpha\V x\) on the doubled space \(\cV^1\oplus\Lambda^1\): the standard isomorphism \(C\ell(L\oplus L^*)\cong \End{\textstyle\bigwedge} L\). <span class="chip an">analysis</span></p>
+<p class="small">Now choose a linear map \(\G\phi:\cV^1\to\Lambda^1\) and stay on its graph:</p>
+\[\gamma_{\V v} := e_{\V v} + i_{\G\phi\V v},\qquad \gamma_{\V v}^2 = (\G\phi \V v)(\V v) = \G g(\V v,\V v)\]
+<p class="small">The quadratic form of the Clifford algebra is evaluation, restricted to the graph of \(\G\phi\).</p>
+</div>
+<div class="fig" style="width:700px;height:620px">
+<svg width="700" height="620" viewBox="0 0 700 620" aria-label="The doubled space drawn schematically: vectors along the horizontal axis, covectors along the vertical axis, and the graph of phi as a line through the origin with a point (v, phi v) on it">
+<rect x="1" y="1" width="698" height="618" rx="16" fill="#FFFDF8" stroke="#DDD7C9" stroke-width="2"/>
+<defs><marker id="ak" viewBox="0 0 12 12" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#3E4A5A"/></marker></defs>
+<line x1="110" y1="500" x2="660" y2="500" stroke="#2F5D8A" stroke-width="5" marker-end="url(#ak)"/>
+<line x1="110" y1="500" x2="110" y2="50" stroke="#B5541C" stroke-width="5" marker-end="url(#ak)"/>
+<line x1="110" y1="500" x2="640" y2="160" stroke="#2E7D4F" stroke-width="5"/>
+<line x1="440" y1="288" x2="440" y2="500" stroke="#2E7D4F" stroke-width="2.5" stroke-dasharray="10 8"/>
+<line x1="440" y1="288" x2="110" y2="288" stroke="#2E7D4F" stroke-width="2.5" stroke-dasharray="10 8"/>
+<circle cx="440" cy="288" r="11" fill="#2E7D4F"/>
+</svg>
+<span class="lab v" style="left:470px;top:515px">\(\cV^1\), vectors</span>
+<span class="lab" style="left:300px;top:560px;font-size:22px;color:#3E4A5A">= graph of 0: the Grassmann algebra</span>
+<span class="lab c" style="left:130px;top:40px">\(\Lambda^1\), covectors</span>
+<span class="lab g" style="left:556px;top:238px">graph of \(\phi\)</span>
+<span class="lab g" style="left:462px;top:292px">\((\V v,\, \C{\phi v})\)</span>
+<span class="lab v" style="left:428px;top:510px">\(v\)</span>
+<span class="lab c" style="left:52px;top:270px">\(\phi v\)</span>
+<span class="lab" style="left:24px;top:584px;font-size:19px;color:#5E6773">schematic: the doubled space has dimension 2n, a graph dimension n</span>
+</div>
+</div>
+<p class="small">The paper also defines a product on \(\cV\oplus\Lambda\) itself, eqs. (19)–(20), its “generalized Kähler–Atiyah algebra”. It is not associative, and it is not the one that survives.</p>
+</section>
+
+<section class="slide" data-n="11" id="clifford">
+<h2>The Clifford product, eq. (23)</h2>
+<div class="cols" style="gap:48px">
+<div class="lm" style="flex:1.25;display:flex;flex-direction:column;gap:16px">
+<p class="small">\(\gamma:\cV\to\End\cV\) is fixed by three conditions:</p>
+\[\gamma_v = e_v\ \ (\deg v = 0),\qquad \gamma_v = e_v + i_{\G\phi v}\ \ (\deg v = 1),\]
+\[\gamma_{\gamma_v w} = \gamma_v\circ\gamma_w\quad\text{(associativity)}\]
+<p class="small">The product \(u\cdot w := \gamma_u w\) lives on the space \(\cV\) of the Grassmann algebra. For a vector \(v\): \(v\cdot w = v\wedge w + i_{\G\phi v}w\). Recursion, for vectors \(v, w\):</p>
+\[\gamma_{v\wedge w} = \gamma_v\gamma_w - \G\phi(v,w)\qquad (25)\]
+<p class="small">Split \(\G\phi = \G g + \G\omega\), symmetric plus antisymmetric:</p>
+\[\{\gamma_v,\gamma_w\} = 2\,\G g(v,w),\]
+\[\gamma_{v\wedge w} = \tfrac12[\gamma_v,\gamma_w] - \G\omega(v,w)\qquad (26)\]
+<p><span class="chip ok">checked</span> <span style="font-size:24px">(23) for a generic non-symmetric \(\G\phi\), all pairs of basis blades, \(n = 3, 4\); (24)–(27)</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="card"><h3>The anticommutator sees only \(\G g\).</h3><p class="small">\(\G\omega\) changes <i>which</i> element of the algebra is called the bivector \(v\wedge w\).</p></div>
+<div class="card"><h3>Existence is asserted, not proved</h3><p class="small">Uniqueness follows from the recursion. Existence is Chevalley's theorem (1954). Oziewicz constructs the product himself in 1997.</p></div>
+<div class="card tint"><h3>What 1986 hoped for</h3><p class="small">\(\G g\) gravitational and \(\G\omega\) electromagnetic, after Einstein's non-symmetric unified theory; \(\G\omega\) as a “distortion of spinor space”.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide" data-n="12" id="gauge">
+<h2>The antisymmetric part is a gauge</h2>
+<div class="cols" style="gap:56px">
+<div class="lm" style="flex:1.2;display:flex;flex-direction:column;gap:16px">
+<p class="small">Contraction by the 2-form \(\G\omega\), \(i_{\G\omega}\), annihilates a pair. Its exponential (Jadczyk 2021, Prop. 3.10, in 1986 notation):</p>
+\[e^{i_{\omega}}\,e_x\,e^{-i_{\omega}} = e_x + i_{\omega x},\qquad e^{i_{\omega}}\,i_\alpha\,e^{-i_{\omega}} = i_\alpha\]
+\[e^{i_{\omega}}(u\cdot_{g} w) = (e^{i_{\omega}}u)\cdot_{g+\omega}(e^{i_{\omega}}w),\]
+\[e^{i_{\omega}}(v\wedge w) = v\wedge w + \omega(v,w)\]
+<p>So \((\cV,\,\cdot\,)\cong C\ell(\cV^1, \G g)\): <b>the algebra depends only on \(\G g\)</b>. <span class="chip ok">checked</span> <span style="font-size:22px">generic \(g,\omega\); \(n = 3, 4\)</span></p>
+<div class="card tint"><h3>Why: an isometry of the doubled space <span class="chip an">analysis</span></h3>
+<p class="small">The shear \((\V x,\C\alpha)\mapsto(\V x,\C\alpha+\G\omega \V x)\) keeps \(Q\), because \(\G\omega(x,x) = 0\). It is implemented by \(e^{i_{\omega}}\). The shear by \(\G g\) changes \(Q\) by \(\G g(x,x)\): the algebra really changes.</p></div>
+<p class="tiny">A sign: under his own conventions (60)–(63), Jadczyk's eq. (68) should read \([\bar i_{A^*},\bar e_x] = -\bar i^{A}_x\). Oziewicz's convention (12) is the one for which it holds as printed. <span class="chip ok">checked</span></p>
+</div>
+<div class="fig" style="width:640px;height:640px">
+<svg width="640" height="640" viewBox="0 0 640 640" aria-label="Schematic doubled space with three subspaces through the origin: the vector axis (graph of 0), the graph of g, and the graph of g plus omega; a shear by g moves the axis to the graph of g and changes the algebra; a shear by omega moves the graph of g to the graph of g plus omega and is an isometry">
+<rect x="1" y="1" width="638" height="638" rx="16" fill="#FFFDF8" stroke="#DDD7C9" stroke-width="2"/>
+<defs>
+<marker id="ag" viewBox="0 0 12 12" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#2E7D4F"/></marker>
+<marker id="ar" viewBox="0 0 12 12" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#9A3B12"/></marker>
+</defs>
+<line x1="90" y1="540" x2="610" y2="540" stroke="#2F5D8A" stroke-width="5"/>
+<line x1="90" y1="540" x2="90" y2="60" stroke="#B5541C" stroke-width="5"/>
+<line x1="90" y1="540" x2="610" y2="350" stroke="#2E7D4F" stroke-width="5"/>
+<line x1="90" y1="540" x2="520" y2="110" stroke="#2E7D4F" stroke-width="5" stroke-dasharray="16 8"/>
+<path d="M598 532 Q 628 450 606 372" fill="none" stroke="#9A3B12" stroke-width="4" marker-end="url(#ar)"/>
+<path d="M330 452 Q 335 390 302 342" fill="none" stroke="#2E7D4F" stroke-width="4" marker-end="url(#ag)"/>
+</svg>
+<span class="lab v" style="left:300px;top:552px">graph of 0: Grassmann</span>
+<span class="lab g" style="left:420px;top:440px">graph of \(g\)</span>
+<span class="lab g" style="left:300px;top:70px">graph of \(g+\omega\)</span>
+<span class="lab" style="left:310px;top:492px;font-size:22px;color:#9A3B12">shear by \(g\): new algebra</span>
+<span class="lab" style="left:352px;top:318px;font-size:22px;color:#2E7D4F;line-height:1.35">shear by \(\omega\):<br>isometry, \(e^{i_\omega}\)</span>
+<span class="lab" style="left:24px;top:600px;font-size:19px;color:#5E6773">schematic; the same mechanism as the B-field of generalized geometry</span>
+</div>
+</div>
+</section>
+
+<section class="slide" data-n="13" id="grading">
+<h2>What \(\omega\) does change: the grading</h2>
+<div class="cols" style="gap:36px">
+<div class="card lm">
+<p class="kick">The dispute over the wedge</p>
+<p class="small">Hestenes and Sobczyk <i>define</i> the wedge as the antisymmetrized Clifford product:</p>
+\[\gamma_{v\wedge w} = \tfrac12[\gamma_v,\gamma_w]\iff \omega = 0\]
+<p class="small">Hestenes fixes the gauge \(\omega = 0\); Oziewicz declines to. Mathematically, that is the whole disagreement. <span class="chip ok">checked</span></p>
+</div>
+<div class="card">
+<p class="kick">The bundle picture (Jadczyk §3.2)</p>
+<div class="fig" style="width:500px;height:300px">
+<svg width="500" height="300" viewBox="0 0 500 300" aria-label="Clifford algebras as fibres over the space of quadratic forms: a symmetric form moves from one fibre to another, an antisymmetric one acts within a fibre">
+<defs>
+<marker id="b1" viewBox="0 0 12 12" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#3E4A5A"/></marker>
+<marker id="b2" viewBox="0 0 12 12" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#2E7D4F"/></marker>
+</defs>
+<line x1="20" y1="240" x2="480" y2="240" stroke="#3E4A5A" stroke-width="4"/>
+<line x1="110" y1="240" x2="110" y2="60" stroke="#2F5D8A" stroke-width="6"/>
+<line x1="380" y1="240" x2="380" y2="60" stroke="#2F5D8A" stroke-width="6"/>
+<circle cx="110" cy="240" r="9" fill="#3E4A5A"/><circle cx="380" cy="240" r="9" fill="#3E4A5A"/>
+<path d="M130 110 Q 245 60 360 110" fill="none" stroke="#3E4A5A" stroke-width="3.5" marker-end="url(#b1)"/>
+<path d="M395 150 C 450 120, 450 190, 397 175" fill="none" stroke="#2E7D4F" stroke-width="3.5" marker-end="url(#b2)"/>
+</svg>
+<span class="lab" style="left:62px;top:250px;font-size:22px">\(Q = 0\)</span>
+<span class="lab" style="left:355px;top:250px;font-size:22px">\(Q = g\)</span>
+<span class="lab" style="left:40px;top:20px;font-size:22px;color:#2F5D8A">\(\bigwedge V\)</span>
+<span class="lab" style="left:350px;top:20px;font-size:22px;color:#2F5D8A">\(C\ell(g)\)</span>
+<span class="lab" style="left:170px;top:36px;font-size:20px">symmetric: moves</span>
+<span class="lab" style="left:425px;top:190px;font-size:20px;color:#2E7D4F">\(\omega\)</span>
+<span class="lab" style="left:150px;top:268px;font-size:20px;color:#5E6773">base: quadratic forms</span>
+</div>
+<p class="small">An alternating form acts <i>within</i> a fibre: the gauge. 1986 sits over \(Q = 0\) and pulls the product back from the fibre over \(g\).</p>
+</div>
+<div class="card tint">
+<p class="kick">Consequences for 1986</p>
+<ul class="small">
+<li>All the \(\omega\)-dependence of the idempotents (31) is a relabelling. <span class="chip ok">checked</span></li>
+<li>No “distortion of spinor space” at a point.</li>
+<li>Einstein's \(\omega\) can matter only through its derivatives.</li>
+<li>Fauser and Abłamowicz: “Clifford algebra of a bilinear form” names the <b>pair</b> (algebra, grading).</li>
+</ul>
+</div>
+</div>
+<div class="grow"></div>
+<div class="take green"><p>\(g\) gives the algebra; \(\omega\) gives the grading, that is, which elements count as \(k\)-vectors.</p></div>
+</section>
+
+<section class="slide" data-n="14" id="spinors">
+<h2>Idempotents, spinors and signature</h2>
+<div class="cols" style="gap:48px">
+<div class="lm" style="flex:1.15;display:flex;flex-direction:column;gap:16px">
+<p class="small">Why impose associativity at all? The paper's answer: spinors, as a minimal left ideal \(\cV\cdot p\) for a primitive idempotent \(p\), which need not exist globally. Try</p>
+\[2p = \lambda + v + a\wedge b,\qquad \lambda\in\mathcal F,\ \ v,a,b\in\cV^1\qquad (30)\]
+<p class="small">Then \(p\cdot p = p\), \(p\neq 1\), if and only if (with \(a\wedge b\neq 0\))</p>
+\[v\wedge a\wedge b = 0,\qquad \lambda = 1+\omega(a,b),\]
+\[g(v,v)+g(a,b)^2-g(a,a)\,g(b,b) = 1\]
+<p class="small">The third condition printed in (31) is redundant: it follows from the first. <span class="chip ok">checked</span> For \(g = 0\) there are none: a Grassmann algebra has only the idempotents 0 and 1.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="card"><h3>Primitive? It depends on the signature <span class="chip an">analysis</span></h3>
+<p class="small">The paper's 4-dimensional claim needs \(g(v,v) = 1\), \(v\perp a, b\), and a plane \(a,b\) of signature (1,1).</p>
+<p class="small"><b>(−,+,+,+)</b>: possible. \(C\ell_{3,1}\cong M_4(\mathbb R)\), and the product idempotent has rank 4, a minimal ideal. <span class="chip ok">checked</span></p>
+<p class="small"><b>(+,−,−,−)</b>: impossible; \(v^\perp\) is negative definite. \(C\ell_{1,3}\cong M_2(\mathbb H)\), and \(\tfrac12(1+v)\) is already primitive.</p></div>
+<div class="card tint"><h3>The exterior derivative, §9</h3><p class="small">\(d\) does not preserve a spinor ideal: true. On \(\mathbb R^2\), \(\beta = \tfrac12(1+dx)\): \((\delta_\beta d - d\,\delta_\beta) f = \tfrac12\partial_x f\). But the paper's bracket is for left multiplication, its conclusion for right.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide" data-n="15" id="sequel">
+<h2>The sequel: <i>Clifford algebra of multivectors</i> (1997)</h2>
+<div class="cols" style="gap:40px">
+<div class="card">
+<p class="kick">Quantization</p>
+<p class="small">A family of ideals in the tensor algebra \(TM\), and quotients \(C\ell(M,\eta) = TM/\ker\pi(\eta)\): space and product both vary. A “bivector” means nothing there.</p>
+</div>
+<div class="card">
+<p class="kick">Deformation</p>
+<p class="small">One fixed space of multivectors \(M^\wedge\), with a family of products \(\wedge^\eta\): the Clifford algebra <i>of multivectors</i>.</p>
+</div>
+<div class="card tint lm" style="flex:1.1">
+<p class="kick">The bridge (Cor. 3.2, a form of PBW)</p>
+\[TM/\mu I\;\cong\;\lambda TM/I\]
+<p class="small">\(\lambda,\mu\) are mutually inverse bijections of tensors: Jadczyk's \(\lambda_F\) and \(\lambda_{-F}\).</p>
+</div>
+</div>
+<div class="cols" style="gap:40px">
+<ul class="small" style="flex:1.2">
+<li><b>Existence of the 1986 product is proved</b> (Theorems 4.2, 4.3). His polynomials (6.6), (6.7) reduce to 1986 (27). <span class="chip ok">checked</span></li>
+<li><b>He settles \(\omega\) himself:</b> it labels isomorphic algebras. The bare grading is broken, and a “clouded” one kept.</li>
+<li>Physical reading (credited to Fauser): \(\eta\) is the anticommutator, \(\omega\) the propagator. Normal ordering is a triangular \(\phi\).</li>
+<li>New: any pre-braid in place of the sign rule; the opposite algebra, \(u\wedge^{\phi}w = (-1)^{|u||w|}\,w\wedge^{-\phi^T}u\). <span class="chip ok">checked</span></li>
+</ul>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="card"><h3><span class="chip no">does not hold</span> as written</h3><p class="small">A unique clouded \(\mathbb Z\)-grading for every \(\phi\): \(v\wedge^\phi v = \eta(v,v)\) is a non-zero scalar. With \(\eta\neq 0\) the algebra is only \(\mathbb Z_2\)-graded and filtered. <span class="chip ok">checked</span></p></div>
+<p class="small">Dropped since 1986: the forms \(\Lambda\), the doubled space, idempotents, \(d\).</p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-n="16" id="conjecture">
+<h2>Conjecture 8.2 holds in every dimension</h2>
+<div class="cols" style="gap:56px">
+<div class="lm" style="flex:1.2;display:flex;flex-direction:column;gap:16px">
+<p class="small">With \(\xi = \eta^{-1}\), acting on \(M^\wedge\otimes M^\wedge\), \(n = \dim M\), the 1997 paper conjectures that \(\Gamma\) has the minimum polynomial \(p_n\), whatever \(\eta\) is:</p>
+\[\Gamma := \xi^{\mu\nu}\,\gamma_\mu\otimes\gamma_\nu,\qquad p_n(x) = \prod_{k=0}^{n}\big(x-(n-2k)\big)\]
+<p class="small">Reported there as proved for \(n\le 3\) by hand and for \(n = 4\) in Maple (A. R. Rodríguez Domínguez). <span class="chip an">analysis</span> <b>Proof for all \(n\)</b>: take an \(\eta\)-orthogonal basis, \(\epsilon_\mu = \eta(e_\mu,e_\mu)\), and</p>
+\[T_\mu := \epsilon_\mu^{-1}\,(\gamma_\mu\otimes 1)(1\otimes\gamma_\mu),\qquad T_\mu^2 = 1,\qquad T_\mu T_\nu = T_\nu T_\mu\]
+<p class="small">So \(\Gamma = \sum_\mu T_\mu\) is a sum of \(n\) commuting involutions. Every pattern of signs occurs, because the representation is faithful. The eigenvalues are exactly \(n, n-2, \dots, -n\). \(\blacksquare\)</p>
+<p><span class="chip ok">checked</span> <span style="font-size:22px">\(n = 1,\dots,5\); and \(n = 4\) in signatures (1,3), (2,2), non-diagonal \(\eta\), non-symmetric \(\phi\)</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px;width:620px;flex:none">
+<div class="fig" style="width:620px;height:430px">
+<svg width="620" height="430" viewBox="0 0 620 430" aria-label="Bar chart of the eigenvalues of Gamma for n equal to 4: eigenvalues 4, 2, 0, minus 2, minus 4 with multiplicities 16, 64, 96, 64, 16">
+<rect x="1" y="1" width="618" height="428" rx="16" fill="#FFFDF8" stroke="#DDD7C9" stroke-width="2"/>
+<line x1="50" y1="350" x2="570" y2="350" stroke="#3E4A5A" stroke-width="2"/>
+<g fill="#2F5D8A">
+<rect x="75" y="306" width="70" height="44"/><rect x="175" y="174" width="70" height="176"/>
+<rect x="275" y="86" width="70" height="264"/><rect x="375" y="174" width="70" height="176"/>
+<rect x="475" y="306" width="70" height="44"/>
+</g>
+<g font-family="IBM Plex Sans, Arial, sans-serif" font-size="24" text-anchor="middle" fill="#16202E">
+<text x="110" y="384">−4</text><text x="210" y="384">−2</text><text x="310" y="384">0</text><text x="410" y="384">2</text><text x="510" y="384">4</text>
+<text x="110" y="294">16</text><text x="210" y="162">64</text><text x="310" y="74">96</text><text x="410" y="162">64</text><text x="510" y="294">16</text>
+<text x="310" y="416" font-size="20" fill="#5E6773">eigenvalue of Γ, n = 4 (multiplicities above the bars)</text>
+</g>
+</svg>
+</div>
+<p class="small">Multiplicity \(\binom nk 2^n\): the total “spin” \(\sum_\mu\sigma_z^{(\mu)}\) of \(n\) two-state systems, each asking whether the two factors agree in direction \(\mu\).</p>
+<p class="tiny">Multiplicities: numerical (eigenvalues of integer matrices, \(n\le 5\)). This is the algebra of Fierz rearrangement; the result is probably known there. I have not searched.</p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-n="17" id="sobczyk">
+<h2>Sobczyk's null vectors, in 1986 terms</h2>
+<table class="t">
+<tr><th style="width:44%">Sobczyk (2023–2026)</th><th style="width:38%">Oziewicz 1986</th><th>Relation</th></tr>
+<tr><td>global duality: \(a_ib_j + b_ja_i = \delta_{ij}\)</td><td>the dual pair: \(a_i = e_{\V{x_i}}\), \(b_j = i_{\C{\alpha^j}}\); eq. (16)</td><td>same structure</td></tr>
+<tr><td>\(e_i = a_i+b_i\), \(f_i = a_i-b_i\), generating \(G_{n,n}\)</td><td>quasi-particles \(e_x\pm i_\alpha\): \(\G\phi = \pm\mathrm{id}\)</td><td>same</td></tr>
+<tr><td>\(G_{n,n}\cong M_{2^n}(\mathbb R)\)</td><td>\(\End\cV\), generated by all \(e_x\) and \(i_\alpha\)</td><td>same algebra</td></tr>
+<tr><td>local duality: \(c_i\cdot c_j = \tfrac12(1-\delta_{ij})\), one Grassmann algebra</td><td>one Grassmann algebra and \(\G\phi = \G g\); on \(n+1\) vectors, signature \((1,n)\)</td><td>one choice of \(\G\phi\)</td></tr>
+<tr><td>the observer idempotent (keynote draft)</td><td>\(e_{\V T}\circ i_{\C\tau}\), \(\C\tau\V T = 1\): a number operator</td><td>same operator</td></tr>
+</table>
+<div class="cols" style="gap:40px">
+<div class="card"><h3>A hidden choice of \(\omega\)</h3><p class="small">Definition 4 of the 2026 paper takes \(\G\phi = \G g\), so \(c_1c_2 = c_1\wedge c_2+\tfrac12\). Its index arithmetic on ordered products \(c_{i_1}c_{i_2}\cdots\) needs a <b>triangular</b> \(\G\phi\), with \(\G\omega\neq 0\). Same algebra, different grading. <span class="chip ok">checked</span></p></div>
+<div class="card"><h3>Space and dual</h3><p class="small">Global duality keeps Oziewicz's rule that a space and its dual are never identified. Local duality is a metric on one space: inside the doubled space, \(c_i = a_i + \tfrac12\sum_{j\neq i} b_j\). <span class="chip ok">checked</span></p></div>
+</div>
+<p class="tiny">Read: “Global and Local Duality in Grassmann Algebras” (2023, in full); Sobczyk, Cruz Guzmán, Page, “Grassmann-Clifford Geometric Algebras from a Universal Null Substrate” (2026, §1–5); passages of three others. None of the passages read cites the 1986 paper.</p>
+</section>
+
+<section class="slide" data-n="18" id="evaluation">
+<h2>Evaluation, in two senses</h2>
+<div class="cols" style="gap:48px">
+<div style="flex:1.2">
+<table class="t">
+<tr><th>1986</th><th>In terms of \(\mathrm{ev}(\C\alpha,\V x) = \C\alpha\V x\)</th></tr>
+<tr><td>pairing by determinants, (3)</td><td>evaluation, extended to all degrees</td></tr>
+<tr><td>\(i\) is the transpose of \(e\), (9)</td><td>adjoint with respect to evaluation</td></tr>
+<tr><td>\(\{i_x, e_\alpha\} = \alpha x\), (16)</td><td>the right-hand side of the anticommutation relations</td></tr>
+<tr><td>\((e_x+i_\alpha)^2 = \alpha x\), (22)</td><td>the quadratic form of the doubled space</td></tr>
+<tr><td>\(\gamma_v^2 = g(v,v)\)</td><td>evaluation on the graph of \(\G\phi\): \((\G\phi v)(v)\). It cannot see \(\G\omega\), since \((\G\omega v)(v) = 0\)</td></tr>
+</table>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="card lm"><h3>Evaluation at 1, the vacuum</h3><p class="small">\(\gamma_u(1) = u\): evaluating an operator on the vacuum turns the operator algebra back into a product on the Grassmann space.</p></div>
+<div class="card lm"><h3>Both at once, in Sobczyk's algebra</h3>
+\[\tilde B A\,u = \det\big[\C{\alpha^i}\V{x_j}\big]\,u\]
+<p class="small">\(A\) a product of vectors in the \(a\)'s, \(B\) of covectors in the \(b\)'s, and \(u = b_1a_1\,b_2a_2\cdots b_na_n\) the vacuum projector. <span class="chip ok">checked</span> \(k = 1,2,3\), \(n = 3\)</p></div>
+</div>
+</div>
+<p class="small">Coevaluation \(\sum_\mu e_\mu\otimes e^\mu\) appears twice: through \(e\otimes i\) it is the degree operator (the bare grading); through \(\gamma\otimes\gamma\) it is the \(\Gamma\) of Conjecture 8.2. <span class="chip an">analysis</span></p>
+</section>
+
+<section class="slide" data-n="19" id="verdict">
+<h2>The thesis: three verdicts</h2>
+<div class="cols" style="gap:36px">
+<div class="card"><p class="kick" style="color:#2E6B3F">1 · Proved</p><p class="small">For every linear \(\G\phi\), the Grassmann space with \(\gamma_v = e_v + i_{\G\phi v}\) carries an associative product. Postulated in 1986, constructed by Oziewicz in 1997, proved in full by Chevalley, Bourbaki and Jadczyk, checked here for generic \(\G\phi\).</p></div>
+<div class="card"><p class="kick" style="color:#9A6B12">2 · Reduced</p><p class="small">Only the symmetric part \(\G g\) determines the algebra. \(\G\omega\) is a gauge that chooses the grading. So \(\G\phi\) is over-parametrised, and Oziewicz says so himself in 1997.</p></div>
+<div class="card"><p class="kick" style="color:#9A3B12">3 · Not a theorem</p><p class="small">“Primary” is a claim of priority: one can start from Clifford and get Grassmann as \(\G g = 0\). What can be defended: the abstract Clifford algebra does not know what a bivector is. The pair (algebra, grading) does, and the Grassmann structure is that extra datum.</p></div>
+</div>
+<div class="grow"></div>
+<div class="take green">
+<p class="kick" style="color:#2E7D4F">The thesis in its sharper form</p>
+<p style="font-size:34px">What is given without any choice is the evaluation of covectors on vectors. The Grassmann algebra is its Fock space. A metric is the choice of a subspace, the graph of \(\G\phi\), to which evaluation is restricted.</p>
+</div>
+<p class="tiny">Also corrected: the 1986 “symplectic Clifford algebra” (\(\G g = 0\)) is the Grassmann algebra again, not the Weyl algebra, which deforms the symmetric algebra. 1997 puts it there.</p>
+</section>
+
+<section class="slide" data-n="20" id="questions">
+<h2>Open questions</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 40px">
+<div class="card"><h3>Fields, not points</h3><p class="small">In 1986 \(\phi\), \(\omega\) and \(p\) are fields; evaluation is the same at every point. Is the natural setting the doubled bundle \(T\oplus T^*\), with \(g\) and \(\omega\) a field of graphs, and \(d\omega\) the obstruction in §9?</p></div>
+<div class="card"><h3>The symmetric twin</h3><p class="small">Permanents in place of determinants in (3), commutators in (16): does the same construction give the Weyl algebra, with the roles of \(g\) and \(\omega\) exchanged?</p></div>
+<div class="card"><h3>The null substrate</h3><p class="small">Is the simplex metric of local duality singled out by anything in the evaluation structure, or only by its symmetry? Does anything in the programme depend on \(\omega\)?</p></div>
+<div class="card"><h3>Braids</h3><p class="small">1997 allows any pre-braid. Is \(\omega\) still an isometry of a braided doubled space? Is \(\Gamma\) still a sum of commuting operators with two eigenvalues each?</p></div>
+</div>
+<div class="grow"></div>
+<div class="take"><p>And one for the literature: where is Conjecture 8.2 already known? The Fierz identities are the place to look.</p></div>
+</section>
+
+<section class="slide" data-n="21" id="checked">
+<h2>How it was checked, and what was not</h2>
+<div class="cols" style="gap:44px">
+<div class="card">
+<p class="kick">90 exact checks, all pass</p>
+<p class="small">SymPy, polynomial arithmetic; \(\phi\) a generic matrix of independent symbols with no symmetry. About 50 seconds.</p>
+<p class="mono" style="font-size:21px;background:#ECE8DE;padding:12px 14px;border-radius:8px">PYTHONPATH=src python3 src/verify_grassmann_clifford.py</p>
+<ul class="small">
+<li>1986 eqs. (6)–(27) and (31), \(n = 3, 4\)</li>
+<li>Jadczyk's gauge and his sign</li>
+<li>Sobczyk's dualities and evaluation</li>
+<li>1997: Prop. 10.1 and Conjecture 8.2, \(n\le 5\)</li>
+</ul>
+</div>
+<div class="card tint">
+<p class="kick">Not machine-checked</p>
+<ul class="small">
+<li>§3, which is conceptual</li>
+<li>the associator of §6 and the identities of §9 (by hand)</li>
+<li>the doubled-space argument, beyond its two conjugation formulas</li>
+<li>Conjecture 8.2 for general \(n\) (the proof on slide 16)</li>
+<li>anything with a general braid</li>
+</ul>
+</div>
+<div class="card">
+<p class="kick">Readings</p>
+<ul class="small">
+<li>1986: page images of a 120 dpi scan; ten uncertain readings are listed (§15)</li>
+<li>1997: the author's later re-typeset version</li>
+<li>Markers: none = a report of the paper; <span class="chip ok">checked</span>; <span class="chip an">analysis</span> = added here</li>
+</ul>
+</div>
+</div>
+<div class="grow"></div>
+<div class="take orange"><p>A check certifies the mathematics, not the reading. Whether the reading is fair to the paper is a question only another reader can answer.</p></div>
+</section>
+
+<section class="slide" data-n="22" id="invitation">
+<h2>An invitation</h2>
+<div class="cols" style="gap:48px">
+<div class="card" style="flex:1.2">
+<p class="kick">How you can help</p>
+<ol>
+<li><b>Read an original against its reading.</b> Every note links to the paper, in <span class="mono" style="font-size:26px">references/bibliography.md</span>.</li>
+<li><b>Run a check, or break one.</b> Each note has its script in <span class="mono" style="font-size:26px">src/</span>.</li>
+<li><b>Disagree in the open.</b> Open an issue on GitHub. A disagreement is recorded the way a result is.</li>
+<li><b>Suggest what to read next</b>, and which of his drafts deserve a summary.</li>
+</ol>
+</div>
+<div class="card tint">
+<p class="kick">Where to start</p>
+<p class="small"><span class="mono">ORIENTATION.md</span>: what is established, open, retracted</p>
+<p class="small"><span class="mono">supplement/bodies_first.md</span>, or the 2009 talk in his voice</p>
+<p class="small">the ladder, from step 1</p>
+<p class="small"><span class="mono">supplement/grassmann_to_clifford.md</span>: today's talk in full</p>
+</div>
+</div>
+<div class="grow"></div>
+<p style="font-family:'Source Serif 4',Georgia,serif;font-size:58px;font-weight:600;color:#2F5D8A">github.com/billpage/oziewicz</p>
+<p class="small">Thank you. Every slide here is a reading. Tell me where it is wrong.</p>
+</section>
+
+</div>
+<div id="notes" aria-live="polite"></div>
+<div id="bar">
+<button id="prev" aria-label="Previous slide">&larr;</button>
+<span id="count"></span>
+<button id="next" aria-label="Next slide">&rarr;</button>
+<button id="nbtn" aria-pressed="false">Notes (N)</button>
+</div>
+<script>
+const NOTES = [];
+const slides = Array.from(document.querySelectorAll('.slide'));
+const stage = document.getElementById('stage');
+const notesEl = document.getElementById('notes');
+const nbtn = document.getElementById('nbtn');
+let i = 0;
+function fit() {
+  const bar = 34;
+  const s = Math.min(window.innerWidth / 1920, (window.innerHeight - bar) / 1080);
+  const x = (window.innerWidth - 1920 * s) / 2, y = (window.innerHeight - bar - 1080 * s) / 2;
+  stage.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+}
+function show(k) {
+  i = Math.max(0, Math.min(slides.length - 1, k));
+  slides.forEach((el, j) => el.classList.toggle('current', j === i));
+  document.getElementById('count').textContent = `${i + 1} / ${slides.length}`;
+  notesEl.textContent = NOTES[i] || '(no notes)';
+  notesEl.scrollTop = 0;
+  try { if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+}
+function toggleNotes() {
+  const on = notesEl.classList.toggle('show');
+  nbtn.setAttribute('aria-pressed', String(on));
+}
+document.getElementById('prev').onclick = () => show(i - 1);
+document.getElementById('next').onclick = () => show(i + 1);
+nbtn.onclick = toggleNotes;
+stage.addEventListener('click', e => show(e.clientX < window.innerWidth / 3 ? i - 1 : i + 1));
+document.addEventListener('keydown', e => {
+  if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(i + 1); }
+  else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+  else if (e.key === 'Home') show(0);
+  else if (e.key === 'End') show(slides.length - 1);
+  else if (e.key === 'n' || e.key === 'N') toggleNotes();
+});
+window.addEventListener('resize', fit);
+window.addEventListener('hashchange', () => show(parseInt(location.hash.slice(1), 10) - 1 || 0));
+fit();
+show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>
