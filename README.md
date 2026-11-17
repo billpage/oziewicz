@@ -58,8 +58,9 @@ without cloning. To produce figures yourself, see
 analysis/     Derivations and review notes (a numbered ladder; see
               analysis/README.md)
 supplement/   Background, worked test cases, summaries of unpublished drafts
-talks/        Oziewicz's talks as narrated slide pages: notes and sources here,
-              the pages with audio on the `output` branch (see talks/README.md)
+talks/        Oziewicz's talks as narrated slide pages, and talks about this
+              repository: notes and sources here, the pages with audio on the
+              `output` branch (see talks/README.md)
 notebooks/    Notebook companions (outputs stripped; rendered copies are on
               the `output` branch)
 src/          Verification and graphics code only

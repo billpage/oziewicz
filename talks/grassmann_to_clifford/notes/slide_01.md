@@ -1,0 +1,9 @@
+Hello everyone, and thank you for the time today.
+
+This talk has two purposes. The first is to introduce a repository I started this autumn, at github.com/billpage/oziewicz, for reading the work of Zbigniew Oziewicz in mathematical physics. The second is to show you, as a sample of what is in it, its newest note: a reading of his 1986 paper From Grassmann to Clifford, together with his own sequel of 1997 and two later bodies of work that take up the same construction, a paper by Arkadiusz Jadczyk and several papers by Garret Sobczyk. At the end I'd like to invite you to look at the repository more closely, and to tell me where it is wrong.
+
+Some of you worked with Zbigniew on exactly these questions and knew his thinking at first hand. So I won't try to tell you what he really meant. What I'll do is say what one paper appears to claim, test what can be tested, and report what happened. That is the method of the whole repository, and I'll say a little more about it on the next three slides before we get to the mathematics.
+
+A word on the colours. On every slide, blue means vectors and multivectors, the things that are measured. Orange means covectors and forms, the things that do the measuring. Green marks the one extra choice that turns a Grassmann algebra into a Clifford algebra: a linear map φ from vectors to covectors, which Oziewicz splits into a symmetric part g and an antisymmetric part ω. The formula on this title slide, gamma of v equals e of v plus i of φ v, is the whole paper in one line, and by the end I hope it will look obvious.
+
+Every formula on these slides comes from the supplement, and those marked "checked" were checked exactly, with SymPy, by the script that comes with it. There are 90 such checks, and they all pass. "Checked" means that a mathematical step was reproduced. It does not mean that my reading of the paper is the right one, and that is where I most need your help.

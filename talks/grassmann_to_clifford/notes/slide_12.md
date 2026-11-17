@@ -1,0 +1,9 @@
+Here is what happens to ω. The key fact is in Jadczyk's paper of 2021, Proposition 3.10, and I'll state it in the 1986 notation.
+
+Contraction by the 2-form ω, written i of ω, annihilates a pair of fermions. Take its exponential, and conjugate. Exterior multiplication by x becomes exterior multiplication by x plus contraction by the covector ω x, which is ω with x put in its first slot. Contractions are unchanged. And therefore the exponential of i of ω is an algebra isomorphism from the Clifford product of g to the Clifford product of g plus ω. It fixes scalars and vectors, and it moves higher grades: v wedge w goes to v wedge w plus ω of v, w.
+
+So the Clifford algebra of φ is isomorphic to the Clifford algebra of g. The algebra depends only on the symmetric part. All of this was checked for generic g and ω in dimensions three and four.
+
+Why should that be? This is my reading, and the picture on the right shows it. Conjugation by the exponential acts on the doubled space as a shear: the pair x, α goes to x, α plus ω x. That shear keeps the neutral form, because ω of x, x is zero. So it is an isometry of the doubled space, implemented by an invertible element, and it carries the graph of g to the graph of g plus ω. That is a gauge transformation. The analogous shear by a symmetric g changes the form by g of x, x. It is not an isometry, and it changes the algebra, from the Grassmann algebra on the axis to the Clifford algebra of g. This is the same mechanism as the B-field transformation in the generalized geometry of Hitchin and Gualtieri.
+
+One small finding, at the bottom. Under Jadczyk's own conventions, his equations 60 to 63, the sign in his equation 68 should be reversed. Oziewicz's transpose convention, equation 12, is exactly the one for which Jadczyk's formulas hold as printed. Nothing structural changes.
