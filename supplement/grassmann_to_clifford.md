@@ -49,11 +49,10 @@ the subspace "graph of $`\phi`$" $`= \{(v, \phi v)\}`$ inside the doubled space,
 algebra of $`\phi`$ is what the operators attached to that subspace generate. A metric is thus a
 choice of slice through a structure that exists before any metric does. **[note]**
 
-```text
-doubled space  V^1 (+) Lambda^1          operators on the Grassmann algebra V
-  (x, alpha)            ------------->   e_x + i_alpha,   (e_x + i_alpha)^2 = alpha(x)
-  graph of phi: (v, phi v)  --------->   gamma_v = e_v + i_{phi v},   gamma_v^2 = phi(v,v) = g(v,v)
-```
+| Point of the doubled space $`\mathcal V^1\oplus\Lambda^1`$ | Operator on the Grassmann algebra $`\mathcal V`$ | Its square |
+|---|---|---|
+| any $`(x,\alpha)`$ | $`e_x + i_\alpha`$ | $`\alpha x`$ |
+| on the graph of $`\phi`$: $`(v,\phi v)`$ | $`\gamma_v = e_v + i_{\phi v}`$ | $`\phi(v,v) = g(v,v)`$ |
 
 ## 2. Notation
 
@@ -571,16 +570,22 @@ and is not an isometry: no operator on $`\mathcal V`$ can implement it as an alg
 automorphism, and the algebra really changes.
 
 ```text
-            Lambda^1 (covectors)
-               ^
-               |        graph(g + omega)      shear by omega: an isometry of Q(x,alpha) = alpha(x)
-               |       /                      -> implemented by exp(i_omega): "gauge"
-               |      /   graph(g)
-               |     /  /                     shear by symmetric g: not an isometry
-               |    / /                       -> changes the algebra Cl(g)
-               |   //
-               +--//--------------> V^1 (vectors)       graph(0) = V^1: the Grassmann algebra
+     Lambda^1 (covectors)
+        ^
+        |        graph(g + omega)
+        |       /
+        |      /   graph(g)
+        |     /  /
+        |    / /
+        |   //
+        +--//--------------> V^1 (vectors) = graph(0)
 ```
+
+Reading the picture: the horizontal axis, the graph of $`0`$, is the Grassmann algebra. The
+shear by $`\omega`$ from the graph of $`g`$ to the graph of $`g+\omega`$ is an isometry of
+$`Q(x,\alpha) = \alpha x`$, implemented by $`e^{i_\omega}`$: a gauge. The shear by a symmetric $`g`$
+from the axis to the graph of $`g`$ is not an isometry, and it changes the algebra to
+$`C\ell(g)`$.
 
 This is the same mechanism as the B-field transformation of generalized geometry (Hitchin 2003,
 Gualtieri 2004), where a 2-form shears $`T\oplus T^*`$ and acts on spinors, with forms in place of
@@ -615,13 +620,16 @@ $`\mathrm{Bil}(V)`$ acts on the base by $`Q\mapsto Q+Q_F`$ and on the bundle by 
 symmetric $`F`$ moves between fibres, alternating $`F`$ acts within a fibre (Jadczyk §3.2).
 
 ```text
-        Cl(Q)                 Cl(Q + Q_F)
-          |    --- lambda_F --->   |          F symmetric: moves the base point
-          |                        |
-   omega: exp(i_omega) acts inside one fibre (vertical automorphism = "gauge")
-  --------o------------------------o--------   base: Quad(V)
-          Q                     Q + Q_F
+      Cl(Q)                 Cl(Q + Q_F)       fibres
+        |    --- lambda_F --->   |
+        |                        |
+  ------o------------------------o------      base: Quad(V)
+        Q                     Q + Q_F
 ```
+
+A symmetric $`F`$ moves the base point, and $`\bar\lambda_F`$ carries one fibre to the other. An
+alternating $`F = \omega`$ leaves the base point fixed and acts inside one fibre by
+$`e^{i_\omega}`$: a vertical automorphism, the gauge.
 
 In this picture the 1986 paper sits over the single base point $`Q = 0`$ (the Grassmann algebra)
 and uses $`\phi`$ to pull the product of the fibre over $`Q_\phi`$ back to it.
