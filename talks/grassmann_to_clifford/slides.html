@@ -77,10 +77,12 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
   color: #c9d1db; background: rgba(20,25,32,0.85); }
 #bar button { font: inherit; color: inherit; background: #2c3542; border: 1px solid #45505f;
   border-radius: 6px; padding: 4px 12px; cursor: pointer; }
-#notes { position: fixed; left: 0; right: 0; bottom: 34px; max-height: 42vh; overflow: auto;
-  background: #fbfaf6; color: #1d232c; padding: 16px 24px; font-size: 16px; line-height: 1.5;
-  white-space: pre-wrap; border-top: 3px solid #2F5D8A; display: none; }
+#notes { position: fixed; top: 0; right: 0; bottom: 34px; width: 32vw; overflow: auto;
+  box-sizing: border-box; background: #fbfaf6; color: #1d232c; padding: 18px 24px;
+  font-size: 16px; line-height: 1.55; white-space: pre-wrap; border-left: 3px solid #2F5D8A;
+  display: none; }
 #notes.show { display: block; }
+#notes.below { left: 0; width: auto; border-left: 0; border-top: 3px solid #2F5D8A; }
 @media print {
   html, body { overflow: visible; height: auto; background: none; }
   #bar, #notes { display: none !important; }
@@ -657,12 +659,12 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 </section>
 
 </div>
-<div id="notes" aria-live="polite"></div>
+<div id="notes" class="show" aria-live="polite"></div>
 <div id="bar">
 <button id="prev" aria-label="Previous slide">&larr;</button>
 <span id="count"></span>
 <button id="next" aria-label="Next slide">&rarr;</button>
-<button id="nbtn" aria-pressed="false">Notes (N)</button>
+<button id="nbtn" aria-pressed="true">Notes (N)</button>
 </div>
 <script>
 const NOTES = [];
@@ -671,10 +673,22 @@ const stage = document.getElementById('stage');
 const notesEl = document.getElementById('notes');
 const nbtn = document.getElementById('nbtn');
 let i = 0;
+// The notes are a panel on the right, shown at first; N hides and shows them.
+// The slide is scaled to the space left of the panel. In a narrow window
+// (portrait phone) the panel goes below the slide instead.
 function fit() {
-  const bar = 34;
-  const s = Math.min(window.innerWidth / 1920, (window.innerHeight - bar) / 1080);
-  const x = (window.innerWidth - 1920 * s) / 2, y = (window.innerHeight - bar - 1080 * s) / 2;
+  const bar = 34, W = window.innerWidth, H = window.innerHeight - bar;
+  const shown = notesEl.classList.contains('show');
+  const below = W < 700;
+  notesEl.classList.toggle('below', below);
+  const nw = shown && !below ? Math.round(Math.min(640, Math.max(300, 0.32 * W))) : 0;
+  notesEl.style.width = below ? '' : nw + 'px';
+  const w = W - nw;
+  const s = Math.min(w / 1920, H / 1080);
+  const x = (w - 1920 * s) / 2;
+  // Below: the slide at the top, the notes in the space under it.
+  const y = shown && below ? 0 : (H - 1080 * s) / 2;
+  notesEl.style.top = shown && below ? Math.round(1080 * s) + 'px' : '';
   stage.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
 }
 function show(k) {
@@ -688,11 +702,12 @@ function show(k) {
 function toggleNotes() {
   const on = notesEl.classList.toggle('show');
   nbtn.setAttribute('aria-pressed', String(on));
+  fit();
 }
 document.getElementById('prev').onclick = () => show(i - 1);
 document.getElementById('next').onclick = () => show(i + 1);
 nbtn.onclick = toggleNotes;
-stage.addEventListener('click', e => show(e.clientX < window.innerWidth / 3 ? i - 1 : i + 1));
+stage.addEventListener('click', e => show(e.clientX < stage.getBoundingClientRect().left + stage.getBoundingClientRect().width / 3 ? i - 1 : i + 1));
 document.addEventListener('keydown', e => {
   if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(i + 1); }
   else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }

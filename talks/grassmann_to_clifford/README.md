@@ -8,7 +8,7 @@ null-vector papers, and an invitation to review the repository. 22 slides; the
 notes are about 7,100 words, some 48 minutes when read by a synthetic voice.
 
 **[View the slides](https://billpage.github.io/oziewicz/talks/grassmann_to_clifford/grassmann_to_clifford.html)**
-(arrow keys or click to move, N shows the notes). The page is one file, about
+(arrow keys or click to move; the notes are in a panel on the right, which N hides and shows). The page is one file, about
 1.2 MB; the formulas are SVG inside it, so it needs no network apart from the
 web fonts, which fall back to system fonts.
 
