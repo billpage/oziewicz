@@ -4,12 +4,12 @@ A talk for the Seminar on Fundamental Problems in Physics. It introduces this
 repository and uses its supplement
 [`grassmann_to_clifford.md`](../../supplement/grassmann_to_clifford.md) as the
 example: Oziewicz's 1986 paper, his 1997 sequel, Jadczyk (2021) and Sobczyk's
-null-vector papers, and an invitation to review the repository. 22 slides; the
-notes are about 7,100 words, some 48 minutes when read by a synthetic voice.
+null-vector papers, and an invitation to review the repository. 23 slides; the
+notes are about 7,650 words, some 51 minutes when read by a synthetic voice.
 
 **[View the slides](https://billpage.github.io/oziewicz/talks/grassmann_to_clifford/grassmann_to_clifford.html)**
 (arrow keys or click to move; the notes are in a panel on the right, which N hides and shows). The page is one file, about
-1.2 MB; the formulas are SVG inside it, so it needs no network apart from the
+1.3 MB; the formulas are SVG inside it, so it needs no network apart from the
 web fonts, which fall back to system fonts.
 
 Unlike [`npa2009/`](../npa2009/README.md), everything here is this repository's
@@ -21,7 +21,7 @@ supplement.
 supplement at commit `f1b7e34`, at which its 90 checks pass. Every formula on
 the slides is taken from the supplement; a formula marked *checked* is checked
 there. The one number added for the talk, the eigenvalue multiplicities of
-slide 16 (`binom(n,k) 2^n`), was computed numerically for `n <= 5` (eigenvalues
+slide 17 (`binom(n,k) 2^n`), was computed numerically for `n <= 5` (eigenvalues
 of integer matrices) and is labelled so. Not yet read or heard by Bill Page.
 
 ## Files

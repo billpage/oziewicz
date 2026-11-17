@@ -298,10 +298,38 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <span class="lab" style="left:52px;top:410px;font-size:21px;color:#3E4A5A">\(i_{\C\alpha}1 = 0\)</span>
 </div>
 </div>
-<p class="small">The Grassmann algebras of multivectors and of forms are the Fock spaces of fermions and antifermions: if \(e\) creates one, \(i = e^{*}\) annihilates the other.</p>
+<p class="small">The Grassmann algebras of multivectors and of forms are Fock spaces, in the algebraic sense of the next slide: if \(e\) creates “fermions”, \(i = e^{*}\) annihilates “antifermions”.</p>
 </section>
 
-<section class="slide" data-n="10" id="doubled">
+<section class="slide" data-n="10" id="fock">
+<h2>“Fock space” here: an algebraic structure</h2>
+<div class="cols" style="gap:44px">
+<div class="card lm" style="flex:0.85">
+<p class="kick">Definition</p>
+<p class="small">For dual spaces \(L, L^*\): a vector space \(F\) with a vacuum \(1\in F\), creators \(e_{\V x}\) for \(\V x\in L\) and annihilators \(i_{\C\alpha}\) for \(\C\alpha\in L^*\), with</p>
+\[i_{\C\alpha}1 = 0,\qquad \{i_{\C\alpha},e_{\V x}\} = \C\alpha\V x,\]
+\[\{e_{\V x},e_{\V y}\} = 0,\qquad \{i_{\C\alpha},i_{\C\beta}\} = 0,\]
+<p class="small">and \(F\) spanned by the \(e_{x_1}\cdots e_{x_k}1\).</p>
+<p class="small">Then \(F\cong{\textstyle\bigwedge} L\), with \(e\) the wedge and \(i\) the contraction: the space is <b>unique</b>, and every operator on it is a polynomial in the \(e\)'s and \(i\)'s, \(C\ell(L\oplus L^*)\cong\End{\textstyle\bigwedge}L\). <span class="chip an">analysis</span></p>
+<p class="small">Finite: \(\dim F = 2^n\). Any field of scalars.</p>
+</div>
+<div style="flex:1.15">
+<table class="t">
+<tr><th style="width:24%"></th><th style="width:38%">Here (1986)</th><th>Quantum mechanics</th></tr>
+<tr><td>vacuum</td><td>the unit \(1\in{\textstyle\bigwedge}^0L\)</td><td>a unit vector \(|0\rangle\) of a Hilbert space</td></tr>
+<tr><td>creators</td><td>\(e_{\V x}\), \(\V x\in L\)</td><td>\(a^\dagger(f)\), \(f\in H\)</td></tr>
+<tr><td>annihilators</td><td>\(i_{\C\alpha}\), \(\C\alpha\in L^*\): <b>the other space</b></td><td>\(a(f)\), \(f\in H\): the same space</td></tr>
+<tr><td>right side of the relation</td><td>\(\C\alpha\V x\): the pairing</td><td>\(\langle f|g\rangle\): the inner product</td></tr>
+<tr><td>\(i\) from \(e\)</td><td>transpose under the pairing</td><td>Hermitian adjoint</td></tr>
+<tr><td>meaning</td><td>none assumed: “fermion” names the algebra</td><td>particles, states, probabilities</td></tr>
+</table>
+</div>
+</div>
+<div class="grow"></div>
+<div class="take"><p>Choose an inner product, that is, identify \(L\) with \(L^*\) by a metric, and \(i_{g(x,\,\cdot\,)} = e_x^{\dagger}\): the fermion Fock space of quantum mechanics. The algebraic one is what is there before that choice. <span class="chip an">analysis</span></p></div>
+</section>
+
+<section class="slide" data-n="11" id="doubled">
 <h2>Quasi-particles: the doubled space</h2>
 <div class="cols" style="gap:56px">
 <div class="lm" style="flex:1.15;display:flex;flex-direction:column;gap:18px">
@@ -336,7 +364,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <p class="small">The paper also defines a product on \(\cV\oplus\Lambda\) itself, eqs. (19)–(20), its “generalized Kähler–Atiyah algebra”. It is not associative, and it is not the one that survives.</p>
 </section>
 
-<section class="slide" data-n="11" id="clifford">
+<section class="slide" data-n="12" id="clifford">
 <h2>The Clifford product, eq. (23)</h2>
 <div class="cols" style="gap:48px">
 <div class="lm" style="flex:1.25;display:flex;flex-direction:column;gap:16px">
@@ -358,7 +386,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 </div>
 </section>
 
-<section class="slide" data-n="12" id="gauge">
+<section class="slide" data-n="13" id="gauge">
 <h2>The antisymmetric part is a gauge</h2>
 <div class="cols" style="gap:56px">
 <div class="lm" style="flex:1.2;display:flex;flex-direction:column;gap:16px">
@@ -395,7 +423,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 </div>
 </section>
 
-<section class="slide" data-n="13" id="grading">
+<section class="slide" data-n="14" id="grading">
 <h2>What \(\omega\) does change: the grading</h2>
 <div class="cols" style="gap:36px">
 <div class="card lm">
@@ -443,7 +471,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <div class="take green"><p>\(g\) gives the algebra; \(\omega\) gives the grading, that is, which elements count as \(k\)-vectors.</p></div>
 </section>
 
-<section class="slide" data-n="14" id="spinors">
+<section class="slide" data-n="15" id="spinors">
 <h2>Idempotents, spinors and signature</h2>
 <div class="cols" style="gap:48px">
 <div class="lm" style="flex:1.15;display:flex;flex-direction:column;gap:16px">
@@ -464,7 +492,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 </div>
 </section>
 
-<section class="slide" data-n="15" id="sequel">
+<section class="slide" data-n="16" id="sequel">
 <h2>The sequel: <i>Clifford algebra of multivectors</i> (1997)</h2>
 <div class="cols" style="gap:40px">
 <div class="card">
@@ -495,7 +523,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 </div>
 </section>
 
-<section class="slide" data-n="16" id="conjecture">
+<section class="slide" data-n="17" id="conjecture">
 <h2>Conjecture 8.2 holds in every dimension</h2>
 <div class="cols" style="gap:56px">
 <div class="lm" style="flex:1.2;display:flex;flex-direction:column;gap:16px">
@@ -529,7 +557,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 </div>
 </section>
 
-<section class="slide" data-n="17" id="sobczyk">
+<section class="slide" data-n="18" id="sobczyk">
 <h2>Sobczyk's null vectors, in 1986 terms</h2>
 <table class="t">
 <tr><th style="width:44%">Sobczyk (2023–2026)</th><th style="width:38%">Oziewicz 1986</th><th>Relation</th></tr>
@@ -546,7 +574,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <p class="tiny">Read: “Global and Local Duality in Grassmann Algebras” (2023, in full); Sobczyk, Cruz Guzmán, Page, “Grassmann-Clifford Geometric Algebras from a Universal Null Substrate” (2026, §1–5); passages of three others. None of the passages read cites the 1986 paper.</p>
 </section>
 
-<section class="slide" data-n="18" id="evaluation">
+<section class="slide" data-n="19" id="evaluation">
 <h2>Evaluation, in two senses</h2>
 <div class="cols" style="gap:48px">
 <div style="flex:1.2">
@@ -569,7 +597,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <p class="small">Coevaluation \(\sum_\mu e_\mu\otimes e^\mu\) appears twice: through \(e\otimes i\) it is the degree operator (the bare grading); through \(\gamma\otimes\gamma\) it is the \(\Gamma\) of Conjecture 8.2. <span class="chip an">analysis</span></p>
 </section>
 
-<section class="slide" data-n="19" id="verdict">
+<section class="slide" data-n="20" id="verdict">
 <h2>The thesis: three verdicts</h2>
 <div class="cols" style="gap:36px">
 <div class="card"><p class="kick" style="color:#2E6B3F">1 · Proved</p><p class="small">For every linear \(\G\phi\), the Grassmann space with \(\gamma_v = e_v + i_{\G\phi v}\) carries an associative product. Postulated in 1986, constructed by Oziewicz in 1997, proved in full by Chevalley, Bourbaki and Jadczyk, checked here for generic \(\G\phi\).</p></div>
@@ -584,7 +612,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <p class="tiny">Also corrected: the 1986 “symplectic Clifford algebra” (\(\G g = 0\)) is the Grassmann algebra again, not the Weyl algebra, which deforms the symmetric algebra. 1997 puts it there.</p>
 </section>
 
-<section class="slide" data-n="20" id="questions">
+<section class="slide" data-n="21" id="questions">
 <h2>Open questions</h2>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 40px">
 <div class="card"><h3>Fields, not points</h3><p class="small">In 1986 \(\phi\), \(\omega\) and \(p\) are fields; evaluation is the same at every point. Is the natural setting the doubled bundle \(T\oplus T^*\), with \(g\) and \(\omega\) a field of graphs, and \(d\omega\) the obstruction in §9?</p></div>
@@ -596,7 +624,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <div class="take"><p>And one for the literature: where is Conjecture 8.2 already known? The Fierz identities are the place to look.</p></div>
 </section>
 
-<section class="slide" data-n="21" id="checked">
+<section class="slide" data-n="22" id="checked">
 <h2>How it was checked, and what was not</h2>
 <div class="cols" style="gap:44px">
 <div class="card">
@@ -616,7 +644,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <li>§3, which is conceptual</li>
 <li>the associator of §6 and the identities of §9 (by hand)</li>
 <li>the doubled-space argument, beyond its two conjugation formulas</li>
-<li>Conjecture 8.2 for general \(n\) (the proof on slide 16)</li>
+<li>Conjecture 8.2 for general \(n\) (the proof on slide 17)</li>
 <li>anything with a general braid</li>
 </ul>
 </div>
@@ -633,7 +661,7 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 <div class="take orange"><p>A check certifies the mathematics, not the reading. Whether the reading is fair to the paper is a question only another reader can answer.</p></div>
 </section>
 
-<section class="slide" data-n="22" id="invitation">
+<section class="slide" data-n="23" id="invitation">
 <h2>An invitation</h2>
 <div class="cols" style="gap:48px">
 <div class="card" style="flex:1.2">
