@@ -12,6 +12,11 @@ notes are about 7,650 words, some 51 minutes when read by a synthetic voice.
 1.3 MB; the formulas are SVG inside it, so it needs no network apart from the
 web fonts, which fall back to system fonts.
 
+**[Play the narrated talk](https://billpage.github.io/oziewicz/narrated/grassmann_to_clifford_narrated.html)**
+(Microsoft Edge voice `en-CA-LiamNeural`, about 52 minutes): the slides with
+an audio player per slide and the transcript beside them. One file, about
+16 MB, which also plays offline when saved.
+
 Unlike [`npa2009/`](../npa2009/README.md), everything here is this repository's
 own and under CC-BY-SA-4.0 (code: AGPL-3.0-or-later). Short formulas from the
 papers discussed are restated, with their equation numbers, as in the
@@ -69,7 +74,9 @@ or record the notes in your own voice as `audio/slide_NN.mp3` in the output
 folder and build with `--reuse-audio`. A narrated page is published as the
 NPA talk's are: committed to `narrated/` on the `output` branch, with its
 SHA-256 added to [`../narrated.sha256`](../narrated.sha256) on `main` through a
-pull request, once Bill Page has listened to it.
+pull request, once Bill Page has listened to it. The page listed now is the
+render Bill Page made and pushed to `output` on 17 November 2026, from `main`
+at the merge of the pronunciation changes (`ea313f9`).
 
 ## Sources
 

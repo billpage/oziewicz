@@ -23,5 +23,7 @@ what basis.
   [`supplement/grassmann_to_clifford.md`](../supplement/grassmann_to_clifford.md)
   as the example and an invitation to review it.
   [The slides](https://billpage.github.io/oziewicz/talks/grassmann_to_clifford/grassmann_to_clifford.html),
-  with the narration behind the N key. This talk is the repository's own and
+  with the notes beside them, or
+  [the narrated talk](https://billpage.github.io/oziewicz/narrated/grassmann_to_clifford_narrated.html)
+  (synthetic voice, about 52 minutes). This talk is the repository's own and
   under its licences.
