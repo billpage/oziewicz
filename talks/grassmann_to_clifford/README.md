@@ -75,8 +75,8 @@ folder and build with `--reuse-audio`. A narrated page is published as the
 NPA talk's are: committed to `narrated/` on the `output` branch, with its
 SHA-256 added to [`../narrated.sha256`](../narrated.sha256) on `main` through a
 pull request, once Bill Page has listened to it. The page listed now is the
-render Bill Page made and pushed to `output` on 17 November 2026, from `main`
-at the merge of the pronunciation changes (`ea313f9`).
+render Bill Page made and pushed to `output` on 19 November 2026 (`2ba5383`),
+from `main` after the correction of the book title on slide 23 (`e06d8b9`).
 
 ## Sources
 
