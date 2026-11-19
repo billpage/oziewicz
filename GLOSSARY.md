@@ -66,6 +66,21 @@ street and the bus in *Concepts of relative velocity* §2. In Oziewicz's phrase,
 lies in the plane of the two bodies, and the mass centre of a pair does
 ([`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#3-two-bodies-the-eagle-lies-in-the-plane)).
 
+### Fock space
+
+In [`grassmann_to_clifford.md`](supplement/grassmann_to_clifford.md), an
+algebraic structure: a vector space with a vacuum `1`, creators `e_x` for `x`
+in `L` and annihilators `i_alpha` for `alpha` in the dual `L*`, with
+`i_alpha 1 = 0`, the anticommutation relations `{i_alpha, e_x} = alpha(x)`, and
+the space spanned by what the creators make from `1`. It is the Grassmann
+algebra of `L`, of dimension `2^n`. **Defined:**
+[`grassmann_to_clifford.md`](supplement/grassmann_to_clifford.md#5-fermion-creation-and-annihilation-operators-pp-249250),
+§5, after eq. (16). **Not to confuse with** the Fock space of quantum
+mechanics: there creators and annihilators are labelled by one Hilbert space
+and their anticommutator is its inner product, here they are labelled by a
+space and its dual and the anticommutator is the pairing. No states or
+probabilities are implied.
+
 ### Groupoid gamma (Minkowski factor)
 
 `gamma_XY = (gX)Y / det g`. Numerically the Lorentz factor of the relative

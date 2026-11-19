@@ -55,11 +55,12 @@ without cloning. To produce figures yourself, see
 ## Repository layout
 
 ```
-analysis/     Derivations and review notes (a numbered ladder, once the first
-              note exists)
+analysis/     Derivations and review notes (a numbered ladder; see
+              analysis/README.md)
 supplement/   Background, worked test cases, summaries of unpublished drafts
-talks/        Oziewicz's talks as narrated slide pages: notes and sources here,
-              the pages with audio on the `output` branch (see talks/README.md)
+talks/        Oziewicz's talks as narrated slide pages, and talks about this
+              repository: notes and sources here, the pages with audio on the
+              `output` branch (see talks/README.md)
 notebooks/    Notebook companions (outputs stripped; rendered copies are on
               the `output` branch)
 src/          Verification and graphics code only
@@ -139,6 +140,14 @@ public until the draft is reviewed and published by hand. Filename stems must be
 unique across those directories, because the release URL is flat. Keep version
 identifiers in the tag, not in the PDF filename.
 
+Relative links in a document (to a script in `src/`, to another note) work on
+GitHub but not from a PDF on a reader's disk, so `src/md_to_pdf.py` rewrites each
+one to its absolute address in this repository. In a release run the address is
+pinned to the release tag (`.../blob/docs-v.../src/...`), so a released PDF links to
+the files of its own release; a local run links to the default branch. Use
+`--link-ref` to choose another branch or tag, `--keep-relative-links` to turn
+the rewriting off.
+
 ## Documentation checks
 
 From the repository root, before committing a change to any markdown file
@@ -151,9 +160,9 @@ PYTHONPATH=src python3 -m ozlib.check_notebook_math notebooks
 ```
 
 `check_md_math` finds math that GitHub will not render. It runs in CI on every
-pull request. `check_notebook_math` checks notebook math delimiters and is not
-run in CI. The ladder checks (`check_abstracts`, `check_index`, `where_used`) are
-added with the first ladder.
+pull request, as do the ladder checks `check_abstracts` and `check_index`
+(commands in `AGENTS.md`). `check_notebook_math` (notebook math delimiters) and
+`where_used` (a concordance of glossary terms) are not run in CI.
 
 ## File conventions
 

@@ -1,0 +1,9 @@
+The paper adds a physical gloss: roughly speaking, the dual space is the set of measuring instruments, and α of v is the result of measuring v with the instrument α. It ignores finite accuracy, and it says, crediting Maxwell, that whether a physical quantity belongs to the space or to its dual is settled by experiment, not by convention.
+
+The table gives examples, which are mine, not the paper's. A wave, through its phase, read on a displacement, counts crests. The same wave read on an observer's four-velocity gives the frequency that observer counts. A clock read on a displacement in space-time gives elapsed time. A force gives work, and a voltmeter with a short probe gives a potential drop; swap the leads and the sign changes.
+
+What makes an instrument a covector? Three things, all visible in the figure on the last slide. Linear response: the reading of a sum is the sum of the readings. Blind directions: the instrument ignores a whole hyperplane, its kernel. And one calibration: beyond its blind hyperplane, it is fixed by a single standard input on which it reads one.
+
+Three remarks on the right. The Doppler effect needs no metric: one wave covector, read by two observers, gives two frequencies. An observer, in this language, is a vector on which a clock reads one, an instrument together with its calibrating vector. That is exactly the observer, T tensor τ, of Oziewicz's later papers on relativity, so the 1986 paper already contains the seed of the ladder I showed you.
+
+And the interpretation has a limit. A rod that is free to turn measures the length of v, and length is not linear in v. So lengths need one more instrument, of a different kind, a quadratic one. In the terms of this talk, that is exactly where the map φ enters. The metric-free instruments are the covectors, and a metric is one more instrument.

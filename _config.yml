@@ -16,6 +16,8 @@ exclude:
   - output
   - talks/npa2009/npa2009.html
   - talks/npa2009/notes
+  - talks/grassmann_to_clifford/slides.html
+  - talks/grassmann_to_clifford/notes
   - talks/narrated.sha256
   - node_modules
   - package.json

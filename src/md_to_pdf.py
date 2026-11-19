@@ -59,6 +59,18 @@ Other GitHub-versus-Pandoc differences
 - Glyphs.  ✓ ✔ ✗ ✘ ≅ ⋆ ∎ 𝓗 are missing from DejaVu Serif and would be
   silently dropped; they are mapped to math symbols with ``newunicodechar``
   when that package is installed.
+- Links.  A relative link (``[text](../src/verify_x.py)``, ``[step 1](mass_centre.md#3)``)
+  works on GitHub and nowhere else: in a PDF it points at a file beside the PDF
+  on the reader's disk.  Each one is rewritten to the absolute address of its
+  target on the hosting site, ``<repository>/blob/<ref>/<path>`` (``tree`` for a
+  directory), so that it opens from any viewer.  The repository address comes
+  from ``--link-base``, else from GitHub Actions' environment, else from the
+  ``origin`` remote; the ref from ``--link-ref``, else the tag being built in
+  a release run (so a released PDF links to the files of its own release), else
+  the remote's default branch.  Absolute links, ``#fragment`` links inside the
+  document, images, and anything in code or math are left alone.  A source file
+  outside a git checkout, or with no recognisable remote, is rendered with its
+  links unchanged and a warning.  ``--keep-relative-links`` turns this off.
 
 Pre-flight and post-flight
 --------------------------
@@ -87,6 +99,7 @@ Usage
     python3 md_to_pdf.py doc.md -o out.pdf \
         --image-map https://raw.githubusercontent.com/billpage/oziewicz/output/figures/=./figs
     python3 md_to_pdf.py exported_from_claude_docs.md --latex-fences
+    python3 md_to_pdf.py doc.md --link-base https://github.com/OWNER/REPO --link-ref main
 
 With no ``-o``, inside the oziewicz repository the PDF is written via
 ``output_path()`` (see "Output paths" in README.md)
@@ -106,6 +119,7 @@ import argparse
 import json
 import os
 import re
+import urllib.parse
 import shutil
 import subprocess
 import sys
@@ -448,12 +462,134 @@ def post_check(pdf: str, src_text: str = "", latex_fences: bool = False) -> list
     return out[:10]
 
 
+# A markdown inline link that is not an image: [text](target "title").  The
+# text may hold one level of nested brackets and may wrap across a line.
+_INLINE_LINK = re.compile(
+    r"(?<!!)(\[(?:[^\[\]]|\[[^\[\]]*\])*\])\(\s*([^()\s]+)(\s+\"[^\"\n]*\")?\s*\)")
+# A reference-style link definition:  [label]: target
+_LINK_DEF = re.compile(r"^([ \t>]{0,3}\[[^\]\n]+\]:[ \t]*)(\S+)", re.MULTILINE)
+_URL_SCHEME = re.compile(r"[A-Za-z][A-Za-z0-9+.\-]*:")
+
+
+def _git(args: list[str], cwd: str) -> str | None:
+    try:
+        r = subprocess.run(["git", "-C", cwd] + args, capture_output=True, text=True,
+                           timeout=30)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    return r.stdout.strip() if r.returncode == 0 and r.stdout.strip() else None
+
+
+def _web_url(remote: str) -> str | None:
+    """The browsable address of a git remote: ``git@host:o/r.git`` and
+    ``https://user@host/o/r.git`` both give ``https://host/o/r``."""
+    m = re.fullmatch(r"(?:ssh://)?git@([^:/]+)[:/](.+?)(?:\.git)?/?", remote)
+    if m:
+        return f"https://{m.group(1)}/{m.group(2)}"
+    m = re.fullmatch(r"https?://(?:[^@/]+@)?([^/]+)/(.+?)(?:\.git)?/?", remote)
+    if m and "." in m.group(1) and not re.match(r"[\d.:]+$|localhost", m.group(1)):
+        return f"https://{m.group(1)}/{m.group(2)}"
+    return None
+
+
+def link_context(src_path: str, link_base: str | None = None,
+                 link_ref: str | None = None) -> tuple[str, str, str] | None:
+    """Where relative links of ``src_path`` point on the hosting site, as
+    ``(repository root on disk, repository address, ref)``; None if unknown."""
+    src_dir = os.path.dirname(os.path.abspath(src_path))
+    root = _git(["rev-parse", "--show-toplevel"], src_dir)
+    if root is None:
+        return None
+    env = os.environ
+    base = link_base
+    if not base and env.get("GITHUB_SERVER_URL") and env.get("GITHUB_REPOSITORY"):
+        base = f"{env['GITHUB_SERVER_URL']}/{env['GITHUB_REPOSITORY']}"
+    if not base:
+        base = _web_url(_git(["remote", "get-url", "origin"], src_dir) or "")
+    if not base:
+        return None
+    ref = link_ref
+    if not ref and env.get("GITHUB_REF_TYPE") == "tag" and env.get("GITHUB_REF_NAME"):
+        ref = env["GITHUB_REF_NAME"]
+    if not ref:
+        head = _git(["symbolic-ref", "-q", "--short", "refs/remotes/origin/HEAD"], src_dir)
+        ref = head.split("/", 1)[1] if head and "/" in head else "main"
+    return os.path.realpath(root), base.rstrip("/"), ref
+
+
+def absolutize_links(text: str, src_path: str, ctx: tuple[str, str, str]) -> tuple[str, int]:
+    """Rewrite relative link targets to absolute addresses on the hosting site.
+
+    Returns the new text and the number of links rewritten.  Images are left
+    for Pandoc to read from disk; links that start inside code or math are not
+    links; a target that leaves the repository is left as it is, with a warning.
+    """
+    root, base, ref = ctx
+    src_dir = os.path.dirname(os.path.realpath(src_path))
+    protected = [(m.start(), m.end()) for m in _BRACKET_PROTECTED.finditer(text)]
+    count = 0
+
+    def inside(pos: int) -> bool:
+        return any(a <= pos < b for a, b in protected)
+
+    def absolute(target: str) -> str | None:
+        if _URL_SCHEME.match(target) or target.startswith(("#", "//", "<")):
+            return None
+        path, sep, frag = target.partition("#")
+        if not path:
+            return None
+        path = urllib.parse.unquote(path)
+        full = (os.path.join(root, path.lstrip("/")) if path.startswith("/")
+                else os.path.join(src_dir, path))
+        full = os.path.normpath(full)
+        rel = os.path.relpath(full, root)
+        if rel == os.pardir or rel.startswith(os.pardir + os.sep):
+            print(f"WARNING: link leaves the repository, left relative: {target}",
+                  file=sys.stderr)
+            return None
+        if not os.path.exists(full):
+            print(f"WARNING: link target not found in the checkout: {target}", file=sys.stderr)
+        kind = "tree" if os.path.isdir(full) else "blob"
+        rel = "" if rel == os.curdir else urllib.parse.quote(rel.replace(os.sep, "/"))
+        url = f"{base}/{kind}/{urllib.parse.quote(ref, safe='/')}" + (f"/{rel}" if rel else "")
+        return url + sep + frag
+
+    def inline(m: re.Match) -> str:
+        nonlocal count
+        new = None if inside(m.start()) else absolute(m.group(2))
+        if new is None:
+            return m.group(0)
+        count += 1
+        return f"{m.group(1)}({new}{m.group(3) or ''})"
+
+    def definition(m: re.Match) -> str:
+        nonlocal count
+        new = None if inside(m.start()) else absolute(m.group(2))
+        if new is None:
+            return m.group(0)
+        count += 1
+        return m.group(1) + new
+
+    # Both passes use offsets into the same text, so do the definitions (whole
+    # lines, never overlapping an inline link) on the result of the first pass
+    # with the protected spans recomputed.
+    text = _INLINE_LINK.sub(inline, text)
+    protected = [(m.start(), m.end()) for m in _BRACKET_PROTECTED.finditer(text)]
+    text = _LINK_DEF.sub(definition, text)
+    return text, count
+
+
 def prepare(text: str, workdir: str, image_map=(), mermaid: bool = True,
-            latex_fences: bool = False) -> str:
+            latex_fences: bool = False, src_path: str | None = None,
+            link_ctx: tuple[str, str, str] | None = None) -> str:
     """All source-to-Pandoc rewriting, in order."""
     if mermaid:
         text = render_mermaid(text, workdir)
     text = map_images(text, list(image_map))
+    if src_path and link_ctx:
+        text, n = absolutize_links(text, src_path, link_ctx)
+        if n:
+            print(f"Rewrote {n} relative link(s) to {link_ctx[1]}/blob/{link_ctx[2]}/...")
     text = separate_lists(text)
     text = convert_math_delimiters(text, latex_fences)
     return escape_literal_brackets(text)
@@ -461,7 +597,9 @@ def prepare(text: str, workdir: str, image_map=(), mermaid: bool = True,
 
 def render_pdf(src_path: str, dst_path: str, timeout: int = 180, image_map=(),
                toc: bool = True, mermaid: bool = True,
-               allow_control_chars: bool = False, latex_fences: bool = False) -> None:
+               allow_control_chars: bool = False, latex_fences: bool = False,
+               absolute_links: bool = True, link_base: str | None = None,
+               link_ref: str | None = None) -> None:
     """Convert ``src_path`` (GitHub-flavoured math markdown) to a PDF at
     ``dst_path``.  Exits 2 if the pre-flight finds control characters."""
     with open(src_path, encoding="utf-8") as f:
@@ -475,8 +613,14 @@ def render_pdf(src_path: str, dst_path: str, timeout: int = 180, image_map=(),
         if not allow_control_chars:
             sys.exit(2)
 
+    link_ctx = link_context(src_path, link_base, link_ref) if absolute_links else None
+    if absolute_links and link_ctx is None:
+        print("WARNING: no repository address found (not a git checkout, or no usable "
+              "'origin'); relative links are left as they are. Pass --link-base.",
+              file=sys.stderr)
+
     with tempfile.TemporaryDirectory() as td:
-        prepped = prepare(text, td, image_map, mermaid, latex_fences)
+        prepped = prepare(text, td, image_map, mermaid, latex_fences, src_path, link_ctx)
         md_path = os.path.join(td, "prepped.md")
         header_path = os.path.join(td, "header.tex")
         with open(md_path, "w", encoding="utf-8") as f:
@@ -531,6 +675,15 @@ def main() -> None:
     parser.add_argument("--latex-fences", action="store_true",
                         help="typeset ```latex fenced blocks as display math, as written by "
                              "exporters such as Claude Docs (GitHub shows them as code)")
+    parser.add_argument("--link-base", metavar="URL",
+                        help="repository address for relative links, e.g. "
+                             "https://github.com/OWNER/REPO (default: GitHub Actions' "
+                             "environment, else the 'origin' remote)")
+    parser.add_argument("--link-ref", metavar="REF",
+                        help="branch or tag that relative links point at (default: the tag "
+                             "being built in a release run, else the default branch)")
+    parser.add_argument("--keep-relative-links", action="store_true",
+                        help="do not rewrite relative links to absolute addresses")
     args = parser.parse_args()
 
     maps = [tuple(m.split("=", 1)) for m in args.image_map]
@@ -545,7 +698,9 @@ def main() -> None:
     render_pdf(args.input, dst, image_map=maps, toc=not args.no_toc,
                mermaid=not args.no_mermaid,
                allow_control_chars=args.allow_control_chars,
-               latex_fences=args.latex_fences)
+               latex_fences=args.latex_fences,
+               absolute_links=not args.keep_relative_links,
+               link_base=args.link_base, link_ref=args.link_ref)
     print(f"Wrote {dst}")
 
 

@@ -6,11 +6,15 @@ AI was involved, what that does and does not mean for the reliability of a claim
 and how it bears on the licences in [`LICENSE`](LICENSE) and
 [`LICENSE-DOCS`](LICENSE-DOCS).
 
-Last reviewed: October 2026. Practice in this area (publisher policy, copyright
+Last reviewed: November 2026. Practice in this area (publisher policy, copyright
 guidance, community norms) is still moving. The reasoning in the "Why AI isn't
 listed" and "Copyright" sections is adapted from the same document in
 `billpage/wpmw` as of its commit `4128ad9` (reviewed there September 2026); the
 legal and policy statements were not independently re-checked for this repository.
+On 12 November 2026 the description of branches, `output` and the narrated-page
+hash gate was checked against `.github/workflows/pages.yml`, `talks/narrated.sha256`
+and `talks/`; the description of the ruleset rests on the check recorded in
+[`SCAFFOLD.md`](SCAFFOLD.md) (31 October 2026), not on a new look at the settings.
 
 ## Who does what
 

@@ -1,0 +1,9 @@
+This slide collects the thread that runs through everything so far: evaluation. The word is used in two senses, and both are at work.
+
+The first sense is the evaluation of a covector on a vector, α of x. The table on the left shows that everything metric-free in the 1986 paper is this one map, together with antisymmetry. The determinant pairing of equation 3 is evaluation extended to all degrees. Contraction is the adjoint of exterior multiplication with respect to evaluation. Evaluation is the right-hand side of the anticommutation relations, and it is the quadratic form of the doubled space. And the square of a Clifford generator, g of v, v, is evaluation pulled back to the graph of φ. That last row shows once more why ω is a gauge: ω v evaluated on v is always zero, so evaluation on the graph cannot see ω.
+
+The second sense is evaluation at the unit, the vacuum. The operators gamma of u act on the Grassmann space, and gamma of u applied to 1 gives back u. So evaluating an operator on the vacuum turns the operator algebra back into a product on the Grassmann space. This is the map that appears in Jadczyk's paper after his equation 56.
+
+The two senses meet in Garret's algebra, on the right. Take a product A of vectors, built from the a's, and a product B of covectors, built from the b's, and let u be the product of all the pairs b i a i: a primitive idempotent, the projector onto the vacuum. Then B reversed, times A, times u, is the determinant of the values α i of x j, times u. The value of a form on a multivector is what remains when the operator is evaluated on the vacuum. That was checked for up to three factors in dimension three.
+
+And the dual of evaluation, coevaluation, the sum of e μ tensor e μ upper, appears twice. Through e and i it is the degree operator, which is the bare grading. Through gamma tensor gamma it is the Γ of Conjecture 8.2, which is why its minimum polynomial cannot depend on the basis.

@@ -1,0 +1,9 @@
+The 1997 paper ends with a conjecture, Conjecture 8.2, and I think it deserves a slide of its own, because it turns out to be true in every dimension, with a short proof.
+
+Take an invertible symmetric η, with inverse ξ, and form the operator Γ, equal to ξ μ ν times gamma μ tensor gamma ν, acting on the tensor square of the multivectors. The conjecture says that its minimum polynomial does not depend on η, and is the product over k from zero to n of x minus n minus 2 k. The paper reports it proved by hand for n up to three, and for n equal to four with Maple, by A. R. Rodríguez Domínguez.
+
+Here is the argument, which is added in the supplement. Γ does not depend on the basis, so choose an η-orthogonal one, with η of e μ, e μ equal to ε μ. Define T μ as ε μ inverse times gamma μ in the left factor, times gamma μ in the right factor. Each T μ squares to one. Two different T's commute, because each of the two factors contributes a minus sign. So Γ is a sum of n commuting involutions. Its eigenvalues are therefore among n minus 2 k, where k counts the involutions equal to minus one. Every pattern of signs actually occurs, because the representation is faithful. So the eigenvalues are exactly n, n minus two, down to minus n, and the minimum polynomial is the conjectured one.
+
+The chart shows the case n equals four: eigenvalues 4, 2, 0, minus 2, minus 4, with multiplicities 16, 64, 96, 64 and 16, which is n choose k times 2 to the n. The multiplicities were computed numerically; the conjecture itself was checked exactly for n from one to five, and in dimension four for other signatures and for a non-symmetric φ.
+
+An analogy: Γ is the total spin of n independent two-state systems. Each T μ asks whether the two tensor factors agree or disagree in direction μ. This is the algebra behind Fierz rearrangement, and I expect the result is known there. I have not yet searched.

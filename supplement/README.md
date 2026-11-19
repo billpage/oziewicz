@@ -37,3 +37,34 @@ not listed in `analysis/INDEX.md`.
   $`z`$-space" does and does not mean (PR2), Reddiger and Poirier's rotating example as a leaf
   space and a Born measure without a time function (PR3), and the centre of a clock against the
   Born mean (PR4). Kiehn is deferred. Companion script `src/verify_poirier_reddiger.py`.
+- **[`matolcsi_spacetime.md`](matolcsi_spacetime.md)** (prefix MT). A reading of chapter II
+  (special relativistic spacetime models) of T. Matolcsi, *Spacetime Without Reference
+  Frames* (1993), the book Oziewicz cited for the reference-frame-free method. Its relative
+  velocity is the binary velocity of step 1 (MT1); it has the non-reciprocity and the boost
+  that carries one mutual velocity to minus the other (MT2), the Thomas-Wigner rotation
+  without the name, as the non-transitivity of "physically equal" vectors (MT3), and an
+  addition formula that is composition in the pair groupoid (MT4). Its regular observer is
+  `α ∧ dα = 0` (MT6). Where Matolcsi and Oziewicz part is the status of the boost: a
+  convention with a price, or a false axiom. §8 adds the second edition (2018, CC BY 4.0)
+  and Matolcsi and Gohér (2001): the velocity is the *standard* one, tied to a
+  synchronization (MT8); the Thomas rotation is named (MT9); the addition formula changes
+  form, and two displays of the second edition are misprints (MT8, MT10). §9: Oziewicz's clock form
+  is a synchronization, his reciprocity of clocks is Einstein's (MT11), and a shared clock
+  is his Galilean algebra inside Minkowski spacetime (MT12). 55 exact checks;
+  the first edition is not committed.
+  Companion script `src/verify_matolcsi.py`.
+- **[`grassmann_to_clifford.md`](grassmann_to_clifford.md)**. A summary of Oziewicz's
+  "From Grassmann to Clifford" (1986), every formula restated and keyed to the paper's
+  equation numbers: the pair of Grassmann algebras of multivectors and multiforms as
+  primary, exterior multiplication and its transpose as fermion operators with no metric,
+  and the Clifford product on the same space from `γ_v = e_v + i_{φv}` for a linear map `φ`
+  from vectors to covectors, not necessarily symmetric. Compared with three later texts.
+  His own sequel (1997) constructs the product that 1986 postulates and concedes that the
+  antisymmetric part `ω` of `φ` labels isomorphic algebras; its Conjecture 8.2 on the
+  minimum polynomial of `γ^μ ⊗ γ_μ` holds in every dimension (§12.5). Jadczyk (2021) proves
+  the construction and shows `ω` is a gauge; one sign in his eq. (68) is wrong under his
+  own conventions (§10.4). Sobczyk's globally dual null vectors are the 1986 dual pair, his
+  locally dual ones the 1986 construction for one `φ` (§11). Conclusion (§13): what is
+  given without a choice is the evaluation of covectors on vectors; a metric is the choice
+  of a subspace of the doubled space. 90 exact checks; none of the papers is committed.
+  Companion script `src/verify_grassmann_clifford.py`.

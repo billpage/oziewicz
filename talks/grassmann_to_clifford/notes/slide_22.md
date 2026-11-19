@@ -1,0 +1,9 @@
+Since the talk is also an invitation to review, here is how the supplement was checked, and, just as important, what was not checked.
+
+The companion script runs 90 exact checks, and all of them pass. It uses SymPy with polynomial arithmetic. Multivectors are coordinate vectors over the basis blades, exterior multiplications are explicit matrices, and contractions are their transposes, which is equation 9 in dual bases. φ is a generic matrix of independent symbols with no symmetry, so nothing is checked only for a convenient example. The whole run takes about fifty seconds, with the command on the slide. The checks cover the 1986 equations in dimensions three and four; Jadczyk's gauge formulas and the sign of his equation 68; Garret's dualities and the evaluation formulas; and from the 1997 paper, the opposite algebra and Conjecture 8.2 for n up to five.
+
+Not machine-checked: the conceptual section of the paper; the associator of the doubled product and the identities about the exterior derivative, which have short hand derivations; the doubled-space argument beyond its two conjugation formulas; the proof of Conjecture 8.2 for general n, which is the argument on slide 17; and nothing involving a general braid.
+
+On the readings. The 1986 paper was read from page images of a 120 dots per inch scan with no text layer, and the supplement lists ten places where the reading is uncertain, with the reason for each choice. The 1997 paper was read in a later version re-typeset by the author, so its wording may differ from the printed text. Every statement in the supplement is either a report of the paper, with no marker; or marked checked; or marked analysis, meaning it was added in the supplement and is not in the paper.
+
+The point at the bottom is the one I care most about. A check certifies the mathematics, not the reading. Whether the reading is fair to the paper is a question that only another reader can answer.
