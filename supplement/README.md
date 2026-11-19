@@ -31,6 +31,12 @@ not listed in `analysis/INDEX.md`.
   section, 98 exact checks of it and of the public revision of March 2007 (one side remark
   in (9.6) fails), where its claims stand, and what the revision dropped and added. Its
   ternary velocity is not the boost-link of 2005 and 2007. Companion script `src/verify_velocity_draft.py`.
+- **[`poirier_reddiger.md`](poirier_reddiger.md)** (prefix PR). Poirier (2012) and Reddiger and
+  Poirier (2025) read in Oziewicz's terms: a dictionary, the Born weight as a measure on the leaf
+  space of a congruence (PR1, no metric), what "Poirier's $`C`$ is a coordinate on Keres's
+  $`z`$-space" does and does not mean (PR2), Reddiger and Poirier's rotating example as a leaf
+  space and a Born measure without a time function (PR3), and the centre of a clock against the
+  Born mean (PR4). Kiehn is deferred. Companion script `src/verify_poirier_reddiger.py`.
 - **[`matolcsi_spacetime.md`](matolcsi_spacetime.md)** (prefix MT). A reading of chapter II
   (special relativistic spacetime models) of T. Matolcsi, *Spacetime Without Reference
   Frames* (1993), the book Oziewicz cited for the reference-frame-free method. Its relative
