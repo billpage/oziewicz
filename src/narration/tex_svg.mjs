@@ -4,7 +4,7 @@
 // writes a JSON array of SVG strings, in the same order, on stdout. Each SVG
 // carries its own glyph paths (fontCache "local"), so it can be pasted into a
 // page with no script, font or stylesheet: this is how build_deck.py puts the
-// formulas into a slides page that voiceover.py can narrate and that works
+// formulas into a slides page that voiceover (billpage/narrate) can narrate and that works
 // offline. Colours: \color[RGB]{47,93,138}{...} and the macros in MACROS below.
 //
 // Needs mathjax-full, installed by `npm install katex mathjax-full` at the

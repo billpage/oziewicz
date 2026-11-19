@@ -4,7 +4,10 @@ Oziewicz's talks, as narrated slide pages: the slides, an audio player per
 slide and the transcript; and talks about this repository. Each talk has a directory with its notes and a
 README; the narrated pages themselves, with the audio embedded, are on the
 `output` branch and are served by GitHub Pages once their SHA-256 is listed in
-[`narrated.sha256`](narrated.sha256).
+[`narrated.sha256`](narrated.sha256). They are rendered and published with
+`narrate` ([billpage/narrate](https://github.com/billpage/narrate)), with the
+settings in [`narration.toml`](../narration.toml) and the names shared by the
+talks in [`src/narration/oziewicz_terms.json`](../src/narration/oziewicz_terms.json).
 
 The slides, words and recordings are Oziewicz's and are **not** under this
 repository's licences; each talk's `NOTICE.md` says what is included and on

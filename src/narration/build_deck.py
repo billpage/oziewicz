@@ -1,7 +1,7 @@
 """Build a self-contained slides page from a source deck with TeX formulas.
 
-The source is an HTML page of the kind voiceover.py (billpage/wpmw,
-src/narration/voiceover.py) narrates: a `<div id="stage">` with one
+The source is an HTML page of the kind `voiceover` (billpage/narrate; see its
+INTERFACE.md) narrates: a `<div id="stage">` with one
 `<section class="slide">` per slide, a `<div id="notes">`, and a script that
 contains `const NOTES = [];`. In the source:
 

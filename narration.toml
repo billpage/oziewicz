@@ -1,0 +1,11 @@
+# Settings for `narrate` (billpage/narrate): `narrate render`, `narrate publish`.
+repo = "billpage/oziewicz"
+narration_dir = "~/oziewicz-narration"     # renders go to <narration_dir>/<deck name>/
+output_worktree = "~/oziewicz-output"      # a worktree of the output branch
+terms = ["src/narration/oziewicz_terms.json"]
+hash_list = "talks/narrated.sha256"        # a page is served only when its hash is listed on main
+
+[voice]
+voice = "en-CA-LiamNeural"
+pause = 30
+reencode = 32

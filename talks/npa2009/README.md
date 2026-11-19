@@ -29,7 +29,7 @@ checked against transcripts and sources, not settled by ear.
 
 | Where | File | What it is |
 |---|---|---|
-| here | `npa2009.html` | The slides page: 55 positions, each a page of the PDF as an SVG image, with the notes in `const NOTES`. It is the input to `voiceover.py` and shows nothing by itself |
+| here | `npa2009.html` | The slides page: 55 positions, each a page of the PDF as an SVG image, with the notes in `const NOTES`. It is the input to `narrate render` and shows nothing by itself |
 | here | `notes/slide_NN.md` | The notes, one file per position; positions 52 and 54 have none (shown without comment) |
 | here | `slide_to_pdfpage.json` | Position → PDF page (1-39) |
 | here | `pronunciations.json` | For the synthetic voice: drops the bracketed stage directions and respells names |
@@ -112,9 +112,16 @@ The notes keep what he said. These should not be repeated without checking:
 
 ## Rebuilding and publishing
 
-`voiceover.py` is in billpage/wpmw (`src/narration/voiceover.py`); its `main`
-includes the guard that keeps the page quiet in sandboxed previews. The PDF and
-the clips are not in the repository.
+The narrator is `narrate` from
+[billpage/narrate](https://github.com/billpage/narrate)
+(`pip install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.3.0"`), with this repository's settings in
+[`narration.toml`](../../narration.toml); pronunciations are merged from
+narrate's common terms,
+[`src/narration/oziewicz_terms.json`](../../src/narration/oziewicz_terms.json)
+(names shared by the talks) and this talk's `pronunciations.json` (the stage
+directions dropped, and spoken forms used only here). The PDF and the clips are
+not in the repository. The two narrated pages differ only in their audio, so
+give each its own folder with `-d`.
 
 ```bash
 # notes -> slides page (needs pdftocairo)
@@ -122,14 +129,16 @@ OZ_OUTPUT=talks/npa2009 PYTHONPATH=src python3 src/narration/build_slides.py \
     --pdf /path/to/NPA2009-Beamer.pdf --talk talks/npa2009 --name npa2009 \
     --title "What is Special Relativity Theory?"
 
-# Oziewicz's voice: put clip-N.mp3 as <outdir>/audio/slide_NN.mp3, then
-python3 ~/wpmw/src/narration/voiceover.py talks/npa2009/npa2009.html \
-    --name npa2009_oziewicz -d ~/npa2009-oziewicz --reuse-audio --reencode 32
+# Oziewicz's voice: put clip-N.mp3 as <folder>/audio/slide_NN.mp3, then
+narrate render talks/npa2009/npa2009.html --name npa2009_oziewicz \
+    -d ~/oziewicz-narration/npa2009_oziewicz --reuse-audio
 
-# Synthetic voice (Edge, needs internet; python3 -m venv .venv && pip install edge-tts)
-python3 -u ~/wpmw/src/narration/voiceover.py talks/npa2009/npa2009.html \
-    --name npa2009_andrew -d ~/npa2009-andrew --pronunciations talks/npa2009/pronunciations.json \
-    --tts edge --voice en-US-AndrewNeural --reencode 32
+# Synthetic voice (Edge, needs internet)
+narrate render talks/npa2009/npa2009.html --name npa2009_andrew \
+    -d ~/oziewicz-narration/npa2009_andrew --voice en-US-AndrewNeural --pause 1
+
+# publish a checked page: pushes it to output and writes its hash line
+narrate publish ~/oziewicz-narration/npa2009_andrew/npa2009_andrew_narrated.html
 ```
 
 A narrated page is published by committing it to `narrated/` on the `output`
