@@ -10,6 +10,7 @@ exclude:
   - LICENSE
   - LICENSE-DOCS
   - CITATION.cff
+  - narration.toml
   - AGENTS.md
   - CLAUDE.md
   - SCAFFOLD.md

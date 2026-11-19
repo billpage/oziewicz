@@ -1,9 +1,9 @@
-"""Build the plain slides page of a narrated talk (the input to voiceover.py).
+"""Build the plain slides page of a narrated talk (the input to `narrate render`).
 
 The page holds one <section class="slide"> per slide position, each showing a
 page of the talk's PDF as a vector (SVG) image, and a `const NOTES = [...]`
-array with the speaker notes. Its form is the one voiceover.py from
-billpage/wpmw (src/narration/voiceover.py) reads.
+array with the speaker notes. Its form is the one `voiceover` from
+billpage/narrate reads (see its INTERFACE.md).
 
 A talk directory holds:
   slide_to_pdfpage.json   position -> PDF page (a list; positions may repeat pages)

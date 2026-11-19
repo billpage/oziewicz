@@ -35,8 +35,8 @@ of integer matrices) and is labelled so. Not yet read or heard by Bill Page.
 |---|---|
 | `slides.html` | The source: the slides, with formulas as TeX between `\(` `\)` and `\[` `\]`, images as `asset:NAME` and an empty `NOTES` array. Not a page to open |
 | `notes/slide_NN.md` | The narration, one file per slide, in the speaker's voice |
-| `grassmann_to_clifford.html` | The built page: formulas typeset as SVG, the figure embedded, `NOTES` filled. Input to `voiceover.py`, and served by GitHub Pages |
-| `pronunciations.json` | For the synthetic voice: names, and a few spoken forms of symbols |
+| `grassmann_to_clifford.html` | The built page: formulas typeset as SVG, the figure embedded, `NOTES` filled. Input to `narrate render`, and served by GitHub Pages |
+| `pronunciations.json` | For the synthetic voice: spoken forms used only in this talk. Names shared by the talks are in [`src/narration/oziewicz_terms.json`](../../src/narration/oziewicz_terms.json) |
 | [`src/narration/build_deck.py`](../../src/narration/build_deck.py), [`tex_svg.mjs`](../../src/narration/tex_svg.mjs) | Build the page from the source (MathJax, from the `npm install` the markdown checks already need) |
 
 The only image, `grassmann_dual_pair.png`, is the figure of the supplement, from
@@ -58,23 +58,31 @@ The script prints the number of words and an estimate of the length.
 
 ## Narrating
 
-`voiceover.py` is in billpage/wpmw (`src/narration/voiceover.py`). Check the
-spoken text first (seconds, no audio), then render with the Edge voice (needs
-internet):
+The narrator is `narrate` from
+[billpage/narrate](https://github.com/billpage/narrate)
+(`pip install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.3.0"`), with this repository's settings in
+[`narration.toml`](../../narration.toml): the Edge voice `en-CA-LiamNeural`,
+renders in `~/oziewicz-narration/`, and pronunciations merged from narrate's
+common terms, [`src/narration/oziewicz_terms.json`](../../src/narration/oziewicz_terms.json)
+and this talk's `pronunciations.json`. Check the spoken text first (seconds, no
+audio), then render (needs internet):
 
 ```bash
-python3 ~/wpmw/src/narration/voiceover.py talks/grassmann_to_clifford/grassmann_to_clifford.html \
-    --pronunciations talks/grassmann_to_clifford/pronunciations.json --preview -d ~/g2c-narration
-python3 -u ~/wpmw/src/narration/voiceover.py talks/grassmann_to_clifford/grassmann_to_clifford.html \
-    --pronunciations talks/grassmann_to_clifford/pronunciations.json \
-    --tts edge --voice en-CA-LiamNeural --pause 30 --reencode 32 -d ~/g2c-narration
+narrate render talks/grassmann_to_clifford/grassmann_to_clifford.html --preview
+narrate render talks/grassmann_to_clifford/grassmann_to_clifford.html
 ```
 
 or record the notes in your own voice as `audio/slide_NN.mp3` in the output
-folder and build with `--reuse-audio`. A narrated page is published as the
-NPA talk's are: committed to `narrated/` on the `output` branch, with its
-SHA-256 added to [`../narrated.sha256`](../narrated.sha256) on `main` through a
-pull request, once Bill Page has listened to it. The page listed now is the
+folder and build with `--reuse-audio`. Once Bill Page has listened to it, the
+page is published with
+
+```bash
+narrate publish ~/oziewicz-narration/grassmann_to_clifford/grassmann_to_clifford_narrated.html
+```
+
+which commits it to `narrated/` on the `output` branch and writes its SHA-256
+into [`../narrated.sha256`](../narrated.sha256) for a pull request to `main`;
+the page is served once that is merged. The page listed now is the
 render Bill Page made and pushed to `output` on 19 November 2026 (`2ba5383`),
 from `main` after the correction of the book title on slide 23 (`e06d8b9`).
 
