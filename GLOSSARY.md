@@ -134,9 +134,12 @@ which every observer moving in the plane of `B` shares.
 
 The groupoid whose objects are bodies and whose arrows from `X` to `Y` are the Lorentz
 transformations `Λ` with `ΛX = Y`: a velocity together with a relative orientation of the
-two rest frames. The arrows from `X` to itself are the rotations of its rest space. It is the
-gauge groupoid of `G -> H`; forgetting the rotations gives the pair groupoid. A loop returns
-a rotation, the Thomas-Wigner rotation of the boosts. **Defined:**
+two rest frames. The arrows from `X` to itself are the rotations of its rest space.
+Equivalently: the action groupoid of the Lorentz group on velocity space, the gauge
+groupoid of `G -> H`, or the oriented orthonormal frame groupoid of the tangent bundle of
+velocity space (Mackenzie 2005, Ex. 1.1.9, 1.1.15, 1.1.12). Forgetting the rotations (the
+anchor) gives the pair groupoid. A loop of boosts returns a rotation, the Thomas-Wigner
+rotation, which is the holonomy of velocity space. **Defined:**
 [`observer_idempotents.md`](analysis/observer_idempotents.md#61-what-the-orientation-groupoid-is)
 §6.1; asked for in
 [`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#11-open-items) TV-SP1.

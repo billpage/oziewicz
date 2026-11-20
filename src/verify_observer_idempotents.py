@@ -349,6 +349,35 @@ def part_g():
     check("loop = (prod cosh) H e_p with H the boost holonomy (numerical, 1e-12)", e1 < 1e-12)
     check("angle of H = pi - (A + B + C), the area of the triangle (numerical, 1e-10)", e2 < 1e-10)
 
+    # section 6.1: on rest spaces the boost is Levi-Civita transport along the geodesic of H
+    eta = np.diag([1.0, -1, -1, -1])
+    dt = lambda a, b: a @ eta @ b
+
+    def b4():
+        u = rng.normal(size=3)
+        u *= 0.9 * rng.random() / np.linalg.norm(u)
+        gam = 1 / np.sqrt(1 - u @ u)
+        return np.r_[gam, gam * u]
+
+    X, Y = b4(), b4()
+    gXY = dt(X, Y)
+    Lm = np.eye(4) - np.outer(X + Y, X + Y) @ eta / (1 + gXY) + 2 * np.outer(Y, X) @ eta
+    r = np.arccosh(gXY)
+    U = (Y - gXY * X) / np.sinh(r)
+    w = rng.normal(size=4)
+    w -= dt(w, X) * X
+    errs = []
+    for N in (1000, 10000):
+        v = w.copy()
+        for k in range(1, N + 1):
+            P = np.cosh(r * k / N) * X + np.sinh(r * k / N) * U
+            v = v - dt(v, P) * P
+        errs.append(np.abs(v - Lm @ w).max())
+    print(f"        transport by projection: error {errs[0]:.1e} (N = 1000), {errs[1]:.1e} (N = 10000)")
+    check("the boost L_YX on rest spaces is parallel transport along the geodesic (numerical, error ~ 1/N)",
+          np.allclose(Lm @ X, Y) and np.allclose(Lm.T @ eta @ Lm, eta)
+          and errs[1] < 1e-4 and 8 < errs[0] / errs[1] < 12)
+
 
 if __name__ == "__main__":
     for part in (part_a, part_b, part_c, part_d, part_e, part_f, part_g):

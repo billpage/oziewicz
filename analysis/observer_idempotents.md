@@ -200,26 +200,28 @@ the hyperboloid of velocities, and the "phase" is a rotation.
 
 ### 6.1 What the orientation groupoid is
 
-A groupoid is a category in which every arrow has an inverse. Its objects here are the
-bodies; what differs is what an arrow from $`X`$ to $`Y`$ remembers.
+A groupoid is a category in which every arrow has an inverse (Mackenzie 2005, Def. 1.1.1).
+Its objects here are the bodies, the points of velocity space $`H`$; what differs is what an
+arrow from $`X`$ to $`Y`$ remembers.
 
-- **Pair groupoid** (Oziewicz 2007, §3; MC2). One arrow for each ordered pair, the binary velocity. An arrow records *that* $`Y`$ moves relative to $`X`$ and how fast in which direction, and nothing else. Composition is forced, because there is only one arrow from $`X`$ to $`Z`$.
+- **Pair groupoid** $`H \times H`$ (Mackenzie, Ex. 1.1.7; Oziewicz 2007, §3; MC2). One arrow for each ordered pair, the binary velocity. An arrow records *that* $`Y`$ moves relative to $`X`$ and how fast in which direction, and nothing else. Composition is forced, because there is only one arrow from $`X`$ to $`Z`$.
 - **Orientation groupoid.** An arrow from $`X`$ to $`Y`$ is a Lorentz transformation $`\Lambda`$ with $`\Lambda X = Y`$, composed by multiplication. It also records how $`X`$'s spatial axes are carried onto $`Y`$'s: a velocity *and* a relative orientation of the two rest frames. This is the arrow that Einstein's practice uses between two inertial frames.
 
-In the orientation groupoid the arrows from $`X`$ to itself are the rotations of $`X`$'s rest space,
-the isotropy group $`K_X \cong \mathrm{SO}(3)`$. Any two arrows from $`X`$ to $`Y`$ differ by such a rotation, so
-once one is chosen, say the boost, all of them are
+**Three descriptions of one groupoid.** With $`G = \mathrm{SO}^+(1, 3)`$ acting on $`H`$:
+
+1. *Action groupoid* $`G \ltimes H`$ (Mackenzie, Ex. 1.1.9): arrows are pairs $`(\Lambda, X)`$ from $`X`$ to $`\Lambda X`$. Its vertex group at $`X`$, the arrows from $`X`$ to itself, is the stabilizer $`K_X \cong \mathrm{SO}(3)`$, the rotations of the rest space of $`X`$.
+2. *Frame groupoid.* The rest space of $`X`$ is the tangent space $`T_X H`$, since both are $`\{v : g(X, v) = 0\}`$. Restricted to rest spaces, an arrow is an isometry $`T_X H \to T_Y H`$ that preserves handedness, and it determines $`\Lambda`$, because $`\Lambda X = Y`$ fixes the rest. So the orientation groupoid is the oriented orthonormal frame groupoid of $`TH`$, a subgroupoid of Mackenzie's frame groupoid $`\Phi(TH)`$ (Ex. 1.1.12). This is the reason for the name: an arrow is a way of identifying one rest frame with another, axes and orientation included.
+3. *Gauge groupoid* of the principal bundle $`G(H, K)`$, $`\Lambda \mapsto \Lambda o`$ for a base body $`o`$ (Mackenzie, Ex. 1.1.15). The map $`(\Lambda, X) \mapsto \langle \Lambda u, u \rangle`$, with $`u`$ any element of $`G`$ with $`u o = X`$, is an isomorphism from the action groupoid; this short check is ours, not in the pages read.
+
+Any two arrows from $`X`$ to $`Y`$ differ by an element of $`K_X`$, so once one is chosen, say the
+boost, all of them are
 
 ```math
 \mathrm{hom}(X,Y)=L_{YX}\,K_X .
 ```
 
-Technically it is the action groupoid of the Lorentz group $`G`$ on velocity space $`H = G/K`$.
-Because the action is transitive, this is also the gauge groupoid of the principal bundle
-$`G \to H`$ (Mackenzie 2005). Forgetting the rotation part of each arrow maps it onto the pair
-groupoid.
-
-Two such groupoids with the same objects can still differ in what a loop returns:
+Forgetting the rotation part of each arrow is Mackenzie's *anchor* $`(\beta, \alpha)`$ onto the pair
+groupoid (Ex. 1.2.4), and the two groupoids differ in what a loop returns:
 
 | | Pair groupoid | Orientation groupoid |
 |---|---|---|
@@ -228,12 +230,19 @@ Two such groupoids with the same objects can still differ in what a loop returns
 | a loop $`X \to Y \to Z \to X`$ | the identity, always | a rotation, which depends on the path |
 | in an algebra of idempotents | 1-dimensional corners (OI5) | 4-dimensional corners (OI4) |
 
-**Sections and holonomy.** To compare the two, pick one arrow for each pair, a *section*
-$`s(Y \leftarrow X)`$. The boost $`L_{YX}`$ is the natural choice: it is covariant and carries $`X`$ to $`Y`$.
-A section that also composed, $`s(Z \leftarrow Y)\, s(Y \leftarrow X) = s(Z \leftarrow X)`$, would make
-the pair groupoid a subgroupoid of the orientation groupoid. TV6 shows that no covariant
-section composes. The boost section fails round each triangle by the rotation $`H`$ of OI3:
-the holonomy of the boosts, which is the Thomas-Wigner rotation.
+**Sections.** To compare the two, pick one arrow for each pair, a *section*
+$`s(Y \leftarrow X)`$. A section that also composed, $`s(Z \leftarrow Y)\, s(Y \leftarrow X) = s(Z \leftarrow X)`$,
+would split the anchor: it would embed the pair groupoid in the orientation groupoid.
+
+- *Based on a reference body.* Mackenzie (after Def. 1.3.1) notes that a transitive groupoid becomes a trivial groupoid once a reference point $`m`$ and arrows $`\sigma(x)`$ from $`m`$ to each $`x`$ are chosen, by $`(y, \lambda, x) \mapsto \sigma(y)\, \lambda\, \sigma(x)^{-1}`$. With $`m = Z`$ and $`\sigma(X) = L_{XZ}`$ this gives, at $`\lambda = 1`$, step 2's based lift $`L_{YZ} L_{XZ}^{-1}`$ (TV7). It composes, but it depends on $`Z`$, so it is not covariant.
+- *Covariant.* The boost $`L_{YX}`$ is covariant and carries $`X`$ to $`Y`$. TV6 shows that no covariant section composes, and OI3 shows by how much the boost fails: round each triangle by the rotation $`H`$.
+
+**Holonomy.** On rest spaces, the boost $`L_{YX}`$ is parallel transport in velocity space along
+the geodesic from $`X`$ to $`Y`$ (Part G, numerically). Velocity space is hyperbolic, with
+curvature $`-1`$, so by Gauss-Bonnet transport round a geodesic triangle rotates by its area.
+That is why TV7 found the Wigner angle equal to the area, and why OI3's $`\det G`$ formula is the
+hyperbolic Heron formula. The Wigner rotation is the holonomy of the Levi-Civita
+connection of velocity space, read in the orientation groupoid (Aravind 1997).
 
 *Analogy.* Carry an arrow tangent to a sphere round a triangle of great circles, never
 turning it relative to the path, and it comes back rotated by the area of the triangle.
@@ -333,7 +342,7 @@ ends with `ALL CHECKS PASSED`. Parts A to F are exact (SymPy); Part G is numeric
 | D | OI3 on TV7's example | exact rationals: $`55/64`$, $`25109/29341`$ |
 | E | OI4: dimension, rank 1, inverses, failure to compose | exact rationals |
 | F | OI5 | exact rationals |
-| G | OI3, and angle = area | 500 random triples, speeds up to $`0.95`$, errors below $`10^{-12}`$ |
+| G | OI3, and angle = area; the boost is parallel transport on rest spaces (§6.1) | 500 random triples, speeds up to $`0.95`$, errors below $`10^{-12}`$; transport by projection, error falling as $`1/N`$ |
 
 ---
 
@@ -347,7 +356,8 @@ ends with `ALL CHECKS PASSED`. Parts A to F are exact (SymPy); Part G is numeric
 - P. T. Chruściel and H. Urbantke, "Thomas-Wigner rotation via Clifford algebras", [arXiv:2501.14855](https://arxiv.org/abs/2501.14855). Abstract and introduction read.
 - H. Urbantke, "Physical holonomy, Thomas precession, and Clifford algebra", *Am. J. Phys.* 58 (1990) 747. Not read.
 - University of Glasgow, "Hyperbolic area: Heron's formula" (course notes), [proof page](https://www.maths.gla.ac.uk/wws/cabripages/hyperbolic/hareaproof.html). For $`\tan(D/2) = \Delta/(1 + \alpha + \beta + \gamma)`$.
-- K. C. H. Mackenzie, *General Theory of Lie Groupoids and Lie Algebroids*, London Math. Soc. Lecture Note Series 213, Cambridge University Press (2005). Gauge groupoids; cited from memory, not re-read.
+- K. C. H. Mackenzie, *General Theory of Lie Groupoids and Lie Algebroids*, London Math. Soc. Lecture Note Series 213, Cambridge University Press (2005). Read in the publisher's preview (preface, §§1.1-1.3), 20 November 2026: Def. 1.1.1, Examples 1.1.7, 1.1.9, 1.1.12, 1.1.15, 1.2.4, Def. 1.3.1 and the remark after it.
+- P. K. Aravind, "The Wigner angle as an anholonomy in rapidity space", *Am. J. Phys.* 65 (1997) 634-636. Not read; cited for the holonomy reading.
 - V. Bargmann, "Note on Wigner's theorem on symmetry operations", *J. Math. Phys.* 5 (1964) 862-868.
 - N. Mukunda and R. Simon, "Quantum kinematic approach to the geometric phase. I. General formalism", *Ann. Phys.* 228 (1993) 205-268.
 - P. Lévay, "Mixed state geometric phase from Thomas rotations", [arXiv:quant-ph/0312023](https://arxiv.org/abs/quant-ph/0312023).
