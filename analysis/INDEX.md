@@ -22,6 +22,7 @@ defined in the [glossary](../GLOSSARY.md).
 | TV | 2 | [`ternary_mass_centre.md`](ternary_mass_centre.md) |
 | MF | 3 | [`metric_free_body.md`](metric_free_body.md) |
 | CS | 4 | [`clock_centre.md`](clock_centre.md) |
+| OI | 5 | [`observer_idempotents.md`](observer_idempotents.md) |
 
 ## Results by note
 
@@ -51,7 +52,7 @@ defined in the [glossary](../GLOSSARY.md).
 | [Prop TV10](ternary_mass_centre.md#5-how-far-the-ternary-falls-below-the-binary) | 5 | The 2004 ternary velocity keeps the binary speed and is reciprocal only in the plane; the boost-link is always reciprocal and slower | — |
 | [Thm TV6](ternary_mass_centre.md#6-the-no-go-theorem) | 6 | No Lorentz link depends covariantly on the pair alone, carries `A` to `B` and composes; the Galilei group has one | Proved by hand; not machine-checked |
 | [Prop TV7](ternary_mass_centre.md#6-the-no-go-theorem) | 6 | The three ways out on the example: 31.16°, 32.75°, and the based lift, which closes | — |
-| [Prop TV8](ternary_mass_centre.md#8-the-algebra-of-observers-sees-the-same-line) | 8 | The Frobenius form has determinant `±(det gamma)^(2n)`; degenerate exactly for linearly dependent bodies; `gamma_t = gamma - alpha` | — |
+| [Prop TV8](ternary_mass_centre.md#8-the-algebra-of-observers-sees-the-same-line) | 8 | The Frobenius form has determinant `±(det gamma)^(2n)`; degenerate exactly for linearly dependent bodies; `gamma_t = gamma - alpha` |`det G` gives the rotation angle: OI3 |
 | [Prop TV9](ternary_mass_centre.md#9-dynamics-where-two-bodies-work-and-three-do-not) | 9 | `mu_12` is Todorov's `epsilon_w`; `v(Z, A, B)` is the velocity of his effective particle | — |
 
 ### Step 3: [`metric_free_body.md`](metric_free_body.md)
@@ -83,6 +84,17 @@ defined in the [glossary](../GLOSSARY.md).
 | [Prop CS5](clock_centre.md#5-spin-in-dp) | 5 | `S_ij = -(1/2) ∫ r^2 (d pi)_ij`; on a rotor the `rho d alpha` term alone gives `-I Omega` | — |
 | [Prop CS6](clock_centre.md#6-where-vorticity-does-give-the-spin) | 6 | For axisymmetric dust the clock's circulation is `u_phi`, so `S = (c^2/4 pi) ∫ Delta tau dm`; Møller's radius on a ring is `c Delta tau/(4 pi gamma)` | Dust only |
 
+### Step 5: [`observer_idempotents.md`](observer_idempotents.md)
+
+| ID | § | Says | Standing |
+|---|---|---|---|
+| [Def OI0](observer_idempotents.md#2-setting) | 2 | Bodies in `A = Cl(V, -g) = M2(H)`: `X^2 = 1`, `X.Y = gamma_XY`, idempotent `e_X = (1 + X)/2`, boost rotor `L_YX` | `Cl(V, g)` does not work (OI5) |
+| [Lem OI1](observer_idempotents.md#3-one-body) | 3 | `e_X Y e_X = gamma_XY e_X`; the corner `e_X A e_X` is the quaternions of the rest space; `e_X` is primitive | — |
+| [Prop OI2](observer_idempotents.md#4-two-bodies) | 4 | `e_Y e_X = (1/2)(1 + YX) e_X = cosh(r/2) L_YX e_X`; the boost intertwines `e_X` and `e_Y` | Analogue of (9) of Oziewicz 2007 |
+| [Thm OI3](observer_idempotents.md#5-three-bodies-the-loop-is-the-wigner-rotation) | 5 | `e_X e_Z e_Y e_X = (1/8)(1+XZ)(1+ZY)(1+YX) e_X = prod cosh(r/2) H e_X`, `H` the Wigner rotation; `tan(theta/2) = sqrt(det G)/(1 + sum gamma)`; TV7's angle exactly | Angle formula known (Macfarlane); the idempotent form not found in a short search |
+| [Prop OI4](observer_idempotents.md#6-the-orientation-groupoid-in-the-algebra) | 6 | Corners `e_Y A e_X` are 4-dimensional; their unit elements form the gauge groupoid with isotropy `Spin(3)`; the boost section fails to compose by `H` | Answers TV-SP1 in part |
+| [Prop OI5](observer_idempotents.md#7-what-the-algebra-of-mc6-cannot-see) | 7 | Rank-one projectors have 1-dimensional corners, as postulate (8) of 2007 demands, and real loops: only the pair groupoid; `Cl(V, g)` has no `e_X` | — |
+
 ## Open items
 
 | ID | Says | Status |
@@ -93,7 +105,7 @@ defined in the [glossary](../GLOSSARY.md).
 | [MC-SP4](mass_centre.md#10-open-items) | Dynamics from binary accelerations relative to the mass centre | open |
 | [MC-SP5](mass_centre.md#10-open-items) | Radiation terms of (2.2.8) and Clarification 2.2.3 | open |
 | [MC-SP6](mass_centre.md#10-open-items) | Public link for the long version | answered: 2015 version on Academia.edu (§1) |
-| [TV-SP1](ternary_mass_centre.md#11-open-items) | The groupoid that keeps orientation; `[[a,b],[b,c]]` in the algebra; spin | open |
+| [TV-SP1](ternary_mass_centre.md#11-open-items) | The groupoid that keeps orientation; `[[a,b],[b,c]]` in the algebra; spin | answered in part by OI4, OI5: it is the corners of the observer idempotents in `Cl(V, -g)`, not in the algebra of MC6; `[[a,b],[b,c]]` and spin open |
 | [TV-SP2](ternary_mass_centre.md#11-open-items) | Sign of `alpha` on the 2005 slides; Theorem 10.5 of `velocity.pdf` | answered: the sign of `alpha` in the theorem of slide 8 and in slide 9 is wrong (§8); it is Theorem 11.5 |
 | [TV-SP3](ternary_mass_centre.md#11-open-items) | Is the failure of cluster separability a rotation between `Z` of the pair and `Z` of the system? | open |
 | [TV-SP4](ternary_mass_centre.md#11-open-items) | A three-body counterpart of TV2 for (2.2.11) | open |
@@ -109,3 +121,8 @@ defined in the [glossary](../GLOSSARY.md).
 | [CS-SP3](clock_centre.md#8-open-items) | Møller's (29) from `Gamma >= 1` | open |
 | [CS-SP4](clock_centre.md#8-open-items) | Pryce's brackets and `P ∧ L` | open |
 | [CS-SP5](clock_centre.md#8-open-items) | Keres's vortex fields and the circulation of CS6 | open |
+| [OI-SP1](observer_idempotents.md#9-open-items) | An observer idempotent for a metric-free body `(X, alpha)` in `Cl(V + V*)` | open |
+| [OI-SP2](observer_idempotents.md#9-open-items) | What plays `e_X` in `Cl(V, g)` or the algebra of physical space | open |
+| [OI-SP3](observer_idempotents.md#9-open-items) | A map from the corners to Oziewicz's arrows that respects (21) | open |
+| [OI-SP4](observer_idempotents.md#9-open-items) | Cluster separability (TV-SP3) as a holonomy of corners with the mass centre | open |
+| [OI-SP5](observer_idempotents.md#9-open-items) | The literature search was short; Urbantke 1990 and the APS literature not read | open |
