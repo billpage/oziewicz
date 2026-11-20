@@ -122,7 +122,7 @@ defined in the [glossary](../GLOSSARY.md).
 | [CS-SP4](clock_centre.md#8-open-items) | Pryce's brackets and `P ∧ L` | open |
 | [CS-SP5](clock_centre.md#8-open-items) | Keres's vortex fields and the circulation of CS6 | open |
 | [OI-SP1](observer_idempotents.md#9-open-items) | An observer idempotent for a metric-free body `(X, alpha)` in `Cl(V + V*)` | open |
-| [OI-SP2](observer_idempotents.md#9-open-items) | What plays `e_X` in `Cl(V, g)` or the algebra of physical space | open |
+| [OI-SP2](observer_idempotents.md#9-open-items) | What plays `e_X` in `Cl(V, g)` or the algebra of physical space | partly answered (§6.3): in the even algebra the observer enters through the conjugation `X rev(K) X`; `Cl(V, g)` open |
 | [OI-SP3](observer_idempotents.md#9-open-items) | A map from the corners to Oziewicz's arrows that respects (21) | open |
 | [OI-SP4](observer_idempotents.md#9-open-items) | Cluster separability (TV-SP3) as a holonomy of corners with the mass centre | open |
-| [OI-SP5](observer_idempotents.md#9-open-items) | The literature search was short; Aravind 1997 read; Urbantke 1990 and the APS literature not read | open |
+| [OI-SP5](observer_idempotents.md#9-open-items) | The literature search was short; Aravind 1997 and Baylis-Sobczyk 2004 read, neither has OI3 with idempotents; Urbantke 1990 and the wider APS literature not read | open |

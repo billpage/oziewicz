@@ -5,7 +5,7 @@ The algebra is A = Cl(V, -g), the spacetime algebra G(1,3), with g of signature
 The observer idempotent of X is e_X = (1 + X)/2.  Orthonormal basis gamma_0..gamma_3
 with gamma_0^2 = 1, gamma_k^2 = -1.  Elements are dicts {bitmask: coefficient}.
 
-Parts A to F are exact (SymPy).  Part G is numerical (NumPy).
+Parts A to F and H are exact (SymPy).  Part G is numerical (NumPy).
 
 Parts
   A  OI1: e_X Y e_X = gamma_XY e_X; the corner e_X A e_X is a quaternion algebra
@@ -18,6 +18,8 @@ Parts
   F  OI5: rank-one projectors have 1-dimensional corners; Cl(V, g) has no e_X
   G  numerical: 500 random triples, angle of H = area; 200 random pentagons;
          the boost is parallel transport on rest spaces
+  H  the dictionary with Baylis and Sobczyk (2004): L^2 = u_B u_A, the space-time split,
+         the observer's conjugation, the polar decomposition L = B R
 
 Run:  PYTHONPATH=src python3 -u src/verify_observer_idempotents.py
 """
@@ -438,8 +440,44 @@ def part_g():
           and errs[1] < 1e-4 and 8 < errs[0] / errs[1] < 12)
 
 
+def part_h():
+    print("\nPart H: the dictionary with Baylis and Sobczyk (2004)")
+    X, Y = vec(Xs), vec(Ys)
+    YX, gXY = mul(Y, X), dot(X, Y)
+    check("(1 + YX)^2 = 2 (1 + gamma) YX, so L_YX^2 = YX = u_Y u_X (BS eq. (24))",
+          is_zero(sub(mul(add(one(), YX), add(one(), YX)), sm(2 * (1 + gXY), YX)), red))
+    check("e_X (Y ^ X) e_X = 0: the sandwich keeps the time part of the space-time split (BS eqs. (26)-(27))",
+          is_zero(mul(e(X), grade(YX, 2), e(X)), red))
+
+    def dag(K, P):                                              # BS eq. (22): K^{dagger P} = P rev(K) P
+        return mul(P, rev(K), P)
+
+    ks = sp.symbols("k0:8")
+    even = [m for m in range(16) if bin(m).count("1") % 2 == 0]
+    K = clean({m: ks[i] for i, m in enumerate(even)})
+    comm = sm(R(1, 2), add(K, mul(X, K, X)))                    # part of K commuting with X
+    check("even K: e_X K e_X = (1/2)(K + X K X) e_X, the part of K that commutes with X",
+          is_zero(sub(mul(e(X), K, e(X)), mul(comm, e(X))), red))
+    check("that part has no pseudoscalar, and its real part for X is the scalar alone (scalar + rest bivectors)",
+          is_zero(grade(comm, 4), red)
+          and is_zero(sub(sm(R(1, 2), add(comm, dag(comm, X))), {0: ks[0]}), red))
+    # polar decomposition relative to S (BS section II and eq. (23)), exact rationals
+    S, Bb, C = rational_body(R(3, 5), 0), rational_body(0, R(4, 5)), rational_body(R(-3, 13), R(-4, 13))
+    lam = lambda P, Q: add(one(), mul(P, Q))
+    L = mul(lam(C, Bb), lam(Bb, S))                             # unnormalised L_CB L_BS
+    Bm = lam(C, S)                                              # unnormalised boost S -> C
+    Lam = mul(lam(S, C), lam(C, Bb), lam(Bb, S))                # unnormalised Wigner rotor at S
+    nL = 4 * (1 + dot(C, Bb)) * (1 + dot(Bb, S))
+    check("L L^{dagger S} = |L|^2 C S: BS eq. (23), L L^{dagger A} = u_B u_A", is_zero(sub(mul(L, dag(L, S)), sm(nL, mul(C, S)))))
+    check("the boost factor is hermitian for S: (1 + CS)^{dagger S} = 1 + CS", is_zero(sub(dag(Bm, S), Bm)))
+    check("the rotation factor is unitary for S: Lambda^{dagger S} = rev(Lambda), Lambda^{dagger S} Lambda a scalar",
+          is_zero(sub(dag(Lam, S), rev(Lam))) and set(mul(dag(Lam, S), Lam)) <= {0})
+    check("2 (1 + gamma_SC) L = (1 + CS) Lambda: OI3 (5) is the polar decomposition L = B R relative to S",
+          is_zero(sub(sm(2 * (1 + dot(S, C)), L), mul(Bm, Lam))))
+
+
 if __name__ == "__main__":
-    for part in (part_a, part_b, part_c, part_d, part_e, part_f, part_g):
+    for part in (part_a, part_b, part_c, part_d, part_e, part_f, part_g, part_h):
         part()
     if FAILED:
         print(f"\n{len(FAILED)} CHECK(S) FAILED")

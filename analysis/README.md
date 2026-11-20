@@ -33,11 +33,14 @@ title, and `check_abstracts` keeps the two copies equal.
   hyperbolic Heron formula, and its equality with the area of the triangle is
   Aravind's (1997); what is new, as far as a short search found, is that a
   product of observer idempotents yields it, for triangles and, as a
-  path-ordered product, for any polygon. **Proposition OI4**: the corners $`e_Y
-  A e_X`$ are 4-dimensional, and their unit elements form the gauge groupoid
-  with isotropy $`\mathrm{Spin}(3)`$, the orientation groupoid asked for in
-  TV-SP1, which is answered in part. The boost is a covariant section that fails
-  to compose by exactly $`H`$, as TV6 requires. **Proposition OI5**: rank-one
+  path-ordered product, for any polygon. In the notation of Baylis and Sobczyk
+  (2004), OI2 is the idempotent form of their $`L^2 = u_B u_A`$, and OI3 is
+  their polar decomposition $`L = BR`$ relative to the observer, with the Wigner
+  rotation as the unitary factor. **Proposition OI4**: the corners $`e_Y A e_X`$
+  are 4-dimensional, and their unit elements form the gauge groupoid with
+  isotropy $`\mathrm{Spin}(3)`$, the orientation groupoid asked for in TV-SP1,
+  which is answered in part. The boost is a covariant section that fails to
+  compose by exactly $`H`$, as TV6 requires. **Proposition OI5**: rank-one
   projectors of $`\mathrm{End}(V)`$ have 1-dimensional corners, which is what
   Oziewicz's postulate (8) demands, and real loops, so the algebra of MC6
   carries only the pair groupoid, and $`\mathrm{Cl}(V, g)`$ has no idempotent of
