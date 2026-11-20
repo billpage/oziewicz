@@ -33,34 +33,38 @@ of integer matrices) and is labelled so. Not yet read or heard by Bill Page.
 
 | File | What it is |
 |---|---|
-| `slides.html` | The source: the slides, with formulas as TeX between `\(` `\)` and `\[` `\]`, images as `asset:NAME` and an empty `NOTES` array. Not a page to open |
+| `slides.html` | The source: the slides, with formulas as TeX between `\(` `\)` and `\[` `\]`, images as `asset:NAME`, and the deck's own style. Not a page to open |
 | `notes/slide_NN.md` | The narration, one file per slide, in the speaker's voice |
 | `grassmann_to_clifford.html` | The built page: formulas typeset as SVG, the figure embedded, `NOTES` filled. Input to `narrate render`, and served by GitHub Pages |
 | `pronunciations.json` | For the synthetic voice: spoken forms used only in this talk. Names shared by the talks are in [`src/narration/oziewicz_terms.json`](../../src/narration/oziewicz_terms.json) |
-| [`src/narration/build_deck.py`](../../src/narration/build_deck.py), [`tex_svg.mjs`](../../src/narration/tex_svg.mjs) | Build the page from the source (MathJax, from the `npm install` the markdown checks already need) |
+| [`src/narration/tex_macros.json`](../../src/narration/tex_macros.json) | The TeX macros of the deck (`\V`, `\C`, `\G` for vectors blue, covectors orange, green; `\cV`, `\End`) |
 
 The only image, `grassmann_dual_pair.png`, is the figure of the supplement, from
 `figures/` on the `output` branch.
 
 ## Building
 
-From the repository root, after `npm install katex mathjax-full` and with the
-`output` worktree at `~/oziewicz-output`:
+From the repository root, after `npm install katex mathjax-full` (MathJax for
+the formulas; the same install the markdown checks use) and with the `output`
+worktree at `~/oziewicz-output` (for the figure):
 
 ```bash
-OZ_OUTPUT=talks/grassmann_to_clifford PYTHONPATH=src python3 src/narration/build_deck.py \
-    --talk talks/grassmann_to_clifford --name grassmann_to_clifford \
-    --assets ~/oziewicz-output/figures --foot "Oziewicz project · From Grassmann to Clifford"
+narrate build-deck talks/grassmann_to_clifford --foot "Oziewicz project · From Grassmann to Clifford"
 ```
 
-Edit the slides in `slides.html` and the words in `notes/`, then build again.
-The script prints the number of words and an estimate of the length.
+`narrate` is billpage/narrate (see Narrating below); the macros and the figure
+folder come from [`narration.toml`](../../narration.toml). It writes
+`grassmann_to_clifford.html` and adds the page frame: the notes panel at the
+right (below the slide in a narrow window, N toggles), the bar and the
+navigation. Edit the slides in `slides.html` and the words in `notes/`, then
+build again. The command prints the number of words and an estimate of the
+length.
 
 ## Narrating
 
 The narrator is `narrate` from
 [billpage/narrate](https://github.com/billpage/narrate)
-(`pipx install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.3.1"`), with this repository's settings in
+(`pipx install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.4.0"`), with this repository's settings in
 [`narration.toml`](../../narration.toml): the Edge voice `en-CA-LiamNeural`,
 renders in `~/oziewicz-narration/`, and pronunciations merged from narrate's
 common terms, [`src/narration/oziewicz_terms.json`](../../src/narration/oziewicz_terms.json)
@@ -89,6 +93,6 @@ from `main` after the correction of the book title on slide 23 (`e06d8b9`).
 ## Sources
 
 The papers are those of the supplement, §17, and of
-[`references/bibliography.md`](../../references/bibliography.md). The
-navigation script and page frame follow the slide decks of billpage/wpmw
-(`docs/interactive/worlds_and_particles.html`).
+[`references/bibliography.md`](../../references/bibliography.md). The page
+frame (navigation, notes panel) is narrate's, which began as this deck's, after
+the slide decks of billpage/wpmw (`docs/interactive/worlds_and_particles.html`).

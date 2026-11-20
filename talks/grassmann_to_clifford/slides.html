@@ -12,11 +12,10 @@
   those marked "checked" are checked by src/verify_grassmann_clifford.py.
 
   This file is the SOURCE: formulas are TeX between \( \) and \[ \], images are
-  asset:NAME, and NOTES is filled from notes/slide_NN.md. Build the page with
-  src/narration/build_deck.py (see README.md in this directory).
-
-  Navigation script and page frame after billpage/wpmw docs/interactive/
-  worlds_and_particles.html. Web fonts with system fallbacks.
+  asset:NAME, and the notes are in notes/slide_NN.md. Build the page with
+  `narrate build-deck talks/grassmann_to_clifford` (see README.md in this
+  directory), which adds narrate's page frame (notes panel, bar, navigation).
+  This style sets only the deck's own look. Web fonts with system fallbacks.
   Bill Page, CC-BY-SA-4.0.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,15 +23,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400..700;1,400&amp;display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono&amp;display=swap">
 <style>
-html, body { margin: 0; height: 100%; background: #1d232c; overflow: hidden;
-  font-family: 'IBM Plex Sans', Arial, sans-serif; }
-#stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
-  transform-origin: 0 0; }
-.slide { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
-  box-sizing: border-box; overflow: hidden; background: #F7F5EF; color: #16202E;
+html, body { font-family: 'IBM Plex Sans', Arial, sans-serif; }
+.slide { background: #F7F5EF; color: #16202E;
   padding: 96px 128px 140px; display: flex; flex-direction: column; gap: 30px;
   font-family: 'IBM Plex Sans', Arial, sans-serif; }
-@media screen { .slide:not(.current) { display: none !important; } }
 .slide * { margin: 0; box-sizing: border-box; }
 .slide h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 112px; font-weight: 600; line-height: 1.04; }
 .slide h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 60px; font-weight: 600; line-height: 1.1; }
@@ -72,24 +66,6 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 #cover { background: #16202E; color: #F2EEE4; }
 #cover .kick { color: #8FB4DC; }
 .num { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; color: #2F5D8A; font-size: 44px !important; line-height: 1 !important; }
-#bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 12px;
-  align-items: center; justify-content: center; padding: 6px; font-size: 14px;
-  color: #c9d1db; background: rgba(20,25,32,0.85); }
-#bar button { font: inherit; color: inherit; background: #2c3542; border: 1px solid #45505f;
-  border-radius: 6px; padding: 4px 12px; cursor: pointer; }
-#notes { position: fixed; top: 0; right: 0; bottom: 34px; width: 32vw; overflow: auto;
-  box-sizing: border-box; background: #fbfaf6; color: #1d232c; padding: 18px 24px;
-  font-size: 16px; line-height: 1.55; white-space: pre-wrap; border-left: 3px solid #2F5D8A;
-  display: none; }
-#notes.show { display: block; }
-#notes.below { left: 0; width: auto; border-left: 0; border-top: 3px solid #2F5D8A; }
-@media print {
-  html, body { overflow: visible; height: auto; background: none; }
-  #bar, #notes { display: none !important; }
-  #stage { position: static; transform: none !important; width: auto; height: auto; }
-  .slide { position: relative; page-break-after: always; zoom: 0.5; }
-  @page { size: 960px 540px; margin: 0; }
-}
 </style>
 </head>
 <body>
@@ -688,66 +664,5 @@ table.t th { font-weight: 600; border-bottom: 2px solid #B9B2A2; color: #3E4A5A;
 </section>
 
 </div>
-<div id="notes" class="show" aria-live="polite"></div>
-<div id="bar">
-<button id="prev" aria-label="Previous slide">&larr;</button>
-<span id="count"></span>
-<button id="next" aria-label="Next slide">&rarr;</button>
-<button id="nbtn" aria-pressed="true">Notes (N)</button>
-</div>
-<script>
-const NOTES = [];
-const slides = Array.from(document.querySelectorAll('.slide'));
-const stage = document.getElementById('stage');
-const notesEl = document.getElementById('notes');
-const nbtn = document.getElementById('nbtn');
-let i = 0;
-// The notes are a panel on the right, shown at first; N hides and shows them.
-// The slide is scaled to the space left of the panel. In a narrow window
-// (portrait phone) the panel goes below the slide instead.
-function fit() {
-  const bar = 34, W = window.innerWidth, H = window.innerHeight - bar;
-  const shown = notesEl.classList.contains('show');
-  const below = W < 700;
-  notesEl.classList.toggle('below', below);
-  const nw = shown && !below ? Math.round(Math.min(640, Math.max(300, 0.32 * W))) : 0;
-  notesEl.style.width = below ? '' : nw + 'px';
-  const w = W - nw;
-  const s = Math.min(w / 1920, H / 1080);
-  const x = (w - 1920 * s) / 2;
-  // Below: the slide at the top, the notes in the space under it.
-  const y = shown && below ? 0 : (H - 1080 * s) / 2;
-  notesEl.style.top = shown && below ? Math.round(1080 * s) + 'px' : '';
-  stage.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
-}
-function show(k) {
-  i = Math.max(0, Math.min(slides.length - 1, k));
-  slides.forEach((el, j) => el.classList.toggle('current', j === i));
-  document.getElementById('count').textContent = `${i + 1} / ${slides.length}`;
-  notesEl.textContent = NOTES[i] || '(no notes)';
-  notesEl.scrollTop = 0;
-  try { if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
-}
-function toggleNotes() {
-  const on = notesEl.classList.toggle('show');
-  nbtn.setAttribute('aria-pressed', String(on));
-  fit();
-}
-document.getElementById('prev').onclick = () => show(i - 1);
-document.getElementById('next').onclick = () => show(i + 1);
-nbtn.onclick = toggleNotes;
-stage.addEventListener('click', e => show(e.clientX < stage.getBoundingClientRect().left + stage.getBoundingClientRect().width / 3 ? i - 1 : i + 1));
-document.addEventListener('keydown', e => {
-  if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(i + 1); }
-  else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
-  else if (e.key === 'Home') show(0);
-  else if (e.key === 'End') show(slides.length - 1);
-  else if (e.key === 'n' || e.key === 'N') toggleNotes();
-});
-window.addEventListener('resize', fit);
-window.addEventListener('hashchange', () => show(parseInt(location.hash.slice(1), 10) - 1 || 0));
-fit();
-show((parseInt(location.hash.slice(1), 10) || 1) - 1);
-</script>
 </body>
 </html>
