@@ -91,7 +91,7 @@ defined in the [glossary](../GLOSSARY.md).
 | [Def OI0](observer_idempotents.md#2-setting) | 2 | Bodies in `A = Cl(V, -g) = M2(H)`: `X^2 = 1`, `X.Y = gamma_XY`, idempotent `e_X = (1 + X)/2`, boost rotor `L_YX` | `Cl(V, g)` does not work (OI5) |
 | [Lem OI1](observer_idempotents.md#3-one-body) | 3 | `e_X Y e_X = gamma_XY e_X`; the corner `e_X A e_X` is the quaternions of the rest space; `e_X` is primitive | — |
 | [Prop OI2](observer_idempotents.md#4-two-bodies) | 4 | `e_Y e_X = (1/2)(1 + YX) e_X = cosh(r/2) L_YX e_X`; the boost intertwines `e_X` and `e_Y` | Analogue of (9) of Oziewicz 2007 |
-| [Thm OI3](observer_idempotents.md#5-three-bodies-the-loop-is-the-wigner-rotation) | 5 | `e_X e_Z e_Y e_X = (1/8)(1+XZ)(1+ZY)(1+YX) e_X = prod cosh(r/2) H e_X`, `H` the Wigner rotation; `tan(theta/2) = sqrt(det G)/(1 + sum gamma)`; TV7's angle exactly | Angle formula known (Macfarlane); the idempotent form not found in a short search |
+| [Thm OI3](observer_idempotents.md#5-three-bodies-the-loop-is-the-wigner-rotation) | 5 | `e_X e_Z e_Y e_X = (1/8)(1+XZ)(1+ZY)(1+YX) e_X = prod cosh(r/2) H e_X`, `H` the Wigner rotation; `tan(theta/2) = sqrt(det G)/(1 + sum gamma)` = Aravind's (2); TV7's angle exactly; polygons: path-ordered product | Angle formula known (Macfarlane); angle = area is Aravind's (1997); the idempotent form, for triangles and polygons, not found in a short search |
 | [Prop OI4](observer_idempotents.md#6-the-orientation-groupoid-in-the-algebra) | 6 | Corners `e_Y A e_X` are 4-dimensional; their unit elements form the gauge groupoid with isotropy `Spin(3)`; the boost section fails to compose by `H` | Answers TV-SP1 in part |
 | [Prop OI5](observer_idempotents.md#7-what-the-algebra-of-mc6-cannot-see) | 7 | Rank-one projectors have 1-dimensional corners, as postulate (8) of 2007 demands, and real loops: only the pair groupoid; `Cl(V, g)` has no `e_X` | — |
 
@@ -125,4 +125,4 @@ defined in the [glossary](../GLOSSARY.md).
 | [OI-SP2](observer_idempotents.md#9-open-items) | What plays `e_X` in `Cl(V, g)` or the algebra of physical space | open |
 | [OI-SP3](observer_idempotents.md#9-open-items) | A map from the corners to Oziewicz's arrows that respects (21) | open |
 | [OI-SP4](observer_idempotents.md#9-open-items) | Cluster separability (TV-SP3) as a holonomy of corners with the mass centre | open |
-| [OI-SP5](observer_idempotents.md#9-open-items) | The literature search was short; Urbantke 1990 and the APS literature not read | open |
+| [OI-SP5](observer_idempotents.md#9-open-items) | The literature search was short; Aravind 1997 read; Urbantke 1990 and the APS literature not read | open |

@@ -12,10 +12,12 @@ Parts
   B  OI2: e_Y e_X = (1/2)(1 + YX) e_X; the boost intertwines e_X and e_Y
   C  OI3: e_X e_Z e_Y e_X = (1/8) Lambda e_X; Lambda = (1+XZ)(1+ZY)(1+YX) fixes X;
          its scalar, bivector and norm; the open product
-  D  OI3 on step 2's example: cos = 25109/29341 (TV7)
-  E  OI4: corners are 4-dimensional; inverses; the boost section fails to compose by H
+  D  OI3 on step 2's example: cos = 25109/29341 (TV7); OI3 equals Aravind's eq. (2)
+  E  OI4: corners are 4-dimensional; inverses; the boost section fails to compose by H;
+         OI3 (6): a non-planar quadrilateral, triangulation, non-commuting rotations
   F  OI5: rank-one projectors have 1-dimensional corners; Cl(V, g) has no e_X
-  G  numerical: 500 random triples, angle of H = area of the triangle
+  G  numerical: 500 random triples, angle of H = area; 200 random pentagons;
+         the boost is parallel transport on rest spaces
 
 Run:  PYTHONPATH=src python3 -u src/verify_observer_idempotents.py
 """
@@ -249,6 +251,29 @@ def part_d():
     check("tan(theta/2) = sqrt(det G)/(1 + x + y + z) gives the same angle",
           sp.simplify((1 - tan_half ** 2) / (1 + tan_half ** 2) - cos_full) == 0)
 
+    # Aravind (1997): sides eta = r_XY, lambda = r_YZ, angle at Y = pi - phi; his eqs. (2), (3).
+    # c_i, s_i = cosh, sinh of the half rapidities; reduce with s^2 = c^2 - 1, sin^2 = 1 - cos^2.
+    c1, s1, c2, s2, cp, sn = sp.symbols("c1 s1 c2 s2 cphi sphi")
+
+    def red2(v):
+        P = sp.Poly(sp.expand(v), s1, s2, sn)
+        out = 0
+        for (i, j, k), co in P.terms():
+            out += (co * s1 ** (i % 2) * (c1 ** 2 - 1) ** (i // 2) * s2 ** (j % 2) * (c2 ** 2 - 1) ** (j // 2)
+                    * sn ** (k % 2) * (1 - cp ** 2) ** (k // 2))
+        return sp.expand(out)
+
+    x, y = c1 ** 2 + s1 ** 2, c2 ** 2 + s2 ** 2                        # cosh eta, cosh lambda
+    she, shl = 2 * s1 * c1, 2 * s2 * c2
+    z = x * y + cp * shl * she                                          # Aravind (3), the cosh rule
+    detG = 1 + 2 * x * y * z - x ** 2 - y ** 2 - z ** 2
+    den = c1 * c2 + cp * s1 * s2
+    check("1 + x + y + z = 4 cosh(eta/2) cosh(lambda/2) [cosh cosh + cos(phi) sinh sinh] (exact)",
+          red2(1 + x + y + z - 4 * c1 * c2 * den) == 0)
+    check("det G = (sinh eta sinh lambda sin phi)^2 (exact)", red2(detG - (she * shl * sn) ** 2) == 0)
+    check("OI3's tan(theta/2) = |Aravind (2)| = sin(phi) sinh sinh/(cosh cosh + cos(phi) sinh sinh) (exact)",
+          red2(detG * den ** 2 - (sn * s1 * s2) ** 2 * (1 + x + y + z) ** 2) == 0)
+
 
 def part_e():
     print("\nPart E: OI4, corners and the orientation groupoid")
@@ -278,6 +303,25 @@ def part_e():
     check("s(Z<-Y) s(Y<-X) = s(Z<-X) Lambda / (2 (1 + gamma_XZ)): the defect is the Wigner rotation",
           is_zero(sub(lhs, rhs)))
     check("Lambda is not a scalar for this triangle (the rotation is not trivial)", grade(Lam, 2) != {})
+
+    # OI3 (6): a non-planar quadrilateral S -> B -> C -> D -> S
+    S, B, C, D = X, Y, Z, rational_body(0, 0, R(12, 13))
+    lam = lambda P, Q: add(one(), mul(P, Q))                    # unnormalised boost Q -> P
+    Lam4 = mul(lam(S, D), lam(D, C), lam(C, B), lam(B, S))
+    loop4 = mul(e(S), e(D), e(C), e(B), e(S))
+    check("quadrilateral: e_S e_D e_C e_B e_S = (1/16) Lambda_4 e_S, Lambda_4 the path-ordered product",
+          is_zero(sub(loop4, sm(R(1, 16), mul(Lam4, e(S))))))
+    check("Lambda_4 commutes with S (a rotation of S's rest space)", is_zero(sub(mul(Lam4, S), mul(S, Lam4))))
+    gSC = dot(S, C)
+    check("a diagonal costs a scalar: e_C e_S e_C = (1/2)(1 + gamma_SC) e_C", is_zero(sub(mul(e(C), e(S), e(C)), sm((1 + gSC) / 2, e(C)))))
+    check("so (e_S e_D e_C e_S)(e_S e_C e_B e_S) = (1/2)(1 + gamma_SC) e_S e_D e_C e_B e_S",
+          is_zero(sub(mul(e(S), e(D), e(C), e(S), e(C), e(B), e(S)), sm((1 + gSC) / 2, loop4))))
+    LSCD = mul(lam(S, D), lam(D, C), lam(C, S))
+    LSBC = mul(lam(S, C), lam(C, B), lam(B, S))
+    check("Lambda_SCD Lambda_SBC = 2 (1 + gamma_SC) Lambda_4: the quadrilateral's rotation is the product of its triangles'",
+          is_zero(sub(mul(LSCD, LSBC), sm(2 * (1 + gSC), Lam4))))
+    check("the two triangle rotations do not commute (non-planar: they add as rotations, not as areas)",
+          not is_zero(sub(mul(LSCD, LSBC), mul(LSBC, LSCD))))
 
 
 def part_f():
@@ -349,12 +393,27 @@ def part_g():
     check("loop = (prod cosh) H e_p with H the boost holonomy (numerical, 1e-12)", e1 < 1e-12)
     check("angle of H = pi - (A + B + C), the area of the triangle (numerical, 1e-10)", e2 < 1e-10)
 
+    e3 = 0.0
+    for _ in range(200):                                        # random skew pentagons
+        P = [body() for _ in range(5)]
+        Hp, k, M = I4, 1.0, E(P[0])
+        for a, b in zip(P, P[1:] + P[:1]):                      # P0 -> P1 -> ... -> P4 -> P0
+            Hp = boost(b, a) @ Hp
+            k *= np.sqrt((1 + sp0(a @ b)) / 2)
+        for Q in P[1:] + P[:1]:
+            M = E(Q) @ M
+        e3 = max(e3, np.abs(M - k * Hp @ E(P[0])).max())
+    print(f"        pentagons: max |loop - k H e_p| = {e3:.1e}")
+    check("polygon loops: product of idempotents = weights times path-ordered boost holonomy (numerical, 1e-12)", e3 < 1e-12)
+
     # section 6.1: on rest spaces the boost is Levi-Civita transport along the geodesic of H
     eta = np.diag([1.0, -1, -1, -1])
     dt = lambda a, b: a @ eta @ b
 
+    rng2 = np.random.default_rng(3)                             # own generator: independent of the checks above
+
     def b4():
-        u = rng.normal(size=3)
+        u = rng2.normal(size=3)
         u *= 0.9 * rng.random() / np.linalg.norm(u)
         gam = 1 / np.sqrt(1 - u @ u)
         return np.r_[gam, gam * u]
@@ -364,7 +423,7 @@ def part_g():
     Lm = np.eye(4) - np.outer(X + Y, X + Y) @ eta / (1 + gXY) + 2 * np.outer(Y, X) @ eta
     r = np.arccosh(gXY)
     U = (Y - gXY * X) / np.sinh(r)
-    w = rng.normal(size=4)
+    w = rng2.normal(size=4)
     w -= dt(w, X) * X
     errs = []
     for N in (1000, 10000):
