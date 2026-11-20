@@ -130,6 +130,27 @@ MC6;
 OI0. **Not to confuse with** the idempotent `(1 + B)/2` of a unit boost bivector `B`,
 which every observer moving in the plane of `B` shares.
 
+### Orientation groupoid
+
+The groupoid whose objects are bodies and whose arrows from `X` to `Y` are the Lorentz
+transformations `Λ` with `ΛX = Y`: a velocity together with a relative orientation of the
+two rest frames. The arrows from `X` to itself are the rotations of its rest space. It is the
+gauge groupoid of `G -> H`; forgetting the rotations gives the pair groupoid. A loop returns
+a rotation, the Thomas-Wigner rotation of the boosts. **Defined:**
+[`observer_idempotents.md`](analysis/observer_idempotents.md#61-what-the-orientation-groupoid-is)
+§6.1; asked for in
+[`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#11-open-items) TV-SP1.
+**Not to confuse with** the pair groupoid, which has one arrow per pair and in which every
+loop is the identity.
+
+### Pair groupoid
+
+The groupoid with exactly one arrow from each body to each other body. Oziewicz's
+relativity groupoid is one, with the binary velocity as the arrow; composition is forced
+and associativity automatic. **Defined:** Oziewicz 2007, §§2-3;
+[`mass_centre.md`](analysis/mass_centre.md#3-the-binary-velocity) Proposition MC2.
+**Not to confuse with** the orientation groupoid, which keeps the rotation of rest frames.
+
 ### Position space
 
 The space of places of one body `X`: the quotient "spacetime / `X`", or
