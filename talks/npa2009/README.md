@@ -114,7 +114,7 @@ The notes keep what he said. These should not be repeated without checking:
 
 The narrator is `narrate` from
 [billpage/narrate](https://github.com/billpage/narrate)
-(`pipx install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.3.1"`), with this repository's settings in
+(`pipx install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.4.0"`), with this repository's settings in
 [`narration.toml`](../../narration.toml); pronunciations are merged from
 narrate's common terms,
 [`src/narration/oziewicz_terms.json`](../../src/narration/oziewicz_terms.json)

@@ -5,6 +5,10 @@ output_worktree = "~/oziewicz-output"      # a worktree of the output branch
 terms = ["src/narration/oziewicz_terms.json"]
 hash_list = "talks/narrated.sha256"        # a page is served only when its hash is listed on main
 
+[deck]
+macros = "src/narration/tex_macros.json"   # TeX macros of the decks (vectors blue, covectors orange)
+assets = "~/oziewicz-output/figures"       # images named asset:F
+
 [voice]
 voice = "en-CA-LiamNeural"
 pause = 30
