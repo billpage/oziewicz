@@ -60,7 +60,7 @@ The script prints the number of words and an estimate of the length.
 
 The narrator is `narrate` from
 [billpage/narrate](https://github.com/billpage/narrate)
-(`pip install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.3.0"`), with this repository's settings in
+(`pipx install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.3.1"`), with this repository's settings in
 [`narration.toml`](../../narration.toml): the Edge voice `en-CA-LiamNeural`,
 renders in `~/oziewicz-narration/`, and pronunciations merged from narrate's
 common terms, [`src/narration/oziewicz_terms.json`](../../src/narration/oziewicz_terms.json)

@@ -114,14 +114,14 @@ The notes keep what he said. These should not be repeated without checking:
 
 The narrator is `narrate` from
 [billpage/narrate](https://github.com/billpage/narrate)
-(`pip install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.3.0"`), with this repository's settings in
+(`pipx install "narrate[pptx] @ git+https://github.com/billpage/narrate@v0.3.1"`), with this repository's settings in
 [`narration.toml`](../../narration.toml); pronunciations are merged from
 narrate's common terms,
 [`src/narration/oziewicz_terms.json`](../../src/narration/oziewicz_terms.json)
 (names shared by the talks) and this talk's `pronunciations.json` (the stage
 directions dropped, and spoken forms used only here). The PDF and the clips are
-not in the repository. The two narrated pages differ only in their audio, so
-give each its own folder with `-d`.
+not in the repository. `--name` gives each of the two narrated pages its own
+folder in `~/oziewicz-narration/`.
 
 ```bash
 # notes -> slides page (needs pdftocairo)
@@ -129,13 +129,12 @@ OZ_OUTPUT=talks/npa2009 PYTHONPATH=src python3 src/narration/build_slides.py \
     --pdf /path/to/NPA2009-Beamer.pdf --talk talks/npa2009 --name npa2009 \
     --title "What is Special Relativity Theory?"
 
-# Oziewicz's voice: put clip-N.mp3 as <folder>/audio/slide_NN.mp3, then
-narrate render talks/npa2009/npa2009.html --name npa2009_oziewicz \
-    -d ~/oziewicz-narration/npa2009_oziewicz --reuse-audio
+# Oziewicz's voice: put clip-N.mp3 as ~/oziewicz-narration/npa2009_oziewicz/audio/slide_NN.mp3, then
+narrate render talks/npa2009/npa2009.html --name npa2009_oziewicz --reuse-audio
 
 # Synthetic voice (Edge, needs internet)
 narrate render talks/npa2009/npa2009.html --name npa2009_andrew \
-    -d ~/oziewicz-narration/npa2009_andrew --voice en-US-AndrewNeural --pause 1
+    --voice en-US-AndrewNeural --pause 1
 
 # publish a checked page: pushes it to output and writes its hash line
 narrate publish ~/oziewicz-narration/npa2009_andrew/npa2009_andrew_narrated.html
