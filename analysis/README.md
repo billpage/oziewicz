@@ -14,6 +14,40 @@ Newest first: the most recent step is at the top, and the list runs back to
 step 1 at the bottom. Each entry is repeated word for word under the note's own
 title, and `check_abstracts` keeps the two copies equal.
 
+- **5.** **[`observer_idempotents.md`](observer_idempotents.md)** \
+  Oziewicz (2007, §4) makes every body an idempotent of an associative algebra,
+  and step 1 realised it as the rank-one projector $`X \otimes
+  \mathrm{clock}_X`$ (MC6). This note represents the same bodies in the
+  spacetime algebra $`A = \mathrm{Cl}(V, -g) \cong M_2(\mathbb H)`$, where a
+  body squares to 1, and asks what products of the idempotents $`e_X = (1 +
+  X)/2`$ contain. **Lemma OI1**: $`e_X Y e_X = \gamma_{XY} e_X`$, and the corner
+  $`e_X A e_X`$ is a quaternion algebra, the spin of the rest space of $`X`$.
+  **Proposition OI2**: $`e_Y e_X = \cosh(r/2)\, L_{YX} e_X`$, with $`L_{YX}`$
+  the boost of MC1 and $`r`$ the rapidity. **Theorem OI3**: round a triangle,
+  $`e_X e_Z e_Y e_X = \tfrac18 (1 + XZ)(1 + ZY)(1 + YX)\, e_X`$, which is the
+  product of the three $`\cosh(r/2)`$ times $`H e_X`$, with $`H`$ the
+  Thomas-Wigner rotation of the boost loop, and $`\tan(\theta/2) = \sqrt{\det
+  G}/(1 + \gamma_{XY} + \gamma_{YZ} + \gamma_{ZX})`$ with $`\det G`$ the
+  polynomial of TV8. On step 2's example it gives TV7's $`\cos\theta =
+  25109/29341`$ exactly. The product $`(1 + XZ)(1 + ZY)(1 + YX)`$, its scalar
+  part and the angle formula are Urbantke's (1990; Chruściel and Urbantke 2025),
+  the formula is Macfarlane's (1962) and the hyperbolic Heron formula, and the
+  equality of angle and area is Aravind's (1997); what is new, as far as the
+  search found, is that the loop product of observer idempotents assembles
+  Urbantke's product without square roots, for triangles and, path-ordered, for
+  any polygon. In the notation of Baylis and Sobczyk (2004), OI2 is the
+  idempotent form of their $`L^2 = u_B u_A`$, and OI3 is their polar
+  decomposition $`L = BR`$ relative to the observer, with the Wigner rotation as
+  the unitary factor. **Proposition OI4**: the corners $`e_Y A e_X`$ are
+  4-dimensional, and their unit elements form the gauge groupoid with isotropy
+  $`\mathrm{Spin}(3)`$, the orientation groupoid asked for in TV-SP1, which is
+  answered in part. The boost is a covariant section that fails to compose by
+  exactly $`H`$, as TV6 requires. **Proposition OI5**: rank-one projectors of
+  $`\mathrm{End}(V)`$ have 1-dimensional corners, which is what Oziewicz's
+  postulate (8) demands, and real loops, so the algebra of MC6 carries only the
+  pair groupoid, and $`\mathrm{Cl}(V, g)`$ has no idempotent of this kind. The
+  representation decides whether the algebra of observers sees the rotation.
+  Checked exactly with SymPy; the triangle also numerically. No new prediction.
 - **4.** **[`clock_centre.md`](clock_centre.md)** \
   Step 3 found that a rotating body has no time function of its own and left
   open how its vorticity relates to Møller's spin (MF-SP1, MC-SP3). This note

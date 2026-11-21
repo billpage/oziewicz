@@ -56,6 +56,15 @@ the body's simultaneity. As a form it is a connection on the worldlines, not a t
 Proposition MF10. **Not to confuse with** proper time along a worldline, or with a time
 function, which exists only where `alpha ∧ d alpha = 0` (MF11).
 
+### Corner (Peirce corner)
+
+For idempotents `e`, `f` of an algebra `A`, the subspace `f A e`. Corners compose by
+the product of `A`, `(g A f)(f A e) ⊂ g A e`, so the idempotents and their corners form a
+category. **Defined:**
+[`observer_idempotents.md`](analysis/observer_idempotents.md#6-the-orientation-groupoid-in-the-algebra)
+Proposition OI4. **Not to confuse with** the ideal `A e`. For observer idempotents the
+corner is 1-dimensional in `End(V)` and 4-dimensional (the quaternions) in `Cl(V, -g)`.
+
 ### Eagle
 
 The third observer `E` or `P` of a ternary velocity, from the eagle watching the
@@ -108,6 +117,42 @@ clock of `Z` picks out a covariant one, Pryce's (d), Møller's centre of gravity
 Theorem MC3 for (1), Proposition MC7 and
 [`clock_centre.md`](analysis/clock_centre.md#3-each-clock-has-its-own-centre) for (2).
 **Not to confuse** the two: the construction of the paper concerns (1).
+
+### Observer idempotent
+
+The idempotent that represents a body. In `End(V)` it is the rank-one projector
+`X ⊗ clock_X` (MC6); in the spacetime algebra `Cl(V, -g)` it is `e_X = (1 + X)/2`. Both
+split vectors into time and rest space, but products of the first carry only `gamma`,
+and products of the second carry the boost and the Thomas-Wigner rotation. **Defined:**
+[`mass_centre.md`](analysis/mass_centre.md#7-the-mass-centre-as-an-idempotent) Theorem
+MC6;
+[`observer_idempotents.md`](analysis/observer_idempotents.md#2-setting) Definition
+OI0. **Not to confuse with** the idempotent `(1 + B)/2` of a unit boost bivector `B`,
+which every observer moving in the plane of `B` shares.
+
+### Orientation groupoid
+
+The groupoid whose objects are bodies and whose arrows from `X` to `Y` are the Lorentz
+transformations `Λ` with `ΛX = Y`: a velocity together with a relative orientation of the
+two rest frames. The arrows from `X` to itself are the rotations of its rest space.
+Equivalently: the action groupoid of the Lorentz group on velocity space, the gauge
+groupoid of `G -> H`, or the oriented orthonormal frame groupoid of the tangent bundle of
+velocity space (Mackenzie 2005, Ex. 1.1.9, 1.1.15, 1.1.12). Forgetting the rotations (the
+anchor) gives the pair groupoid. A loop of boosts returns a rotation, the Thomas-Wigner
+rotation, which is the holonomy of velocity space. **Defined:**
+[`observer_idempotents.md`](analysis/observer_idempotents.md#61-what-the-orientation-groupoid-is)
+§6.1; asked for in
+[`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#11-open-items) TV-SP1.
+**Not to confuse with** the pair groupoid, which has one arrow per pair and in which every
+loop is the identity.
+
+### Pair groupoid
+
+The groupoid with exactly one arrow from each body to each other body. Oziewicz's
+relativity groupoid is one, with the binary velocity as the arrow; composition is forced
+and associativity automatic. **Defined:** Oziewicz 2007, §§2-3;
+[`mass_centre.md`](analysis/mass_centre.md#3-the-binary-velocity) Proposition MC2.
+**Not to confuse with** the orientation groupoid, which keeps the rotation of rest frames.
 
 ### Position space
 
@@ -183,5 +228,7 @@ non-associativity of Einstein addition. **Defined:**
 [`bodies_first.md`](supplement/bodies_first.md#3-binary-and-ternary-velocity)
 Proposition RV3;
 [`ternary_mass_centre.md`](analysis/ternary_mass_centre.md#6-the-no-go-theorem)
-Theorem TV6. **Not to confuse with** a failure of associativity of the groupoid, which
+Theorem TV6; as a product of observer idempotents,
+[`observer_idempotents.md`](analysis/observer_idempotents.md#5-three-bodies-the-loop-is-the-wigner-rotation)
+Theorem OI3. **Not to confuse with** a failure of associativity of the groupoid, which
 is automatic and carries no orientation.
