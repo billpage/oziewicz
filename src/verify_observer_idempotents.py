@@ -198,6 +198,10 @@ def part_b():
     nrm = mul(add(one(), mul(Y, X)), add(one(), mul(X, Y)))
     check("(1 + YX)(1 + XY) = 2 (1 + gamma_XY) on the hyperboloid",
           is_zero(sub(nrm, sm(2 * (1 + dot(X, Y)), one())), red))
+    check("e_Y e_X = (1/2)(X + Y) e_X: the bisector, Urbantke's second reflection (on the hyperboloid)",
+          is_zero(sub(mul(e(Y), e(X)), sm(R(1, 2), mul(add(X, Y), e(X)))), red))
+    check("1 + YX = (X + Y) X on the hyperboloid: the boost as the product of two reflections",
+          is_zero(sub(add(one(), mul(Y, X)), mul(add(X, Y), X)), red))
     v = sub(sm(1, Y), sm(dot(X, Y), X))                    # gamma v_XY = Y - gamma X
     check("gamma v_XY = Y - gamma X is orthogonal to X; e_Y e_X = (1/2)(1 + gamma) e_X + (1/2) gamma v_XY e_X",
           red(dot(v, X)) == 0

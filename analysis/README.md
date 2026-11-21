@@ -29,24 +29,25 @@ title, and `check_abstracts` keeps the two copies equal.
   Thomas-Wigner rotation of the boost loop, and $`\tan(\theta/2) = \sqrt{\det
   G}/(1 + \gamma_{XY} + \gamma_{YZ} + \gamma_{ZX})`$ with $`\det G`$ the
   polynomial of TV8. On step 2's example it gives TV7's $`\cos\theta =
-  25109/29341`$ exactly. The angle formula is Macfarlane's (1962) and the
-  hyperbolic Heron formula, and its equality with the area of the triangle is
-  Aravind's (1997); what is new, as far as a short search found, is that a
-  product of observer idempotents yields it, for triangles and, as a
-  path-ordered product, for any polygon. In the notation of Baylis and Sobczyk
-  (2004), OI2 is the idempotent form of their $`L^2 = u_B u_A`$, and OI3 is
-  their polar decomposition $`L = BR`$ relative to the observer, with the Wigner
-  rotation as the unitary factor. **Proposition OI4**: the corners $`e_Y A e_X`$
-  are 4-dimensional, and their unit elements form the gauge groupoid with
-  isotropy $`\mathrm{Spin}(3)`$, the orientation groupoid asked for in TV-SP1,
-  which is answered in part. The boost is a covariant section that fails to
-  compose by exactly $`H`$, as TV6 requires. **Proposition OI5**: rank-one
-  projectors of $`\mathrm{End}(V)`$ have 1-dimensional corners, which is what
-  Oziewicz's postulate (8) demands, and real loops, so the algebra of MC6
-  carries only the pair groupoid, and $`\mathrm{Cl}(V, g)`$ has no idempotent of
-  this kind. The representation decides whether the algebra of observers sees
-  the rotation. Checked exactly with SymPy; the triangle also numerically. No
-  new prediction.
+  25109/29341`$ exactly. The product $`(1 + XZ)(1 + ZY)(1 + YX)`$, its scalar
+  part and the angle formula are Urbantke's (1990; Chruściel and Urbantke 2025),
+  the formula is Macfarlane's (1962) and the hyperbolic Heron formula, and the
+  equality of angle and area is Aravind's (1997); what is new, as far as the
+  search found, is that the loop product of observer idempotents assembles
+  Urbantke's product without square roots, for triangles and, path-ordered, for
+  any polygon. In the notation of Baylis and Sobczyk (2004), OI2 is the
+  idempotent form of their $`L^2 = u_B u_A`$, and OI3 is their polar
+  decomposition $`L = BR`$ relative to the observer, with the Wigner rotation as
+  the unitary factor. **Proposition OI4**: the corners $`e_Y A e_X`$ are
+  4-dimensional, and their unit elements form the gauge groupoid with isotropy
+  $`\mathrm{Spin}(3)`$, the orientation groupoid asked for in TV-SP1, which is
+  answered in part. The boost is a covariant section that fails to compose by
+  exactly $`H`$, as TV6 requires. **Proposition OI5**: rank-one projectors of
+  $`\mathrm{End}(V)`$ have 1-dimensional corners, which is what Oziewicz's
+  postulate (8) demands, and real loops, so the algebra of MC6 carries only the
+  pair groupoid, and $`\mathrm{Cl}(V, g)`$ has no idempotent of this kind. The
+  representation decides whether the algebra of observers sees the rotation.
+  Checked exactly with SymPy; the triangle also numerically. No new prediction.
 - **4.** **[`clock_centre.md`](clock_centre.md)** \
   Step 3 found that a rotating body has no time function of its own and left
   open how its vorticity relates to Møller's spin (MF-SP1, MC-SP3). This note

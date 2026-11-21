@@ -1,6 +1,6 @@
 # Observers as idempotents of the spacetime algebra: the orientation groupoid and the Wigner rotation
 
-> Oziewicz (2007, §4) makes every body an idempotent of an associative algebra, and step 1 realised it as the rank-one projector $`X \otimes \mathrm{clock}_X`$ (MC6). This note represents the same bodies in the spacetime algebra $`A = \mathrm{Cl}(V, -g) \cong M_2(\mathbb H)`$, where a body squares to 1, and asks what products of the idempotents $`e_X = (1 + X)/2`$ contain. **Lemma OI1**: $`e_X Y e_X = \gamma_{XY} e_X`$, and the corner $`e_X A e_X`$ is a quaternion algebra, the spin of the rest space of $`X`$. **Proposition OI2**: $`e_Y e_X = \cosh(r/2)\, L_{YX} e_X`$, with $`L_{YX}`$ the boost of MC1 and $`r`$ the rapidity. **Theorem OI3**: round a triangle, $`e_X e_Z e_Y e_X = \tfrac18 (1 + XZ)(1 + ZY)(1 + YX)\, e_X`$, which is the product of the three $`\cosh(r/2)`$ times $`H e_X`$, with $`H`$ the Thomas-Wigner rotation of the boost loop, and $`\tan(\theta/2) = \sqrt{\det G}/(1 + \gamma_{XY} + \gamma_{YZ} + \gamma_{ZX})`$ with $`\det G`$ the polynomial of TV8. On step 2's example it gives TV7's $`\cos\theta = 25109/29341`$ exactly. The angle formula is Macfarlane's (1962) and the hyperbolic Heron formula, and its equality with the area of the triangle is Aravind's (1997); what is new, as far as a short search found, is that a product of observer idempotents yields it, for triangles and, as a path-ordered product, for any polygon. In the notation of Baylis and Sobczyk (2004), OI2 is the idempotent form of their $`L^2 = u_B u_A`$, and OI3 is their polar decomposition $`L = BR`$ relative to the observer, with the Wigner rotation as the unitary factor. **Proposition OI4**: the corners $`e_Y A e_X`$ are 4-dimensional, and their unit elements form the gauge groupoid with isotropy $`\mathrm{Spin}(3)`$, the orientation groupoid asked for in TV-SP1, which is answered in part. The boost is a covariant section that fails to compose by exactly $`H`$, as TV6 requires. **Proposition OI5**: rank-one projectors of $`\mathrm{End}(V)`$ have 1-dimensional corners, which is what Oziewicz's postulate (8) demands, and real loops, so the algebra of MC6 carries only the pair groupoid, and $`\mathrm{Cl}(V, g)`$ has no idempotent of this kind. The representation decides whether the algebra of observers sees the rotation. Checked exactly with SymPy; the triangle also numerically. No new prediction.
+> Oziewicz (2007, §4) makes every body an idempotent of an associative algebra, and step 1 realised it as the rank-one projector $`X \otimes \mathrm{clock}_X`$ (MC6). This note represents the same bodies in the spacetime algebra $`A = \mathrm{Cl}(V, -g) \cong M_2(\mathbb H)`$, where a body squares to 1, and asks what products of the idempotents $`e_X = (1 + X)/2`$ contain. **Lemma OI1**: $`e_X Y e_X = \gamma_{XY} e_X`$, and the corner $`e_X A e_X`$ is a quaternion algebra, the spin of the rest space of $`X`$. **Proposition OI2**: $`e_Y e_X = \cosh(r/2)\, L_{YX} e_X`$, with $`L_{YX}`$ the boost of MC1 and $`r`$ the rapidity. **Theorem OI3**: round a triangle, $`e_X e_Z e_Y e_X = \tfrac18 (1 + XZ)(1 + ZY)(1 + YX)\, e_X`$, which is the product of the three $`\cosh(r/2)`$ times $`H e_X`$, with $`H`$ the Thomas-Wigner rotation of the boost loop, and $`\tan(\theta/2) = \sqrt{\det G}/(1 + \gamma_{XY} + \gamma_{YZ} + \gamma_{ZX})`$ with $`\det G`$ the polynomial of TV8. On step 2's example it gives TV7's $`\cos\theta = 25109/29341`$ exactly. The product $`(1 + XZ)(1 + ZY)(1 + YX)`$, its scalar part and the angle formula are Urbantke's (1990; Chruściel and Urbantke 2025), the formula is Macfarlane's (1962) and the hyperbolic Heron formula, and the equality of angle and area is Aravind's (1997); what is new, as far as the search found, is that the loop product of observer idempotents assembles Urbantke's product without square roots, for triangles and, path-ordered, for any polygon. In the notation of Baylis and Sobczyk (2004), OI2 is the idempotent form of their $`L^2 = u_B u_A`$, and OI3 is their polar decomposition $`L = BR`$ relative to the observer, with the Wigner rotation as the unitary factor. **Proposition OI4**: the corners $`e_Y A e_X`$ are 4-dimensional, and their unit elements form the gauge groupoid with isotropy $`\mathrm{Spin}(3)`$, the orientation groupoid asked for in TV-SP1, which is answered in part. The boost is a covariant section that fails to compose by exactly $`H`$, as TV6 requires. **Proposition OI5**: rank-one projectors of $`\mathrm{End}(V)`$ have 1-dimensional corners, which is what Oziewicz's postulate (8) demands, and real loops, so the algebra of MC6 carries only the pair groupoid, and $`\mathrm{Cl}(V, g)`$ has no idempotent of this kind. The representation decides whether the algebra of observers sees the rotation. Checked exactly with SymPy; the triangle also numerically. No new prediction.
 
 *Ladder abstract — see the [full list](README.md#the-ladder).*
 
@@ -40,8 +40,10 @@ TV7 and its example, the polynomial $`\det G`$ of TV8, and the open item TV-SP1.
 - Oziewicz (2007), §4, "Relativity Groupoid is an Algebra": the span of bodies and binary velocities is postulated to be an associative algebra in which every body is an idempotent, splitting vectors into space and time, eq. (4). Read in the arXiv v2 text.
 - Hestenes (1966; 1974) for the spacetime algebra, the space-time split $`YX = (Y \cdot X) + Y \wedge X`$ and rotors.
 - The idempotent $`(1 + \gamma_0)/2`$ is the standard primitive idempotent of $`\mathrm{Cl}(1, 3) \cong M_2(\mathbb H)`$; da Rocha and Vaz (2004) use it to build that isomorphism.
-- Macfarlane (1962), through Chruściel and Urbantke (2025), for the closed form of the Wigner angle, and the hyperbolic Heron formula (Glasgow notes) for the area of a triangle from the cosh of its sides.
-- Aravind (1997), read in full. With the cosh and sinh rules of hyperbolic trigonometry alone, and the Lobachevskian metric of rapidity space (taken from Landau and Lifshitz), he shows that the Wigner angle of two composed boosts is the negative of the area of their rapidity triangle, and calls it an anholonomy, a geometric phase; his eq. (2) gives $`\tan(\Omega/2)`$ from two sides and the included angle. He extends this to polygons by triangulation, and notes that for a loop that is not planar the triangles' rotations must be combined as rotations, not added as areas. He credits the description by the Levi-Civita connection and holonomy to Urbantke (1990), and the infinitesimal case to Jordan (1988); neither was read here.
+- Macfarlane (1962), as cited by Urbantke (1990), for the closed form of the Wigner angle, and the hyperbolic Heron formula (Glasgow notes) for the area of a triangle from the cosh of its sides.
+- Urbantke (1990), read in full in its preprint form (UWThPh 1988-39). §2 proves that Fermi-Walker transport of a vector orthogonal to the world line is Levi-Civita transport, along the hodograph, on the velocity pseudosphere; the proof takes parallel transport in the embedding space followed by orthogonal projection, in infinitesimal steps, which is the method of Part G. Along a geodesic of velocity space this transport is the boost that carries $`u`$ to $`u'`$. §3 computes the Thomas-Wigner rotation of a geodesic triangle as the product of three boost rotors $`S = (e + u'u)/\sqrt{2(1 + (u', u))}`$, built as products of two reflections, in the Clifford algebra with $`(u, u) = +1`$, the $`A`$ of OI0. The product of the numerators has scalar part $`2(1 + (u, u'') + (u'', u') + (u', u))`$ (his eq. (5)), which gives $`\cos(\alpha/2)`$ (his last formula, "essentially Mc Farlane's"). That is the $`\Lambda`$ of OI3.
+- Chruściel and Urbantke (2025), read in full (v1): a pedagogical expansion of Urbantke's §3 in the signature $`(-, +, \dots, +)`$, that is in $`\mathrm{Cl}(V, g)`$, where $`u^2 = -1`$. The boost is the product of the reflections in $`u`$ and $`u + v`$ (Prop. 4.2), with rotor proportional to $`-1 + vu = (u + v)u`$; their $`r`$ and $`|r|^2 = 2^3 \prod (1 + \gamma)`$ (eqs. (7.1)-(7.12)) are $`\Lambda`$ and $`\Lambda \tilde\Lambda`$ here, and eq. (7.20) is Macfarlane's formula.
+- Aravind (1997), read in full. With the cosh and sinh rules of hyperbolic trigonometry alone, and the Lobachevskian metric of rapidity space (taken from Landau and Lifshitz), he shows that the Wigner angle of two composed boosts is the negative of the area of their rapidity triangle, and calls it an anholonomy, a geometric phase; his eq. (2) gives $`\tan(\Omega/2)`$ from two sides and the included angle. He extends this to polygons by triangulation, and notes that for a loop that is not planar the triangles' rotations must be combined as rotations, not added as areas. He credits the description by the Levi-Civita connection and holonomy to Urbantke (1990), read here (next item), and the infinitesimal case to Jordan (1988), which was not.
 - Baylis and Sobczyk (2004), read in full: relativity in the spacetime algebra $`\mathrm{Cl}_{1,3}`$, which is the $`A`$ of OI0 with the same signature, and in the algebra of physical space $`\mathrm{Cl}_3 \cong \mathrm{STA}^+`$; the observer-dependent conjugation; the factorisation $`L = BR`$; absolute and relative APS. It uses no idempotents, groupoids or Wigner angle; §6.3 translates this note into its notation.
 - Bargmann (1964) and Mukunda and Simon (1993) for the three-vertex invariant $`\mathrm{tr}(P_1 P_2 P_3)`$, whose phase is a geometric phase; Lévay (2004) for Thomas rotations as Uhlmann's parallel transport of qubit density matrices.
 
@@ -118,7 +120,15 @@ e_Y\,e_X=\tfrac12(1+\gamma_{XY})\,e_X+\tfrac12\,\gamma_{XY}\,v_{XY}\,e_X,\qquad 
 ```
 
 with $`v_{XY}`$ the binary velocity of MC1, and $`v_{XY} X = Y \wedge X/\gamma_{XY}`$ Hestenes's
-relative velocity.
+relative velocity. Since $`X e_X = e_X`$, also
+
+```math
+e_Y\,e_X=\tfrac12\,(X+Y)\,e_X :
+```
+
+the product of two observer idempotents is the bisector $`X + Y`$ times $`e_X`$. As $`1 + YX = (X + Y) X`$,
+this is the boost written as the product of the reflections in $`X`$ and in $`X + Y`$, Urbantke's
+construction (1990, §3; Chruściel and Urbantke 2025, Prop. 4.2).
 
 *Proof.* $`e_Y e_X = \tfrac14(1 + Y)(1 + X)`$ and $`\tfrac12(1 + YX) e_X = \tfrac14(1 + X + YX + Y X^2)`$
 agree because $`X^2 = 1`$. The intertwining is $`L e_X \tilde L = e_{L X \tilde L}`$. ∎ (SymPy,
@@ -211,10 +221,13 @@ so OI3's $`\tan(\theta/2) = \sqrt{\det G}/(1 + \gamma_{XY} + \gamma_{YZ} + \gamm
 up to his sign, which comes from his orientation and his passive convention (SymPy, Part D,
 exact). The symmetric form needs no choice of vertex: $`\det G`$ is symmetric in the three bodies.
 
-*What is known and what is not.* The angle formulas, the equality of angle and area, its
-extension to polygons, and the rotor $`L_{YX}`$ are known (§1). The statement that the loop
-product of observer idempotents equals the cosh weights times $`H e_X`$, for a triangle or a
-polygon, was not found in the short search. Item 6 is the algebraic form of Aravind's remark
+*What is known and what is not.* The product $`\Lambda`$ of the three boost rotors, its scalar
+part, its norm and the angle formula are Urbantke's (1990, eq. (5) and the formula after it;
+expanded by Chruściel and Urbantke 2025, eqs. (7.1)-(7.20)). The equality of angle and area and
+its extension to polygons are Aravind's (1997). What was not found, in these papers or in the
+search of §1, is the statement that the loop product of observer idempotents is
+$`\tfrac18 \Lambda e_X`$: the idempotents assemble Urbantke's product, with its cosh weights and no
+square root, from the bodies alone, for a triangle or a polygon. Item 6 is the algebraic form of Aravind's remark
 on loops that are not planar: the order of the factors keeps the rotations in order.
 $`\det G`$ is the polynomial that TV8 found in the Frobenius form, in Page's determinant
 of 2004 and in the numerator of Oziewicz's $`\alpha`$; OI3 shows it is $`\sin^2`$ of half the
@@ -274,11 +287,13 @@ would split the anchor: it would embed the pair groupoid in the orientation grou
 - *Based on a reference body.* Mackenzie (after Def. 1.3.1) notes that a transitive groupoid becomes a trivial groupoid once a reference point $`m`$ and arrows $`\sigma(x)`$ from $`m`$ to each $`x`$ are chosen, by $`(y, \lambda, x) \mapsto \sigma(y)\, \lambda\, \sigma(x)^{-1}`$. With $`m = Z`$ and $`\sigma(X) = L_{XZ}`$ this gives, at $`\lambda = 1`$, step 2's based lift $`L_{YZ} L_{XZ}^{-1}`$ (TV7). It composes, but it depends on $`Z`$, so it is not covariant.
 - *Covariant.* The boost $`L_{YX}`$ is covariant and carries $`X`$ to $`Y`$. TV6 shows that no covariant section composes, and OI3 shows by how much the boost fails: round each triangle by the rotation $`H`$.
 
-**Holonomy.** Aravind (1997) showed by hyperbolic trigonometry that the Wigner angle is minus
-the area of the rapidity triangle, and called it an anholonomy. He did not use a connection;
-he credits that description to Urbantke (1990). Here it is explicit. On rest spaces the boost
-$`L_{YX}`$ is parallel transport in velocity space along the geodesic from $`X`$ to $`Y`$ (Part G,
-numerically). Velocity space has curvature $`-1`$ (Aravind's Lobachevskian metric), so by
+**Holonomy.** Urbantke (1990, §2) proved that Fermi-Walker transport of a gyroscope's axes
+along a world line is Levi-Civita transport, along the hodograph, on the velocity pseudosphere,
+and that along a geodesic of velocity space it is the boost that carries one velocity to the
+other. So on rest spaces the boost $`L_{YX}`$ is parallel transport along the geodesic from $`X`$
+to $`Y`$; Part G checks this numerically by his own method, transport followed by projection in
+small steps. Aravind (1997) showed by hyperbolic trigonometry, without the connection, that the
+Wigner angle is minus the area of the rapidity triangle, and called it an anholonomy. Velocity space has curvature $`-1`$ (Aravind's Lobachevskian metric), so by
 Gauss-Bonnet transport round a geodesic triangle rotates by its area. That is why TV7 found the
 Wigner angle equal to the area, and why OI3's formula is the hyperbolic Heron formula: the
 Wigner rotation is the holonomy of the Levi-Civita connection of velocity space, read in the
@@ -403,10 +418,10 @@ discards.
 ## 9. Open items
 
 - **OI-SP1.** Is there an observer idempotent for a metric-free body $`(X, \alpha)`$, $`\alpha X = 1`$? In $`\mathrm{Cl}(V \oplus V^*)`$ the element $`(\alpha \wedge)\, i_X`$ is idempotent of rank 8 in 16. What are its corners for two bodies, and does a loop of three carry anything without a metric?
-- **OI-SP2.** In $`\mathrm{Cl}(V, g)`$, and in the even algebra (the algebra of physical space), what element plays the part of $`e_X`$? A covariant involution built from $`X`$ alone does not exist in $`\mathrm{Cl}(V, g)`$ (OI5); does one built from $`X`$ and an orientation? Partly answered for the even algebra (§6.3): there the observer enters through Baylis and Sobczyk's conjugation $`K \mapsto X \tilde K X`$, not through an idempotent, since $`e_X`$ is not even.
+- **OI-SP2.** In $`\mathrm{Cl}(V, g)`$, and in the even algebra (the algebra of physical space), what element plays the part of $`e_X`$? A covariant involution built from $`X`$ alone does not exist in $`\mathrm{Cl}(V, g)`$ (OI5); does one built from $`X`$ and an orientation? The rotors do not need one: Chruściel and Urbantke (2025) compute the Wigner rotation in $`\mathrm{Cl}(V, g)`$ with the rotor $`-1 + vu`$. What needs $`\mathrm{Cl}(V, -g)`$ is the packaging of the rotors as products of observer idempotents, and the corners. Partly answered for the even algebra (§6.3): there the observer enters through Baylis and Sobczyk's conjugation $`K \mapsto X \tilde K X`$, not through an idempotent, since $`e_X`$ is not even.
 - **OI-SP3.** Is there a natural map from the corners $`e_Y A e_X`$ to Oziewicz's arrows $`\varpi(X, Y)`$ in $`\mathrm{End}(V)`$ that respects composition (2007, eq. (21))? The vector representation $`a \mapsto (v \mapsto a v \tilde a)`$ is quadratic, so it is not the obvious candidate.
 - **OI-SP4.** With the mass centre $`Z`$ of a system (MC3), the corners give a rotation for every triangle of bodies and centres. Can the failure of cluster separability (TV-SP3) be written as such a holonomy, between $`e_Z`$ of a pair and $`e_Z`$ of the system?
-- **OI-SP5.** The search of §1 was short. Aravind (1997) and Baylis and Sobczyk (2004) have since been read (§1, §5, §6.1, §6.3); neither has the identity of OI3 in terms of idempotents. Urbantke (1990), Jordan (1988), Chruściel and Urbantke (2025) beyond its abstract, and the rest of the literature on the algebra of physical space (Baylis 1999; Baylis and Jones 1989) were not read. The identity of OI3 may be there in another form.
+- **OI-SP5.** The search of §1 was short. Aravind (1997), Baylis and Sobczyk (2004), Urbantke (1990) and Chruściel and Urbantke (2025) have since been read (§1, §5, §6.1, §6.3). Urbantke's rotor product is the $`\Lambda`$ of OI3; none of the four writes it as a product of observer idempotents or uses the corners. Jordan (1988), Macfarlane (1962), the rest of the literature on the algebra of physical space (Baylis 1999; Baylis and Jones 1989), and two later papers found in the search, on the Thomas-Wigner rotation as a holonomy of the spin bundle over the mass shell ([arXiv:2310.08121](https://arxiv.org/abs/2310.08121)) and on the geometry of the kinematic space of inertial observers ([arXiv:2012.00681](https://arxiv.org/abs/2012.00681)), were not read. The first bears directly on the $`\mathrm{Spin}(3)`$ corner of OI4. The idempotent form may be there in another guise.
 
 ---
 
@@ -428,7 +443,7 @@ ends with `ALL CHECKS PASSED`. Parts A to F and H are exact (SymPy); Part G is n
 | Part | What is checked | How |
 |---|---|---|
 | A | OI1, the corner, primitivity | symbolic $`X, Y`$ (remainder off the hyperboloid); $`\gamma_0`$ and one rational body |
-| B | OI2, intertwining, the split by $`X`$ | symbolic; on the hyperboloid by reduction of $`X_0^2`$ |
+| B | OI2, intertwining, the split by $`X`$, the bisector form | symbolic; on the hyperboloid by reduction of $`X_0^2`$ |
 | C | OI3 (1), (2), (4), (5) | symbolic bodies in 3+1 on the hyperboloid |
 | D | OI3 on TV7's example; OI3 equals Aravind's eq. (2) | exact rationals: $`55/64`$, $`25109/29341`$; half-rapidity polynomials reduced by $`\cosh^2 - \sinh^2 = 1`$ |
 | E | OI4: dimension, rank 1, inverses, failure to compose; OI3 (6) for a non-planar quadrilateral, its triangles, and their non-commuting rotations | exact rationals |
@@ -444,12 +459,12 @@ ends with `ALL CHECKS PASSED`. Parts A to F and H are exact (SymPy); Part G is n
 - D. Hestenes, *Space-Time Algebra*, Gordon and Breach (1966).
 - D. Hestenes, "Proper particle mechanics", *J. Math. Phys.* 15 (1974) 1768-1777, [PDF](https://davidhestenes.net/geocalc/pdf/Proper_mechanics.pdf).
 - R. da Rocha and J. Vaz Jr., "Conformal structures and twistors in the paravector model of spacetime", [arXiv:math-ph/0412074](https://arxiv.org/abs/math-ph/0412074). The idempotent $`(1 + \gamma_0)/2`$ and $`\mathrm{Cl}(1, 3) \cong M_2(\mathbb H)`$.
-- A. J. Macfarlane, "On the restricted Lorentz group and groups homomorphically related to it", *J. Math. Phys.* 3 (1962) 1116-1129, [doi:10.1063/1.1703854](https://doi.org/10.1063/1.1703854). Not read; the formula as cited by Chruściel and Urbantke.
-- P. T. Chruściel and H. Urbantke, "Thomas-Wigner rotation via Clifford algebras", [arXiv:2501.14855](https://arxiv.org/abs/2501.14855). Abstract and introduction read.
-- H. Urbantke, "Physical holonomy, Thomas precession, and Clifford algebra", *Am. J. Phys.* 58 (1990) 747-750. Not read; Aravind credits it with the Levi-Civita and holonomy description.
+- A. J. Macfarlane, "On the restricted Lorentz group and groups homomorphically related to it", *J. Math. Phys.* 3 (1962) 1116-1129, [doi:10.1063/1.1703854](https://doi.org/10.1063/1.1703854). Not read; the formula as cited by Urbantke (1990) and by Chruściel and Urbantke (2025).
+- P. T. Chruściel and H. Urbantke, "Thomas-Wigner rotation via Clifford algebras", [arXiv:2501.14855](https://arxiv.org/abs/2501.14855) (2025), Vienna preprint UWThPh 2025-1. Read in full (v1): Prop. 4.2, eqs. (7.1)-(7.20).
+- H. Urbantke, "Physical holonomy, Thomas precession, and Clifford algebra", *Am. J. Phys.* 58 (1990) 747-750; erratum *Am. J. Phys.* 59 (1991) 1150. Read in full in the preprint version, Vienna UWThPh 1988-39: §2 (Fermi-Walker = Levi-Civita on the velocity pseudosphere), §3 and eq. (5); neither the published version nor the erratum was compared.
 - University of Glasgow, "Hyperbolic area: Heron's formula" (course notes), [proof page](https://www.maths.gla.ac.uk/wws/cabripages/hyperbolic/hareaproof.html). For $`\tan(D/2) = \Delta/(1 + \alpha + \beta + \gamma)`$.
 - K. C. H. Mackenzie, *General Theory of Lie Groupoids and Lie Algebroids*, London Math. Soc. Lecture Note Series 213, Cambridge University Press (2005). Read in the publisher's preview (preface, §§1.1-1.3), 20 November 2026: Def. 1.1.1, Examples 1.1.7, 1.1.9, 1.1.12, 1.1.15, 1.2.4, Def. 1.3.1 and the remark after it.
-- P. K. Aravind, "The Wigner angle as an anholonomy in rapidity space", *Am. J. Phys.* 65 (1997) 634-636, [doi:10.1119/1.18620](https://doi.org/10.1119/1.18620). Read in full: eqs. (1)-(4), the rapidity triangle, polygons and the note added in proof.
+- P. K. Aravind, "The Wigner angle as an anholonomy in rapidity space", *Am. J. Phys.* 65 (1997) 634-636. Read in full: eqs. (1)-(4), the rapidity triangle, polygons and the note added in proof.
 - T. F. Jordan, "Berry phases and unitary transformations", *J. Math. Phys.* 29 (1988) 2042-2052. Not read; as cited by Aravind.
 - J. Samuel and S. Sinha, "Thomas rotation and polarised light", *Pramana* (to appear in 1997, as cited by Aravind). Not read.
 - V. Bargmann, "Note on Wigner's theorem on symmetry operations", *J. Math. Phys.* 5 (1964) 862-868.
