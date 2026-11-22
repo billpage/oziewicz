@@ -68,3 +68,13 @@ not listed in `analysis/INDEX.md`.
   given without a choice is the evaluation of covectors on vectors; a metric is the choice
   of a subspace of the doubled space. 90 exact checks; none of the papers is committed.
   Companion script `src/verify_grassmann_clifford.py`.
+- **[`magnetismo.md`](magnetismo.md)** (prefix MG). A summary of Oziewicz's unpublished lecture notes
+  *Magnetismo e Electricidad* (UNAM FES Cuautitlán, 2014–2020; last version 18 July 2020, not
+  committed), the source of his observer operators: a body with its clock carries a derivation
+  `D` (simultaneity) and an algebra map `M` (places), `D + M = id = U²` for the unipotent
+  `U = ev + cr` (MG1). Two definitions exchange places and simultaneity (MG2); the private
+  differential exists exactly when the clock does not rotate (MG3); with a rotating clock the
+  magnetic Gauss law gains `−Ω ∧ E` and Faraday's law the acceleration term (MG4); the metric
+  intertwines vector and form operators only for `g(L, L) = 1` (MG5). The idempotent
+  `(1 + U)/2`, not in the notes, is step 5's `e_X`. 29 exact checks. Companion script
+  `src/verify_magnetismo.py`.
