@@ -17,6 +17,7 @@ I  Phi = X (x) alpha is a connection on the worldlines: N_Phi = -Omega (x) X; D 
 J  two bodies in the list of Kolar-Michor-Slovak 30.4: C(i_P Q) = beta(X) alpha(Y) (section 6)
 K  weight <= 2: GL(3)-equivariant polynomial ansatz, time shifts t -> t + f(x) and second-order jets of
    x -> phi(x); the natural 2-forms are the words, and so are the dt-parts of natural 3-forms (HH8)
+L  weight 3: the spatial part of natural 3-forms and natural 4-forms, against the words (HH9)
 
 Everything is exact; nothing is numerical. Writes no files.
 Run:  python3 -u src/verify_heat_and_helicity.py
@@ -531,6 +532,121 @@ one_s = lambda cc, i: sum(p1[j] * cc[i][j] for j in range(N + 2))   # spatial co
 ex1 = [one_s(ccS, i) - (one_s(cc0, i) + fk[i] * c0s) for i in range(3)]
 s1 = sp.solve(lin_eqs(ex1, VARS), [c0s] + list(p1), dict=True)[0]
 check("1-forms: the time shift forces only c0 = coefficient of A (alpha), so c0 alpha + sum c_n L^n a", s1 == {c0s: p1[0]})
+
+# ---- L: weight 3: the purely spatial part of 3-forms, and 4-forms (HH9) ----------------------------
+print("L  weight 3: spatial part of natural 3-forms, and natural 4-forms")
+J = 2                                    # jets a^(0..J+1) and d_x a^(0..J); closed under the time shift
+AJ, DJ = range(J + 2), range(J + 1)
+qL = {l: sp.Symbol(f"qL{l}") for l in DJ}
+rL = {(j, l): sp.Symbol(f"rL{j}{l}") for j in AJ for l in AJ if j < l}
+uL = {(j, l): sp.Symbol(f"uL{j}{l}") for j in AJ for l in DJ}
+wL = {jlm: sp.Symbol(f"wL{jlm[0]}{jlm[1]}{jlm[2]}") for jlm in itertools.combinations(AJ, 3)}
+uM = {(j, l): sp.Symbol(f"uM{j}{l}") for j in AJ for l in DJ}
+wM = {jlm: sp.Symbol(f"wM{jlm[0]}{jlm[1]}{jlm[2]}") for jlm in itertools.combinations(AJ, 3)}
+KI = list(itertools.combinations(range(3), 2))                     # (0,1), (0,2), (1,2)
+
+
+def dxa(ee, l):                                                    # coefficients of d_x a^(l) on dx^k ^ dx^i, k < i
+    return {(k, i): ee[i][l][k] - ee[k][l][i] for k, i in KI}
+
+
+def b_wedge_F(b, F):                                               # (b ^ F)_{123}
+    return b[0] * F[(1, 2)] - b[1] * F[(0, 2)] + b[2] * F[(0, 1)]
+
+
+def avec(cc, j):
+    return [cc[i][j] for i in range(3)]
+
+
+def W3(cc, ee, u, w):                                              # GL(3)-equivariant weight-3 candidates for dx^1^dx^2^dx^3
+    out = sum(u[(j, l)] * b_wedge_F(avec(cc, j), dxa(ee, l)) for j in AJ for l in DJ)
+    out += sum(w[jlm] * sp.Matrix([avec(cc, jlm[0]), avec(cc, jlm[1]), avec(cc, jlm[2])]).det() for jlm in wL)
+    return out
+
+
+def D0L(cc, ee, k, i):                                             # weight-2 candidates for dt ^ dx^k ^ dx^i
+    lin = sum(qL[l] * (ee[i][l][k] - ee[k][l][i]) for l in DJ)
+    quad = sum(rL[(j, l)] * (cc[k][j] * cc[i][l] - cc[i][j] * cc[k][l]) for (j, l) in rL)
+    return lin + quad
+
+
+UNK3 = list(qL.values()) + list(rL.values()) + list(uL.values()) + list(wL.values())
+UNK4 = list(uM.values()) + list(wM.values())
+exprs3 = [D0L(ccS, eeS, k, i) - D0L(cc0, ee0, k, i) for k, i in KI]
+dfD0 = fk[0] * D0L(cc0, ee0, 1, 2) - fk[1] * D0L(cc0, ee0, 0, 2) + fk[2] * D0L(cc0, ee0, 0, 1)
+exprs3.append(W3(ccS, eeS, uL, wL) - (W3(cc0, ee0, uL, wL) + dfD0))
+sol3 = sp.solve(lin_eqs(exprs3, VARS), UNK3, dict=True)[0]
+free3L = [u_ for u_ in UNK3 if u_ not in sol3]
+sol4 = sp.solve(lin_eqs([W3(ccS, eeS, uM, wM) - W3(cc0, ee0, uM, wM)], VARS), UNK4, dict=True)[0]
+free4 = [u_ for u_ in UNK4 if u_ not in sol4]
+print("    3-forms: unknowns", len(UNK3), " solution dimension", len(free3L))
+print("    4-forms: unknowns", len(UNK4), " solution dimension", len(free4))
+okP = all(sp.expand(W3(ccP, eeP, uL, wL) - W3(cc0, ee0, uL, wL)) == 0 for _ in [0])
+okP = okP and all(sp.expand(D0L(ccP, eeP, k, i) - D0L(cc0, ee0, k, i)) == 0 for k, i in KI)
+check("weight 3: second-order jets of x -> phi(x) act trivially on the candidates", okP)
+check("weight 3: the candidates are GL(3)-equivariant (W scales by det on one rational matrix)",
+      sp.expand(W3(ccG, eeG, uL, wL) - GLm.det() * W3(cc0, ee0, uL, wL)) == 0)
+
+# words: polynomials in alpha, a_n, d alpha, d a_n that lie in the jet range of the candidates
+G1 = {"alpha": alK, **{f"a{n}": La[n] for n in range(J + 1)}}
+G2 = {"dalpha": d(alK, xs), **{f"da{n}": d(La[n], xs) for n in range(J)}}
+w3s, w4s = {}, {}
+g1 = list(G1.items())
+for (n1, f1) in g1:
+    for (n2, f2) in G2.items():
+        w3s[f"{n1}^{n2}"] = wedge(f1, f2)
+for (n1, f1), (n2, f2), (n3, f3) in itertools.combinations(g1, 3):
+    w3s[f"{n1}^{n2}^{n3}"] = wedge(f1, wedge(f2, f3))
+g2 = list(G2.items())
+for i_ in range(len(g2)):
+    for j_ in range(i_, len(g2)):
+        w4s[f"{g2[i_][0]}^{g2[j_][0]}"] = wedge(g2[i_][1], g2[j_][1])
+for (n1, f1), (n2, f2) in itertools.combinations(g1, 2):
+    for (n3, f3) in G2.items():
+        w4s[f"{n1}^{n2}^{n3}"] = wedge(f1, wedge(f2, f3))
+for (n1, f1), (n2, f2), (n3, f3), (n4, f4) in itertools.combinations(g1, 4):
+    w4s[f"{n1}^{n2}^{n3}^{n4}"] = wedge(f1, wedge(f2, wedge(f3, f4)))
+
+
+def comp_at0(w, key):
+    return sp.expand(sp.sympify(w.get(key, 0)).subs(at0))
+
+
+def fit(exprs, unk):
+    s_ = sp.solve(lin_eqs(exprs, JETS), unk, dict=True)
+    return [s_[0].get(u_, 0) for u_ in unk] if s_ else None
+
+
+v3L = [fit([comp_at0(w, (0, k + 1, i + 1)) - D0L(cc0, ee0, k, i) for k, i in KI]
+           + [comp_at0(w, (1, 2, 3)) - W3(cc0, ee0, uL, wL)], UNK3) for w in w3s.values()]
+v4 = [fit([comp_at0(w, (0, 1, 2, 3)) - W3(cc0, ee0, uM, wM)], UNK4) for w in w4s.values()]
+check("every 3-form and 4-form word fits the candidates with numerical coefficients",
+      all(v is not None and all(sp.sympify(cf).is_number for cf in v) for v in v3L + v4))
+
+
+def satisfies(v, unk, sol):
+    sub = dict(zip(unk, v))
+    return all(sp.simplify(sp.sympify(rhs).subs(sub) - sub[lhs]) == 0 for lhs, rhs in sol.items())
+
+
+check("the words satisfy the naturality conditions", all(satisfies(v, UNK3, sol3) for v in v3L)
+      and all(satisfies(v, UNK4, sol4) for v in v4))
+rk3, rk4 = sp.Matrix(v3L).rank(), sp.Matrix(v4).rank()
+print("    3-form words:", len(w3s), " rank", rk3, ";  4-form words:", len(w4s), " rank", rk4)
+check("the 3-form words span the solution space", rk3 == len(free3L))
+check("the 4-form words span the solution space", rk4 == len(free4))
+
+
+# the generators of HH9: omega_l = d_x a^(l) - a^(0) ^ a^(l+1) is invariant under the time shift and is
+# L_X^l Omega plus products of the a^(j), j >= 1
+okw = True
+for l in DJ:
+    for k, i in KI:
+        om = lambda cc, ee: (ee[i][l][k] - ee[k][l][i]) - (cc[k][0] * cc[i][l + 1] - cc[i][0] * cc[k][l + 1])
+        okw = okw and sp.expand(om(ccS, eeS) - om(cc0, ee0)) == 0
+        binom = sum(sp.binomial(l, kk) * (cc0[k][kk] * cc0[i][l - kk + 1] - cc0[i][kk] * cc0[k][l - kk + 1]) for kk in range(l + 1))
+        okw = okw and sp.expand(comp_at0(LOm[l], (k + 1, i + 1)) - (ee0[i][l][k] - ee0[k][l][i] - binom)) == 0
+check("HH9 generators: omega_l is invariant, and L_X^l Omega = d_x a^(l) - sum_k C(l,k) a^(k) ^ a^(l-k+1) at 0", okw)
 
 print()
 print("FAILED:" if FAILED else "all checks pass", FAILED if FAILED else "")
