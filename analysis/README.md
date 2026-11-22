@@ -43,7 +43,12 @@ title, and `check_abstracts` keeps the two copies equal.
   the Clifford algebra of their span, of dimension $`2^{\dim W}`$; with $`d`$
   the algebra is infinite; $`\mathcal D = \iota_\Phi`$ for the connection
   $`\Phi = X \otimes \alpha`$, whose curvature is $`-\Omega \otimes X`$.
-  Checked exactly with SymPy. No new prediction.
+  **Proposition HH8**: granted finite order and polynomiality, which follow
+  from Kolář, Michor and Slovák (23.4, 24.1), the natural functions, vector
+  fields, 1-forms and 2-forms of a body are exactly the words in $`d`$,
+  $`\wedge`$, $`\iota_X`$ and $`\alpha`$, and so is $`\iota_X`$ of every
+  natural 3-form; weight 3 is open. Checked exactly with SymPy. No new
+  prediction.
 - **6.** **[`grammar_of_a_body.md`](grammar_of_a_body.md)** \
   A body is a process $`X`$ with a clock $`\alpha`$, $`\alpha X = 1`$, and
   Cartan's calculus offers only a few operations to build from it. By the
