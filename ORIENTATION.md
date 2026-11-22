@@ -1,8 +1,8 @@
 # Orientation
 
 **A guide for a reader arriving with no context: what this repository is for, which
-words mean what, and what is established, open or retracted.** Current to step 4 of
-the ladder, 3 November 2026.
+words mean what, and what is established, open or retracted.** Current to step 7 of
+the ladder, 22 November 2026.
 
 ---
 
@@ -10,7 +10,7 @@ the ladder, 3 November 2026.
 
 | Where | What is there |
 |---|---|
-| [`analysis/`](analysis/README.md) | The derivation ladder, four steps so far: [`mass_centre.md`](analysis/mass_centre.md) (1 November 2026), [`ternary_mass_centre.md`](analysis/ternary_mass_centre.md) (2 November), [`metric_free_body.md`](analysis/metric_free_body.md) and [`clock_centre.md`](analysis/clock_centre.md) (3 November) |
+| [`analysis/`](analysis/README.md) | The derivation ladder, seven steps so far: [`mass_centre.md`](analysis/mass_centre.md) (1 November 2026), [`ternary_mass_centre.md`](analysis/ternary_mass_centre.md) (2 November), [`metric_free_body.md`](analysis/metric_free_body.md) and [`clock_centre.md`](analysis/clock_centre.md) (3 November), [`observer_idempotents.md`](analysis/observer_idempotents.md) (20 November), [`grammar_of_a_body.md`](analysis/grammar_of_a_body.md) (21–22 November) and [`heat_and_helicity.md`](analysis/heat_and_helicity.md) (22 November) |
 | [`supplement/`](supplement/README.md) | [`bodies_first.md`](supplement/bodies_first.md), his reading of relativity in his own terms; [`velocity_draft.md`](supplement/velocity_draft.md), a summary of an unpublished draft of 2004; [`oziewicz_on_science.md`](supplement/oziewicz_on_science.md), his views on the practice of science (§3 below); [`grassmann_to_clifford.md`](supplement/grassmann_to_clifford.md), his 1986 paper on Grassmann and Clifford algebras, with its 1997 sequel and the readings of Jadczyk and Sobczyk; [`magnetismo.md`](supplement/magnetismo.md), a summary of his lecture notes on electricity and magnetism (2014–2020), the source of his observer operators |
 | [`talks/`](talks/README.md) | His talk to the Natural Philosophy Alliance, 2009, as narrated slides; a talk introducing this repository, with the Grassmann–Clifford supplement as its example (2026) |
 | [`references/bibliography.md`](references/bibliography.md) | Links to the papers, with what was and was not checked for each |
@@ -46,9 +46,12 @@ aim is to say: what is asserted, what it depends on, whether it can be reproduce
 exactly (by computer algebra where possible, numerically otherwise), and what
 remains unchecked.
 
-So far the ladder covers the kinematics of special relativity and the mass centre.
-Quantum mechanics has not been taken up; the nearest point is Pryce's difficulty
-with commuting coordinates (CS-SP4).
+So far the ladder covers the kinematics of special relativity and the mass centre
+(steps 1 to 4), the algebra of observers (step 5) and the exterior calculus of a
+single body (steps 6 and 7). Quantum mechanics has not been taken up as such. It is
+touched at two points: Pryce's difficulty with commuting coordinates (CS-SP4), and
+the spin of a fluid ring as a period of a closed momentum form, where the
+Bohr–Sommerfeld condition enters (HH6).
 
 **Where to start.** §2 here, then `bodies_first.md` or the talk for his view, then
 the ladder from step 1. [`analysis/README.md`](analysis/README.md) has an abstract
@@ -67,6 +70,9 @@ many-body system has a mass centre that is itself a body.
 | 2 | Can `Z` be the third observer of his ternary velocity? This goes beyond what he published. | For two bodies, yes, and his (2.2.10) turns out to be a ternary velocity (TV2, TV3). For three or more, `Z` leaves the plane of each pair (TV4), and no Lorentz link can depend on the pair alone, carry one body to the other and compose (TV6). That is the part of his "astonishing conflict" that survives. It is a statement about velocity as an isometry, not about the relativity principle. |
 | 3 | What remains below the metric, with a body as a pair of a process and a clock? | Velocity, its non-reciprocity and the mass centre survive (MF1 to MF3). His symmetric gamma turns out to be the metric itself (MF4), and the signature follows from the sign of `gamma - 1` (MF6). His algebraic position space is not adequate, and the basic algebra is (MF9). His clock is a connection, not a time (MF10, MF11). |
 | 4 | How are the vorticity of a clock, spin and the position of the centre related? | A correction to step 1: a covariant centre worldline exists (CS3). It needs the angular momentum `L`, which his chapter 2 does not supply, as well as `Z` and its clock. Pryce's difficulty is a different one: no definition is both covariant and has commuting coordinates. Each clock picks its own centre (CS1), and the spin is `P ∧ L` (CS2). For stationary axisymmetric dust, the failure of a rotating body's clocks to close and the spread of its centres are one quantity (CS6). |
+| 5 | What do the observer idempotents of his 2007 algebra contain, when bodies are represented in the spacetime algebra `Cl(V, -g)`? | Each body's corner is the quaternion algebra of its rest space (OI1), and two bodies' idempotents are linked by the boost between them (OI2). Round a triangle of bodies the product is the Wigner rotation, with Urbantke's angle formula and Aravind's angle-equals-area (OI3); the idempotent form was not found in the literature checked. The corners form a groupoid with isotropy `Spin(3)` (OI4); the rank-one projectors of step 1 see only the pair groupoid (OI5). |
+| 6 | Which expressions can be formed from a process and a clock in Cartan's calculus, and which of them are the body's own? | The operators built from them are natural (GB1). A body carries three observers: the derivation and algebra map of his *Magnetismo* notes, and the idempotent of step 5, which needs no metric (GB2, GB3); round a triangle it gives a rotation or a boost, by the sign of a determinant of clock factors. Grade 3 is where observer-independence fails, three times: the spread of centres `P ∧ L`, the absence of a time function `α ∧ dα`, and the Wigner rotation `X ∧ Y ∧ Z` (GB6). |
+| 7 | What do Kiehn's grade-3 words measure for one body, and is either of them the spin? | Kiehn's irreversibility `a ∧ da` is an acceleration that turns, or a rotation that changes about the acceleration; it is not the rotation itself (HH3). The helicity `∫ p ∧ dp` is a scalar independent of the spin `P ∧ L` (HH4). Spin reaches the clock through grades 1 and 2: a circulation (CS6) or, on a ring, a period of the momentum form (HH5, HH6). Pointwise the algebra of evaluation and creation is a Clifford algebra; with `d` it is infinite (HH7). |
 
 Taken together: no step departs from standard relativity or gives a new prediction,
 and no statement has been found that holds in his reading and fails in the textbook
@@ -78,9 +84,11 @@ the questions. Step 3 adds a map of where each assumption enters.
 Whether the rest of his programme goes beyond a notation is what later notes must
 test: dynamics from relative accelerations (MC-SP4), which needs a place for each
 body as well as a process; a law for radiation (MC-SP2); orientation and spin in
-the groupoid (TV-SP1). The algebra of observers has so far given results on the mass
-centre and on linear dependence (MC6, TV8). Spin in `dP` holds as a second moment,
-with mass as a density (CS5).
+the groupoid (TV-SP1, answered in part by OI4). The algebra of observers has so far
+given results on the mass centre and on linear dependence (MC6, TV8) and, in the
+spacetime algebra, the Wigner rotation (OI3). Spin in `dP` holds as a second moment,
+with mass as a density (CS5); his late candidate `P ∧ dP` is the helicity, not the
+spin (HH4).
 
 ## 3. Oziewicz on how science is done
 
@@ -128,10 +136,10 @@ Einstein's), and *clock* is a covector, not a time.
 
 | Standing | Meaning | Items |
 |---|---|---|
-| Established | derived and checked exactly (or numerically, saying which) | Step 1: MC1 to MC6 (SymPy); MC7 on eight cases (SymPy). Step 2: TV1 to TV5, TV7 to TV10 (SymPy); TV6 proved by hand. Step 3: MF1 to MF3, MF9, MF10 (SymPy); MF4 to MF8, MF11 proved by hand with instances checked. Step 4: CS1, CS2, CS5 proved and checked (SymPy); CS3, CS4 on examples; CS6 for dust (SymPy). Supplement: the RV results (SymPy), and 98 exact checks of the 2004 draft and its 2007 revision (SymPy; one side remark in (9.6) fails) |
-| Open | stated, not yet settled | MC-SP2, MC-SP4, MC-SP5; TV-SP1, TV-SP3 to TV-SP5; MF-SP2 to MF-SP6; CS-SP1 to CS-SP5; RV-SP2, RV-SP4; VD-SP1, VD-SP2. In part: MC-SP3 and MF-SP1 (by CS5, CS6), RV-SP1 (by MF6, MF7) |
-| Answered | an open item since closed | MC-SP1 (CS3), MC-SP6, TV-SP2, RV-SP3 (TV5) |
-| Corrected | an earlier statement changed by a later note, which says how in its §0 | `mass_centre.md` §§8, 9 on the worldline (CS3), §6 on `mu_kl` (TV2, TV9); `bodies_first.md` §2 on the metric and position space (MF4, MF9), §4 on Pryce's problem (CS3), §6 on reciprocity (TV3) |
+| Established | derived and checked exactly (or numerically, saying which) | Step 1: MC1 to MC6 (SymPy); MC7 on eight cases (SymPy). Step 2: TV1 to TV5, TV7 to TV10 (SymPy); TV6 proved by hand. Step 3: MF1 to MF3, MF9, MF10 (SymPy); MF4 to MF8, MF11 proved by hand with instances checked. Step 4: CS1, CS2, CS5 proved and checked (SymPy); CS3, CS4 on examples; CS6 for dust (SymPy). Step 5: OI1 to OI5 (SymPy). Step 6: GB1 to GB6 (SymPy). Step 7: HH1 to HH5 and HH7 (SymPy); HH6 by hand. Supplement: the RV results (SymPy), and 98 exact checks of the 2004 draft and its 2007 revision (SymPy; one side remark in (9.6) fails) |
+| Open | stated, not yet settled | MC-SP2, MC-SP4, MC-SP5; TV-SP3 to TV-SP5; MF-SP2 to MF-SP6; CS-SP1 to CS-SP5; OI-SP3 to OI-SP5; GB-SP2; HH-SP1 to HH-SP5; RV-SP2, RV-SP4; VD-SP1, VD-SP2. In part: MC-SP3 and MF-SP1 (by CS5, CS6), RV-SP1 (by MF6, MF7), TV-SP1 (by OI4, OI5), OI-SP2 (`observer_idempotents.md` §6.3), GB-SP3 (by HH7). GB-SP5 is restated as HH-SP4 |
+| Answered | an open item since closed | MC-SP1 (CS3), MC-SP6, TV-SP2, RV-SP3 (TV5), OI-SP1 (GB3), GB-SP1 (HH4, HH5: no), GB-SP4 (HH3) |
+| Corrected | an earlier statement changed by a later note, which says how in its §0 | `mass_centre.md` §§8, 9 on the worldline (CS3), §6 on `mu_kl` (TV2, TV9); `bodies_first.md` §2 on the metric and position space (MF4, MF9), §4 on Pryce's problem (CS3), §6 on reciprocity (TV3); `grammar_of_a_body.md` §6 on what CS6 links (HH5) |
 | Retracted | withdrawn, kept with the reason | The June 2025 Project-chat summaries of *Many-body mass-centre* (not in this repository; see step 1, §0) and their applications to Pioneer, rotation curves, wide binaries and cosmic rays ([`supplement/bodies_first.md`](supplement/bodies_first.md) §7) |
 
 "Established" means that a mathematical step was reproduced. It does not mean that

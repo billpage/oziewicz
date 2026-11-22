@@ -14,6 +14,36 @@ Newest first: the most recent step is at the top, and the list runs back to
 step 1 at the bottom. Each entry is repeated word for word under the note's own
 title, and `check_abstracts` keeps the two copies equal.
 
+- **7.** **[`heat_and_helicity.md`](heat_and_helicity.md)** \
+  Step 6 left four open items on the grammar of a body (GB-SP1, GB-SP3 to
+  GB-SP5); this note takes them up. **Lemma HH1**: near any point a body is
+  $`X = \partial_t`$, $`\alpha = dt + A(t, x)`$, a time-dependent connection
+  on its worldlines, with acceleration $`a = \dot A`$ and rotation $`\Omega =
+  d_x A - A \wedge \dot A`$. **Proposition HH2**: every body obeys the
+  vorticity identity $`da = \alpha \wedge L_X a + L_X \Omega`$. **Proposition
+  HH3**: so Kiehn's irreversibility splits, $`a \wedge da = -\alpha \wedge a
+  \wedge L_X a + a \wedge L_X \Omega`$, so either the acceleration turns or
+  the rotation changes about the acceleration. The rotation itself does not
+  enter: a rigidly rotating body in Minkowski space is reversible, with $`a =
+  d \ln \gamma`$, and a non-rotating Fermi frame whose acceleration $`g`$
+  turns is not, with $`a \wedge da \propto dt \wedge g \wedge \dot g`$; this
+  answers GB-SP4. **Proposition HH4**: for dust $`\int_\Sigma p \wedge dp`$ is
+  a conserved scalar, the helicity, and it is independent of the spin $`P
+  \wedge L`$: circular flows have spin and no helicity, and a counter-helical
+  flow has helicity and no spin; so GB-SP1 is answered no. **Proposition
+  HH5**: for axisymmetric circular flow $`\alpha \wedge d\alpha = u_t^2\, dt
+  \wedge d\phi \wedge d\ell`$, which vanishes exactly when the specific
+  angular momentum $`\ell`$ is constant; a body that contains its axis then
+  cannot rotate, but a ring can, as the potential vortex $`v = \ell/r`$, $`r >
+  |\ell|`$. CS6's link between spin and the clock is the circulation, of
+  grades 1 and 2, not grade 3. **Proposition HH6**: on such a ring with a
+  closed momentum form, $`S = N \oint p/2\pi`$: the spin is a period, and
+  Bohr–Sommerfeld gives the quantized vortex. **Proposition HH7**: pointwise
+  the operators $`\mathrm{ev}`$, $`\mathrm{cr}`$ of several bodies generate
+  the Clifford algebra of their span, of dimension $`2^{\dim W}`$; with $`d`$
+  the algebra is infinite; $`\mathcal D = \iota_\Phi`$ for the connection
+  $`\Phi = X \otimes \alpha`$, whose curvature is $`-\Omega \otimes X`$.
+  Checked exactly with SymPy. No new prediction.
 - **6.** **[`grammar_of_a_body.md`](grammar_of_a_body.md)** \
   A body is a process $`X`$ with a clock $`\alpha`$, $`\alpha X = 1`$, and
   Cartan's calculus offers only a few operations to build from it. By the
