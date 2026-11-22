@@ -18,6 +18,7 @@ J  two bodies in the list of Kolar-Michor-Slovak 30.4: C(i_P Q) = beta(X) alpha(
 K  weight <= 2: GL(3)-equivariant polynomial ansatz, time shifts t -> t + f(x) and second-order jets of
    x -> phi(x); the natural 2-forms are the words, and so are the dt-parts of natural 3-forms (HH8)
 L  weight 3: the spatial part of natural 3-forms and natural 4-forms, against the words (HH9)
+M  the observer Phi = X (x) alpha: L_X Phi = X (x) a; the natural (1,1) tensors of a body (HH10)
 
 Everything is exact; nothing is numerical. Writes no files.
 Run:  python3 -u src/verify_heat_and_helicity.py
@@ -647,6 +648,47 @@ for l in DJ:
         binom = sum(sp.binomial(l, kk) * (cc0[k][kk] * cc0[i][l - kk + 1] - cc0[i][kk] * cc0[k][l - kk + 1]) for kk in range(l + 1))
         okw = okw and sp.expand(comp_at0(LOm[l], (k + 1, i + 1)) - (ee0[i][l][k] - ee0[k][l][i] - binom)) == 0
 check("HH9 generators: omega_l is invariant, and L_X^l Omega = d_x a^(l) - sum_k C(l,k) a^(k) ^ a^(l-k+1) at 0", okw)
+
+# ---- M: the observer Phi = X (x) alpha and natural vector-valued 1-forms (HH10) ----------------------
+print("M  Phi = X (x) alpha: L_X Phi = X (x) a; natural (1,1) tensors of a body")
+
+
+def lie11(V, Tm, cs_):                       # (L_V T)^m_n for a (1,1) tensor given as a 4x4 matrix T[m, n]
+    return sp.Matrix(4, 4, lambda m, n: sp.simplify(
+        sum(V[l] * sp.diff(Tm[m, n], cs_[l]) - Tm[l, n] * sp.diff(V[m], cs_[l]) + Tm[m, l] * sp.diff(V[l], cs_[n])
+            for l in range(4))))
+
+
+def outer(V, form1):
+    return sp.Matrix(4, 4, lambda m, n: V[m] * form1.get((n,), 0))
+
+
+for name, (V, f1, cs_) in {"rigid rotation": (XB, alB, cs), "Fermi frame": (XC, alC, xs)}.items():
+    aa_ = interior(V, d(f1, cs_))
+    check(f"{name}: L_X Phi = X (x) a", sp.simplify(lie11(V, outer(V, f1), cs_) - outer(V, aa_)) == sp.zeros(4, 4))
+# natural (1,1) tensors at the flow-box origin: weights force K^0_0 = c00, K^i_j = c1 delta, K^i_0 = 0,
+# K^0_j = sum_n p_n d_t^n A_j; naturality under the time shift: K(shifted jets) = M^-1 K M, M = d psi(0)
+c00, c1 = sp.symbols("c00 c1")
+pM = sp.symbols(f"pM0:{N + 2}")
+
+
+def Kmat(cc):
+    Km = sp.zeros(4, 4)
+    Km[0, 0] = c00
+    for i in range(3):
+        Km[i + 1, i + 1] = c1
+        Km[0, i + 1] = sum(pM[n] * cc[i][n] for n in range(N + 2))
+    return Km
+
+
+Mpsi = sp.eye(4)
+for k in range(3):
+    Mpsi[0, k + 1] = fk[k]                                            # dt -> dt + df
+cond = Kmat(ccS) - Mpsi.inv() * Kmat(cc0) * Mpsi
+solM = sp.solve(lin_eqs(list(cond), VARS), [c00, c1] + list(pM), dict=True)[0]
+print("    (1,1) tensors: solution", solM)
+check("(1,1) tensors: naturality forces only p0 = c00 - c1, so K = c X(x)alpha + c' I + X (x) sum c_n a_n",
+      len(solM) == 1 and sp.simplify((pM[0] - (c00 - c1)).subs(solM)) == 0)
 
 print()
 print("FAILED:" if FAILED else "all checks pass", FAILED if FAILED else "")
