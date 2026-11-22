@@ -14,6 +14,41 @@ Newest first: the most recent step is at the top, and the list runs back to
 step 1 at the bottom. Each entry is repeated word for word under the note's own
 title, and `check_abstracts` keeps the two copies equal.
 
+- **6.** **[`grammar_of_a_body.md`](grammar_of_a_body.md)** \
+  A body is a process $`X`$ with a clock $`\alpha`$, $`\alpha X = 1`$, and
+  Cartan's calculus offers only a few operations to build from it. By the
+  theorems of Palais (1959) and Navarro and Sancho, the coordinate-free
+  operations on forms are exactly those built from $`d`$, $`\wedge`$ and
+  linear combinations, so for forms the grammar of the calculus is its
+  invariance; this note takes that as its method. **Theorem GB1**: every
+  operator built from $`X`$, $`\alpha`$, $`d`$, $`\wedge`$ and evaluation is
+  natural, including the observer operators. **Proposition GB2**: one body
+  carries three observers, Oziewicz's derivation $`\mathcal D = \alpha \wedge
+  \iota_X`$ and algebra map $`\mathcal M = \iota_X (\alpha \wedge \cdot)`$,
+  with $`\mathcal D + \mathcal M = 1`$, and $`e = \tfrac12(1 + \mathcal U)`$
+  built from his unipotent $`\mathcal U = \iota_X + \alpha \wedge`$;
+  $`\mathcal U \mathcal D \mathcal U = \mathcal M`$ and $`e \mathcal D e = e
+  \mathcal M e = \tfrac12 e`$, and with a metric clock $`e`$ is step 5's
+  $`e_X`$. **Proposition GB3**: $`e`$ needs no metric; its corner sees only
+  the symmetrised clock factor $`s_{XY} = \tfrac12(\alpha_X Y + \alpha_Y X)`$,
+  and round a triangle the loop is a rotation if $`\det S > 0`$ and a boost if
+  $`\det S < 0`$, both of which occur; this answers OI-SP1. **Proposition
+  GB4**: the forms of one body are the Pfaff sequence $`\alpha, d\alpha,
+  \alpha \wedge d\alpha, d\alpha \wedge d\alpha`$; split by the body,
+  $`d\alpha = \alpha \wedge a + \Omega`$ is acceleration plus rotation,
+  $`\alpha \wedge d\alpha = \alpha \wedge \Omega`$ and $`d\alpha \wedge
+  d\alpha = 2\, \alpha \wedge a \wedge \Omega`$; the Frobenius condition
+  survives a change of clock scale, the top class does not, and for the
+  momentum form $`p = E\alpha`$, $`p \wedge dp = E^2 \alpha \wedge d\alpha`$.
+  **Proposition GB5**: in Kiehn's reading of Cartan's formula as a first law,
+  a body's own process does no internal-energy change and its heat is its
+  acceleration, $`Q = W = a`$. **Proposition GB6**: grade 3 is where
+  observer-independence fails, three times: $`P \wedge L`$ (the spread of
+  centres), $`\alpha \wedge d\alpha`$ (no time function) and $`X \wedge Y
+  \wedge Z`$ (the Wigner rotation, $`T^2 = -\det G`$); at grade 4, $`L \wedge
+  L = 2\, C \wedge P \wedge L`$ adds nothing, and $`X \wedge Y \wedge Z \wedge
+  W = 0`$ exactly when two triangle rotations commute. Checked exactly with
+  SymPy. No new prediction.
 - **5.** **[`observer_idempotents.md`](observer_idempotents.md)** \
   Oziewicz (2007, §4) makes every body an idempotent of an associative algebra,
   and step 1 realised it as the rank-one projector $`X \otimes

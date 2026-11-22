@@ -118,6 +118,16 @@ Theorem MC3 for (1), Proposition MC7 and
 [`clock_centre.md`](analysis/clock_centre.md#3-each-clock-has-its-own-centre) for (2).
 **Not to confuse** the two: the construction of the paper concerns (1).
 
+### Natural operator
+
+An operation on fields that needs no choice of coordinates: it commutes with pull-back by
+every local diffeomorphism, so it is a natural transformation between functors from
+manifolds to bundles (Kolář, Michor and Slovák 1993). On forms the natural operations are
+exactly those built from linear combinations, `^` and `d` (Palais 1959; Navarro and
+Sancho). **Used:** [`grammar_of_a_body.md`](analysis/grammar_of_a_body.md#1-the-method-grammar-is-invariance)
+Theorem GB1, as the method of step 6. **Not to confuse with** "natural" in Oziewicz's
+*Magnetismo*, where natural forms are those of space-time before any body splits them.
+
 ### Observer idempotent
 
 The idempotent that represents a body. In `End(V)` it is the rank-one projector
@@ -127,7 +137,9 @@ and products of the second carry the boost and the Thomas-Wigner rotation. **Def
 [`mass_centre.md`](analysis/mass_centre.md#7-the-mass-centre-as-an-idempotent) Theorem
 MC6;
 [`observer_idempotents.md`](analysis/observer_idempotents.md#2-setting) Definition
-OI0. **Not to confuse with** the idempotent `(1 + B)/2` of a unit boost bivector `B`,
+OI0. Without a metric, `e = (1 + ev_X + cr_alpha)/2` acting on forms
+([`grammar_of_a_body.md`](analysis/grammar_of_a_body.md#3-the-third-observer-needs-no-metric)
+GB3). **Not to confuse with** the idempotent `(1 + B)/2` of a unit boost bivector `B`,
 which every observer moving in the plane of `B` shares.
 
 ### Orientation groupoid
@@ -153,6 +165,15 @@ relativity groupoid is one, with the binary velocity as the arrow; composition i
 and associativity automatic. **Defined:** Oziewicz 2007, §§2-3;
 [`mass_centre.md`](analysis/mass_centre.md#3-the-binary-velocity) Proposition MC2.
 **Not to confuse with** the orientation groupoid, which keeps the rotation of rest frames.
+
+### Pfaff sequence (Pfaff class)
+
+For a 1-form `alpha`, the sequence `alpha, d alpha, alpha ^ d alpha, d alpha ^ d alpha, ...`; the
+number of its non-vanishing terms is the Pfaff class (Kiehn's Pfaff topological
+dimension). For a clock: class at most 2 means a time function exists. **Used:**
+[`grammar_of_a_body.md`](analysis/grammar_of_a_body.md#4-the-pfaff-sequence-of-one-body)
+Proposition GB4. **Not to confuse with** the class of the Pfaffian equation `alpha = 0`,
+which does not change when `alpha` is rescaled; the class of the form can.
 
 ### Position space
 
