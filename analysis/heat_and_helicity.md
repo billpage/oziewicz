@@ -1,12 +1,12 @@
 # Heat and helicity of a body: Kiehn's irreversibility, spin as a period
 
-> Step 6 left four open items on the grammar of a body (GB-SP1, GB-SP3 to GB-SP5); this note takes them up. **Lemma HH1**: near any point a body is $`X = \partial_t`$, $`\alpha = dt + A(t, x)`$, a time-dependent connection on its worldlines, with acceleration $`a = \dot A`$ and rotation $`\Omega = d_x A - A \wedge \dot A`$. **Proposition HH2**: every body obeys the vorticity identity $`da = \alpha \wedge L_X a + L_X \Omega`$. **Proposition HH3**: so Kiehn's irreversibility splits, $`a \wedge da = -\alpha \wedge a \wedge L_X a + a \wedge L_X \Omega`$, so either the acceleration turns or the rotation changes about the acceleration. The rotation itself does not enter: a rigidly rotating body in Minkowski space is reversible, with $`a = d \ln \gamma`$, and a non-rotating Fermi frame whose acceleration $`g`$ turns is not, with $`a \wedge da \propto dt \wedge g \wedge \dot g`$; this answers GB-SP4. **Proposition HH4**: for dust $`\int_\Sigma p \wedge dp`$ is a conserved scalar, the helicity, and it is independent of the spin $`P \wedge L`$: circular flows have spin and no helicity, and a counter-helical flow has helicity and no spin; so GB-SP1 is answered no. **Proposition HH5**: for axisymmetric circular flow $`\alpha \wedge d\alpha = u_t^2\, dt \wedge d\phi \wedge d\ell`$, which vanishes exactly when the specific angular momentum $`\ell`$ is constant; a body that contains its axis then cannot rotate, but a ring can, as the potential vortex $`v = \ell/r`$, $`r > |\ell|`$. CS6's link between spin and the clock is the circulation, of grades 1 and 2, not grade 3. **Proposition HH6**: on such a ring with a closed momentum form, $`S = N \oint p/2\pi`$: the spin is a period, and Bohr–Sommerfeld gives the quantized vortex. **Proposition HH7**: pointwise the operators $`\mathrm{ev}`$, $`\mathrm{cr}`$ of several bodies generate the Clifford algebra of their span, of dimension $`2^{\dim W}`$; with $`d`$ the algebra is infinite; $`\mathcal D = \iota_\Phi`$ for the connection $`\Phi = X \otimes \alpha`$, whose curvature is $`-\Omega \otimes X`$. **Proposition HH8**: granted finite order and polynomiality, which follow from Kolář, Michor and Slovák (23.4, 24.1), the natural functions, vector fields, 1-forms and 2-forms of a body are exactly the words in $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$, and so is $`\iota_X`$ of every natural 3-form; weight 3 is open. Checked exactly with SymPy. No new prediction.
+> Step 6 left four open items on the grammar of a body (GB-SP1, GB-SP3 to GB-SP5); this note takes them up. **Lemma HH1**: near any point a body is $`X = \partial_t`$, $`\alpha = dt + A(t, x)`$, a time-dependent connection on its worldlines, with acceleration $`a = \dot A`$ and rotation $`\Omega = d_x A - A \wedge \dot A`$. **Proposition HH2**: every body obeys the vorticity identity $`da = \alpha \wedge L_X a + L_X \Omega`$. **Proposition HH3**: so Kiehn's irreversibility splits, $`a \wedge da = -\alpha \wedge a \wedge L_X a + a \wedge L_X \Omega`$, so either the acceleration turns or the rotation changes about the acceleration. The rotation itself does not enter: a rigidly rotating body in Minkowski space is reversible, with $`a = d \ln \gamma`$, and a non-rotating Fermi frame whose acceleration $`g`$ turns is not, with $`a \wedge da \propto dt \wedge g \wedge \dot g`$; this answers GB-SP4. **Proposition HH4**: for dust $`\int_\Sigma p \wedge dp`$ is a conserved scalar, the helicity, and it is independent of the spin $`P \wedge L`$: circular flows have spin and no helicity, and a counter-helical flow has helicity and no spin; so GB-SP1 is answered no. **Proposition HH5**: for axisymmetric circular flow $`\alpha \wedge d\alpha = u_t^2\, dt \wedge d\phi \wedge d\ell`$, which vanishes exactly when the specific angular momentum $`\ell`$ is constant; a body that contains its axis then cannot rotate, but a ring can, as the potential vortex $`v = \ell/r`$, $`r > |\ell|`$. CS6's link between spin and the clock is the circulation, of grades 1 and 2, not grade 3. **Proposition HH6**: on such a ring with a closed momentum form, $`S = N \oint p/2\pi`$: the spin is a period, and Bohr–Sommerfeld gives the quantized vortex. **Proposition HH7**: pointwise the operators $`\mathrm{ev}`$, $`\mathrm{cr}`$ of several bodies generate the Clifford algebra of their span, of dimension $`2^{\dim W}`$; with $`d`$ the algebra is infinite; $`\mathcal D = \iota_\Phi`$ for the connection $`\Phi = X \otimes \alpha`$, whose curvature is $`-\Omega \otimes X`$. **Proposition HH8** and **Theorem HH9**: granted finite order and polynomiality, which follow from Kolář, Michor and Slovák (23.4, 24.1), the natural functions of a body are constants, its natural vector fields are multiples of $`X`$, and its natural forms are exactly the exterior polynomials in $`\alpha`$, $`L_X^n a`$ and $`L_X^n \Omega`$, which are the words in $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$; this answers GB-SP5 for forms. Checked exactly with SymPy. No new prediction.
 
 *Ladder abstract — see the [full list](README.md#the-ladder).*
 
 **Status.** Analysis note, step 7 of the ladder. Theorem prefix **HH**. Companion
 script: [`src/verify_heat_and_helicity.py`](../src/verify_heat_and_helicity.py) (Parts A
-to K; §8). Prompted by Bill Page, 22 November 2026: take up GB-SP1 and GB-SP4, with
+to L; §8). Prompted by Bill Page, 22 November 2026: take up GB-SP1 and GB-SP4, with
 Kiehn's link between $`a \wedge da = 0`$, period integrals and quantization, and the
 spin of Pauli and Lubański; then judge from the shortened version of Kolář, Michor and
 Slovák (1993) whether that book bears on GB-SP3 and GB-SP5; the full book was then read in
@@ -37,7 +37,7 @@ the Pfaff sequence), GB5 ($`Q = a`$), GB6 and the open items GB-SP1, GB-SP3 to G
 | `grammar_of_a_body.md` GB-SP1 | Answered, no (HH4, HH5) |
 | `grammar_of_a_body.md` GB-SP4 | Answered (HH3) |
 | `grammar_of_a_body.md` GB-SP3 | Answered in part (HH7): finite pointwise, infinite with $`d`$ |
-| `grammar_of_a_body.md` GB-SP5 | Answered for functions, vector fields, 1-forms and 2-forms, granted finite order and polynomiality (HH8); open beyond (§7) |
+| `grammar_of_a_body.md` GB-SP5 | Answered for functions, vector fields and forms, granted finite order and polynomiality (HH8, HH9); open for other tensors (§7) |
 
 Sentences in earlier notes were not rewritten; the places are marked.
 
@@ -335,7 +335,8 @@ equivariant under the stabilizer of the jet of $`\partial_t`$, which contains th
    theorem, 24.3–24.8), the time shifts $`t \mapsto t + f(x)`$, and the higher jets of $`\varphi`$, as in the last
    step of the proof of 30.1. Not done.
 
-Step 3 is done below for every component of weight at most 2.
+Step 3 is done below, first for weight at most 2 by solving the conditions (HH8), then for all
+forms by a change of generators (HH9).
 
 **Proposition HH8 (weight at most 2).** Grant steps 1 and 2. Write $`a_n = L_X^n a`$ ($`n \ge 0`$), and recall $`\Omega = d\alpha - \alpha \wedge a`$.
 
@@ -384,18 +385,67 @@ the 3-form parts, each spanned by the words computed independently with the exte
 calculus; the second-order jets of $`\varphi`$, one $`GL(3)`$ matrix and the 1-form case also checked. The
 pattern of the conditions is the same for every number of time derivatives. $`\square`$
 
-What HH8 does not do: it rests on steps 1 and 2, whose hypotheses were checked in outline;
-it uses the invariant tensor theorem without re-proving it; and it says nothing about
-weight 3, where second spatial derivatives of $`A`$, the third-order jets of $`\varphi`$ and the
-cubic terms first appear. Restated as HH-SP4.
+**Theorem HH9 (the natural forms of a body).** Grant steps 1 and 2. The natural differential
+forms of a body $`(X, \alpha)`$ are exactly the exterior polynomials, with constant coefficients, in
+
+```math
+\alpha,\qquad a_n = L_X^n a \ \ (\text{spatial 1-forms}),\qquad \Omega_n = L_X^n \Omega \ \ (\text{spatial 2-forms}),\qquad n \ge 0 ,
+```
+
+and these are the words in $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$. Every natural form is therefore $`\beta_0 + \alpha \wedge \beta_1`$ with $`\beta_0, \beta_1`$
+polynomials in the $`a_n`$ and $`\Omega_n`$: the body's own clock, and the spatial jets of its acceleration
+and rotation. Together with HH8(1) this answers HH-SP4, and so GB-SP5, for functions, vector
+fields and forms, granted steps 1 and 2.
+
+*Proof.* At the origin of the flow box write $`\tau = dt`$, $`b_j = \partial_t^j A_i\, dx^i`$ (spatial 1-forms) and $`F_l = d_x b_l`$ (spatial
+2-forms). By step 2 and the invariant tensor theorem, a natural form is a polynomial with
+constant coefficients in $`\tau`$, the $`b_j`$, the $`F_l`$ and the symmetric parts of the derivatives of $`A`$;
+the last cannot contribute, since every output index is a lower index in an antisymmetric
+slot and there is no upper index to contract with. In particular second derivatives of $`A`$
+drop out, and with them the second- and higher-order jets of $`x \mapsto \varphi(x)`$ and of $`f`$. Change
+generators to
+
+```math
+\alpha_0 = \tau + b_0,\qquad b_j\ (j \ge 1),\qquad \omega_l = F_l - b_0 \wedge b_{l+1}\ (l \ge 0),\qquad \tau .
+```
+
+A time shift with $`df(0) = v`$ (a spatial covector) changes the jets by $`b_0 \mapsto b_0 + v`$, $`F_l \mapsto F_l + v \wedge b_{l+1}`$,
+leaving the rest alone, so $`\alpha_0 \mapsto \alpha_0 + v`$ and every $`\omega_l`$ and $`b_j`$, $`j \ge 1`$, is fixed; the pull-back of the
+output sends $`\tau \mapsto \tau + v`$ and so also $`\alpha_0 \mapsto \alpha_0 + v`$. Naturality, $`P(\text{shifted jets}) = \psi^* P`$, becomes
+$`P(\alpha_0, \tau, \dots) = P(\alpha_0, \tau + v, \dots)`$ for every spatial $`v`$. Write $`P = P_0 + \tau \wedge P_1`$ with $`P_0, P_1`$ free of $`\tau`$. Then
+$`v \wedge P_1 = 0`$ for every spatial $`v`$, which forces $`P_1 = P_{10} + \alpha_0 \wedge P_{11}`$ with $`P_{10}`$ and $`P_{11}`$ spatial 3-forms;
+then $`\tau \wedge \alpha_0 \wedge P_{11} = 0`$ and $`\tau \wedge P_{10} = \alpha_0 \wedge P_{10}`$, so $`P`$ is a polynomial in $`\alpha_0`$, the $`b_j`$ ($`j \ge 1`$) and the
+$`\omega_l`$ alone. Conversely every such polynomial is natural. Finally, at the origin $`\alpha_0 = \alpha`$,
+$`b_j = a_{j-1}`$ for $`j \ge 1`$, and from $`\Omega = d_x A - A \wedge \dot A`$ (HH1)
+
+```math
+\Omega_l = F_l - \sum_{k=0}^{l} \binom{l}{k}\, b_k \wedge b_{l-k+1} = \omega_l - \sum_{k=1}^{l} \binom{l}{k}\, b_k \wedge b_{l-k+1} ,
+```
+
+so the $`\omega_l`$ and the $`\Omega_l`$ generate the same algebra with the $`a_n`$. *Checked*: Part K (weight 2, up to four
+time derivatives) and Part L (weight 3: the spatial parts of 3-forms and all 4-forms, with
+jets up to three time derivatives), where the solution spaces have dimensions 14 (2-forms),
+16 (3-forms) and 10 (4-forms) and are spanned by the words computed independently with the
+exterior calculus; Part L also checks the invariance of $`\omega_l`$ and the last display. The counts
+agree with the theorem: with $`a_0, \dots, a_m`$ and $`\Omega_0, \dots, \Omega_l`$ available, a 4-form is $`\alpha`$ times a spatial
+3-form. $`\square`$
+
+*Example.* Kiehn's $`a \wedge da`$ (HH3) is $`\alpha \wedge (\dots) + a_0 \wedge \Omega_1`$: by HH2, $`da = \alpha \wedge a_1 + \Omega_1`$, so
+$`a \wedge da = -\alpha \wedge a_0 \wedge a_1 + a_0 \wedge \Omega_1`$, already in the form of HH9.
+
+What HH8 and HH9 do not do: they rest on steps 1 and 2, whose hypotheses were checked
+against the statements of KMS 23.4 and 24.1 but not line by line; they use the invariant
+tensor theorem without re-proving it; and they say nothing about natural tensors other than
+functions, vector fields and forms (for instance vector-valued forms such as $`\Phi = X \otimes \alpha`$, or
+symmetric tensors), for which "word" would first need a definition. Restated as HH-SP4.
 
 ---
 
 ## 8. Verification
 
-[`src/verify_heat_and_helicity.py`](../src/verify_heat_and_helicity.py), SymPy, exact; about a
-minute, most of it Part K. Forms as dictionaries over sorted index tuples with $`d`$, $`\wedge`$, $`\iota`$ and $`L`$; a 4D Riemann
-tensor (Part C); $`16 \times 16`$ matrices (Part H). 45 checks, all pass.
+[`src/verify_heat_and_helicity.py`](../src/verify_heat_and_helicity.py), SymPy, exact; about two
+minutes, most of it Parts K and L. Forms as dictionaries over sorted index tuples with $`d`$, $`\wedge`$, $`\iota`$ and $`L`$; a 4D Riemann
+tensor (Part C); $`16 \times 16`$ matrices (Part H). 52 checks, all pass.
 
 | Part | Checks | For |
 |---|---|---|
@@ -410,13 +460,14 @@ tensor (Part C); $`16 \times 16`$ matrices (Part H). 45 checks, all pass.
 | I | Nijenhuis torsion of $`X \otimes \alpha`$ is $`-\Omega \otimes X`$; Leibniz rule for $`\mathcal D`$ | HH7(3) |
 | J | $`\iota_P Q = \beta(X)\, \alpha \otimes Y`$, $`C(\iota_P Q) = \beta(X)\, \alpha(Y)`$, $`C(P) = \alpha X`$ | §6 |
 | K | weight $`\le 2`$: the conditions from time shifts and second-order jets; solution dimensions 14 (2-forms) and 10 (3-form parts), spanned by the words; 1-forms | HH8 |
+| L | weight 3: solution dimensions 16 (3-forms) and 10 (4-forms), spanned by the words; invariance of $`\omega_l`$ and $`\Omega_l = F_l - \sum \binom{l}{k} b_k \wedge b_{l-k+1}`$ | HH9 |
 
 Two test expectations were corrected while the checks were written: the sign in HH5
 ($`+u_t^2`$), and the normalisation in Part G (the momentum density is half the curl of the spin
 density). **Not verified:** the readings of §2 beyond the conditions stated; HH6 beyond the
 algebra shown; the Schrödinger remark; steps 1 and 2 of §7 (hypotheses of KMS 23.4 checked in
-outline), on which HH8 rests; the general number of time derivatives in HH8 (by hand; Part K
-checks up to four); which terms of KMS 30.4 survive on two bodies
+outline), on which HH8 rests; the general case of HH8 and HH9 (by hand; Parts K and L check up
+to four and three time derivatives); which terms of KMS 30.4 survive on two bodies
 (by hand, Part J checks only the contraction); the readings of the monograph, of Kiehn and
 of the other cited papers.
 
@@ -433,9 +484,9 @@ of the other cited papers.
   bracket are relative acceleration, Wigner rotation or something new, and which natural
   operations on pairs of bodies are not of this form? Continues GB-SP3.
 - **HH-SP4.** Are the natural operations smooth on all bodies $`(X, \alpha)`$ exactly the polynomial words in
-  $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$? Yes for functions, vector fields, 1-forms and 2-forms, granted steps 1 and 2
-  of §7 (HH8). Open: weight 3 (the spatial parts of 3-forms) and weight 4 (4-forms), mixed
-  tensors, and a check of the hypotheses of KMS 23.4. Supersedes GB-SP5.
+  $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$? Yes for functions, vector fields and forms, granted steps 1 and 2 of §7
+  (HH8, HH9). Open: a line-by-line check of the hypotheses of KMS 23.4 for bodies, and natural
+  tensors of other types. Supersedes GB-SP5.
 - **HH-SP5.** The Tolman reading holds for Killing flows. What does $`a = f\, d\Phi`$ with $`f \neq 1`$ mean, and is $`\Phi`$
   a temperature away from equilibrium?
 
@@ -445,8 +496,9 @@ of the other cited papers.
 
 ## 10. What this does for the ladder
 
-It answers GB-SP1 (no) and GB-SP4, answers GB-SP3 in part and restates GB-SP5, with a
-route to it from Kolář, Michor and Slovák. It moves the
+It answers GB-SP1 (no) and GB-SP4, answers GB-SP3 in part, and answers GB-SP5 for forms,
+granted finite order and polynomiality: the natural forms of a body are its clock and the
+spatial jets of its acceleration and rotation (HH9). It moves the
 link between spin and a body's clock from grade 3 to grades 1 and 2: spin is a second
 moment of $`d\pi`$, a circulation, or a period. And it gives Kiehn's quantization a concrete
 place on the ladder: on a ring, the spin of a fluid with a closed momentum form is a period.
