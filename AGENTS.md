@@ -32,4 +32,11 @@ Read [`README.md`](README.md), [`ORIENTATION.md`](ORIENTATION.md) and
   which statement, and do not present a summary as verified fact about the paper.
 - **Exact before numerical:** check identities with a computer algebra system and
   say which; mark anything numerical as numerical.
+- **Maple 2022 is available** on the owner's server: in a chat started from the Claude
+  desktop app, through the `run_maple` tool (skill `research:maple`). Use it where it
+  suits a check better than SymPy, or for an independent check (its DifferentialGeometry
+  package was compared with the scripts in `supplement/cartan_calculus_in_sympy.md`
+  §13.4). Keep a Maple script in `src/` as `*.mpl`, print a summary line it can be judged
+  by (`CHECKS n`, `FAILURES []`), and record the Maple version and date of the run with
+  the result. CI cannot run Maple.
 - Drop version suffixes from filenames. Code is for verification and graphics only.

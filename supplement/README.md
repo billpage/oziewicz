@@ -90,4 +90,5 @@ not listed in `analysis/INDEX.md`.
   unknown coefficients, pullback). Conventions, pitfalls and a map of which script uses
   what, and why the scripts do not use an existing library (GAlgebra, SageMath, CLIFFORD,
   Maple DifferentialGeometry, FriCAS, Lean/Mathlib). 42 exact checks. Companion script
-  `src/verify_cartan_tutorial.py`.
+  `src/verify_cartan_tutorial.py`; cross-check with Maple's DifferentialGeometry in
+  `src/verify_cartan_dg.mpl` (58 checks) and `src/compare_cartan_dg.py`.
