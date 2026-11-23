@@ -80,3 +80,12 @@ not listed in `analysis/INDEX.md`.
   `F`-linear (MG1 checked over any commutative ring); MG3, MG4 need `d`. The idempotent
   `(1 + U)/2`, not in the notes, needs no metric (GB3) and is step 5's `e_X`. 36 exact checks.
   Companion script `src/verify_magnetismo.py`.
+- **[`cartan_calculus_in_sympy.md`](cartan_calculus_in_sympy.md)** (prefix CT). A tutorial on
+  the methods the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus:
+  a form as a dictionary keyed by sorted tuples or bitmasks, the signs of the wedge product,
+  the interior product and `d` as parities of index-pair counts, the Lie derivative by
+  Cartan's formula, pointwise operators as `2^n × 2^n` matrices (evaluation is the transpose
+  of creation; the CAR), the Clifford product on the same space, and how a check is made
+  exact (generic coefficients, rational spot checks, `α(X) = 1` exactly or modulo an ideal,
+  unknown coefficients, pullback). Conventions, pitfalls and a map of which script uses
+  what. 42 exact checks. Companion script `src/verify_cartan_tutorial.py`.
