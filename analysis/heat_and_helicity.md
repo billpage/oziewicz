@@ -13,7 +13,10 @@ Slovák (1993) whether that book bears on GB-SP3 and GB-SP5; the full book was t
 the sections cited in §6. Derivation and checks were
 drafted with Claude (Anthropic) and are subject to review, and no separate reader has
 checked them; every claim about what a paper says is a reading of the cited page, and
-references marked *from memory* were not checked against the paper.
+references marked *from memory* were not checked against the paper. The remark of §5 was revised on 22 November
+2026: an earlier version contrasted "the field" with "the 2007 idempotent", but Oziewicz's
+idempotent is a tensor field over a ring from the start; the contrast is between $`F`$-linear
+operations and derivations.
 [PDF](https://github.com/billpage/oziewicz/releases/latest/download/heat_and_helicity.pdf)
 
 ---
@@ -252,21 +255,35 @@ and the Leibniz rule for $`\mathcal D`$). $`\square`$
 (3) is MF10 in the language of the monograph. For two bodies $`W`$ is 4-dimensional and $`q|_W`$ is
 non-degenerate exactly when $`\Gamma_{XY}\Gamma_{YX} \neq 1`$; then the algebra is $`\mathrm{Cl}(2, 2) \cong M_4(\mathbb R)`$.
 
-**Remark (Φ is Oziewicz's observer).** Pointwise, $`\Phi = X \otimes \alpha`$ is a rank-one idempotent of trace one,
-$`\Phi^2 = (\alpha X)\Phi = \Phi`$. That is how Oziewicz (2007, §4) makes a body an observer, an idempotent of
-an associative algebra; step 1 realised it as the projector $`Z \otimes \mathrm{clock}_Z`$ of the mass centre (MC6),
-and step 5 as the rank-one projectors of OI5. On vectors $`\Phi`$ projects onto the process along
-the clock, and $`1 - \Phi`$ onto the rest space $`\ker \alpha`$: the split of MF1, which needs no metric. On forms
-the projector has two natural extensions, and they are the two operators of *Magnetismo*
-(MG1): as a derivation, $`\mathcal D = \iota_\Phi`$ (HH7(3)); as an algebra map, $`\mathcal M = \Lambda(1 - \Phi)`$ (GB2(2), MF1).
-$`\Phi`$, $`\mathcal D`$ and $`\mathcal M`$ are unchanged by the rescaling $`(X, \alpha) \mapsto (fX, \alpha/f)`$ of MF0, while $`\mathcal U = \iota_X + \alpha \wedge`$ and
-the third observer $`e = \tfrac12(1 + \mathcal U)`$ of GB2 are not: the observer is what a body and its rescalings have in common.
+**Remark (Φ is Oziewicz's observer).** Oziewicz (2007, §4) postulates an associative algebra
+of observers over a commutative ring $`F`$ in which every body is an idempotent, and represents it
+(§6, eq. (14), Figure 2) in $`\mathrm{End}(\mathrm{der}\,F)`$: a body is a $`(1,1)`$-tensor field $`p`$ with $`p^2 = p`$,
+"(monad vector) ⊗ (simultaneity form)", splitting $`\mathrm{der}\,F`$ into space $`\ker p`$ and time $`\mathrm{im}\, p`$. That is
+$`\Phi = X \otimes \alpha`$, with $`\Phi^2 = (\alpha X)\Phi = \Phi`$ and trace one, in the setting of MF0. It is a field from the start:
+no points, manifold or dimension enter until a representation of $`F`$ is chosen. Step 1
+realised it as the projector $`Z \otimes \mathrm{clock}_Z`$ of the mass centre (MC6), and step 5 as the rank-one
+projectors of OI5. $`1 - \Phi`$ projects onto the rest space $`\ker \alpha`$: the split of MF1, which needs no
+metric. On forms the projector has two natural extensions, and they are the two operators of
+*Magnetismo* (MG1): as a derivation, $`\mathcal D = \iota_\Phi`$ (HH7(3)); as an algebra map, $`\mathcal M = \Lambda(1 - \Phi)`$ (GB2(2),
+MF1). $`\Phi`$, $`\mathcal D`$ and $`\mathcal M`$ are unchanged by the rescaling $`(X, \alpha) \mapsto (fX, \alpha/f)`$, $`f`$ a unit of $`F`$, while
+$`\mathcal U = \iota_X + \alpha \wedge`$ and the third observer $`e = \tfrac12(1 + \mathcal U)`$ of GB2 are not: the observer is what a body and
+its rescalings have in common.
 
-What the field adds to the 2007 idempotent is a derivative. $`\Phi`$ is a connection on the
-worldlines (KMS 8.13): its curvature $`R = -\Omega \otimes X`$ is the obstruction to a time slice (MF11), its
-cocurvature vanishes because the process direction is a line, and $`L_X \Phi = X \otimes a`$ (Part M), so
-the observer is carried along its own flow exactly when the body is unaccelerated. The
-two-body brackets $`[\Phi_X, \Phi_Y]`$ of §6 are the natural pairings of two observers.
+The line that matters is not between a point and a field but between operations that are
+$`F`$-linear and operations that are not. Everything in the algebra of observers is $`F`$-linear:
+products, traces, the arrow $`\varpi(p, q) = qp/\mathrm{tr}(qp) - p`$, the mass-centre idempotent of MC6. $`F`$-linear
+identities hold event by event in any representation, which is why steps 1, 2 and 5 could
+check them with constant vectors ("pointwise" in the sense of MF0), and why they say nothing
+about acceleration or rotation (MF1, remarks). The connection structure of $`\Phi`$ needs the
+derivations of $`F`$, which are not $`F`$-linear: $`d`$, the Lie bracket, and the Frölicher–Nijenhuis
+bracket. $`\Phi`$ is a connection on the worldlines (KMS 8.13): its curvature $`R = -\Omega \otimes X`$ is the
+obstruction to a time slice (MF11), its cocurvature vanishes because the process direction is a
+line, and $`L_X \Phi = X \otimes a`$ (Part M), so the observer is carried along its own flow exactly when the
+body is unaccelerated. The two-body brackets $`[\Phi_X, \Phi_Y]`$ of §6 are the natural pairings of two
+observers. Oziewicz drew this line himself: his 2007 abstract assigns kinematics to the
+associative Frobenius algebra and says that "the dynamics of categorical relativity needs the
+non-associative Frölicher-Richardson operator algebra". HH7(3), this remark and HH10 are a
+first look at that second algebra for one body.
 
 **Answer to GB-SP3, in part.** Pointwise there are finitely many independent monomials, and
 no word is new beyond the Clifford algebra of $`W`$; the only invariant is the matrix of clock
