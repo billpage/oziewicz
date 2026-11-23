@@ -16,45 +16,45 @@ title, and `check_abstracts` keeps the two copies equal.
 
 - **7.** **[`heat_and_helicity.md`](heat_and_helicity.md)** \
   Step 6 left four open items on the grammar of a body (GB-SP1, GB-SP3 to
-  GB-SP5); this note takes them up. **Lemma HH1**: near any point a body is
-  $`X = \partial_t`$, $`\alpha = dt + A(t, x)`$, a time-dependent connection
-  on its worldlines, with acceleration $`a = \dot A`$ and rotation $`\Omega =
-  d_x A - A \wedge \dot A`$. **Proposition HH2**: every body obeys the
-  vorticity identity $`da = \alpha \wedge L_X a + L_X \Omega`$. **Proposition
-  HH3**: so Kiehn's irreversibility splits, $`a \wedge da = -\alpha \wedge a
-  \wedge L_X a + a \wedge L_X \Omega`$, so either the acceleration turns or
-  the rotation changes about the acceleration. The rotation itself does not
-  enter: a rigidly rotating body in Minkowski space is reversible, with $`a =
-  d \ln \gamma`$, and a non-rotating Fermi frame whose acceleration $`g`$
-  turns is not, with $`a \wedge da \propto dt \wedge g \wedge \dot g`$; this
-  answers GB-SP4. **Proposition HH4**: for dust $`\int_\Sigma p \wedge dp`$ is
-  a conserved scalar, the helicity, and it is independent of the spin $`P
-  \wedge L`$: circular flows have spin and no helicity, and a counter-helical
-  flow has helicity and no spin; so GB-SP1 is answered no. **Proposition
-  HH5**: for axisymmetric circular flow $`\alpha \wedge d\alpha = u_t^2\, dt
-  \wedge d\phi \wedge d\ell`$, which vanishes exactly when the specific
-  angular momentum $`\ell`$ is constant; a body that contains its axis then
-  cannot rotate, but a ring can, as the potential vortex $`v = \ell/r`$, $`r >
-  |\ell|`$. CS6's link between spin and the clock is the circulation, of
-  grades 1 and 2, not grade 3. **Proposition HH6**: on such a ring with a
-  closed momentum form, $`S = N \oint p/2\pi`$: the spin is a period, and
-  Bohr–Sommerfeld gives the quantized vortex. **Proposition HH7**: pointwise
-  the operators $`\mathrm{ev}`$, $`\mathrm{cr}`$ of several bodies generate
-  the Clifford algebra of their span, of dimension $`2^{\dim W}`$; with $`d`$
-  the algebra is infinite; $`\mathcal D = \iota_\Phi`$ for the connection
-  $`\Phi = X \otimes \alpha`$, whose curvature is $`-\Omega \otimes X`$;
-  $`\Phi`$ is Oziewicz's observer, the idempotent of his 2007 algebra and of
-  MC6, whose two extensions to forms are the operators of *Magnetismo*.
-  **Proposition HH8** and **Theorem HH9**: granted finite order and
-  polynomiality, which follow from Kolář, Michor and Slovák (23.4, 24.1), the
-  natural functions of a body are constants, its natural vector fields are
-  multiples of $`X`$, and its natural forms are exactly the exterior
-  polynomials in $`\alpha`$, $`L_X^n a`$ and $`L_X^n \Omega`$, which are the
-  words in $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$; this answers GB-SP5
-  for forms. **Conjecture HH10**: every natural vector-valued form is $`X
-  \otimes \beta + \gamma \wedge I`$ with $`\beta, \gamma`$ natural forms; it
-  holds for vector fields and $`(1,1)`$ tensors. Checked exactly with SymPy.
-  No new prediction.
+  GB-SP5); this note takes them up. **Lemma HH1**: in a representation by a
+  manifold, near any point a body is $`X = \partial_t`$, $`\alpha = dt + A(t,
+  x)`$, a time-dependent connection on its worldlines, with acceleration $`a =
+  \dot A`$ and rotation $`\Omega = d_x A - A \wedge \dot A`$. **Proposition
+  HH2**: every body obeys the vorticity identity $`da = \alpha \wedge L_X a +
+  L_X \Omega`$. **Proposition HH3**: so Kiehn's irreversibility splits, $`a
+  \wedge da = -\alpha \wedge a \wedge L_X a + a \wedge L_X \Omega`$, so either
+  the acceleration turns or the rotation changes about the acceleration. The
+  rotation itself does not enter: a rigidly rotating body in Minkowski space
+  is reversible, with $`a = d \ln \gamma`$, and a non-rotating Fermi frame
+  whose acceleration $`g`$ turns is not, with $`a \wedge da \propto dt \wedge
+  g \wedge \dot g`$; this answers GB-SP4. **Proposition HH4**: for dust
+  $`\int_\Sigma p \wedge dp`$ is a conserved scalar, the helicity, and it is
+  independent of the spin $`P \wedge L`$: circular flows have spin and no
+  helicity, and a counter-helical flow has helicity and no spin; so GB-SP1 is
+  answered no. **Proposition HH5**: for axisymmetric circular flow $`\alpha
+  \wedge d\alpha = u_t^2\, dt \wedge d\phi \wedge d\ell`$, which vanishes
+  exactly when the specific angular momentum $`\ell`$ is constant; a body that
+  contains its axis then cannot rotate, but a ring can, as the potential
+  vortex $`v = \ell/r`$, $`r > |\ell|`$. CS6's link between spin and the clock
+  is the circulation, of grades 1 and 2, not grade 3. **Proposition HH6**: on
+  such a ring with a closed momentum form, $`S = N \oint p/2\pi`$: the spin is
+  a period, and Bohr–Sommerfeld gives the quantized vortex. **Proposition
+  HH7**: pointwise the operators $`\mathrm{ev}`$, $`\mathrm{cr}`$ of several
+  bodies generate the Clifford algebra of their span, of rank $`2^k`$ for a
+  span of rank $`k`$; with $`d`$ the algebra is infinite; $`\mathcal D =
+  \iota_\Phi`$ for the connection $`\Phi = X \otimes \alpha`$, whose curvature
+  is $`-\Omega \otimes X`$; $`\Phi`$ is Oziewicz's observer, the idempotent of
+  his 2007 algebra and of MC6, whose two extensions to forms are the operators
+  of *Magnetismo*. **Proposition HH8** and **Theorem HH9**: granted finite
+  order and polynomiality, which follow from Kolář, Michor and Slovák (23.4,
+  24.1), the natural functions of a body are constants, its natural vector
+  fields are multiples of $`X`$, and its natural forms are exactly the
+  exterior polynomials in $`\alpha`$, $`L_X^n a`$ and $`L_X^n \Omega`$, which
+  are the words in $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$; this answers
+  GB-SP5 for forms. **Conjecture HH10**: every natural vector-valued form is
+  $`X \otimes \beta + \gamma \wedge I`$ with $`\beta, \gamma`$ natural forms;
+  it holds for vector fields and $`(1,1)`$ tensors. Checked exactly with
+  SymPy. No new prediction.
 - **6.** **[`grammar_of_a_body.md`](grammar_of_a_body.md)** \
   A body is a process $`X`$ with a clock $`\alpha`$, $`\alpha X = 1`$, and
   Cartan's calculus offers only a few operations to build from it. By the
@@ -72,10 +72,10 @@ title, and `check_abstracts` keeps the two copies equal.
   \mathcal M e = \tfrac12 e`$, and with a metric clock $`e`$ is step 5's
   $`e_X`$. **Proposition GB3**: $`e`$ needs no metric; its corner sees only
   the symmetrised clock factor $`s_{XY} = \tfrac12(\alpha_X Y + \alpha_Y X)`$,
-  and round a triangle the loop is a rotation if $`\det S > 0`$ and a boost if
-  $`\det S < 0`$, both of which occur; this answers OI-SP1. **Proposition
-  GB4**: the forms of one body are the Pfaff sequence $`\alpha, d\alpha,
-  \alpha \wedge d\alpha, d\alpha \wedge d\alpha`$; split by the body,
+  and round a triangle the loop is, at each event, a rotation if $`\det S >
+  0`$ and a boost if $`\det S < 0`$, both of which occur; this answers OI-SP1.
+  **Proposition GB4**: the forms of one body are the Pfaff sequence $`\alpha,
+  d\alpha, \alpha \wedge d\alpha, d\alpha \wedge d\alpha`$; split by the body,
   $`d\alpha = \alpha \wedge a + \Omega`$ is acceleration plus rotation,
   $`\alpha \wedge d\alpha = \alpha \wedge \Omega`$ and $`d\alpha \wedge
   d\alpha = 2\, \alpha \wedge a \wedge \Omega`$; the Frobenius condition

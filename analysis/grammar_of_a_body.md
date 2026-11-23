@@ -1,12 +1,12 @@
 # The grammar of a body: natural operations, three observers, and what fails at grade three
 
-> A body is a process $`X`$ with a clock $`\alpha`$, $`\alpha X = 1`$, and Cartan's calculus offers only a few operations to build from it. By the theorems of Palais (1959) and Navarro and Sancho, the coordinate-free operations on forms are exactly those built from $`d`$, $`\wedge`$ and linear combinations, so for forms the grammar of the calculus is its invariance; this note takes that as its method. **Theorem GB1**: every operator built from $`X`$, $`\alpha`$, $`d`$, $`\wedge`$ and evaluation is natural, including the observer operators. **Proposition GB2**: one body carries three observers, Oziewicz's derivation $`\mathcal D = \alpha \wedge \iota_X`$ and algebra map $`\mathcal M = \iota_X (\alpha \wedge \cdot)`$, with $`\mathcal D + \mathcal M = 1`$, and $`e = \tfrac12(1 + \mathcal U)`$ built from his unipotent $`\mathcal U = \iota_X + \alpha \wedge`$; $`\mathcal U \mathcal D \mathcal U = \mathcal M`$ and $`e \mathcal D e = e \mathcal M e = \tfrac12 e`$, and with a metric clock $`e`$ is step 5's $`e_X`$. **Proposition GB3**: $`e`$ needs no metric; its corner sees only the symmetrised clock factor $`s_{XY} = \tfrac12(\alpha_X Y + \alpha_Y X)`$, and round a triangle the loop is a rotation if $`\det S > 0`$ and a boost if $`\det S < 0`$, both of which occur; this answers OI-SP1. **Proposition GB4**: the forms of one body are the Pfaff sequence $`\alpha, d\alpha, \alpha \wedge d\alpha, d\alpha \wedge d\alpha`$; split by the body, $`d\alpha = \alpha \wedge a + \Omega`$ is acceleration plus rotation, $`\alpha \wedge d\alpha = \alpha \wedge \Omega`$ and $`d\alpha \wedge d\alpha = 2\, \alpha \wedge a \wedge \Omega`$; the Frobenius condition survives a change of clock scale, the top class does not, and for the momentum form $`p = E\alpha`$, $`p \wedge dp = E^2 \alpha \wedge d\alpha`$. **Proposition GB5**: in Kiehn's reading of Cartan's formula as a first law, a body's own process does no internal-energy change and its heat is its acceleration, $`Q = W = a`$. **Proposition GB6**: grade 3 is where observer-independence fails, three times: $`P \wedge L`$ (the spread of centres), $`\alpha \wedge d\alpha`$ (no time function) and $`X \wedge Y \wedge Z`$ (the Wigner rotation, $`T^2 = -\det G`$); at grade 4, $`L \wedge L = 2\, C \wedge P \wedge L`$ adds nothing, and $`X \wedge Y \wedge Z \wedge W = 0`$ exactly when two triangle rotations commute. Checked exactly with SymPy. No new prediction.
+> A body is a process $`X`$ with a clock $`\alpha`$, $`\alpha X = 1`$, and Cartan's calculus offers only a few operations to build from it. By the theorems of Palais (1959) and Navarro and Sancho, the coordinate-free operations on forms are exactly those built from $`d`$, $`\wedge`$ and linear combinations, so for forms the grammar of the calculus is its invariance; this note takes that as its method. **Theorem GB1**: every operator built from $`X`$, $`\alpha`$, $`d`$, $`\wedge`$ and evaluation is natural, including the observer operators. **Proposition GB2**: one body carries three observers, Oziewicz's derivation $`\mathcal D = \alpha \wedge \iota_X`$ and algebra map $`\mathcal M = \iota_X (\alpha \wedge \cdot)`$, with $`\mathcal D + \mathcal M = 1`$, and $`e = \tfrac12(1 + \mathcal U)`$ built from his unipotent $`\mathcal U = \iota_X + \alpha \wedge`$; $`\mathcal U \mathcal D \mathcal U = \mathcal M`$ and $`e \mathcal D e = e \mathcal M e = \tfrac12 e`$, and with a metric clock $`e`$ is step 5's $`e_X`$. **Proposition GB3**: $`e`$ needs no metric; its corner sees only the symmetrised clock factor $`s_{XY} = \tfrac12(\alpha_X Y + \alpha_Y X)`$, and round a triangle the loop is, at each event, a rotation if $`\det S > 0`$ and a boost if $`\det S < 0`$, both of which occur; this answers OI-SP1. **Proposition GB4**: the forms of one body are the Pfaff sequence $`\alpha, d\alpha, \alpha \wedge d\alpha, d\alpha \wedge d\alpha`$; split by the body, $`d\alpha = \alpha \wedge a + \Omega`$ is acceleration plus rotation, $`\alpha \wedge d\alpha = \alpha \wedge \Omega`$ and $`d\alpha \wedge d\alpha = 2\, \alpha \wedge a \wedge \Omega`$; the Frobenius condition survives a change of clock scale, the top class does not, and for the momentum form $`p = E\alpha`$, $`p \wedge dp = E^2 \alpha \wedge d\alpha`$. **Proposition GB5**: in Kiehn's reading of Cartan's formula as a first law, a body's own process does no internal-energy change and its heat is its acceleration, $`Q = W = a`$. **Proposition GB6**: grade 3 is where observer-independence fails, three times: $`P \wedge L`$ (the spread of centres), $`\alpha \wedge d\alpha`$ (no time function) and $`X \wedge Y \wedge Z`$ (the Wigner rotation, $`T^2 = -\det G`$); at grade 4, $`L \wedge L = 2\, C \wedge P \wedge L`$ adds nothing, and $`X \wedge Y \wedge Z \wedge W = 0`$ exactly when two triangle rotations commute. Checked exactly with SymPy. No new prediction.
 
 *Ladder abstract — see the [full list](README.md#the-ladder).*
 
 **Status.** Analysis note, step 6 of the ladder. Theorem prefix **GB**. Companion
 script: [`src/verify_grammar_of_a_body.py`](../src/verify_grammar_of_a_body.py) (Parts A
-to G; §10). Prompted by Bill Page, 21–22 November 2026: an AI-generated note on
+to H; §10). Prompted by Bill Page, 21–22 November 2026: an AI-generated note on
 "geometric synthesis" in exterior calculus, read against Oziewicz's last programme (the
 body as $`P + dP + P \wedge dP + dP \wedge dP`$, in his letters of 2019–2020), with the
 request to take seriously the idea that the right formalism guides the ontology, as
@@ -14,7 +14,10 @@ Kiehn did for Cartan's calculus. The operators are Oziewicz's, from his lecture 
 *Magnetismo e Electricidad* (summarised in [`supplement/magnetismo.md`](../supplement/magnetismo.md)).
 Derivation and checks were drafted with Claude (Anthropic) and are subject to review,
 and no separate reader has checked them; every claim about what a paper says is a
-reading of the cited page, and the letters are paraphrased.
+reading of the cited page, and the letters are paraphrased. Revised 22 November 2026 to read
+the note in Oziewicz's algebraic setting (naturality as invariance under automorphisms of
+$`F`$; sign conditions event by event; ranks rather than dimensions; what needs an affine
+structure); no result changed.
 [PDF](https://github.com/billpage/oziewicz/releases/latest/download/grammar_of_a_body.pdf)
 
 ---
@@ -50,6 +53,14 @@ that is, a natural transformation between the functors of sections (Kolář, Mic
 Slovák 1993). A natural operator is one whose definition needs no
 choice of coordinates.
 
+**In Oziewicz's setting.** He starts from a commutative algebra $`F`$ of scalar fields, its
+derivations $`\mathrm{der}\,F`$ and the dual module (MF0), and points, a manifold and a dimension appear
+only in a representation. The two notions of naturality agree: for $`F = C^\infty(M)`$ every
+isomorphism of algebras of smooth functions is composition with a unique diffeomorphism
+(Mrčun 2005; Grabowski 2005). So "natural" means "commutes with every automorphism of $`F`$" and
+with the maps it induces on $`\mathrm{der}\,F`$ and its dual. In that language GB1 is immediate: an
+algebra isomorphism carries every word built from module operations and $`d`$ to the same word.
+
 **Two theorems.** Palais (1959): every linear natural operator from $`p`$-forms to $`(p+1)`$-forms
 is a constant multiple of $`d`$. Navarro and Sancho (2014): the natural operations from given
 forms to forms are exactly those built from linear combinations, $`\wedge`$ and $`d`$. Read the
@@ -70,8 +81,8 @@ language of physics (Kiehn and Baldwin 2001).
    evaluation $`\iota_X`$, the Lie derivative and the bracket are natural as well; whether they and
    $`d`$, $`\wedge`$ generate all natural operations on a pair $`(X, \alpha)`$ is not settled here (GB-SP5).
 
-**Definition GB0 (body and its operators).** A *body* is a pair $`(X, \alpha)`$ of a vector field and
-a 1-form with $`\alpha X = 1`$ (MF0; *Magnetismo* (7.2.1), with $`X = L_P`$ the Length of the clock). On
+**Definition GB0 (body and its operators).** A *body* is a pair $`(X, \alpha)`$ of a derivation $`X \in \mathrm{der}\,F`$ (a vector field)
+and an element $`\alpha`$ of the dual module (a 1-form) with $`\alpha X = 1`$ (MF0; *Magnetismo* (7.2.1), with $`X = L_P`$ the Length of the clock). On
 forms it carries the operators $`\mathrm{ev}_X = \iota_X`$ and $`\mathrm{cr}_\alpha = \alpha \wedge`$, and
 
 ```math
@@ -131,15 +142,22 @@ and idempotents $`e_X = \tfrac12(1 + \mathcal U_X)`$, etc. Write $`s_{XY} = \tfr
 2. $`e_X e_Z e_Y e_X = \tfrac18 \Lambda\, e_X`$ with $`\Lambda = (1 + \mathcal U_X \mathcal U_Z)(1 + \mathcal U_Z \mathcal U_Y)(1 + \mathcal U_Y \mathcal U_X)`$, as in OI3.
 3. The scalar part of $`\Lambda`$ is $`2(1 + s_{XY} + s_{YZ} + s_{ZX})`$, and the rest squares to a scalar:
    $`(\Lambda - \langle \Lambda \rangle_0)^2 = -4 \det S`$.
-4. So the loop is a rotation (of angle $`\theta`$, $`\tan(\theta/2) = \sqrt{\det S}/(1 + s_{XY} + s_{YZ} + s_{ZX})`$) when $`\det S > 0`$,
-   and a boost when $`\det S < 0`$; both signs occur among bodies with arbitrary clocks.
+4. So, at each event, the loop is a rotation (of angle $`\theta`$, $`\tan(\theta/2) = \sqrt{\det S}/(1 + s_{XY} + s_{YZ} + s_{ZX})`$) when
+   $`\det S > 0`$ there, and a boost when $`\det S < 0`$; both signs occur among bodies with arbitrary clocks.
 
 *Proof.* (1) is the anticommutator of GB0 applied to two bodies:
 $`\{\mathrm{ev}_X + \mathrm{cr}_\alpha, \mathrm{ev}_Y + \mathrm{cr}_\beta\} = \alpha Y + \beta X`$. Then $`e_X \mathcal U_Y e_X = \tfrac14(\mathcal U_Y + \mathcal U_X \mathcal U_Y + \mathcal U_Y \mathcal U_X + \mathcal U_X \mathcal U_Y \mathcal U_X)`$, and
 $`\mathcal U_X \mathcal U_Y \mathcal U_X = 2 s_{XY} \mathcal U_X - \mathcal U_Y`$ gives $`s_{XY}(1 + \mathcal U_X)/2`$. (2) and (3) are OI3's algebra, which used only
 $`X^2 = 1`$ and the anticommutators. (4) In the spin representation a unit element $`\cos(\theta/2) + B\sin(\theta/2)`$
 has $`B^2 = -1`$ for a rotation, $`B^2 = +1`$ for a boost. *Checked*: Part B symbolically; Part C on 12
-random rational triangles of metric-free bodies, where both signs of $`\det S`$ occurred. $`\square`$
+random rational triangles of metric-free bodies, where both signs of $`\det S`$ occurred; Part H
+proves (3) in the abstract Clifford algebra with symbolic $`s_{ij}`$, as a polynomial identity with
+integer coefficients. $`\square`$
+
+(1)–(3) hold over $`F`$: the $`s_{ij}`$ and $`\det S`$ are scalar fields. (4) needs the sign of $`\det S`$, that is an
+ordering of $`F`$, which the algebraic setting does not supply; in a representation $`\det S`$ is a
+function, and one triangle of bodies can be a rotation at some events and a boost at
+others. Part C's bodies are constant, one event each.
 
 **Reading.** OI-SP1 asked whether a metric-free body has an observer idempotent and whether
 a loop of three carries anything. It does, and the loop carries a rotation only when the
@@ -155,7 +173,8 @@ non-reciprocity, is invisible to $`e`$.
 **Proposition GB4.** For a body $`(X, \alpha)`$, write $`a = \iota_X d\alpha = L_X \alpha`$ and $`\Omega = \mathcal M\, d\alpha = \iota_X(\alpha \wedge d\alpha)`$.
 
 1. $`d\alpha = \mathcal D\, d\alpha + \mathcal M\, d\alpha = \alpha \wedge a + \Omega`$, with $`\iota_X a = \iota_X \Omega = 0`$: acceleration and rotation.
-2. $`\alpha \wedge d\alpha = \alpha \wedge \Omega`$, $`d\alpha \wedge d\alpha = 2\, \alpha \wedge a \wedge \Omega`$, and $`\alpha \wedge d\alpha \wedge d\alpha = 0`$ in four dimensions.
+2. $`\alpha \wedge d\alpha = \alpha \wedge \Omega`$, $`d\alpha \wedge d\alpha = 2\, \alpha \wedge a \wedge \Omega`$, and $`\alpha \wedge d\alpha \wedge d\alpha = \alpha \wedge \Omega \wedge \Omega = 0`$ when $`\mathrm{der}\,F`$ has
+   rank 4, since $`\Omega \wedge \Omega`$ is a spatial 4-form and the rest space has rank 3.
 3. Under $`\alpha \to f\alpha`$, $`(f\alpha) \wedge d(f\alpha) = f^2\, \alpha \wedge d\alpha`$, but the vanishing of $`d\alpha \wedge d\alpha`$ is not preserved:
    $`\alpha = dt + x\,dy`$ has $`d\alpha \wedge d\alpha = 0`$, and $`d(e^z \alpha) \wedge d(e^z \alpha) = 2 e^{2z}\, dz \wedge dt \wedge dx \wedge dy`$.
 4. For the momentum form $`p = E\alpha`$: $`p \wedge dp = E^2\, \alpha \wedge d\alpha`$ and $`dp \wedge dp = E^2\, d\alpha \wedge d\alpha + 2E\, dE \wedge \alpha \wedge d\alpha`$.
@@ -167,7 +186,8 @@ coefficients; Part G1–G2 (3)–(4) with general functions. $`\square`$
 
 **Kiehn's classes.** The sequence $`\alpha, d\alpha, \alpha \wedge d\alpha, d\alpha \wedge d\alpha`$ is what Kiehn calls the Pfaff
 sequence of a 1-form, and the largest non-vanishing term fixes its Pfaff topological
-dimension, 1 to 4 (Kiehn and Baldwin 2001). For a clock:
+dimension, 1 to 4 when $`\mathrm{der}\,F`$ has rank 4 (Kiehn and Baldwin 2001); like every "class" below, it is
+decided event by event. For a clock:
 
 | class | condition | for the body | where on the ladder |
 |---|---|---|---|
@@ -209,11 +229,14 @@ $`a \wedge da \ne 0`$ mean for a single body, whose "work" on itself is its acce
 **Proposition GB6.**
 
 1. For a closed system with momentum $`P`$ and angular momentum $`L`$, and the centre $`C[\zeta]`$ of any
-   clock $`\zeta`$ (CS1): $`L \wedge L = 2\, C[\zeta] \wedge P \wedge L`$, and $`L_C = L - C \wedge P`$ has $`\iota_\zeta L_C = 0`$ and $`L_C \wedge L_C = 0`$.
+   clock $`\zeta`$ (CS1); $`L`$ and $`C`$ need positions and an origin, an affine structure that the $`F`$-module
+   setting does not supply, so (1) lives in the Minkowski representation: $`L \wedge L = 2\, C[\zeta] \wedge P \wedge L`$, and $`L_C = L - C \wedge P`$ has $`\iota_\zeta L_C = 0`$ and $`L_C \wedge L_C = 0`$.
 2. For three bodies in $`\mathrm{Cl}(V, -g)`$, $`T = X \wedge Y \wedge Z`$ has $`T^2 = -\det G`$, with $`G`$ the Gram matrix of TV8, so the
-   Wigner angle of OI3 is $`\tan(\theta/2) = \sqrt{-T^2}/(1 + \gamma_{XY} + \gamma_{YZ} + \gamma_{ZX})`$; its axis is the 1-form $`\varepsilon(X, Y, Z, \cdot)`$.
-3. For a fourth body $`W`$, the loop rotors of the triangles $`XYZ`$ and $`XZW`$ commute exactly when
-   $`X \wedge Y \wedge Z \wedge W = 0`$.
+   Wigner angle of OI3 is $`\tan(\theta/2) = \sqrt{-T^2}/(1 + \gamma_{XY} + \gamma_{YZ} + \gamma_{ZX})`$; its axis is the 1-form $`\varepsilon(X, Y, Z, \cdot)`$, which needs a volume form $`\varepsilon`$, a generator of
+   the top exterior power of the dual module; one exists when that power is free (orientability).
+3. For a fourth body $`W`$, the loop rotors of the triangles $`XYZ`$ and $`XZW`$ commute, at each event, exactly
+   when $`X \wedge Y \wedge Z \wedge W = 0`$ there. Over $`F`$ "exactly when" is an event-by-event statement, since a
+   non-zero scalar field can be a zero divisor.
 
 *Proof.* (1) $`L = L_C + C \wedge P`$ with $`L_C \wedge L_C = 0`$ (a simple 2-vector, since $`\iota_\zeta L_C = 0`$ puts it in a
 3-dimensional space where every bivector is simple), so $`L \wedge L = 2\, C \wedge P \wedge L_C = 2\, C \wedge P \wedge L`$. (2) is
@@ -231,14 +254,16 @@ symbolically; Part F on step 2's bodies, with $`W`$ in and out of their 3-space.
 Each grade-3 entry is the obstruction to an observer-independent construction, and each
 vanishes exactly when that construction can be made without choosing an observer. Step 4
 (CS6) has already identified the first two entries for axisymmetric dust: the Sagnac
-failure of the clocks is the spread of centres. *Refined by step 7, HH5* ([`heat_and_helicity.md`](heat_and_helicity.md)): CS6 links the spread of centres to the circulation $`\oint \alpha`$, not to $`\alpha \wedge d\alpha`$. In four dimensions the exterior algebra ends
+failure of the clocks is the spread of centres. *Refined by step 7, HH5* ([`heat_and_helicity.md`](heat_and_helicity.md)): CS6 links the spread of centres to the circulation $`\oint \alpha`$, not to $`\alpha \wedge d\alpha`$. With $`\mathrm{der}\,F`$ of rank 4 the exterior algebra ends
 at grade 4. So, to the question of whether a body has intrinsic properties that need higher
 multivectors or forms: within $`(X, \alpha)`$ and $`(P, L)`$, spin is the last, apart from the grade-4 term of a
 body's own clock. Charge needs another form, a current, and higher moments of a system
 (Dixon 1970) are symmetric tensors, outside the exterior algebra.
 
-**Spin, twice.** Oziewicz's late candidate for spin, $`P \wedge dP = E^2\, \alpha \wedge d\alpha`$ (GB4(4)), is local and
-needs a clock field; Pauli–Lubański's $`P \wedge L`$ is global and needs places and an origin (CS2).
+**Spin, twice.** Oziewicz's late candidate for spin, $`P \wedge dP = E^2\, \alpha \wedge d\alpha`$ (GB4(4)), is defined over $`F`$:
+it uses $`d`$ but no positions. Pauli–Lubański's $`P \wedge L`$ needs places and an origin (CS2), that is an
+affine structure, and so exists only in the Minkowski representation. (Step 7, HH4: the first is
+the helicity, not the spin.)
 For two free point bodies the first vanishes and the second need not; for a rigid rotor they
 agree through CS5. The grammar offers both, as different words.
 
@@ -288,7 +313,9 @@ which are both statements about the ladder's own objects and both checkable.
 [`src/verify_grammar_of_a_body.py`](../src/verify_grammar_of_a_body.py), SymPy, exact; runs in a few
 seconds. Forms on $`\mathbb R^4`$ as $`16 \times 16`$ matrices of evaluation and creation (Parts A–E) or as
 dicts over basis masks with polynomial coefficients (Part G); an exact Clifford algebra for
-any symmetric form (Part F). 36 checks, all pass.
+any symmetric form (Parts F and H). 38 checks, all pass. Part A's identities are checked with
+symbolic $`X`$, $`\alpha`$ and are homogeneous in $`\alpha X`$, so, like MG1, they hold over every commutative ring;
+Part H does the same for GB3(3).
 
 | Part | Checks | Result |
 |---|---|---|
@@ -299,6 +326,7 @@ any symmetric form (Part F). 36 checks, all pass.
 | E | $`L \wedge L = 2C \wedge P \wedge L`$, $`L_C \wedge L_C = 0`$ | GB6(1) |
 | F | $`T^2 = -\det G`$; commuting rotors iff the 4-vector vanishes | GB6(2)–(3) |
 | G | rescaling (G1), momentum form (G2), Kiehn's first law and $`a \wedge da \ne 0`$ (G3), naturality under a polynomial diffeomorphism (G4) | GB1, GB4(3)–(4), GB5 |
+| H | $`(\Lambda - 2(1 + s_{XY} + s_{YZ} + s_{ZX}))^2 = -4 \det S`$ in the abstract Clifford algebra with symbolic $`s_{ij}`$ | GB3(3) over any ring |
 
 One test expectation was corrected while the checks were written: $`\mathcal U \mathcal D \mathcal U = (\alpha X)\mathcal M`$, not $`(\alpha X)^2 \mathcal M`$.
 **Not verified:** the readings of Kiehn, of *Magnetismo* and of the letters (interpretations);
@@ -319,6 +347,10 @@ the two naturality theorems are cited, not re-proved.
 - R. M. Kiehn, "Non-equilibrium systems and irreversible processes — from the perspective of
   continuous topological evolution", AMS meeting 1000, abstract 1000-80-31,
   [PDF](https://www.ams.org/amsmtgs/2112_abstracts/1000-80-31.pdf).
+- J. Mrčun, "On isomorphisms of algebras of smooth functions", *Proc. Amer. Math. Soc.* 133 (2005)
+  3109–3113, [arXiv:math/0309179](https://arxiv.org/abs/math/0309179); J. Grabowski, "Isomorphisms of algebras of
+  smooth functions revisited", *Arch. Math.* 85 (2005) 190–196,
+  [arXiv:math/0310295](https://arxiv.org/abs/math/0310295). Journal details from memory.
 - C. Chevalley, *The Algebraic Theory of Spinors*, Columbia University Press (1954).
 - W. G. Dixon, "Dynamics of extended bodies in general relativity. I", *Proc. R. Soc. Lond. A*
   314 (1970) 499–527. Cited from memory.
