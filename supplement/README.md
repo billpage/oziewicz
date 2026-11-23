@@ -88,4 +88,6 @@ not listed in `analysis/INDEX.md`.
   of creation; the CAR), the Clifford product on the same space, and how a check is made
   exact (generic coefficients, rational spot checks, `α(X) = 1` exactly or modulo an ideal,
   unknown coefficients, pullback). Conventions, pitfalls and a map of which script uses
-  what. 42 exact checks. Companion script `src/verify_cartan_tutorial.py`.
+  what, and why the scripts do not use an existing library (GAlgebra, SageMath, CLIFFORD,
+  Maple DifferentialGeometry, FriCAS, Lean/Mathlib). 42 exact checks. Companion script
+  `src/verify_cartan_tutorial.py`.
