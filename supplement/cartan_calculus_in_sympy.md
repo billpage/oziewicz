@@ -1,6 +1,6 @@
 # Cartan's calculus in SymPy: how the scripts in `src/` compute
 
-> A tutorial on the machinery that the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus. Each script carries its own copy, of twenty to a hundred lines, and the copies differ in naming and in the encoding of a basis form, so this note explains one version and gives a dictionary to the others. A differential form is a Python dictionary from basis forms to SymPy coefficients, the basis form keyed either by a sorted tuple of indices or by a bitmask. The wedge product, the interior product and the exterior derivative are each a double loop with a sign, and the sign is the parity of a count of index pairs, derived in §3 to §5; the Lie derivative is then Cartan's formula $`L_X = \iota_X d + d\iota_X`$. Pointwise operators are also written as $`2^n \times 2^n`$ matrices, in which evaluation is the transpose of creation and the two obey the canonical anticommutation relations; adding a bilinear form gives the Clifford product on the same space. The note then explains how a check is made exact (generic coefficients, rational spot checks, side conditions such as $`\alpha(X) = 1`$ handled exactly or modulo an ideal, unknown coefficients solved for, pullback by a diffeomorphism) and lists the conventions and pitfalls. The companion script runs 42 exact checks, including two that show a check can fail.
+> A tutorial on the machinery that the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus. Each script carries its own copy, of twenty to a hundred lines, and the copies differ in naming and in the encoding of a basis form, so this note explains one version and gives a dictionary to the others. A differential form is a Python dictionary from basis forms to SymPy coefficients, the basis form keyed either by a sorted tuple of indices or by a bitmask. The wedge product, the interior product and the exterior derivative are each a double loop with a sign, and the sign is the parity of a count of index pairs, derived in §3 to §5; the Lie derivative is then Cartan's formula $`L_X = \iota_X d + d\iota_X`$. Pointwise operators are also written as $`2^n \times 2^n`$ matrices, in which evaluation is the transpose of creation and the two obey the canonical anticommutation relations; adding a bilinear form gives the Clifford product on the same space. The note then explains how a check is made exact (generic coefficients, rational spot checks, side conditions such as $`\alpha(X) = 1`$ handled exactly or modulo an ideal, unknown coefficients solved for, pullback by a diffeomorphism) and lists the conventions and pitfalls. A last section explains why the scripts do not use an existing library and surveys the alternatives (GAlgebra, SageMath, the Maple packages CLIFFORD and DifferentialGeometry, FriCAS, Lean with Mathlib), with what a check in coordinates proves about a result meant for every dimension. The companion script runs 42 exact checks, including two that show a check can fail.
 
 **Status.** Supplement: a tutorial on methods, not a reading of a paper and not a ladder
 step. Requested by Bill Page, 22 November 2026. Drafted with Claude (Anthropic) and subject
@@ -594,7 +594,80 @@ The remaining scripts (`mass_centre`, `ternary_mass_centre`, `clock_centre`,
 machinery: where a wedge appears it is a list of $`3 \times 3`$ minors (`wedge3`) or a
 Gram determinant (`wedge2`).
 
-## 13. Running the companion script
+## 13. Why hand-written code: libraries, other systems, proof assistants
+
+Implementing Grassmann and Clifford algebras by computer has a long history, so it is fair
+to ask why the scripts write their own. This section records the answer and the
+alternatives, as background for anyone who wants to cross-check the scripts or extend
+them.
+
+### 13.1 What a check in coordinates proves
+
+The project's results are meant to hold in any dimension and without a choice of basis.
+The scripts check them in coordinates for $`n = 3`$ or $`n = 4`$. With generic
+coefficients (§9) a pass proves the identity *for that* $`n`$, over any commutative ring
+when the identity is polynomial with integer coefficients. For other $`n`$ it is evidence,
+not proof. Hand proofs usually close the gap by a reduction that the scripts do not use:
+two (anti)derivations of the same degree that agree on functions and on 1-forms agree on
+all forms, because they are determined by their action on generators. So identities such as
+$`[L_X, \iota_Y] = \iota_{[X,Y]}`$ need checking only in degrees 0 and 1, where the
+coordinate computation is the same for every $`n`$. Results that are not statements about
+derivations, such as the multiplicativity of $`\mathcal M`$ in §9, have no such shortcut.
+
+### 13.2 Why the scripts do not use a library
+
+- **The framework is metric-free.** Oziewicz keeps vectors and forms apart: $`\mathrm{ev}_X`$
+  pairs a vector with a form, and no metric is involved. Geometric-algebra libraries are
+  built around a metric, through which they define contraction and identify vectors with
+  covectors.
+- **The Clifford algebras are those of an arbitrary bilinear form.** The 1986 paper uses
+  $`Cl(\varphi)`$ with $`\varphi`$ not necessarily symmetric (§8). Most packages accept only a
+  quadratic form, that is, the symmetric part.
+- **The coefficients are fields.** Cartan's calculus has to act on coefficients that are
+  undefined functions of the coordinates, which SymPy differentiates directly.
+- **Every sign is visible.** The core is about 50 lines without docstrings (§2 to §6), short enough to check by
+  reading, and at $`n = 4`$ the algebra has only 16 dimensions, so speed does not matter.
+
+The cost is duplication: five scripts carry their own copies (§12).
+
+### 13.3 Alternatives
+
+| System | What it offers | Fit here |
+|---|---|---|
+| [GAlgebra](https://github.com/pygae/galgebra), Python on SymPy | Geometric algebra with an arbitrary basis and metric; geometric calculus with differential operators | Contraction is defined by the metric. Not tested for this note |
+| SageMath [`ExteriorAlgebra`, `CliffordAlgebra`](https://doc.sagemath.org/html/en/reference/algebras/sage/algebras/clifford_algebra_element.html) | Exterior algebra over a ring with an interior product by a dual element, contracting the first slot as in §4 and extended to products by $`\iota_{\beta \wedge \gamma} = \iota_\gamma \iota_\beta`$, the order of the 1986 eq. (12); Clifford algebras of a quadratic form | Close in convention for the exterior algebra; symmetric forms only for Clifford. Not tested |
+| [CLIFFORD](https://github.com/fractal97/CLIFFORD), Maple (Abłamowicz; with Fauser from version 5) | Clifford algebras $`Cl(B)`$ of an arbitrary bilinear form, the antisymmetric part included; a product algorithm based on Chevalley's recursive formula; left contraction with respect to a bilinear form that may be left symbolic | The closest fit to the 1986 paper, and an independent implementation |
+| Maple DifferentialGeometry (Anderson and Torre) | Forms, interior products, exterior and Lie derivatives on coordinate charts | Cartan's calculus, independent of the scripts. Not used here |
+| FriCAS | `DeRhamComplex`, `CliffordAlgebra` (quadratic form) | Not checked for this note |
+| Lean 4 with [Mathlib](https://leanprover-community.github.io/mathlib4_docs/Mathlib/LinearAlgebra/CliffordAlgebra/Contraction) | Basis-free Clifford algebras over any commutative ring; contraction by an element of the dual module (metric-free, like $`\mathrm{ev}`$); `CliffordAlgebra.equivExterior`, the linear isomorphism of a Clifford algebra with the exterior algebra when 2 is invertible; `changeForm`, which moves between Clifford algebras of quadratic forms differing by a bilinear form $`B`$; the exterior derivative on normed spaces, with $`d^2 = 0`$ under smoothness assumptions | Proofs for every dimension and every ring. Differential forms on manifolds were not yet in Mathlib in early 2026, and I found no Lie derivative of forms there |
+
+Notes on the table:
+
+- **CLIFFORD.** Bertfried Fauser was a student of Oziewicz and Rafał Abłamowicz a colleague
+  (B. Page). Bill recalls CLIFFORD as a large package that depends closely on the Maple
+  version and is hard to install; it is not installed on his Maple server at present. A
+  current distribution is at <https://github.com/fractal97/CLIFFORD> (read at commit
+  `e58c1f0`). Its README, by Abłamowicz and dated 14 December 2024, gives installation
+  instructions for Maple 2020.2 under Windows 10. The repository holds a single zip with the
+  package as a Maple library (`maple.lib`, `maple.ind`, dated June 2024), its help
+  database, a `maple.ini` that adds the library's folder to `libname`, and a sample
+  worksheet. BIGEBRA is not included, and the repository states no licence. The README lists
+  the exports of `with(Clifford)`, among them `cmul`, `cmulNUM`, `cmulRS`, `wedge`, `LC`,
+  `RC` and `clibilinear`. Whether the library loads in Maple 2022 under Linux has not been
+  tried.
+  Running the Chevalley checks of §8 and the observer identities of §7 and §9 in CLIFFORD
+  would be a useful side exercise: the scripts are checked by their own code, so a sign
+  convention shared by a script and its check passes unnoticed, and an independent
+  implementation would catch it.
+- **Lean.** Wieser and Song formalised Clifford algebras in Lean with an approach that does
+  not require a choice of basis, which matches the intent of §13.1. Their Lean 4 blueprint
+  follows Jadczyk (2019). Mathlib's differential forms on manifolds were formalised in a
+  separate repository and, as of January 2026, were not yet upstreamed. Natural first
+  targets are the algebraic statements of §7 to §9 (the CAR, $`U^2 = \alpha(X)`$, the
+  observer identities, Chevalley's anticommutator). Bill has deferred Lean, possibly to a
+  separate project.
+
+## 14. Running the companion script
 
 ```
 PYTHONPATH=src python3 -u src/verify_cartan_tutorial.py
@@ -620,5 +693,19 @@ sections of this note in the order 2–3, 3, 4, 5, 6, 7, 8, 6.1, 9, 9.
   <https://www.mat.univie.ac.at/~michor/preprint-shadows/kmsbookh.html>. Chapter II for the
   interior product, $`d`$, $`L_X`$ and their graded commutators; the chapter was not
   re-read for this note.
+- R. Abłamowicz and B. Fauser, "Mathematics of CLIFFORD: a Maple package for Clifford and
+  Grassmann algebras", Adv. Appl. Clifford Algebras 15 (2005) 157–181,
+  <https://doi.org/10.1007/s00006-005-0009-9>,
+  [arXiv:math-ph/0212031](https://arxiv.org/abs/math-ph/0212031). R. Abłamowicz, "Hecke
+  algebras, SVD, and other computational examples with CLIFFORD",
+  [arXiv:math/9910069](https://arxiv.org/abs/math/9910069).
+- E. Wieser and U. Song, "Formalizing geometric algebra in Lean", Adv. Appl. Clifford
+  Algebras 32 (2022), <https://doi.org/10.1007/s00006-021-01164-1>,
+  [arXiv:2110.03551](https://arxiv.org/abs/2110.03551); Lean 4 blueprint
+  <https://utensil.github.io/lean-ga/blueprint/blueprint.pdf>.
+- Mathlib: `Mathlib.LinearAlgebra.CliffordAlgebra.Contraction` (link in §13.3) and
+  `Mathlib.Analysis.Calculus.DifferentialForm.Basic`,
+  <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/Calculus/DifferentialForm/Basic>;
+  differential forms on manifolds: <https://github.com/urkud/DeRhamCohomology>.
 - SymPy documentation: `Basic.subs` (the `simultaneous` flag), `reduced`, `Poly.coeffs`,
   <https://docs.sympy.org>. The script was run with SymPy 1.14.0.
