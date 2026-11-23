@@ -1,6 +1,6 @@
 # Heat and helicity of a body: Kiehn's irreversibility, spin as a period
 
-> Step 6 left four open items on the grammar of a body (GB-SP1, GB-SP3 to GB-SP5); this note takes them up. **Lemma HH1**: near any point a body is $`X = \partial_t`$, $`\alpha = dt + A(t, x)`$, a time-dependent connection on its worldlines, with acceleration $`a = \dot A`$ and rotation $`\Omega = d_x A - A \wedge \dot A`$. **Proposition HH2**: every body obeys the vorticity identity $`da = \alpha \wedge L_X a + L_X \Omega`$. **Proposition HH3**: so Kiehn's irreversibility splits, $`a \wedge da = -\alpha \wedge a \wedge L_X a + a \wedge L_X \Omega`$, so either the acceleration turns or the rotation changes about the acceleration. The rotation itself does not enter: a rigidly rotating body in Minkowski space is reversible, with $`a = d \ln \gamma`$, and a non-rotating Fermi frame whose acceleration $`g`$ turns is not, with $`a \wedge da \propto dt \wedge g \wedge \dot g`$; this answers GB-SP4. **Proposition HH4**: for dust $`\int_\Sigma p \wedge dp`$ is a conserved scalar, the helicity, and it is independent of the spin $`P \wedge L`$: circular flows have spin and no helicity, and a counter-helical flow has helicity and no spin; so GB-SP1 is answered no. **Proposition HH5**: for axisymmetric circular flow $`\alpha \wedge d\alpha = u_t^2\, dt \wedge d\phi \wedge d\ell`$, which vanishes exactly when the specific angular momentum $`\ell`$ is constant; a body that contains its axis then cannot rotate, but a ring can, as the potential vortex $`v = \ell/r`$, $`r > |\ell|`$. CS6's link between spin and the clock is the circulation, of grades 1 and 2, not grade 3. **Proposition HH6**: on such a ring with a closed momentum form, $`S = N \oint p/2\pi`$: the spin is a period, and Bohr–Sommerfeld gives the quantized vortex. **Proposition HH7**: pointwise the operators $`\mathrm{ev}`$, $`\mathrm{cr}`$ of several bodies generate the Clifford algebra of their span, of dimension $`2^{\dim W}`$; with $`d`$ the algebra is infinite; $`\mathcal D = \iota_\Phi`$ for the connection $`\Phi = X \otimes \alpha`$, whose curvature is $`-\Omega \otimes X`$; $`\Phi`$ is Oziewicz's observer, the idempotent of his 2007 algebra and of MC6, whose two extensions to forms are the operators of *Magnetismo*. **Proposition HH8** and **Theorem HH9**: granted finite order and polynomiality, which follow from Kolář, Michor and Slovák (23.4, 24.1), the natural functions of a body are constants, its natural vector fields are multiples of $`X`$, and its natural forms are exactly the exterior polynomials in $`\alpha`$, $`L_X^n a`$ and $`L_X^n \Omega`$, which are the words in $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$; this answers GB-SP5 for forms. **Conjecture HH10**: every natural vector-valued form is $`X \otimes \beta + \gamma \wedge I`$ with $`\beta, \gamma`$ natural forms; it holds for vector fields and $`(1,1)`$ tensors. Checked exactly with SymPy. No new prediction.
+> Step 6 left four open items on the grammar of a body (GB-SP1, GB-SP3 to GB-SP5); this note takes them up. **Lemma HH1**: in a representation by a manifold, near any point a body is $`X = \partial_t`$, $`\alpha = dt + A(t, x)`$, a time-dependent connection on its worldlines, with acceleration $`a = \dot A`$ and rotation $`\Omega = d_x A - A \wedge \dot A`$. **Proposition HH2**: every body obeys the vorticity identity $`da = \alpha \wedge L_X a + L_X \Omega`$. **Proposition HH3**: so Kiehn's irreversibility splits, $`a \wedge da = -\alpha \wedge a \wedge L_X a + a \wedge L_X \Omega`$, so either the acceleration turns or the rotation changes about the acceleration. The rotation itself does not enter: a rigidly rotating body in Minkowski space is reversible, with $`a = d \ln \gamma`$, and a non-rotating Fermi frame whose acceleration $`g`$ turns is not, with $`a \wedge da \propto dt \wedge g \wedge \dot g`$; this answers GB-SP4. **Proposition HH4**: for dust $`\int_\Sigma p \wedge dp`$ is a conserved scalar, the helicity, and it is independent of the spin $`P \wedge L`$: circular flows have spin and no helicity, and a counter-helical flow has helicity and no spin; so GB-SP1 is answered no. **Proposition HH5**: for axisymmetric circular flow $`\alpha \wedge d\alpha = u_t^2\, dt \wedge d\phi \wedge d\ell`$, which vanishes exactly when the specific angular momentum $`\ell`$ is constant; a body that contains its axis then cannot rotate, but a ring can, as the potential vortex $`v = \ell/r`$, $`r > |\ell|`$. CS6's link between spin and the clock is the circulation, of grades 1 and 2, not grade 3. **Proposition HH6**: on such a ring with a closed momentum form, $`S = N \oint p/2\pi`$: the spin is a period, and Bohr–Sommerfeld gives the quantized vortex. **Proposition HH7**: pointwise the operators $`\mathrm{ev}`$, $`\mathrm{cr}`$ of several bodies generate the Clifford algebra of their span, of rank $`2^k`$ for a span of rank $`k`$; with $`d`$ the algebra is infinite; $`\mathcal D = \iota_\Phi`$ for the connection $`\Phi = X \otimes \alpha`$, whose curvature is $`-\Omega \otimes X`$; $`\Phi`$ is Oziewicz's observer, the idempotent of his 2007 algebra and of MC6, whose two extensions to forms are the operators of *Magnetismo*. **Proposition HH8** and **Theorem HH9**: granted finite order and polynomiality, which follow from Kolář, Michor and Slovák (23.4, 24.1), the natural functions of a body are constants, its natural vector fields are multiples of $`X`$, and its natural forms are exactly the exterior polynomials in $`\alpha`$, $`L_X^n a`$ and $`L_X^n \Omega`$, which are the words in $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$; this answers GB-SP5 for forms. **Conjecture HH10**: every natural vector-valued form is $`X \otimes \beta + \gamma \wedge I`$ with $`\beta, \gamma`$ natural forms; it holds for vector fields and $`(1,1)`$ tensors. Checked exactly with SymPy. No new prediction.
 
 *Ladder abstract — see the [full list](README.md#the-ladder).*
 
@@ -16,7 +16,8 @@ checked them; every claim about what a paper says is a reading of the cited page
 references marked *from memory* were not checked against the paper. The remark of §5 was revised on 22 November
 2026: an earlier version contrasted "the field" with "the 2007 idempotent", but Oziewicz's
 idempotent is a tensor field over a ring from the start; the contrast is between $`F`$-linear
-operations and derivations.
+operations and derivations. A second revision the same day marks which results hold over $`F`$
+and which need a representation (§1), and adds the algebraic readings of HH3, HH6 and HH9.
 [PDF](https://github.com/billpage/oziewicz/releases/latest/download/heat_and_helicity.pdf)
 
 ---
@@ -48,7 +49,8 @@ Sentences in earlier notes were not rewritten; the places are marked.
 
 ## 1. The flow box
 
-A body is $`(X, \alpha)`$ with $`\alpha X = 1`$ on a 4-manifold (GB0). Its acceleration is $`a = \iota_X d\alpha = L_X \alpha`$,
+A body is $`(X, \alpha)`$ with $`X \in \mathrm{der}\,F`$, $`\alpha`$ in the dual module and $`\alpha X = 1`$ (MF0, GB0); where
+a representation is needed it is a 4-manifold. Its acceleration is $`a = \iota_X d\alpha = L_X \alpha`$,
 its rotation is $`\Omega = \mathcal M\, d\alpha`$, and $`d\alpha = \alpha \wedge a + \Omega`$ with $`\iota_X a = \iota_X \Omega = 0`$ (GB4). A form $`\beta`$ is
 *spatial* if $`\iota_X \beta = 0`$. On spatial forms $`\alpha \wedge`$ is injective, since $`\iota_X(\alpha \wedge \beta) = \beta`$, so a form
 splits uniquely as $`\alpha \wedge \beta + \gamma`$ with $`\beta, \gamma`$ spatial.
@@ -69,6 +71,17 @@ three arbitrary functions of $`(t, x, y, z)`$. $`\square`$
 *Reading.* The body is a time-dependent connection $`A`$ on its space of worldlines, and its
 acceleration is the "electric field" of that connection in temporal gauge. Every natural
 statement about one body can be checked in this form, since every body is locally of it.
+
+**What is algebraic.** HH1 is the one place where this note needs a manifold: straightening $`X`$
+uses the existence theorem for flows, and a general algebra $`F`$ has no substitute. The results
+split accordingly.
+
+| holds over $`F`$ (Cartan calculus, $`d^2 = 0`$) | needs a representation |
+|---|---|
+| HH2; HH3 (the identity); HH4(1), $`dp \wedge dp = 0`$; HH7; the remark on $`\Phi`$ (§5); the algebraic core of HH6 | HH1; the examples of HH3; HH4(2) (integrals over a slice); HH5 (coordinates $`r, \phi, z`$); HH8–HH10 (jets, smoothness, local diffeomorphisms) |
+
+The proofs of HH2 and HH3 below use only $`d^2 = 0`$ and Cartan's formula; HH1 serves there only
+to check them.
 
 ---
 
@@ -123,8 +136,11 @@ spin-up without thrust, are each reversible.
 
 **Readings.** These are interpretations, not results.
 
-- *Floors.* By Frobenius (Carathéodory's form of it in thermodynamics), $`a \wedge da = 0`$ means
-  $`a = f\, d\Phi`$ locally. Since $`a(X) = 0`$, each level set $`\Phi = \text{const}`$ is a hypersurface made of whole
+- *Floors.* Algebraically, $`a \wedge da = 0`$ says that the ideal generated by $`a`$ is a differential ideal, as
+  for the clock in MG3, and the argument there goes through wherever $`a`$ has a dual vector $`V`$,
+  $`a(V) = 1`$; where the body is unaccelerated, $`a = 0`$ and there is no such $`V`$, so the reading below
+  holds only where $`a`$ vanishes nowhere. There, by Frobenius (Carathéodory's form of it in
+  thermodynamics), $`a \wedge da = 0`$ means $`a = f\, d\Phi`$ locally. Since $`a(X) = 0`$, each level set $`\Phi = \text{const}`$ is a hypersurface made of whole
   worldlines. A reversible body can be stacked into floors that persist; in the Fermi frame
   the would-be floors $`g(t) \cdot x = \text{const}`$ turn with $`g`$ and contain no whole worldline.
 - *Tolman.* For rigid stationary motion along a Killing field $`\xi`$, $`X = \xi/N`$ with $`N = |\xi|`$ and $`a = d \ln N`$
@@ -217,7 +233,11 @@ S = \int T^t{}_\phi\, d^3x = \int n h\, u^t u_\phi\, d^3x = \mu \ell\, N = N\,\f
 
 *Proof.* $`T^t{}_\phi = (e + P) u^t u_\phi`$ with $`e + P = nh`$, and $`h u_\phi = -\ell h u_t = \mu \ell`$; $`\oint p = 2\pi \mu \ell`$. $`\square`$
 
-All of the spin is a de Rham period of the closed momentum form. Imposing Bohr–Sommerfeld,
+All of the spin is a de Rham period of the closed momentum form. Its algebraic core is a
+statement over $`F`$: $`dT`$ is closed, but $`T = t - \ell\phi`$ is not an element of $`F`$, so $`dT`$ defines a non-zero class
+in the first de Rham cohomology of $`F`$; the period $`\oint`$ is the pairing of that class with a cycle,
+which is where Oziewicz's integral through the boundary enters (*Magnetismo* ch. 6,
+$`\partial^2 = 0 \iff d^2 = 0`$). Imposing Bohr–Sommerfeld,
 $`\oint p = 2\pi n \hbar`$, gives $`S = N n \hbar`$: the quantized vortex of Onsager (1949) and Feynman (1955) (*from
 memory*), and the one-dimensional periods of Kiehn (1977). The same holds for Schrödinger's
 equation in Madelung form, where $`p = \hbar\, dS`$ is closed: in a hydrogen state with $`m \neq 0`$ the
@@ -237,8 +257,8 @@ row has its own invariant, $`H`$, which GB6 did not list.
 **Proposition HH7.**
 
 1. Pointwise, the operators $`\mathrm{ev}_{X_i}`$, $`\mathrm{cr}_{\alpha_i}`$ of $`k`$ bodies generate an algebra isomorphic to $`\mathrm{Cl}(W, q|_W)`$,
-   where $`W \subset V \oplus V^*`$ is the span of the $`X_i`$ and $`\alpha_i`$ and $`q`$ is the pairing; its dimension is
-   $`2^{\dim W} \le 256`$.
+   where $`W \subset V \oplus V^*`$ is the span of the $`X_i`$ and $`\alpha_i`$ and $`q`$ is the pairing; when $`W`$ is a free direct
+   summand of rank $`k_W`$, the algebra has rank $`2^{k_W} \le 256`$ over $`F`$.
 2. With $`d`$ adjoined, $`[\mathrm{ev}_X, d] = L_X`$ and the $`L_X^n`$ are independent: infinitely many independent
    monomials.
 3. $`\mathcal D = \alpha \wedge \iota_X = \iota_\Phi`$, the insertion operator of $`\Phi = X \otimes \alpha`$ (a degree-0 algebraic derivation), and
@@ -428,7 +448,11 @@ forms of a body $`(X, \alpha)`$ are exactly the exterior polynomials, with const
 and these are the words in $`d`$, $`\wedge`$, $`\iota_X`$ and $`\alpha`$. Every natural form is therefore $`\beta_0 + \alpha \wedge \beta_1`$ with $`\beta_0, \beta_1`$
 polynomials in the $`a_n`$ and $`\Omega_n`$: the body's own clock, and the spatial jets of its acceleration
 and rotation. Together with HH8(1) this answers HH-SP4, and so GB-SP5, for functions, vector
-fields and forms, granted steps 1 and 2.
+fields and forms, granted steps 1 and 2. Read in Oziewicz's terms, HH9 says that the geometric
+notion (smooth, natural under local diffeomorphisms, which for $`F = C^\infty(M)`$ are its algebra
+automorphisms; GB §1) and the algebraic one (the words of Cartan's calculus over $`F`$) give the
+same forms: for forms his algebraic grammar misses nothing. The proof is not algebraic; it
+uses jets and smoothness (HH-SP7).
 
 *Proof.* At the origin of the flow box write $`\tau = dt`$, $`b_j = \partial_t^j A_i\, dx^i`$ (spatial 1-forms) and $`F_l = d_x b_l`$ (spatial
 2-forms). By step 2 and the invariant tensor theorem, a natural form is a polynomial with
@@ -544,6 +568,9 @@ of the other cited papers.
 
 - **HH-SP6.** Is the Bianchi identity $`[\Phi, R] = 0`$ of the connection $`\Phi = X \otimes \alpha`$ (KMS 8.14) equivalent to
   the vorticity identity HH2?
+- **HH-SP7.** Give an algebraic proof of HH9: with the automorphisms of $`F`$ that commute with $`X`$ in
+  place of the flow box, and jets as quotients $`F/\mathfrak m^{k+1}`$ by powers of a maximal ideal, in place of
+  Taylor coefficients.
 ---
 
 ## 10. What this does for the ladder

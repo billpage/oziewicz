@@ -9,6 +9,9 @@ E  a system: L ^ L = 2 C ^ P ^ L for every clock (GB6(1))
 F  several bodies in Cl(V, -g): T^2 = -det G; commuting triangle rotors iff the 4-vector vanishes (GB6(2)-(3))
 G  fields: rescaling of a clock, the momentum form, Kiehn's first law, naturality under a
    polynomial diffeomorphism (GB1, GB4(3)-(4), GB5)
+H  GB3(3) in the abstract Clifford algebra of three generators with symbolic clock factors s_ij:
+   a polynomial identity with integer coefficients, so it holds over any commutative ring F;
+   the sign of det S, and so rotation or boost, is then decided event by event
 
 Everything is exact; nothing is numerical. Runs in a few seconds and writes no files.
 Run:  python3 -u src/verify_grammar_of_a_body.py
@@ -477,4 +480,21 @@ for b in betas:
         okn &= feq(pull_form(op(Xn, an, b)), op(pull_vec(Xn), pull_form(an), pull_form(b)))
     okn &= feq(pull_form(fd(b)), fd(pull_form(b)))
 check("G4 phi^*(O_{X,alpha} beta) = O_{phi^*X, phi^*alpha}(phi^* beta) for O = cD, cM, (1 + U)/2, and phi^* d = d phi^*", okn)
+
+# ---------------------------------------------------------------- H
+print("\nH: GB3(3) over any commutative ring: abstract Clifford algebra with symbolic clock factors")
+sxy, syz, szx = sp.symbols("s_xy s_yz s_zx")
+SH = [[1, sxy, szx], [sxy, 1, syz], [szx, syz, 1]]            # generators U_X, U_Y, U_Z: {U_i, U_j} = 2 S_ij
+clH = Cl(SH)
+UX, UY, UZ = clH.gen(0), clH.gen(1), clH.gen(2)
+oneH = clH.scal(1)
+LamH = clH.mul(clH.mul(cadd(oneH, clH.mul(UX, UZ)), cadd(oneH, clH.mul(UZ, UY))), cadd(oneH, clH.mul(UY, UX)))
+cH = 2 * (1 + sxy + syz + szx)
+restH = csub(LamH, clH.scal(cH))
+check("H1 {U_i, U_j} = 2 s_ij in the abstract algebra (sanity)",
+      ciszero(csub(cadd(clH.mul(UX, UY), clH.mul(UY, UX)), clH.scal(2 * sxy))))
+check("H2 (Lambda - 2(1 + s_xy + s_yz + s_zx))^2 = -4 det S, a polynomial identity in the s_ij with integer "
+      "coefficients, so over every commutative ring F",
+      ciszero(csub(clH.mul(restH, restH), clH.scal(-4 * sp.Matrix(SH).det()))))
+
 print("\n" + ("ALL CHECKS PASSED" if not FAILED else f"{len(FAILED)} FAILED: " + "; ".join(FAILED)))
