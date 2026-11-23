@@ -73,8 +73,10 @@ not listed in `analysis/INDEX.md`.
   committed), the source of his observer operators: a body with its clock carries a derivation
   `D` (simultaneity) and an algebra map `M` (places), `D + M = id = U²` for the unipotent
   `U = ev + cr` (MG1). Two definitions exchange places and simultaneity (MG2); the private
-  differential exists exactly when the clock does not rotate (MG3); with a rotating clock the
+  differential exists exactly when the simultaneity ideal is a differential ideal, that is when
+  the clock does not rotate (MG3, the algebraic Frobenius theorem); with a rotating clock the
   magnetic Gauss law gains `−Ω ∧ E` and Faraday's law the acceleration term (MG4); the metric
-  intertwines vector and form operators only for `g(L, L) = 1` (MG5). The idempotent
-  `(1 + U)/2`, not in the notes, is step 5's `e_X`. 29 exact checks. Companion script
-  `src/verify_magnetismo.py`.
+  intertwines vector and form operators only for `g(L, L) = 1` (MG5). MG1, MG2, MG5 are
+  `F`-linear (MG1 checked over any commutative ring); MG3, MG4 need `d`. The idempotent
+  `(1 + U)/2`, not in the notes, needs no metric (GB3) and is step 5's `e_X`. 36 exact checks.
+  Companion script `src/verify_magnetismo.py`.
