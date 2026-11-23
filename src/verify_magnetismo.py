@@ -9,7 +9,12 @@ cD = cr_S ev_L (derivation) and cM = ev_L cr_S (algebra map), U = ev_L + cr_S.
 
 Parts
   Chapter 4  (MG1) nilpotents, (4.7.1), U^2 = 1, the four idempotents, derivation and
-             algebra-map properties, U cD U = cM
+             algebra-map properties, U cD U = cM: first spot-checked with random rationals,
+             then symbolically, with generic X, alpha and generic forms, as polynomial
+             identities with integer coefficients (and 1/2 for e) modulo alpha X - 1; so they
+             hold over every commutative ring F (with 2 invertible for e), F-linearly, in a free
+             module of rank 4. For any module they follow from (4.7.1) by the hand proofs cited
+             in the supplement.
   Chapter 7  (MG2) places and simultaneity, (7.4.7) against (7.4.2)/(7.4.5);
              (MG3) cM d cD beta = (cM dS) ^ ev_L beta, so the private differential exists iff
              S ^ dS = 0; (MG4) the split of F and dF = 0 for a rotating, accelerated clock;
@@ -171,6 +176,55 @@ check("e = (1 + U)/2 (not in the text): e^2 = e and e cD e = e cM e = e/2",
 check("UDU = M: the unipotent conjugates one idempotent into the other (not stated in the text)",
       all(eq(U(cD(U(f))), cM(f)) for f in tests))
 # the vector side is the same algebra with the roles of vectors and covectors exchanged: nothing new to check.
+
+# ------------------------------------------------------------------------- chapter 4, over any commutative ring
+print("\nChapter 4 again, symbolically: generic X, alpha and generic forms; identities modulo alpha X - 1")
+Xs = list(sp.symbols("X0:4"))
+As = list(sp.symbols("a0:4"))
+sX = sum(a * b for a, b in zip(As, Xs))                       # alpha X, kept as a symbol-polynomial
+GENS = As + Xs
+
+
+def gform(name, k=None):
+    return {m: sp.Symbol(f"{name}{m}") for m in range(16) if k is None or deg(m) == k}
+
+
+def zero_mod(f):
+    """every coefficient lies in the ideal (alpha X - 1) of Z[1/2][X, alpha, form coefficients]"""
+    for c in f.values():
+        q, r = sp.reduced(sp.expand(c), [sX - 1], *GENS, order="lex")
+        if sp.expand(r) != 0:
+            return False
+    return True
+
+
+crS = lambda f: wedge(form1(As), f)
+evS = lambda f: iv(Xs, f)
+DS = lambda f: crS(evS(f))
+MS = lambda f: evS(crS(f))
+US = lambda f: add(evS(f), crS(f))
+eS = lambda f: sm(sp.Rational(1, 2), add(f, US(f)))
+fg, gg = gform("f"), gform("g")
+check("symbolic (4.6.1) ev_X^2 = cr_alpha^2 = 0", evS(evS(fg)) == {} and crS(crS(fg)) == {})
+check("symbolic (4.7.1) ev_X cr_alpha + cr_alpha ev_X = (alpha X) id, exactly",
+      eq(add(evS(crS(fg)), crS(evS(fg))), sm(sX, fg)))
+ok = all(eq(evS(wedge(gform("b", r), fg)), add(wedge(evS(gform("b", r)), fg), sm((-1) ** r, wedge(gform("b", r), evS(fg)))))
+         for r in (1, 2, 3))
+check("symbolic (4.7.1) ev_X o cr_beta = cr_(ev_X beta) + (-1)^r cr_beta o ev_X, generic beta of degree 1, 2, 3", ok)
+check("symbolic U^2 = (alpha X) id, D^2 = (alpha X) D, M^2 = (alpha X) M, D + M = (alpha X) id, exactly",
+      eq(US(US(fg)), sm(sX, fg)) and eq(DS(DS(fg)), sm(sX, DS(fg))) and eq(MS(MS(fg)), sm(sX, MS(fg)))
+      and eq(add(DS(fg), MS(fg)), sm(sX, fg)))
+check("symbolic D is an even derivation, exactly; M is an algebra map modulo alpha X - 1",
+      eq(DS(wedge(fg, gg)), add(wedge(DS(fg), gg), wedge(fg, DS(gg))))
+      and zero_mod(add(MS(wedge(fg, gg)), sm(-1, wedge(MS(fg), MS(gg))))))
+check("symbolic (5.2.9)-(5.2.10) reversed, modulo alpha X - 1",
+      MS(crS(fg)) == {} and zero_mod(add(crS(MS(fg)), sm(-1, crS(fg)))) and zero_mod(add(DS(crS(fg)), sm(-1, crS(fg))))
+      and zero_mod(add(evS(DS(fg)), sm(-1, evS(fg)))) and zero_mod(add(MS(evS(fg)), sm(-1, evS(fg))))
+      and DS(evS(fg)) == {} and evS(MS(fg)) == {})
+check("symbolic U D U = M and e^2 = e, e D e = e M e = e/2, modulo alpha X - 1",
+      zero_mod(add(US(DS(US(fg))), sm(-1, MS(fg)))) and zero_mod(add(eS(eS(fg)), sm(-1, eS(fg))))
+      and zero_mod(add(eS(DS(eS(fg))), sm(sp.Rational(-1, 2), eS(fg))))
+      and zero_mod(add(eS(MS(eS(fg))), sm(sp.Rational(-1, 2), eS(fg)))))
 
 # ---------------------------------------------------------------------------------------------- chapter 7
 print("\nChapter 7: a body with a clock field S and its Length L, S(L) = 1 (polynomial fields)")

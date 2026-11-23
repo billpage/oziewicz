@@ -1,6 +1,6 @@
 # Oziewicz's *Magnetismo e Electricidad* (2014–2020): a body is a pair of polarisers
 
-> A summary of Oziewicz's unpublished lecture notes on electricity and magnetism for chemistry students (UNAM, FES Cuautitlán, 2014 to 2020; last version 18 July 2020), which are the main source for his operators of observation. A body $`P = E_P L_P`$ with its clock carries four idempotents built from creation and evaluation; on forms they are the derivation $`\mathcal D = \mathrm{cr}_{\mathrm{clock}} \circ \mathrm{ev}_L`$, which keeps simultaneity, and the algebra map $`\mathcal M = \mathrm{ev}_L \circ \mathrm{cr}_{\mathrm{clock}}`$, which keeps the forms of the body's places, with $`\mathcal D + \mathcal M = \mathrm{id} = \mathcal U^2`$ for the unipotent $`\mathcal U = \mathrm{ev}_L + \mathrm{cr}_{\mathrm{clock}}`$ (MG1). The notes split the electromagnetic field by $`\mathcal M`$ into magnetic and electric parts and Maxwell's $`dF = 0`$ into Gauss and Faraday. Checked exactly: the operator identities hold, but two definitions (7.4.2, 7.4.5) exchange places and simultaneity (MG2); the "private differential" $`d_{\mathcal M}`$ exists exactly when the clock does not rotate, $`\mathrm{clock} \wedge d\,\mathrm{clock} = 0`$ (MG3); with a rotating clock the magnetic Gauss law gains a term $`-\Omega \wedge E`$ and Faraday's law the acceleration term that the notes derive in §7.7 (MG4); and the metric intertwines the vector and form operators only for a clock normalised by $`g(L, L) = 1`$ (MG5). The unipotent's idempotent $`\tfrac12(1 + \mathcal U)`$ is not in the notes; with a metric it is step 5's $`e_X`$.
+> A summary of Oziewicz's unpublished lecture notes on electricity and magnetism for chemistry students (UNAM, FES Cuautitlán, 2014 to 2020; last version 18 July 2020), which are the main source for his operators of observation. A body $`P = E_P L_P`$ with its clock carries four idempotents built from creation and evaluation; on forms they are the derivation $`\mathcal D = \mathrm{cr}_{\mathrm{clock}} \circ \mathrm{ev}_L`$, which keeps simultaneity, and the algebra map $`\mathcal M = \mathrm{ev}_L \circ \mathrm{cr}_{\mathrm{clock}}`$, which keeps the forms of the body's places, with $`\mathcal D + \mathcal M = \mathrm{id} = \mathcal U^2`$ for the unipotent $`\mathcal U = \mathrm{ev}_L + \mathrm{cr}_{\mathrm{clock}}`$ (MG1). The notes split the electromagnetic field by $`\mathcal M`$ into magnetic and electric parts and Maxwell's $`dF = 0`$ into Gauss and Faraday. Checked exactly: the operator identities hold, but two definitions (7.4.2, 7.4.5) exchange places and simultaneity (MG2); the "private differential" $`d_{\mathcal M}`$ exists exactly when the simultaneity ideal $`\mathrm{clock} \wedge \Lambda`$ is a differential ideal, that is when the clock does not rotate, $`\mathrm{clock} \wedge d\,\mathrm{clock} = 0`$: the algebraic Frobenius theorem, with no points needed (MG3); with a rotating clock the magnetic Gauss law gains a term $`-\Omega \wedge E`$ and Faraday's law the acceleration term that the notes derive in §7.7 (MG4); and the metric intertwines the vector and form operators only for a clock normalised by $`g(L, L) = 1`$ (MG5). MG1, MG2 and MG5 are $`F`$-linear and hold over any commutative ring (MG1 checked as polynomial identities); MG3 and MG4 need $`d`$. The unipotent's idempotent $`\tfrac12(1 + \mathcal U)`$ is not in the notes; it needs no metric (step 6, GB2–GB3), and with a metric it is step 5's $`e_X`$.
 
 **Status.** Supplement (summary of an unpublished text, not a ladder step). Labels use the prefix **MG**.
 Companion script: [`src/verify_magnetismo.py`](../src/verify_magnetismo.py). Requested by Bill Page,
@@ -10,12 +10,18 @@ the earlier version of 10 May 2014 (77 pages, *Electricidad e Magnetismo*) was s
 Neither is public, and neither is committed here. An English translation of chapters 4
 and 7 exists in a private repository; it is not a source for this summary, which reads the
 Spanish. **Every statement of what the notes say is a reading**, and Oziewicz's Spanish is
-paraphrased, not quoted. Drafted with Claude (Anthropic) and subject to review.
+paraphrased, not quoted. Drafted with Claude (Anthropic) and subject to review. Revised 22
+November 2026 to read the notes in Oziewicz's algebraic setting ($`F`$-linear operations against
+derivations, the algebraic form of MG3, ranks rather than dimensions, MG1 over any commutative
+ring) and to point forward to steps 6 and 7.
 [PDF](https://github.com/billpage/oziewicz/releases/latest/download/magnetismo.pdf)
 
 Notation: $`L`$ is a body's Length vector and $`S`$ its clock, $`S(L) = 1`$ (the notes' $`L_P`$ and
 $`\mathrm{reloj}_P`$); $`\mathrm{cr}`$ and $`\mathrm{ev}`$ are creation, $`\mathrm{cr}_\alpha = \alpha \wedge`$, and evaluation, $`\mathrm{ev}_X = \iota_X`$;
-$`\mathcal L_L = \mathrm{ev}_L \circ d + d \circ \mathrm{ev}_L`$. Calligraphic $`\mathcal D, \mathcal M, \mathcal U`$ act on forms, roman
+$`\mathcal L_L = \mathrm{ev}_L \circ d + d \circ \mathrm{ev}_L`$. The setting is Oziewicz's: $`F`$ a commutative $`\mathbb R`$-algebra of scalar fields, $`L`$ in the $`F`$-module
+$`\mathrm{der}\,F`$ of its derivations, $`S`$ in the dual module, as in MF0; scalars such as $`S(L)`$ and $`E_P`$ are
+elements of $`F`$. Points, a manifold and a dimension appear only when a representation of $`F`$ is
+chosen, as in the checks of §6. Calligraphic $`\mathcal D, \mathcal M, \mathcal U`$ act on forms, roman
 $`D, M, U`$ on multivectors, as in the notes' §4.8. Equation and section numbers are those of the
 2020 version unless marked 2014.
 
@@ -29,6 +35,12 @@ idempotent $`X \otimes \mathrm{clock}_X`$ (MC6). From step 3
 the notes' $`\mathcal M`$ and $`D = \wedge_\alpha \mathrm{ev}_X`$ their $`\mathcal D`$; the clock as a connection, MF10, whose
 part 2 is the scalar case of MG3; time and $`\alpha \wedge d\alpha`$, MF11. From step 5
 ([`observer_idempotents.md`](../analysis/observer_idempotents.md)): $`e_X = \tfrac12(1 + X)`$ in $`\mathrm{Cl}(V, -g)`$ (OI1).
+
+**Points forward to.** Step 6 ([`grammar_of_a_body.md`](../analysis/grammar_of_a_body.md)): the three
+observers $`\mathcal D`$, $`\mathcal M`$, $`e`$ (GB2), and $`e`$ without a metric (GB3). Step 7
+([`heat_and_helicity.md`](../analysis/heat_and_helicity.md)): $`\mathcal D = \iota_\Phi`$ and $`\mathcal M = \Lambda(1 - \Phi)`$ for the observer
+tensor field $`\Phi = L \otimes S`$, whose curvature is the rotation (HH7 and the remark after it); the
+vorticity identity behind MG4 (HH2).
 
 **Retracts.** Nothing. MF1 was written without this source; it states the split that the
 notes had stated in 2014 (§2.9 there), and this supplement supplies the citation.
@@ -97,14 +109,15 @@ magnetism, the force vector $`\mathbf B`$, the work bi-form $`B`$ and the induce
 integral is defined through the boundary, and $`\partial^2 = 0 \iff d^2 = 0`$ (§6.3.5).
 
 **Chapter 7: the body.** Following Minkowski (1908), a material body is a vector $`P`$ with a
-clock; $`\mathrm{clock}_P(L_P) = 1`$, $`P = E_P L_P`$, and $`E_P = \mathrm{clock}_P(P)`$ is its internal energy (7.2.1). The
+clock; $`\mathrm{clock}_P(L_P) = 1`$, $`P = E_P L_P`$, and $`E_P = \mathrm{clock}_P(P)`$ is its internal energy (7.2.1), an element of $`F`$, so an
+energy field rather than a number. The
 pair gives the idempotents $`\mathcal M, \mathcal D`$ (7.3.2), and $`\mathcal M`$ is a polariser that passes the forms of
 the body's places, such as $`dx`$ for $`L = \partial_t`$ (7.3.5–7.3.7, Figure 7.2). §7.4 defines places and
 simultaneity by these operators (MG2); §7.5 the private differential (MG3); §§7.6–7.7 split
 Maxwell's law (MG4); §7.8 makes a body inertial if $`\mathcal M \circ d \circ \mathcal D = 0`$ and $`\mathcal L_L S = 0`$ (7.8.6); §7.9
 defines $`E_L = \mathrm{ev}_L F`$ and $`B_L = \mathcal M F`$, so $`F = B_L + S \wedge E_L`$ (7.9.1)–(7.9.2), as Minkowski's relative
 fields. §7.11 makes the metric an "environment" $`g`$ that pairs each vector with its clock,
-$`\mathrm{clock}_X = gX/(gX)X`$ (7.11.2), and intertwines the vector and form operators (MG5). §7.16
+$`\mathrm{clock}_X = gX/(gX)X`$ (7.11.2), which needs $`(gX)X`$ to be a unit of $`F`$, and intertwines the vector and form operators (MG5). §7.16
 lists absolute concepts (bodies, events, the field, the speed of light in vacuum) against
 relative ones (velocity, kinetic energy, places, $`E`$, $`B`$): relativity should be called
 "absolutivity".
@@ -120,8 +133,13 @@ relative ones (velocity, kinetic energy, places, $`E`$, $`B`$): relativity shoul
 ```
 
 and likewise $`D = \mathrm{cr}_X \circ \mathrm{ev}_\alpha`$, $`M = \mathrm{ev}_\alpha \circ \mathrm{cr}_X`$, $`U = \mathrm{ev}_\alpha + \mathrm{cr}_X`$ on multivectors (§4.8, (5.2.5)–(5.2.6)).
-Checked: idempotency, the split, the (even) derivation and algebra-map properties on
-random forms, (4.7.1) in degrees 1–3, and (4.7.8)–(4.7.11). On 1-forms $`\mathcal D \beta = \beta(X)\,\alpha`$, which is
+These identities follow from (4.7.1) and $`\mathrm{ev}_X^2 = \mathrm{cr}_\alpha^2 = 0`$ alone, for a module of any rank: for
+example $`\mathcal U^2 = \mathrm{ev}_X \mathrm{cr}_\alpha + \mathrm{cr}_\alpha \mathrm{ev}_X = \alpha X`$ and $`\mathcal D^2 = \mathrm{cr}_\alpha (\alpha X - \mathrm{cr}_\alpha \mathrm{ev}_X)\, \mathrm{ev}_X = \mathcal D`$; that $`\mathcal D`$ is a
+derivation and $`\mathcal M`$ an algebra map is HH7(3) and MF1. Checked: idempotency, the split, the
+(even) derivation and algebra-map properties, (4.7.1) in degrees 1–3, and (4.7.8)–(4.7.11), first
+on random rational data and then symbolically, with generic $`X`$, $`\alpha`$ and generic forms, as
+polynomial identities with integer coefficients modulo $`\alpha X - 1`$ (with $`\tfrac12`$ for $`e`$), so over
+every commutative ring $`F`$ in a free module of rank 4. They are $`F`$-linear. On 1-forms $`\mathcal D \beta = \beta(X)\,\alpha`$, which is
 the projector of MC6, and $`\mathcal M = 1 - \mathcal D`$. Not in the notes, and checked: $`\mathcal U \mathcal D \mathcal U = \mathcal M`$, so the two
 idempotents are conjugate by the body's own unipotent.
 
@@ -147,7 +165,14 @@ the second identity being the notes' own (7.8.5). So $`d_{\mathcal M}`$ is well 
 $`\mathcal M\,dS = 0`$, which is equivalent to $`S \wedge dS = 0`$ (since $`S \wedge \mathcal M\,dS = S \wedge dS`$ and $`\mathcal M\,dS`$ is a form of
 the places). Then $`(d_{\mathcal M})^2 \mathcal M = \mathcal M\,d^2 = 0`$. In the notation of the October review of the algebra
 of observers, $`\mathcal M\,dS = \Omega`$ is the rotation 2-form and $`\mathcal L_L S = a`$ the acceleration, $`dS = S \wedge a + \Omega`$;
-MF10, part 2, is the case $`\beta = df`$. Oziewicz's inertial body (7.8.6) asks for $`\Omega = 0`$ and $`a = 0`$,
+MF10, part 2, is the case $`\beta = df`$. In Oziewicz's algebraic terms the statement is the Frobenius theorem for ideals. The
+simultaneity forms $`I = S \wedge \Lambda = \mathrm{im}\,\mathcal D`$ are an ideal (MG2), and $`\mathrm{im}\,\mathcal M \cong \Lambda/I`$ as algebras. The
+private differential is the differential that $`d`$ induces on the quotient $`\Lambda/I`$; it exists exactly
+when $`I`$ is a differential ideal, $`dI \subset I`$. Since $`d(S \wedge \beta) = dS \wedge \beta - S \wedge d\beta`$, this holds exactly when $`dS \in I`$,
+that is when $`\mathcal M\, dS = 0`$, that is when $`S \wedge dS = 0`$; the last step uses only the Length, because
+$`\mathrm{ev}_L(S \wedge \mu) = \mu`$ for $`\mu`$ in $`\mathrm{im}\,\mathcal M`$, so $`S \wedge`$ is injective there. No points, leaves or partitions of unity
+enter; the vector $`L`$ with $`S(L) = 1`$ does the work. In step 7's terms $`\mathcal M\, dS = \Omega`$ is the curvature of
+the observer $`\Phi = L \otimes S`$ (the remark after HH7). Oziewicz's inertial body (7.8.6) asks for $`\Omega = 0`$ and $`a = 0`$,
 that is $`dS = 0`$; the second condition of (7.8.6) follows from the first, since $`\mathcal L_L S = \mathrm{ev}_L\,dS`$.
 
 **MG4 (Maxwell split for any clock).** With $`F = B + S \wedge E`$, $`B = \mathcal M F`$, $`E = \mathrm{ev}_L F`$ (7.9.2), $`dF = 0`$
@@ -170,10 +195,18 @@ $`\mathcal L_T B + d_s E = a \wedge E`$); the notes have them in 2014, without t
 $`g \circ U = \mathcal U \circ g`$, $`g \circ D = \mathcal D \circ g`$, $`g \circ M = \mathcal M \circ g`$, with $`g`$ extended to multivectors. The first two
 hold; the last three need $`\alpha = gX`$, which with (7.11.2) means $`g(X, X) = 1`$. Checked: they hold
 for the clock $`gX`$ and fail for a time-like $`X`$ with $`g(X, X) = -1`$, where (7.11.2) gives the clock
-$`-gX`$. The notes fix no sign convention, so this is a missing normalisation, not an error;
+$`-gX`$. The notes fix no sign convention, and "time-like, $`g(X, X) = -1`$" presupposes an ordering of
+$`F`$, which the algebraic setting does not supply; so this is a missing normalisation, not an error;
 it is the convention of step 5, where $`X^2 = -g(X, X) = 1`$.
 
 Other points (the normalisation $`\mathrm{clock}(g^{-1}\mathrm{clock}) = \det g^{-1}`$ in (7.8.4); the term $`\mathcal L_L(M^p F)`$ in (7.7.1), presumably $`\mathcal L_L(\mathcal D F)`$; references to a "Unit 1" that is not in this version) are listed with the translation.
+
+**Kinematics and dynamics.** MG1, MG2 and MG5 are $`F`$-linear: they commute with multiplication
+by scalar fields, hold event by event in any representation, and say nothing about
+acceleration or rotation. MG3 and MG4 need $`d`$, a derivation that is not $`F`$-linear. This is the
+division of Oziewicz (2007), whose abstract assigns kinematics to the associative Frobenius
+algebra and dynamics to the "non-associative Frölicher-Richardson operator algebra"; step 7
+takes up the second for one body (HH7, HH10).
 
 ---
 
@@ -188,16 +221,23 @@ The notes give a body two operators on forms and call them a pair of polarisers 
 
 On 1-forms they are the observer of 2007 and its complement; above degree 1 they are two
 different extensions of it, $`\mathcal M = \Lambda(1 - X \otimes \alpha)`$ (MF1) and $`\mathcal D = \mathrm{id} - \mathcal M`$. On 1-forms their images
-are 1- and 3-dimensional, as for the rank-one projectors of OI5, which carry no orientation.
+are direct summands of rank 1 and $`n - 1`$ (3 in spacetime), as for the rank-one projectors of OI5,
+which carry no orientation. Ranks need $`\mathrm{der}\,F`$ finitely generated and projective (MF0); the
+operator identities do not. Step 7 writes both as extensions of one tensor field, the observer
+$`\Phi = L \otimes S`$: $`\mathcal D = \iota_\Phi`$ and $`\mathcal M = \Lambda(1 - \Phi)`$. Both are unchanged by the rescaling $`(L, S) \mapsto (fL, S/f)`$, $`f`$ a
+unit of $`F`$, while $`\mathcal U`$ is not. That may be why the notes build on $`\mathcal D`$ and $`\mathcal M`$: they depend only on
+the observer, not on the body's energy scale. This is a reading; the notes do not say so.
 
 The notes also give the unipotent $`\mathcal U = \mathrm{ev}_L + \mathrm{cr}_S`$, but use it only in the split (4.8.1) and in
 (7.11.4). Its idempotent $`e = \tfrac12(1 + \mathcal U)`$ is not in the text. It is a third observer: $`e\,\mathcal D\,e = e\,\mathcal M\,e = \tfrac12 e`$
 (checked), and with a metric clock, $`S = gL`$, $`g(L, L) = 1`$,
 $`\mathcal U`$ is the Clifford action of $`L`$ and $`e`$ is step 5's $`e_X`$. So the operator that sees the
-Wigner rotation (OI3) is built from Oziewicz's unipotent, not from his idempotents. Whether
-he would have accepted it is a question the notes cannot answer: they treat the metric as an
-environment, and $`e`$ needs it, or at least a symmetric clock factor, to have corners of
-the right kind.
+Wigner rotation (OI3) is built from Oziewicz's unipotent, not from his idempotents. An earlier
+version of this supplement said that $`e`$ needs the metric, or at least a symmetric clock factor;
+step 6 settled it: $`e`$ needs no metric, and the symmetrised clock factor $`s_{XY} = \tfrac12(\alpha Y + \beta X)`$
+appears by itself, $`e_X\, \mathcal U_Y\, e_X = s_{XY}\, e_X`$, round a triangle giving a rotation or a boost by the sign of
+a determinant of clock factors (GB2, GB3). Like $`\mathcal U`$, $`e`$ changes under the rescaling, so it
+depends on the body and not only on the observer.
 
 ---
 
@@ -208,19 +248,24 @@ the right kind.
 - The rotation of a clock appears only as the obstruction to $`d_{\mathcal M}`$ ((7.8.5) and the
   definition of inertia); it is not named as vorticity, and the spin of §6.1 is not connected
   to it. Steps 3 and 4 make that connection ($`\alpha \wedge d\alpha`$, MF11; CS5, CS6).
-- The polarisers are pointwise. Everything that needs $`d`$ (MG3, MG4) is in chapter 7, and
+- The polarisers are $`F`$-linear. Everything that needs $`d`$ (MG3, MG4) is in chapter 7, and
   the notes give it as exercises, with hints, not as proofs.
 
 ---
 
 ## 6. Verification record
 
-[`src/verify_magnetismo.py`](../src/verify_magnetismo.py), SymPy, exact. Forms on $`\mathbb R^4`$ as
-dicts over basis masks; chapter 4 with random rational $`(X, \alpha)`$, chapter 7 with a polynomial
-Length field and a clock that both rotates and accelerates, and $`F = dA`$ for a polynomial $`A`$.
-29 checks, all pass: chapters 4 and 5 (MG1, (5.2.9)–(5.2.10) and the third observer $`e`$, 9
-checks), chapter 7 (MG2–MG4, 18, and one set-up check), (7.11.4) (MG5, 1). The expected failures (MG2's counterexamples, (7.6.8) for a rotating
-clock, (7.11.4) with $`g(X, X) = -1`$) are asserted as failures.
+[`src/verify_magnetismo.py`](../src/verify_magnetismo.py), SymPy, exact; about four minutes. The checks
+use one representation: forms on $`\mathbb R^4`$, a free module of rank 4, as dicts over basis masks.
+Chapter 4 is checked twice: with random rational $`(X, \alpha)`$, and symbolically with generic $`X`$, $`\alpha`$ and
+generic forms, reducing modulo $`\alpha X - 1`$, so that the identities hold over every commutative ring.
+Chapter 7 uses a polynomial Length field and a clock that both rotates and accelerates, and
+$`F = dA`$ for a polynomial $`A`$; a counterexample in this representation refutes a general statement.
+36 checks, all pass: chapters 4 and 5 (MG1, (5.2.9)–(5.2.10) and the third observer $`e`$, 9
+checks with rationals and 7 symbolic), chapter 7 (MG2–MG4, 18, and one set-up check), (7.11.4)
+(MG5, 1). The expected failures (MG2's counterexamples, (7.6.8) for a rotating clock, (7.11.4)
+with $`g(X, X) = -1`$) are asserted as failures. The algebraic form of MG3 (differential ideal) is
+proved by hand from the identity $`\mathcal M\, d\, \mathcal D\, \beta = (\mathcal M\, dS) \wedge \mathrm{ev}_L \beta`$, which is checked.
 
 **Not verified:** the readings of the text (paraphrased from the Spanish), the history in
 §§1–2, and the claim that the 2014 and 2020 texts agree in substance outside the lines
@@ -242,4 +287,6 @@ compared.
 - The ladder: [`mass_centre.md`](../analysis/mass_centre.md) (MC6),
   [`metric_free_body.md`](../analysis/metric_free_body.md) (MF1, MF10, MF11),
   [`clock_centre.md`](../analysis/clock_centre.md) (CS5, CS6),
-  [`observer_idempotents.md`](../analysis/observer_idempotents.md) (OI1, OI3, OI5).
+  [`observer_idempotents.md`](../analysis/observer_idempotents.md) (OI1, OI3, OI5),
+  [`grammar_of_a_body.md`](../analysis/grammar_of_a_body.md) (GB2, GB3),
+  [`heat_and_helicity.md`](../analysis/heat_and_helicity.md) (HH2, HH7, HH10).
