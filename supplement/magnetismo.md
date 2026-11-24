@@ -141,7 +141,9 @@ on random rational data and then symbolically, with generic $`X`$, $`\alpha`$ an
 polynomial identities with integer coefficients modulo $`\alpha X - 1`$ (with $`\tfrac12`$ for $`e`$), so over
 every commutative ring $`F`$ in a free module of rank 4. They are $`F`$-linear. On 1-forms $`\mathcal D \beta = \beta(X)\,\alpha`$, which is
 the projector of MC6, and $`\mathcal M = 1 - \mathcal D`$. Not in the notes, and checked: $`\mathcal U \mathcal D \mathcal U = \mathcal M`$, so the two
-idempotents are conjugate by the body's own unipotent.
+idempotents are conjugate by the body's own unipotent. The same identities (except (4.7.8)–(4.7.11)) were
+checked again with SageMath's exterior algebra in ranks 2 to 8 over $`\mathbb{Z}`$ and in ranks 2 to 6
+over $`\mathrm{GF}(3)`$ and $`\mathrm{GF}(2)`$ ([`cartan_calculus_in_sympy.md`](cartan_calculus_in_sympy.md) §13.6).
 
 **MG2 (places and simultaneity).** The forms of the body's places are
 $`\mathrm{im}\,\mathcal M = \ker \mathcal D = \ker \mathrm{ev}_L`$, a subalgebra; the forms of its simultaneity are

@@ -93,4 +93,5 @@ not listed in `analysis/INDEX.md`.
   `src/verify_cartan_tutorial.py`; cross-check with Maple's DifferentialGeometry in
   `src/verify_cartan_dg.mpl` (58 checks) and `src/compare_cartan_dg.py`; cross-check of the
   Clifford construction with SageMath in `src/verify_clifford_sage.sage` (26 checks) and
-  `src/compare_clifford_sage.py`.
+  `src/compare_clifford_sage.py`; the observer identities in ranks 2 to 8 and over
+  Z, GF(3), GF(2) in `src/verify_observers_sage.sage` (204 checks).
