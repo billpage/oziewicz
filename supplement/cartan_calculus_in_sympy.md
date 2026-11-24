@@ -1,6 +1,6 @@
 # Cartan's calculus in SymPy: how the scripts in `src/` compute
 
-> A tutorial on the machinery that the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus. Each script carries its own copy, of twenty to a hundred lines, and the copies differ in naming and in the encoding of a basis form, so this note explains one version and gives a dictionary to the others. A differential form is a Python dictionary from basis forms to SymPy coefficients, the basis form keyed either by a sorted tuple of indices or by a bitmask. The wedge product, the interior product and the exterior derivative are each a double loop with a sign, and the sign is the parity of a count of index pairs, derived in §3 to §5; the Lie derivative is then Cartan's formula $`L_X = \iota_X d + d\iota_X`$. Pointwise operators are also written as $`2^n \times 2^n`$ matrices, in which evaluation is the transpose of creation and the two obey the canonical anticommutation relations; adding a bilinear form gives the Clifford product on the same space. The note then explains how a check is made exact (generic coefficients, rational spot checks, side conditions such as $`\alpha(X) = 1`$ handled exactly or modulo an ideal, unknown coefficients solved for, pullback by a diffeomorphism) and lists the conventions and pitfalls. A last section explains why the scripts do not use an existing library and surveys the alternatives (GAlgebra, SageMath, the Maple packages CLIFFORD and DifferentialGeometry, FriCAS, Lean with Mathlib), with what a check in coordinates proves about a result meant for every dimension. The companion script runs 42 exact checks, including two that show a check can fail.
+> A tutorial on the machinery that the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus. Each script carries its own copy, of twenty to a hundred lines, and the copies differ in naming and in the encoding of a basis form, so this note explains one version and gives a dictionary to the others. A differential form is a Python dictionary from basis forms to SymPy coefficients, the basis form keyed either by a sorted tuple of indices or by a bitmask. The wedge product, the interior product and the exterior derivative are each a double loop with a sign, and the sign is the parity of a count of index pairs, derived in §3 to §5; the Lie derivative is then Cartan's formula $`L_X = \iota_X d + d\iota_X`$. Pointwise operators are also written as $`2^n \times 2^n`$ matrices, in which evaluation is the transpose of creation and the two obey the canonical anticommutation relations; adding a bilinear form gives the Clifford product on the same space. The note then explains how a check is made exact (generic coefficients, rational spot checks, side conditions such as $`\alpha(X) = 1`$ handled exactly or modulo an ideal, unknown coefficients solved for, pullback by a diffeomorphism) and lists the conventions and pitfalls. A last section explains why the scripts do not use an existing library and surveys the alternatives (GAlgebra, SageMath, the Maple packages CLIFFORD and DifferentialGeometry, FriCAS, Lean with Mathlib), with what a check in coordinates proves about a result meant for every dimension. A cross-check with Maple's DifferentialGeometry package (58 checks, and eight objects compared term by term with the SymPy functions) confirms the conventions and the identities and records some traps in that package. The companion script runs 42 exact checks, including two that show a check can fail.
 
 **Status.** Supplement: a tutorial on methods, not a reading of a paper and not a ladder
 step. Requested by Bill Page, 22 November 2026. Drafted with Claude (Anthropic) and subject
@@ -637,7 +637,7 @@ The cost is duplication: five scripts carry their own copies (§12).
 | [GAlgebra](https://github.com/pygae/galgebra), Python on SymPy | Geometric algebra with an arbitrary basis and metric; geometric calculus with differential operators | Contraction is defined by the metric. Not tested for this note |
 | SageMath [`ExteriorAlgebra`, `CliffordAlgebra`](https://doc.sagemath.org/html/en/reference/algebras/sage/algebras/clifford_algebra_element.html) | Exterior algebra over a ring with an interior product by a dual element, contracting the first slot as in §4 and extended to products by $`\iota_{\beta \wedge \gamma} = \iota_\gamma \iota_\beta`$, the order of the 1986 eq. (12); Clifford algebras of a quadratic form | Close in convention for the exterior algebra; symmetric forms only for Clifford. Not tested |
 | [CLIFFORD](https://github.com/fractal97/CLIFFORD), Maple (Abłamowicz; with Fauser from version 5) | Clifford algebras $`Cl(B)`$ of an arbitrary bilinear form, the antisymmetric part included; a product algorithm based on Chevalley's recursive formula; left contraction with respect to a bilinear form that may be left symbolic | The closest fit to the 1986 paper, and an independent implementation |
-| Maple DifferentialGeometry (Anderson and Torre) | Forms, interior products, exterior and Lie derivatives on coordinate charts | Cartan's calculus, independent of the scripts. Not used here |
+| Maple DifferentialGeometry (Anderson and Torre) | Forms, interior products, exterior and Lie derivatives, pullback and pushforward on coordinate charts | Same conventions as the scripts; used for the cross-check of §13.4 |
 | FriCAS | `DeRhamComplex`, `CliffordAlgebra` (quadratic form) | Not checked for this note |
 | Lean 4 with [Mathlib](https://leanprover-community.github.io/mathlib4_docs/Mathlib/LinearAlgebra/CliffordAlgebra/Contraction) | Basis-free Clifford algebras over any commutative ring; contraction by an element of the dual module (metric-free, like $`\mathrm{ev}`$); `CliffordAlgebra.equivExterior`, the linear isomorphism of a Clifford algebra with the exterior algebra when 2 is invertible; `changeForm`, which moves between Clifford algebras of quadratic forms differing by a bilinear form $`B`$; the exterior derivative on normed spaces, with $`d^2 = 0`$ under smoothness assumptions | Proofs for every dimension and every ring. Differential forms on manifolds were not yet in Mathlib in early 2026, and I found no Lie derivative of forms there |
 
@@ -666,6 +666,61 @@ Notes on the table:
   targets are the algebraic statements of §7 to §9 (the CAR, $`U^2 = \alpha(X)`$, the
   observer identities, Chevalley's anticommutator). Bill has deferred Lean, possibly to a
   separate project.
+
+### 13.4 A cross-check with Maple's DifferentialGeometry
+
+Maple 2022 is available on Bill Page's server, so the form calculus of §3 to §6 and §9 was
+checked against an implementation that shares no code with the scripts.
+[`src/verify_cartan_dg.mpl`](../src/verify_cartan_dg.mpl) runs 58 checks in Maple, and
+[`src/compare_cartan_dg.py`](../src/compare_cartan_dg.py) compares eight objects computed
+by Maple with the same objects computed by the functions of §2 to §6. The run recorded
+here used Maple 2022.2 on 23 November 2026 and ended with `CHECKS 58` and `FAILURES []`.
+The Maple script needs Maple and is not run by CI; the comparison script carries the
+recorded Maple output and runs without it.
+
+**Conventions.** DifferentialGeometry agrees with the scripts on every convention of §11:
+the wedge product has no factor $`\tfrac12`$ ($`dt \wedge dx = dt \otimes dx - dx \otimes dt`$),
+`Hook` contracts the first slot with
+$`\iota_{\partial_x} \iota_{\partial_t} (dt \wedge dx) = 1`$, the wedge sign of CT-A1 and the
+interior product of CT-C4 come out the same, and `LieBracket` uses
+$`[X, Y]^i = X^j \partial_j Y^i - Y^j \partial_j X^i`$.
+
+**Identities.** On generic forms of degree 0 to 3 and generic vector fields, every
+coefficient an undefined function of $`(t, x, y, z)`$, the identities of CT-C3, CT-D2,
+CT-D3 and CT-E1 to CT-E5 hold (the product rules for every pair of degrees from 1 to 3 whose sum is at
+most 4, at most 3 for $`d`$ because of the second trap below), and the
+variants with a wrong sign fail. With the map $`\phi`$ of §9, CT-I1 to CT-I3 hold.
+
+**Term by term.** For the vector fields $`X = (1 + y)\partial_t + x \partial_x + tz\, \partial_y + t\, \partial_z`$
+and $`Y = x^2 \partial_t + z\, \partial_y - yt\, \partial_z`$, the forms
+$`F_2 = xz\, dt \wedge dx + y\, dy \wedge dz + ty\, dt \wedge dz + \sin x\, dx \wedge dy`$,
+$`F_3 = e^t y\, dt \wedge dx \wedge dz + x^3\, dx \wedge dy \wedge dz`$ and
+$`A = dt + x\, dy + t^2 dz`$, Maple and the SymPy functions give the same $`dF_2`$,
+$`\iota_X F_2`$, $`\iota_X F_3`$, $`L_X F_2`$, $`L_X F_3`$, $`A \wedge F_2`$, $`[X, Y]`$ and
+$`L_X A`$, compared coefficient by coefficient. A single changed sign in Maple's output is
+reported as a difference.
+
+**Traps in DifferentialGeometry.** Most of these cost a run before they were understood.
+
+- `Pushforward(Psi, V)` with two arguments returns $`D\Psi_p\, V(p)`$ as a function of
+  the source point $`p`$, not composed with $`\Psi^{-1}`$, so it is not a vector field on
+  the target. The push-forward needs the inverse as a third argument, a list of
+  coordinate equations: `Pushforward(PhiInv, V, [t = ..., x = ..., ...])` with the
+  equations of $`\phi`$ gives $`\phi^* V = (D\phi)^{-1}(V \circ \phi)`$, checked against the
+  Jacobian.
+- `ExteriorDerivative` of a form of top degree (a 4-form in four dimensions) raises an
+  error instead of returning $`0`$. In a loop over degrees the error stops the loop, and
+  results printed afterwards cover only the degrees reached. `LieDerivative` handles top
+  degree correctly: $`L_{x \partial_x}(dt \wedge dx \wedge dy \wedge dz) = dt \wedge dx \wedge dy \wedge dz`$.
+- `Hook` of a function raises an error instead of returning $`0`$.
+- A sum of forms of different degrees is an error, so the inhomogeneous forms that the
+  dictionaries of §2 hold (and that CT-B1 uses) are not available.
+- `InverseTransformation` returns a transformation that prints like a list of equations.
+- A DifferentialGeometry object is `_DG(list)`: its coefficient list is `op(1, w)[2]`, not
+  `op(2, w)`.
+
+What the cross-check does not cover: the matrices of §7 and the Clifford products of §8.
+For the Clifford side the independent implementation would be CLIFFORD (§13.3).
 
 ## 14. Running the companion script
 
