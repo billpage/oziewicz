@@ -91,4 +91,6 @@ not listed in `analysis/INDEX.md`.
   what, and why the scripts do not use an existing library (GAlgebra, SageMath, CLIFFORD,
   Maple DifferentialGeometry, FriCAS, Lean/Mathlib). 42 exact checks. Companion script
   `src/verify_cartan_tutorial.py`; cross-check with Maple's DifferentialGeometry in
-  `src/verify_cartan_dg.mpl` (58 checks) and `src/compare_cartan_dg.py`.
+  `src/verify_cartan_dg.mpl` (58 checks) and `src/compare_cartan_dg.py`; cross-check of the
+  Clifford construction with SageMath in `src/verify_clifford_sage.sage` (26 checks) and
+  `src/compare_clifford_sage.py`.
