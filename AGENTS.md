@@ -39,8 +39,8 @@ Read [`README.md`](README.md), [`ORIENTATION.md`](ORIENTATION.md) and
   §13.4). Keep a Maple script in `src/` as `*.mpl`, print a summary line it can be judged
   by (`CHECKS n`, `FAILURES []`), and record the Maple version and date of the run with
   the result. CI cannot run Maple.
-- **SageMath 10.10 is available** on the same server, through the `run_sage` tool, under
-  the same rules: a script in `src/` as `*.sage`, a `CHECKS n` / `FAILURES []` summary,
+- **SageMath 10.10 is available** on the same server, through the `run_sage` tool (skill
+  `research:sage`), under the same rules: a script in `src/` as `*.sage`, a `CHECKS n` / `FAILURES []` summary,
   and the Sage version and date of the run recorded with the result (example: the
   Clifford cross-check of `supplement/cartan_calculus_in_sympy.md` §13.5). Note that
   `CliffordAlgebra(Q)` sets `v^2 = Q(v)`, so its anticommutator is `Q.matrix()`, twice
