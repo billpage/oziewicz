@@ -1,6 +1,6 @@
 # Cartan's calculus in SymPy: how the scripts in `src/` compute
 
-> A tutorial on the machinery that the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus. Each script carries its own copy, of twenty to a hundred lines, and the copies differ in naming and in the encoding of a basis form, so this note explains one version and gives a dictionary to the others. A differential form is a Python dictionary from basis forms to SymPy coefficients, the basis form keyed either by a sorted tuple of indices or by a bitmask. The wedge product, the interior product and the exterior derivative are each a double loop with a sign, and the sign is the parity of a count of index pairs, derived in §3 to §5; the Lie derivative is then Cartan's formula $`L_X = \iota_X d + d\iota_X`$. Pointwise operators are also written as $`2^n \times 2^n`$ matrices, in which evaluation is the transpose of creation and the two obey the canonical anticommutation relations; adding a bilinear form gives the Clifford product on the same space. The note then explains how a check is made exact (generic coefficients, rational spot checks, side conditions such as $`\alpha(X) = 1`$ handled exactly or modulo an ideal, unknown coefficients solved for, pullback by a diffeomorphism) and lists the conventions and pitfalls. A last section explains why the scripts do not use an existing library and surveys the alternatives (GAlgebra, SageMath, the Maple packages CLIFFORD and DifferentialGeometry, FriCAS, Lean with Mathlib), with what a check in coordinates proves about a result meant for every dimension. A cross-check with Maple's DifferentialGeometry package (58 checks, and eight objects compared term by term with the SymPy functions) confirms the conventions and the identities and records some traps in that package. A cross-check with SageMath (26 checks) confirms the Clifford construction of §8 against Sage's own Clifford algebra, including the gauge transformation by $`\exp(\iota_\omega)`$ with its factor and order. The companion script runs 42 exact checks, including two that show a check can fail.
+> A tutorial on the machinery that the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus. Each script carries its own copy, of twenty to a hundred lines, and the copies differ in naming and in the encoding of a basis form, so this note explains one version and gives a dictionary to the others. A differential form is a Python dictionary from basis forms to SymPy coefficients, the basis form keyed either by a sorted tuple of indices or by a bitmask. The wedge product, the interior product and the exterior derivative are each a double loop with a sign, and the sign is the parity of a count of index pairs, derived in §3 to §5; the Lie derivative is then Cartan's formula $`L_X = \iota_X d + d\iota_X`$. Pointwise operators are also written as $`2^n \times 2^n`$ matrices, in which evaluation is the transpose of creation and the two obey the canonical anticommutation relations; adding a bilinear form gives the Clifford product on the same space. The note then explains how a check is made exact (generic coefficients, rational spot checks, side conditions such as $`\alpha(X) = 1`$ handled exactly or modulo an ideal, unknown coefficients solved for, pullback by a diffeomorphism) and lists the conventions and pitfalls. A last section explains why the scripts do not use an existing library and surveys the alternatives (GAlgebra, SageMath, the Maple packages CLIFFORD and DifferentialGeometry, FriCAS, Lean with Mathlib), with what a check in coordinates proves about a result meant for every dimension. A cross-check with Maple's DifferentialGeometry package (58 checks, and eight objects compared term by term with the SymPy functions) confirms the conventions and the identities and records some traps in that package. A cross-check with SageMath (26 checks) confirms the Clifford construction of §8 against Sage's own Clifford algebra, including the gauge transformation by $`\exp(\iota_\omega)`$ with its factor and order. A second SageMath run (204 checks) repeats the observer identities in ranks 2 to 8 over the integers and in ranks 2 to 6 over GF(3) and GF(2). The companion script runs 42 exact checks, including two that show a check can fail.
 
 **Status.** Supplement: a tutorial on methods, not a reading of a paper and not a ladder
 step. Requested by Bill Page, 22 November 2026. Drafted with Claude (Anthropic) and subject
@@ -792,6 +792,54 @@ package that multiplies in $`Cl(\varphi)`$ directly, such as CLIFFORD (§13.3), 
 from the other side. The comparison of L5 is with the functions of the tutorial; the
 matrices `E` of `verify_grassmann_clifford.py` use the same sign rule (§7) but are not
 themselves compared.
+
+### 13.6 The observer identities in several ranks and rings, with SageMath
+
+The identities of §7 and §9 (CT-F4, CT-J1 to CT-J3) are those of Oziewicz's observers, MG1
+of [`magnetismo.md`](magnetismo.md), which says that they follow from (4.7.1) and
+$`\mathrm{ev}_X^2 = \mathrm{cr}_\alpha^2 = 0`$ alone, in a module of any rank and over any
+commutative ring, but checked them only in rank 4.
+[`src/verify_observers_sage.sage`](../src/verify_observers_sage.sage) checks them with Sage's
+`ExteriorAlgebra` in ranks $`n = 2`$ to $`8`$ over $`\mathbb{Z}`$ and in ranks 2 to 6 over the
+fields $`\mathrm{GF}(3)`$ and $`\mathrm{GF}(2)`$. The run recorded here used SageMath 10.10 on
+24 November 2026 and ended with `CHECKS 204` and `FAILURES []` (18 s).
+
+**Set-up.** $`\alpha = a_i e^i`$ and $`X = X^i e_i`$ have independent symbols as coefficients, so
+the base ring is $`\mathbb{Z}[a_i, X^i]`$ (or the same over $`\mathrm{GF}(p)`$) and
+$`s = \alpha(X) = a_i X^i`$ is a polynomial, not a number. With
+$`\mathrm{cr} = \alpha \wedge`$, $`\mathrm{ev} = \iota_X`$ (Sage's interior product),
+$`\mathcal D = \mathrm{cr}\,\mathrm{ev}`$, $`\mathcal M = \mathrm{ev}\,\mathrm{cr}`$ and
+$`\mathcal U = \mathrm{ev} + \mathrm{cr}`$, the operator identities are checked on every basis blade
+and the product identities on every pair of basis blades. By linearity that is exact.
+
+**Results.** In every rank and ring:
+
+- (4.7.1) $`\mathrm{ev}\,\mathrm{cr} + \mathrm{cr}\,\mathrm{ev} = s`$, $`\mathrm{ev}^2 = 0 = \mathrm{cr}^2`$,
+  $`\mathcal U^2 = s`$, $`\mathcal D + \mathcal M = s`$;
+- $`\mathcal D^2 = s\mathcal D`$, $`\mathcal M^2 = s\mathcal M`$, $`\mathcal D \mathcal M = 0 = \mathcal M \mathcal D`$, and
+  $`\mathcal U \mathcal D \mathcal U = s\mathcal M`$;
+- $`\mathcal D`$ is an even derivation and $`\mathrm{ev}`$ an odd one, (4.4.9);
+- $`s\, \mathcal M(a \wedge b) = \mathcal M a \wedge \mathcal M b`$ exactly, and
+  $`\mathcal M(a \wedge b) - \mathcal M a \wedge \mathcal M b`$ lies in the ideal $`(s - 1)`$ (tested by
+  Sage's ideal reduction, for $`n \le 6`$);
+- the idempotent $`e = \tfrac12(1 + \mathcal U)`$: over $`\mathbb{Z}`$ the identity
+  $`(1 + \mathcal U)^2 = 2(1 + \mathcal U) + (s - 1)`$, and over $`\mathrm{GF}(3)`$, where
+  $`\tfrac12 = 2`$, $`e^2 - e \in (s - 1)`$. Over $`\mathrm{GF}(2)`$ there is no $`\tfrac12`$ and
+  $`e`$ is not defined, as the supplement says ("with $`\tfrac12`$ for $`e`$").
+
+At $`s = 1`$ these are MG1. In characteristic not 2 the variants
+$`\mathcal M(a \wedge b) = \mathcal M a \wedge \mathcal M b`$ (without $`s`$), $`\mathcal D`$ with the odd sign
+and $`\mathrm{ev}`$ without a sign all fail. In characteristic 2 the signed and unsigned rules
+coincide, so there the sign of a derivation cannot be tested at all; the script checks that
+they do coincide.
+
+**What it shows and what it does not.** The supplement's statement for any commutative ring
+already follows from its rank-4 check, because the identities are polynomial with integer
+coefficients; the runs over $`\mathrm{GF}(3)`$ and $`\mathrm{GF}(2)`$ test that reasoning rather
+than add to it. What is new is the rank: seven ranks instead of one, which is evidence for
+"any rank", not a proof (§13.1). A proof for all ranks follows from the supplement's own
+argument, that each identity is a consequence of (4.7.1) and the two nilpotencies, and that
+argument is short enough to be checked by hand or, later, in Lean.
 
 ## 14. Running the companion script
 
