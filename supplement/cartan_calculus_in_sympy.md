@@ -1,6 +1,6 @@
 # Cartan's calculus in SymPy: how the scripts in `src/` compute
 
-> A tutorial on the machinery that the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus. Each script carries its own copy, of twenty to a hundred lines, and the copies differ in naming and in the encoding of a basis form, so this note explains one version and gives a dictionary to the others. A differential form is a Python dictionary from basis forms to SymPy coefficients, the basis form keyed either by a sorted tuple of indices or by a bitmask. The wedge product, the interior product and the exterior derivative are each a double loop with a sign, and the sign is the parity of a count of index pairs, derived in §3 to §5; the Lie derivative is then Cartan's formula $`L_X = \iota_X d + d\iota_X`$. Pointwise operators are also written as $`2^n \times 2^n`$ matrices, in which evaluation is the transpose of creation and the two obey the canonical anticommutation relations; adding a bilinear form gives the Clifford product on the same space. The note then explains how a check is made exact (generic coefficients, rational spot checks, side conditions such as $`\alpha(X) = 1`$ handled exactly or modulo an ideal, unknown coefficients solved for, pullback by a diffeomorphism) and lists the conventions and pitfalls. A last section explains why the scripts do not use an existing library and surveys the alternatives (GAlgebra, SageMath, the Maple packages CLIFFORD and DifferentialGeometry, FriCAS, Lean with Mathlib), with what a check in coordinates proves about a result meant for every dimension. A cross-check with Maple's DifferentialGeometry package (58 checks, and eight objects compared term by term with the SymPy functions) confirms the conventions and the identities and records some traps in that package. The companion script runs 42 exact checks, including two that show a check can fail.
+> A tutorial on the machinery that the `verify_*.py` scripts use for the exterior algebra and Cartan's calculus. Each script carries its own copy, of twenty to a hundred lines, and the copies differ in naming and in the encoding of a basis form, so this note explains one version and gives a dictionary to the others. A differential form is a Python dictionary from basis forms to SymPy coefficients, the basis form keyed either by a sorted tuple of indices or by a bitmask. The wedge product, the interior product and the exterior derivative are each a double loop with a sign, and the sign is the parity of a count of index pairs, derived in §3 to §5; the Lie derivative is then Cartan's formula $`L_X = \iota_X d + d\iota_X`$. Pointwise operators are also written as $`2^n \times 2^n`$ matrices, in which evaluation is the transpose of creation and the two obey the canonical anticommutation relations; adding a bilinear form gives the Clifford product on the same space. The note then explains how a check is made exact (generic coefficients, rational spot checks, side conditions such as $`\alpha(X) = 1`$ handled exactly or modulo an ideal, unknown coefficients solved for, pullback by a diffeomorphism) and lists the conventions and pitfalls. A last section explains why the scripts do not use an existing library and surveys the alternatives (GAlgebra, SageMath, the Maple packages CLIFFORD and DifferentialGeometry, FriCAS, Lean with Mathlib), with what a check in coordinates proves about a result meant for every dimension. A cross-check with Maple's DifferentialGeometry package (58 checks, and eight objects compared term by term with the SymPy functions) confirms the conventions and the identities and records some traps in that package. A cross-check with SageMath (26 checks) confirms the Clifford construction of §8 against Sage's own Clifford algebra, including the gauge transformation by $`\exp(\iota_\omega)`$ with its factor and order. The companion script runs 42 exact checks, including two that show a check can fail.
 
 **Status.** Supplement: a tutorial on methods, not a reading of a paper and not a ladder
 step. Requested by Bill Page, 22 November 2026. Drafted with Claude (Anthropic) and subject
@@ -635,7 +635,7 @@ The cost is duplication: five scripts carry their own copies (§12).
 | System | What it offers | Fit here |
 |---|---|---|
 | [GAlgebra](https://github.com/pygae/galgebra), Python on SymPy | Geometric algebra with an arbitrary basis and metric; geometric calculus with differential operators | Contraction is defined by the metric. Not tested for this note |
-| SageMath [`ExteriorAlgebra`, `CliffordAlgebra`](https://doc.sagemath.org/html/en/reference/algebras/sage/algebras/clifford_algebra_element.html) | Exterior algebra over a ring with an interior product by a dual element, contracting the first slot as in §4 and extended to products by $`\iota_{\beta \wedge \gamma} = \iota_\gamma \iota_\beta`$, the order of the 1986 eq. (12); Clifford algebras of a quadratic form | Close in convention for the exterior algebra; symmetric forms only for Clifford. Not tested |
+| SageMath [`ExteriorAlgebra`, `CliffordAlgebra`](https://doc.sagemath.org/html/en/reference/algebras/sage/algebras/clifford_algebra_element.html) | Exterior algebra over a ring with an interior product by a dual element, contracting the first slot as in §4 and extended to products by $`\iota_{\beta \wedge \gamma} = \iota_\gamma \iota_\beta`$, the order of the 1986 eq. (12); Clifford algebras of a quadratic form | Same conventions as the scripts for the exterior algebra; symmetric forms only for Clifford. Used for the cross-check of §13.5 |
 | [CLIFFORD](https://github.com/fractal97/CLIFFORD), Maple (Abłamowicz; with Fauser from version 5) | Clifford algebras $`Cl(B)`$ of an arbitrary bilinear form, the antisymmetric part included; a product algorithm based on Chevalley's recursive formula; left contraction with respect to a bilinear form that may be left symbolic | The closest fit to the 1986 paper, and an independent implementation |
 | Maple DifferentialGeometry (Anderson and Torre) | Forms, interior products, exterior and Lie derivatives, pullback and pushforward on coordinate charts | Same conventions as the scripts; used for the cross-check of §13.4 |
 | FriCAS | `DeRhamComplex`, `CliffordAlgebra` (quadratic form) | Not checked for this note |
@@ -720,7 +720,78 @@ reported as a difference.
   `op(2, w)`.
 
 What the cross-check does not cover: the matrices of §7 and the Clifford products of §8.
-For the Clifford side the independent implementation would be CLIFFORD (§13.3).
+Those are the subject of §13.5.
+
+### 13.5 A cross-check of the Clifford construction with SageMath
+
+SageMath 10.10 is also available on Bill Page's server. Its `CliffordAlgebra` and
+`ExteriorAlgebra` share no code with the scripts, so they can serve as the reference for
+the construction of §8 (Oziewicz 1986, eq. (23.2)) and for the gauge statement of
+[`verify_grassmann_clifford.py`](../src/verify_grassmann_clifford.py).
+[`src/verify_clifford_sage.sage`](../src/verify_clifford_sage.sage) runs 26 checks in Sage,
+and [`src/compare_clifford_sage.py`](../src/compare_clifford_sage.py) compares a matrix
+computed by Sage with the same matrix computed by the functions `wedge` and `iv` of §3 and
+§4. The run recorded here used SageMath 10.10 on 24 November 2026 and ended with
+`CHECKS 26` and `FAILURES []`. Like the Maple script, the Sage script is not run by CI,
+and the comparison script carries the recorded output.
+
+**Set-up.** Let $`\varphi = g + \omega`$ with $`g`$ symmetric and $`\omega`$ antisymmetric,
+every entry an independent symbol, for $`n = 3`$ and $`n = 4`$. In Sage's exterior algebra
+$`\Lambda`$ over the polynomial ring of these symbols put
+$`\gamma^\varphi_i x = e_i \wedge x + \varphi_{ij}\, \iota_{e_j} x`$, and let $`Cl(Q)`$ be Sage's
+Clifford algebra of the quadratic form with Gram matrix $`g`$. Define the linear map
+
+```math
+\Phi_\varphi : Cl(Q) \to \Lambda, \qquad \Phi_\varphi(a) = \gamma^\varphi(a)\, 1 ,
+```
+
+where $`\gamma^\varphi(a)`$ replaces each generator $`f_i`$ in $`a`$ by $`\gamma^\varphi_i`$.
+
+**Conventions (L0).** Sage's `CliffordAlgebra(Q)` sets $`v^2 = Q(v)`$, so
+$`f_i f_j + f_j f_i`$ equals `Q.matrix()`, which is *twice* the Gram matrix. Matching
+$`\{\gamma_i, \gamma_j\} = \varphi_{ij} + \varphi_{ji}`$ (CT-G1) requires the symmetric part of
+$`\varphi`$ to be `Q.Gram_matrix()`, not `Q.matrix()`. Sage's interior product contracts the
+first slot and composes as $`\iota_{x \wedge y} = \iota_y \iota_x`$, as in §4 and the 1986 eq.
+(12).
+
+**Results.**
+
+- **L1, L2.** For $`\varphi = g`$ and for $`\varphi = g + \omega`$,
+  $`\Phi_\varphi(ab) = \gamma^\varphi(a)\, \Phi_\varphi(b)`$ for all basis elements $`a`$, $`b`$ of
+  $`Cl(Q)`$, and $`\Phi_\varphi(e_S) = e_S + {}`$(terms of lower degree). So the operators
+  $`\gamma^\varphi_i`$ represent Sage's Clifford algebra of the *symmetric* part, and the
+  antisymmetric part does not change the algebra, only its identification with
+  $`\Lambda`$. Since $`\Phi_\varphi(e_S)`$ is the column $`S`$ of the matrix $`W`$ of
+  `verify_grassmann_clifford.py`, this tests that matrix against a Clifford product written
+  by someone else.
+- **L3.** $`\Phi_{g+\omega} = \exp(\iota_\omega) \circ \Phi_g`$, with
+  $`\iota_\omega = \sum_{i<j} \omega_{ij}\, \iota_{e_j} \iota_{e_i}`$, the order of the 1986 paper.
+  The same equation fails with $`\exp(-\iota_\omega)`$, with $`\exp(\iota_{\omega/2})`$, and with
+  the factors in the opposite order, $`\iota_{e_i} \iota_{e_j}`$, which is Jadczyk's convention.
+  Factor and order are therefore pinned down, not just the form of the result.
+- **L4.** The statement of `verify_grassmann_clifford.py`,
+  $`\gamma^{g+\omega}_u = \exp(\iota_\omega)\, \gamma^g_{\exp(-\iota_\omega) u}\, \exp(-\iota_\omega)`$
+  for every basis blade $`u`$, holds when $`\gamma^\varphi_u`$ is computed from Sage's product as
+  $`W_\varphi L\big(W_\varphi^{-1} u\big) W_\varphi^{-1}`$, with $`L(a)`$ Sage's left multiplication by
+  $`a`$. With $`\exp(\iota_\omega)`$ and $`\exp(-\iota_\omega)`$ exchanged it fails.
+
+**L5.** For the integer matrix
+
+```math
+\varphi = \begin{pmatrix} 1 & 2 & 0 & -1 \\ 0 & -1 & 3 & 1 \\ 2 & 1 & 1 & 0 \\ 1 & -2 & 0 & 2 \end{pmatrix}
+```
+
+on $`\mathbb{R}^4`$, Sage's $`W_\varphi`$ and the one built from `wedge` and `iv` agree in all
+33 non-zero entries; a single changed entry is reported. For example the column of
+$`e_0 \wedge e_1`$ is $`e_0 \wedge e_1 + 2`$, with $`2 = \varphi_{01}`$, as CT-G2 says.
+
+**What it does not cover.** Sage's Clifford algebras take only quadratic forms, so the
+reference for L2 to L4 is $`Cl`$ of the symmetric part, and the antisymmetric part enters
+only through $`\gamma^\varphi`$. That is exactly the content of the 1986 construction, but a
+package that multiplies in $`Cl(\varphi)`$ directly, such as CLIFFORD (§13.3), would test it
+from the other side. The comparison of L5 is with the functions of the tutorial; the
+matrices `E` of `verify_grassmann_clifford.py` use the same sign rule (§7) but are not
+themselves compared.
 
 ## 14. Running the companion script
 
